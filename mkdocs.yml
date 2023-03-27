@@ -1,0 +1,82 @@
+site_name: Masterportal
+site_author: Masterportal Community
+repo_name: MasterPortal on BitBucket
+repo_url: https://bitbucket.org/geowerkstatt-hamburg/masterportal/
+docs_dir: doc
+
+extra_css:
+    - '_extraCSS/contentAreaFullWidth.css'
+
+theme:
+    name: material
+    features:
+        - content.action.edit
+        - content.code.annotate
+        - content.code.copy
+        - content.tabs.link
+        - content.tooltips
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.tracking
+        - navigation.sections
+        - navigation.top
+        - search.share
+        - search.suggest
+        - toc.follow
+    palette:
+        -   scheme: slate
+            primary: amber
+            accent: teal
+            toggle:
+                icon: material/lightbulb
+                name: Switch to light mode
+        -   scheme: default
+            primary: amber
+            accent: teal
+            toggle:
+                icon: fontawesome/solid/moon
+                name: Switch to dark mode
+    logo: '_media/Logo_Masterportal.svg'
+
+markdown_extensions:
+    # Code Block Highlighting:
+    -   pymdownx.highlight:
+            anchor_linenums: true
+            line_spans: __span
+            pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+
+    # Admonitions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+
+    # Select Heading Anchor:
+    -   toc:
+            permalink: 🔗
+extra:
+    social:
+        -   icon: material/home
+            link: https://www.masterportal.org/home.html
+        -   icon: fontawesome/brands/bitbucket
+            link: https://bitbucket.org/geowerkstatt-hamburg/masterportal/
+nav:
+    -   Home: index.md
+    -   Setup: setup.md
+    - User:
+          - Global:
+            - 'services.json': User/Global-Configuration/services.json.md
+            - 'rest-services.json': User/Global-Configuration/rest-services.json.md
+            - 'style.json': User/Global-Configuration/Style/style.json.md
+          - Portal:
+            - 'config.json': User/Portal-Configuration/config.js.md
+            - 'config.json': User/Portal-Configuration/config.json.md
+          - 'URL Parameters': User/urlParameter.md
+          - 'Proxies':
+            - 'Proxy': User/Proxies/proxy.md
+            - 'proxyconf.json': User/Proxies/proxyconf.json.md
+
+    -   Developer:
+            -   'Setup': Dev/setupDev.md

@@ -2,8 +2,6 @@
 
 >The Masterportal requires various configuration files documented on these pages. Furthermore, available URL parameters and required proxies are described.
 
-[TOC]
-
 ## Configuration files
 
 The Masterportal builds on global and portal-specific configuration files alike.
