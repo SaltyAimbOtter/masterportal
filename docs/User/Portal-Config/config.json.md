@@ -13,6 +13,8 @@ The configuration is separated into two sections, **[Portalconfig](#markdown-hea
    "Themenconfig": {}
 }
 ```
+??? abstract "Table of contents"
+    [TOC]
 
 ## Portalconfig
 
@@ -47,7 +49,7 @@ The configuration options listed in the following table exist:
 
 ***
 
-### Portalconfig.searchBar
+### SearchBar
 
 Search bar configuration.
 
@@ -74,7 +76,7 @@ Search bar configuration.
 
 ***
 
-#### Portalconfig.searchBar.bkg
+#### BKG
 
 [type:Extent]: # (Datatypes.Extent)
 
@@ -135,7 +137,7 @@ ProxyPass /bkg_suggest http://sg.geodatenzentrum.de/gdz_geokodierung__[UUID]/sug
 
 ***
 
-#### Portalconfig.searchBar.osm
+#### OSM
 
 OpenStreetMap search for city, street, and house number. Only executed on clicking the search icon or pressing enter since the amount of requests to the OSM search service is limited.
 
@@ -163,7 +165,7 @@ OpenStreetMap search for city, street, and house number. Only executed on clicki
 
 ***
 
-#### Portalconfig.searchBar.komoot
+#### Komoot
 Search with **[Komoot Photon](https://photon.komoot.io/)**.
 
 | Name          | Verpflichtend | Typ     | Default | Beschreibung                                                                                                 | Expert |
@@ -196,7 +198,7 @@ Search with **[Komoot Photon](https://photon.komoot.io/)**.
 
 ***
 
-#### Portalconfig.searchBar.locationFinder
+#### LocationFinder
 
 Search configuration to use a *ESRI CH LocationFinder*.
 
@@ -208,7 +210,7 @@ Search configuration to use a *ESRI CH LocationFinder*.
 | useProxy          | no       | Boolean                                                                                            | false   | _Deprecated in the next major release. [GDI-DE](https://www.gdi-de.org/en) recommends setting CORS headers on the required services instead of using proxies._ Defines whether a service URL should be requested via proxy. For this, dots in the URL are replaced with underscores. | false  |
 | spatialReference  | no       | String                                                                                             |         | Coordinate reference system to use for requests. By default, the value in `Portalconfig.mapView.epsg` is used.                                                                                                                                                                       | false  |
 
-##### Portalconfig.searchBar.locationFinder.LocationFinderClass
+##### LocationFinderClass
 
 Definition of classes to be taken into account for results.
 
@@ -246,7 +248,7 @@ Definition of classes to be taken into account for results.
 
 ***
 
-#### Portalconfig.searchBar.gazetteer
+#### Gazetteer
 
 Gazetteer search service configuration.
 
@@ -285,7 +287,7 @@ Gazetteer search service configuration.
 
 ***
 
-#### Portalconfig.searchBar.gdi
+#### GDI
 
 GFI search service configuration.
 
@@ -318,7 +320,7 @@ GFI search service configuration.
 
 ***
 
-#### Portalconfig.searchBar.gdi.queryObject
+##### QueryObject
 
 Todo.
 
@@ -329,7 +331,7 @@ Todo.
 
 ***
 
-#### Portalconfig.searchBar.gdi.queryObject.params
+###### Params
 Todo
 
 | Name         | Required | Type   | Default            | Description | Expert |
@@ -338,7 +340,7 @@ Todo
 
 ***
 
-#### Portalconfig.searchBar.elasticSearch
+#### ElasticSearch
 
 Elasticsearch service configuration.
 
@@ -390,7 +392,19 @@ As an additional property, you may add `payload`. It is not required, and matche
 
 ***
 
-#### Portalconfig.searchBar.elasticSearch.hitMap
+###### triggerEvent
+
+Radio event triggered on mouse hover and click.
+
+| Name    | Required | Type   | Default | Description                                                                                           | Expert |
+|---------|----------|--------|---------|-------------------------------------------------------------------------------------------------------|--------|
+| channel | yes      | String |         | Channel addressed on mouse hover and click. The hit from the recommendedList will be sent as payload. | false  |
+| event   | yes      | String |         | Triggered event.                                                                                      | false  |
+
+
+***
+
+#### Portalconfig.searchbar.hitmap { data-toc-label='Hitmap' }
 
 Object mapping result object attributes to keys.
 
@@ -402,18 +416,7 @@ Object mapping result object attributes to keys.
 
 ***
 
-#### Portalconfig.searchBar.elasticSearch.triggerEvent
-
-Radio event triggered on mouse hover and click.
-
-| Name    | Required | Type   | Default | Description                                                                                           | Expert |
-|---------|----------|--------|---------|-------------------------------------------------------------------------------------------------------|--------|
-| channel | yes      | String |         | Channel addressed on mouse hover and click. The hit from the recommendedList will be sent as payload. | false  |
-| event   | yes      | String |         | Triggered event.                                                                                      | false  |
-
-***
-
-#### Portalconfig.searchBar.specialWFS
+#### Portalconfig/searchBar/specialWFS
 
 WFS search function configuration. Requests features from a WFS. The service must be configured to allow WFS 2.0 requests.
 
@@ -478,7 +481,7 @@ The WFS 2.0 query is dynamically created by the Masterportal. No stored query co
 
 ***
 
-#### Portalconfig.searchBar.specialWFS.definition
+##### Portalconfig/searchBar/specialWFS/definition
 
 SpecialWFS search definition configuration.
 
@@ -509,7 +512,7 @@ SpecialWFS search definition configuration.
 
 ***
 
-#### Portalconfig.searchBar.tree
+#### Portalconfig/searchBar/tree
 
 Searching all topic selection tree layers.
 
@@ -529,7 +532,7 @@ Searching all topic selection tree layers.
 
 ***
 
-#### Portalconfig.searchBar.visibleWFS
+#### Portalconfig/searchBar/visibleWFS
 
 Visible WFS search configuration. _Deprecated in 3.0.0. Please use **[visibleVector](#markdown-header-portalconfigsearchbarvisiblevector)** instead._
 
@@ -549,7 +552,7 @@ Visible WFS search configuration. _Deprecated in 3.0.0. Please use **[visibleVec
 
 ***
 
-#### Portalconfig.searchBar.visibleVector
+#### Portalconfig/searchBar/visibleVector
 
 Visible vector layer search configuration. For all vector layers supposed to be searchable, set the **[searchField](#markdown-header-themenconfiglayervector)** attribute in the layer definition object "Fachdaten".
 
@@ -570,7 +573,7 @@ Visible vector layer search configuration. For all vector layers supposed to be 
 }
 ```
 ***
-#### Portalconfig.tree
+### Portalconfig.tree
 Configuration of the menu tree.
 
 | Name                | Required | Type                                                                            | Default | Description                                                                                                        | Expert |
@@ -2366,7 +2369,7 @@ A string or object that supply the parameters for util function localeCompare.
 ```
 
 ***
-#### Portalconfig.menu.tool.filter.filterLayer.snippets.localeCompareParams.options
+#### Portalconfig/menu/tool/filter/filterLayer/snippets/localeCompareParams/options
 
 An object for custom control of the localeCompare function used to sort dropdown boxes, the documentation is: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
