@@ -1,0 +1,92 @@
+site_name: Masterportal
+site_author: Masterportal Open Source Community
+repo_name: BitBucket
+repo_url: https://bitbucket.org/geowerkstatt-hamburg/masterportal/
+docs_dir: docs
+
+theme:
+    name: material
+    features:
+        - content.action.edit
+        - content.code.annotate
+        - content.code.copy
+        - content.tabs.link
+        - content.tooltips
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.tracking
+        - navigation.sections
+        - navigation.top
+        - search.share
+        - search.suggest
+        - toc.follow
+    palette:
+        -   scheme: slate
+            primary: amber
+            accent: teal
+            toggle:
+                icon: material/lightbulb
+                name: Switch to light mode
+        -   scheme: default
+            primary: amber
+            accent: teal
+            toggle:
+                icon: fontawesome/solid/moon
+                name: Switch to dark mode
+    logo: '_media/Logo_Masterportal.svg'
+
+markdown_extensions:
+    # Code Block Highlighting:
+    -   pymdownx.highlight:
+            anchor_linenums: true
+            line_spans: __span
+            pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+
+    # Admonitions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+
+    -   toc:
+            permalink: 🔗
+            permalink_title: Copy heading link to clipboard
+extra:
+    social:
+        -   icon: fontawesome/solid/circle-info
+            link: https://www.masterportal.org/home.html
+        -   icon: fontawesome/brands/bitbucket
+            link: https://bitbucket.org/geowerkstatt-hamburg/masterportal/
+
+extra_css:
+    - '_docsCustomization/css/contentAreaFullWidth.css'
+extra_javascript:
+    - '_docsCustomization/js/copyHeadingLinkToClipboard.js'
+
+
+nav:
+    -   Home: index.md
+    -   Setup: setup.md
+    - User Documentation:
+          - User/About.md
+          - Global Settings:
+                - 'services.json': User/Global-Config/services.json.md
+                - 'rest-services.json': User/Global-Config/rest-services.json.md
+                - 'style.json': User/Global-Config/Style/style.json.md
+          - Portal Settings:
+                - 'config.js': User/Portal-Config/config.js.md
+                - 'config.json': User/Portal-Config/config.json.md
+          - 'URL Parameters': User/urlParameter.md
+          - 'Proxies':
+                - 'Proxy': User/Proxies/proxy.md
+                - 'proxyconf.json': User/Proxies/proxyconf.json.md
+
+    -   Developer:
+            -   'Setup': Dev/setupDev.md
+            -   'Testing':
+                    - 'Unit Tests': Dev/testing/browserTest.md
+                    - 'Backbone': Dev/testing/unittestingBackbone.md
+                    - 'Vue': Dev/testing/unitTestVue.md
+
