@@ -1,0 +1,3 @@
+# This file contains all dependencies for the documentation build.
+# Install them with "pip install -r python-dependencies.txt", preferrably in a virtual Python environment (virtualenv).
+mkdocs-material==9.4.14
