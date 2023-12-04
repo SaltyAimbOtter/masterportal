@@ -71,7 +71,7 @@ extra_javascript:
 
 nav:
     -   Home: index.md
-    -   Setup: setup.md
+    -   Setup: Setup/quick-start.md
     - User Documentation:
           - "About": "User/About.md"
           - Global Settings:

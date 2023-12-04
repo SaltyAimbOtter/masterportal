@@ -1,10 +1,6 @@
->Creating your own portal in a few easy steps
+# Quick-Start Tutorial
 
-# Quick-start for users
-
-[TOC]
-
-This file describes the steps required to set up your first portal on your own server and configure it according to meet your requirements
+Let's create your own portal in a few easy steps!
 
 ## Host an example application on your server
 
