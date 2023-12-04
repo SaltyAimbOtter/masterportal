@@ -1,8 +1,6 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
 # rest-services.json
 
-This is the file referred to by the *config.js* as `restConf`. It is read on Masterportal start-up and kept in memory. Modules may then refer to the web service definitions in it.
+This is the file referred to by the *config.js* as `restConf`. It is read on Masterportal start-up and is kept in memory. Modules may then refer to the web service definitions in it.
 
 The file defines all web services that do not belong to OGC services like WMS and WFS; that is, all services not requested for visually representing data. See our **[master restConf file](https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/dev/portal/basic/resources/rest-services-internet.json)** for an example.
 
