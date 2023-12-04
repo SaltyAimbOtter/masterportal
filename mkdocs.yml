@@ -75,12 +75,9 @@ extra_javascript:
 
 
 nav:
-    -   Home: index.md
-    -   Setup:
-            -   "About": "Setup/About.md"
-            -   "Quick Start Tutorial": Setup/quick-start-tutorial.md
-    -   User Documentation:
-            -   "About": "User/About.md"
+    -   "Home": index.md
+    -   "User Documentation":
+            -   "About": User/About.md
             -   Global Settings:
                     -   'services.json': User/Global-Config/services.json.md
                     -   'rest-services.json': User/Global-Config/rest-services.json.md
@@ -97,10 +94,14 @@ nav:
                     -   'Proxy': User/Proxies/proxy.md
                     -   'proxyconf.json': User/Proxies/proxyconf.json.md
 
+    -   Setup:
+            -   "About": Setup/About.md
+            -   "Quick Start Tutorial": Setup/quick-start-tutorial.md
+
     -   Developer:
             -   'About': Developer/About.md
-            -   'Setup': Developer/setupDev.md
             -   'Tutorials':
+                    -   'Setup': Developer/setupDev.md
                     -   'Vue Tutorial': Developer/Tutorials/vueTutorial.md
                     -   'Backbone Tutorial (deprecated)': Developer/Tutorials/backboneTutorial.md
             -   'Tech':

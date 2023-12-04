@@ -1,6 +1,4 @@
->Browser testing with Selenium WebDriver
-
-[TOC]
+# Browser testing with Selenium WebDriver
 
 # Install browser test drivers (WebDrivers)
 

@@ -1,7 +1,3 @@
->Our git workflow.
-
-[TOC]
-
 # Git workflow
 
 ## Commit

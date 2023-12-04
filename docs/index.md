@@ -1,17 +1,11 @@
-# Welcome to MkDocs
+# Welcome!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<img alt="Masterportal Logo" src="_media/Logo_Masterportal.svg" width="30%">
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Welcome to the documentation for the Masterportal software!
+This documentation is divided into three parts:
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[:fontawesome-solid-graduation-cap: Quick Start Tutorial](./Setup/quick-start-tutorial.md){ .md-button .md-button--primary }
+[:material-file-document:User Documentation](./User/About.md){ .md-button .md-button--primary }
+[:material-wrench: Developer Documentation](./Developer/About.md){ .md-button .md-button--primary }
