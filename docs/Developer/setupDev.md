@@ -1,9 +1,6 @@
->This describes how to set up the local development environment.
+# Setting up the local development environment
 
-[TOC]
-
-# System requirements
-
+## System requirements
 ## git
 
 Install **[git](http://git-scm.com/)**.

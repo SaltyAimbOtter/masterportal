@@ -1,14 +1,6 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
 # Variables Documentation
 
 This documentation describes how the variables in Masterportal are intended to be used.
-
-
-## Structure of this documentation
-
-[TOC]
-
 
 ## Colors
 

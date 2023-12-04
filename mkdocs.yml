@@ -54,9 +54,9 @@ markdown_extensions:
     - attr_list
 
     # Icons and Emojis
-    - pymdownx.emoji:
-          emoji_index: !!python/name:material.extensions.emoji.twemoji
-          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    -   pymdownx.emoji:
+            emoji_index: !!python/name:material.extensions.emoji.twemoji
+            emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
     -   toc:
             permalink: 🔗
@@ -78,7 +78,7 @@ nav:
     -   Home: index.md
     -   Setup:
             -   "About": "Setup/About.md"
-            - "Quick Start Tutorial": Setup/quick-start-tutorial.md
+            -   "Quick Start Tutorial": Setup/quick-start-tutorial.md
     -   User Documentation:
             -   "About": "User/About.md"
             -   Global Settings:
@@ -98,9 +98,23 @@ nav:
                     -   'proxyconf.json': User/Proxies/proxyconf.json.md
 
     -   Developer:
-            -   'Setup': Dev/setupDev.md
+            -   'About': Developer/About.md
+            -   'Setup': Developer/setupDev.md
+            -   'Tutorials':
+                    -   'Vue Tutorial': Developer/Tutorials/vueTutorial.md
+                    -   'Backbone Tutorial (deprecated)': Developer/Tutorials/backboneTutorial.md
+            -   'Tech':
+                    -   'Variables': Developer/variables.md
+                    -   'Fonts': Developer/fonts.md
             -   'Testing':
-                    -   'Unit Tests': Dev/testing/browserTest.md
-                    -   'Backbone': Dev/testing/unittestingBackbone.md
-                    -   'Vue': Dev/testing/unitTestVue.md
+                    -   'Unit Tests': Developer/Testing/browserTest.md
+                    -   'Backbone': Developer/Testing/unittestingBackbone.md
+                    -   'Vue': Developer/Testing/unitTestVue.md
+            -   'Contributing':
+                    -   'Git Workflow': Developer/Contributing/gitWorkflow.md
+                    -   'Coding Conventions': Developer/Contributing/codingConventions.md
+                    -   'Coding Conventions Info': Developer/Contributing/codingConventionsInfo.md
+                    -   'Library Evaluation': Developer/Contributing/library_evaluation/Library_Evaluation.pdf
+                    -   'Versioning': Developer/Contributing/versioning.md
+
 
