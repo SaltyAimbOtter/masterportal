@@ -14,6 +14,8 @@ The configuration is separated into two sections, **[Portalconfig](#markdown-hea
 }
 ```
 ??? abstract "Table of contents"
+    Demo Docs: Es ist möglich weiterhin ein Inhaltsverzeichnis vorab darzustellen:
+
     [TOC]
 
 ## Portalconfig

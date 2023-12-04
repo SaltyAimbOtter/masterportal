@@ -1,6 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
-[TOC]
 
 # services.json
 
