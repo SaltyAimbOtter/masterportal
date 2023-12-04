@@ -73,7 +73,7 @@ nav:
     -   Home: index.md
     -   Setup: setup.md
     - User Documentation:
-          - User/About.md
+          - "About": "User/About.md"
           - Global Settings:
                 - 'services.json': User/Global-Config/services.json.md
                 - 'rest-services.json': User/Global-Config/rest-services.json.md
