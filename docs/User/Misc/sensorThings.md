@@ -1,7 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
-[TOC]
-
 # Sensor Layer
 
 This document describes the technical details of the Masterportal's sensor layer based on the *SensorThingsAPI*.

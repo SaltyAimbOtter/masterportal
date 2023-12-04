@@ -1,5 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
 # QuickHelp Documentation
 
 This documentation describes how the QuickHelp window of the Masterportal can be modified, extended and new QuickHelp windows can be created.
@@ -10,12 +8,6 @@ The QuickHelp window - if activated - is currently integrated in three places in
 3. In the routing tool.
 
 All default QuickHelp windows are given standard content in all languages available for the Masterportal.
-
-
-## Structure of this documentation
-
-[TOC]
-
 
 ## First part - activate the QuickHelp
 
@@ -153,7 +145,7 @@ Here is the example of a simple add of a new section at the end of the "search" 
 ### Complex addition of content
 
 You can insert new sections into the standard QuickHelp at any position if you use the "before" and "after" attributes with the appropriate Section Keys ([see Section Keys](#markdown-header-section-keys)).
- 
+
 Here is the example of adding a new section after the first section with Section Key "generalInfo" into the default "search" QuickHelp.
 
 ```json

@@ -81,8 +81,12 @@ nav:
           - Portal Settings:
                 - 'config.js': User/Portal-Config/config.js.md
                 - 'config.json': User/Portal-Config/config.json.md
-          - 'URL Parameters': User/urlParameter.md
-          - 'Proxies':
+          - Miscellaneous:
+                - 'URL Parameters': User/urlParameter.md
+                - 'Translations': User/Misc/translations.md
+                - 'SensorThings API': User/Misc/sensorThings.md
+                - 'Quick Help Dialog': User/Misc/quickHelp.md
+          - 'Proxies (deprecated)':
                 - 'Proxy': User/Proxies/proxy.md
                 - 'proxyconf.json': User/Proxies/proxyconf.json.md
 

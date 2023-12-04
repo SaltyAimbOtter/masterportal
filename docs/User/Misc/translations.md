@@ -1,4 +1,4 @@
-# Masterportal translation guide
+# Masterportal Translation Guide
 
 This document describes how to work with languages and translations in the Masterportal. It is intended for beginners, advanced users, and experts.
 
@@ -53,7 +53,7 @@ Language files are translation core. To support a language, a separate language 
 1. common
 2. additional
 
-See the **[i18next architecture](i18next.jpeg)** on how these files are used.
+See the **[i18next architecture](../../_media/User/Misc/i18next.jpeg)** on how these files are used.
 
 ### Common language file - `common.json`
 

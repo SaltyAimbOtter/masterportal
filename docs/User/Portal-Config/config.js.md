@@ -511,6 +511,8 @@ Specify outline color and stroke width for highlighting lines and fill color and
 
 ## quickHelp
 
+See **[quickHelp](../Misc/quickHelp.md)** for extended documentation.
+
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
 |imgPath|no|String|`"/"`|An absolute or relative path to the folder containing the quick help images.|
