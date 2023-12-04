@@ -77,7 +77,7 @@ nav:
           - Global Settings:
                 - 'services.json': User/Global-Config/services.json.md
                 - 'rest-services.json': User/Global-Config/rest-services.json.md
-                - 'style.json': User/Global-Config/Style/style.json.md
+                - 'style.json': User/Global-Config/style.json.md
           - Portal Settings:
                 - 'config.js': User/Portal-Config/config.js.md
                 - 'config.json': User/Portal-Config/config.json.md

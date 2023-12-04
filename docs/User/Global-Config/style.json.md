@@ -1,7 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
-[TOC]
-
 # style.json
 
 The *style.json* file describes visualization rules to control the styling of vector features. It may be used in all sorts of vector layers, namely *WFS*, *GeoJSON*, and *Sensor*.
@@ -340,16 +336,13 @@ Furthermore, all named geometry types may receive a text annotation. See chapter
 
 For individual legend texts, see chapter [Legend](#markdown-header-legend).
 
-### Use Fallback, if no rule available
-
 If the number of child *Features*  of a *MultiGeomtry* feature is higher than the number of rules or no rule can be found, and no fallbacks shall be used you can set the property *styleMultiGeomOnlyWithRule* to true.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|styleMultiGeomOnlyWithRule||Boolean|false| if true, use no fallback for styling
+| Name                       | Required | Type    | Default | Description                          |
+|----------------------------|----------|---------|---------|--------------------------------------|
+| styleMultiGeomOnlyWithRule |          | Boolean | false   | if true, use no fallback for styling |
 
-**_style_ example:**
-```json
+```json title="Style Example"
 {
     "styleId": "styleId",
     "styleMultiGeomOnlyWithRule": true,
@@ -401,7 +394,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 {
     "style": {
         "imageName": "/icons/hospital.svg",
-        "clusterImageName": "/icons/clusterHospital.svg"    
+        "clusterImageName": "/icons/clusterHospital.svg"
         }
 }
 ```
@@ -410,7 +403,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 {
     "style": {
         "imageName": "https://host.de/geodaten/icons/hospital.svg",
-        "clusterImageName": "/icons/clusterHospital.svg"    
+        "clusterImageName": "/icons/clusterHospital.svg"
         }
 }
 ```
