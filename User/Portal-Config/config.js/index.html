@@ -1,0 +1,4618 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Masterportal Open Source Community">
+      
+      
+      
+        <link rel="prev" href="../../Global-Config/style.json/">
+      
+      
+        <link rel="next" href="../config.json/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>config.js - Masterportal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_docsCustomization/css/contentAreaFullWidth.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configjs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Masterportal" class="md-header__button md-logo" aria-label="Masterportal" data-md-component="logo">
+      
+  <img src="../../../_media/Logo_Masterportal.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Masterportal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              config.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M223.5 32C100 32 0 132.3 0 256s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BitBucket
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Setup/About/" class="md-tabs__link">
+          
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../About/" class="md-tabs__link">
+          
+  
+  User Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Developer/About/" class="md-tabs__link">
+          
+  
+  Developer
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Masterportal" class="md-nav__button md-logo" aria-label="Masterportal" data-md-component="logo">
+      
+  <img src="../../../_media/Logo_Masterportal.svg" alt="logo">
+
+    </a>
+    Masterportal
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BitBucket
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Setup/About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Setup/quick-start-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    User Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Global Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Global-Config/services.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    services.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Global-Config/rest-services.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rest-services.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Global-Config/style.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    style.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Portal Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Portal Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    config.js
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    config.js
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      alerting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cameraparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      cameraParameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cesiumparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cesiumParameter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparametercamera" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.camera
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparameterfog" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.fog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparameterglobe" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.globe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="footer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footerurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.urls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footerfooterinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.footerInfo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footerfooterinfosubtexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.footerInfo.subtexts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapinteractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapInteractions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapmarker" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapMarker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mousehover" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mouseHover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygon" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygonfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon.fill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygonstroke" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon.stroke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointline" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlinefill" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.fill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlinestroke" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.stroke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlineimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portallanguage" class="md-nav__link">
+    <span class="md-ellipsis">
+      portalLanguage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickhelp" class="md-nav__link">
+    <span class="md-ellipsis">
+      quickHelp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remoteinterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      remoteInterface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#treelayeridstostyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      tree.layerIDsToStyle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomto" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomTo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomtofeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomToFeature
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomtogeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomToGeometry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layerselector" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSelector
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="layerSelector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layerselectorevents" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSelector.events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#featureviaurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      featureViaURL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="featureViaURL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#featureviaurllayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      featureViaURL.layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layerinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerInformation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layersequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSequence
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../urlParameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URL Parameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/sensorThings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SensorThings API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/quickHelp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Help Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Proxies (deprecated)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Proxies (deprecated)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Proxies/proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Proxies/proxyconf.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    proxyconf.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Developer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Developer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/setupDev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Tutorials/vueTutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Tutorials/backboneTutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backbone Tutorial (deprecated)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tech
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tech
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/fonts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fonts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Testing/browserTest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Testing/unittestingBackbone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backbone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Testing/unitTestVue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Contributing/gitWorkflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Contributing/codingConventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Contributing/codingConventionsInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Conventions Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Contributing/library_evaluation/Library_Evaluation.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Library Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer/Contributing/versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      alerting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cameraparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      cameraParameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cesiumparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cesiumParameter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparametercamera" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.camera
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparameterfog" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.fog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cesiumparameterglobe" class="md-nav__link">
+    <span class="md-ellipsis">
+      cesiumParameter.globe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="footer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footerurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.urls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footerfooterinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.footerInfo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footerfooterinfosubtexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      footer.footerInfo.subtexts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapinteractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapInteractions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapmarker" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapMarker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mousehover" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mouseHover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygon" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygonfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon.fill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespolygonstroke" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPolygon.stroke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointline" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlinefill" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.fill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlinestroke" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.stroke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mousehoverhighlightvectorrulespointlineimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      mouseHover.highlightVectorRulesPointLine.image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portallanguage" class="md-nav__link">
+    <span class="md-ellipsis">
+      portalLanguage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickhelp" class="md-nav__link">
+    <span class="md-ellipsis">
+      quickHelp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remoteinterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      remoteInterface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#treelayeridstostyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      tree.layerIDsToStyle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomto" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomTo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomtofeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomToFeature
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zoomtogeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomToGeometry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layerselector" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSelector
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="layerSelector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layerselectorevents" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSelector.events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#featureviaurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      featureViaURL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="featureViaURL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#featureviaurllayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      featureViaURL.layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layerinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerInformation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layersequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      layerSequence
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/default/docs/User/Portal-Config/config.js.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="configjs">config.js<a class="headerlink" href="#configjs" title="Copy heading link to clipboard">🔗</a></h1>
+<p>The <code>config.js</code> contains Masterportal configuration not directly related to UI or layers. For example, paths to other configuration files belong here. This file is usually placed next to the <code>index.html</code> and <code>config.json</code> files.</p>
+<p>In the following, all configuration options are described. For all configuration options of type <code>object</code>, further nested options are linked and described in detail after the main table. You may also refer to <strong><a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/dev/portal/basic/config.js">this config.js example file</a></strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layerConf</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Path to the <strong><a href="services.json.md">services.json</a></strong> file containing all available WMS layers and WFS feature types. The path is relative to <em>js/main.js</em>.</td>
+<td><code>https://geodienste.hamburg.de/lgv-config/services-internet.json"</code></td>
+</tr>
+<tr>
+<td>namedProjections</td>
+<td>yes</td>
+<td>String[]</td>
+<td></td>
+<td>Definition of the usable coordinate systems. See <strong><a href="http://proj4js.org/#named-projections">syntax definition</a></strong> for details..</td>
+<td><code>[["EPSG:25832", "+title=ETRS89/UTM 32N +proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"]]</code></td>
+</tr>
+<tr>
+<td>restConf</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Path to the <strong><a href="rest-services.json.md">rest-services.json</a></strong> file describing further services, e.g. print service, WPS, CSW. The path is relative to <em>js/main.js</em>.</td>
+<td><code>https://geodienste.hamburg.de/lgv-config/rest-services-internet.json"</code></td>
+</tr>
+<tr>
+<td>styleConf</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Path to the <strong><a href="style.json.md">style.json</a></strong> file describing vector layer (WFS) styles. The path is relative to <em>js/main.js</em>.</td>
+<td><code>https://geodienste.hamburg.de/lgv-config/style.json"</code></td>
+</tr>
+<tr>
+<td>addons</td>
+<td>no</td>
+<td>String[]</td>
+<td><code>[]</code></td>
+<td>List of names for custom modules. The modules are to be placed in the folder <code>/addons/</code>, with their entry points being defined in the <code>addonsConf.json</code>.</td>
+<td><code>["myAddon1", "myAddon2"]</code></td>
+</tr>
+<tr>
+<td>alerting</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-alerting">alerting</a></strong></td>
+<td><code>{"category": "alert-info", "isDismissable": true, "isConfirmable": false, "position": "top-center", "fadeOut": null}</code></td>
+<td>Overrides the alert module's default values.</td>
+<td>{fadeOut: 6000}</td>
+</tr>
+<tr>
+<td>cameraParameter</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-cameraparameter">cameraParameter</a></strong></td>
+<td></td>
+<td>Initial camera parameter</td>
+<td></td>
+</tr>
+<tr>
+<td>cesiumParameter</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-cesiumparameter">cesiumParameter</a></strong></td>
+<td></td>
+<td>Cesium flags</td>
+<td></td>
+</tr>
+<tr>
+<td>cswId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"3"</code></td>
+<td>Reference to a CSW interface used to retrieve layer information. The ID will be resolved to a service defined in the <strong><a href="rest-services.json.md">rest-services.json</a></strong> file.</td>
+<td><code>"my CSW-ID"</code></td>
+</tr>
+<tr>
+<td>defaultToolId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"gfi"</code></td>
+<td>The tool with the given ID will be active when no other tool is active.</td>
+<td>"filter"</td>
+</tr>
+<tr>
+<td>layerSelector</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-layerselector">layerSelector</a></strong></td>
+<td></td>
+<td>Module to configure interactions with the layertree and the map, executed on a defined event.</td>
+<td></td>
+</tr>
+<tr>
+<td>featureViaURL</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-featureviaurl">featureViaURL</a></strong></td>
+<td></td>
+<td>Optional configuration for the URL parameter <code>featureViaURL</code>. See <strong><a href="urlParameter.md">urlParameter</a></strong> for details. Implemented for treeTypes <em>light</em> and <em>custom</em>.</td>
+<td></td>
+</tr>
+<tr>
+<td>footer</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-footer">footer</a></strong></td>
+<td></td>
+<td>If set, a footer is shown and configured with this object.</td>
+<td></td>
+</tr>
+<tr>
+<td>gfiWindow</td>
+<td>no</td>
+<td>String</td>
+<td><code>"detached"</code></td>
+<td><em>Deprecated in the next major release. Please use the attribute "Portalconfig.menu.tool.gfi.desktopType" of the <strong><a href="#config.json.md">config.json</a></strong> instead.</em> Display type and attribute information for all layer types. <strong>attached</strong>: the attribute information window is opened at click position <strong>detached</strong>: the attribute information window is opened at the top right of the map; a marker is set to the click position.</td>
+<td><code>"attached"</code></td>
+</tr>
+<tr>
+<td>ignoredKeys</td>
+<td>no</td>
+<td>String[]</td>
+<td><code>["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]</code></td>
+<td>List of attribute names to be ignored for attribute information lists of all layer types. Only used with "gfiAttributes": "showAll".</td>
+<td><code>["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]</code></td>
+</tr>
+<tr>
+<td>infoJson</td>
+<td>no</td>
+<td>String</td>
+<td><code>"info.json"</code></td>
+<td>Path to the <code>info.json</code> file containing additional information on snippets. The path is relative to the <em>index.html</em>.</td>
+<td><code>"info.json"</code></td>
+</tr>
+<tr>
+<td>inputMap</td>
+<td>no</td>
+<td>Object</td>
+<td><code>{}</code></td>
+<td>If this object is set, and its field <code>setMarker</code> is set to true, the Masterportal is configured as input element for data. In that case, each click sets a Map Marker and communicates the coordinates via <strong><a href="remoteInterface.md">remoteInterface</a></strong> in the chosen coordinate reference system.</td>
+<td><code>{setMarker: true, targetProjection: "EPSG:4326", setCenter: false}</code></td>
+</tr>
+<tr>
+<td>inputMap.setCenter</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Center on a marker after producing it?</td>
+<td><code>setCenter: true</code></td>
+</tr>
+<tr>
+<td>inputMap.setMarker</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Flag to activate the 'setMarker' functionality.</td>
+<td><code>setMarker: true</code></td>
+</tr>
+<tr>
+<td>inputMap.targetProjection</td>
+<td>no</td>
+<td>String</td>
+<td><code>"EPSG:25832"</code></td>
+<td>The target coordinate reference system. Coordinates will be translated to it before being communicated via <strong><a href="remoteInterface.md">remoteInterface</a></strong>.</td>
+<td><code>targetprojection: "EPSG:4326"</code></td>
+</tr>
+<tr>
+<td>login</td>
+<td>no</td>
+<td>Object</td>
+<td><code>{}</code></td>
+<td>Activates the Login module. This displays a login button in the toolbar that allows login and logout with an IDM server, e.g. keycloak, as configured.</td>
+<td></td>
+</tr>
+<tr>
+<td>mapInteractions</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mapInteractions">mapInteractions</a></strong></td>
+<td></td>
+<td>Overrides the ol map interactions. Provides further configuration possibilities for control behaviour and keyboardEventTarget.</td>
+<td></td>
+</tr>
+<tr>
+<td>mapMarker</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mapmarker">mapMarker</a></strong></td>
+<td></td>
+<td>Overrides the map marker module's default values. Useful for 3D markers since OpenLayers's overlays can not be displayed in 3D mode. For this, the map marker has to be defined as vector layer.</td>
+<td></td>
+</tr>
+<tr>
+<td>metaDataCatalogueId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"2"</code></td>
+<td>URL to the metadata catalog linked to in the layer information window. The ID is resolved to a service of the <strong><a href="rest-services.json.md">rest-services.json</a></strong> file. Note: This attribute is only necessary, when no "show_doc_url" is configured in the metadata dataset in the <strong><a href="services.json.md">services.json</a></strong>. The url can either be set globally (<strong><a href="./">config.js</a></strong>) or layer-specific(<strong><a href="services.json.md">services.json</a></strong>).</td>
+<td><code>"MetaDataCatalogueUrl"</code></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-metadata">metadata</a></strong></td>
+<td></td>
+<td>Allows configuration of which metadata URLs are to be resolved via proxy.</td>
+<td></td>
+</tr>
+<tr>
+<td>mouseHover</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehover">mouseHover</a></strong></td>
+<td></td>
+<td>Activates the MouseHover feature for vector layers, both WFS and GeoJSON. For per-layer configuration, see the <strong><a href="../config.json/">config.json</a></strong>'s section <em>Themenconfig.Fachdaten.Layer</em>.</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>obliqueMap</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>If set to <code>true</code>, an oblique map layer is created. An additional oblique layer must be defined.</td>
+<td></td>
+</tr>
+<tr>
+<td>portalConf</td>
+<td>no</td>
+<td>String</td>
+<td><code>"config.json"</code></td>
+<td>Path to the portal's <code>config.json</code> file. You may also enter a node; in that case the taken path is controlled by the urlParameter <code>config</code>.</td>
+<td>Direct path: "../masterTree/config.json"; Node: "../../portal/master/". In the node scenario, a query parameter like <code>config=config.json</code> must exist in the URL.</td>
+</tr>
+<tr>
+<td>postMessageUrl</td>
+<td>no</td>
+<td>String</td>
+<td><code>"http://localhost:8080"</code></td>
+<td>URL the portal is supposed to post messages to and receive messages from with the <code>postMessage</code> feature.</td>
+<td>"http://localhost:8080"</td>
+</tr>
+<tr>
+<td>proxyHost</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Host name of a remote proxy with CORS configured to support the portal's domain, among others.</td>
+<td><code>"https://proxy.example.com"</code></td>
+</tr>
+<tr>
+<td>quickHelp</td>
+<td>no</td>
+<td>Object</td>
+<td><code>{}</code></td>
+<td>Activates the QuickHelp module. This displays a window containing help text for supported functions of the modules. Available for the layer tree (CustomTree), the search bar (Searchbar) and the routing tool (RoutingTool).</td>
+<td></td>
+</tr>
+<tr>
+<td>remoteInterface</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-remoteinterface">remoteInterface</a></strong></td>
+<td></td>
+<td>Optional remote interface configuration.</td>
+<td></td>
+</tr>
+<tr>
+<td>scaleLine</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Controls whether a scale line is displayed at the bottom right of the map. To activate scale selection (as a <strong>ScaleSwitcher</strong>) use the configuration parameter <code>isDisplayInFooter</code> in <strong><a href="config.json">config.json</a></strong>.</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>simpleMap</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td><em>Deprecated in the next major release. Please use the parameter <code>simpleMap</code> as part of the configuration of the <code>saveSelection</code> tool in the <strong><a href="../config.json/">config.json</a></strong>.</em> Adds a SimpleMap URL to the <code>Save selection</code> dialogue. When calling this URL, the menu bar, layer tree, and map controls are deactivated. Not implemented for tree type <em>„light“</em>.</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>startingMap3D</td>
+<td>bi</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Controls whether the map should start in 3D mode.</td>
+<td></td>
+</tr>
+<tr>
+<td>tree</td>
+<td>no</td>
+<td><strong><a href="#tree">tree</a></strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uiStyle</td>
+<td>no</td>
+<td>String</td>
+<td><code>"default"</code></td>
+<td>Sets the control element layout.</td>
+<td><code>table</code></td>
+</tr>
+<tr>
+<td>wfsImgPath</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Path to the folder holding images for the WFS styles. The path is relative to <em>js/main.js</em>.</td>
+<td><code>https://geodienste.hamburg.de/lgv-config/img/"</code></td>
+</tr>
+<tr>
+<td>wpsID</td>
+<td>no</td>
+<td>String</td>
+<td><code>""</code></td>
+<td>Reference to a WPS interface used in various modules. The ID is resolved to a service defined in the <strong><a href="rest-services.json.md">rest-services.json</a></strong> file.</td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td>zoomToFeature</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-zoomtofeature">zoomToFeature</a></strong></td>
+<td></td>
+<td><em>Deprecated in the next major release. Please use <strong><a href="#markdown-header-zoomto">zoomTo</a></strong> instead.</em> Optional configuration of the URL query parameter <code>featureid</code>. For details, see <strong><a href="urlParameter.md">urlParameter</a></strong>.</td>
+<td></td>
+</tr>
+<tr>
+<td>zoomTo</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-zoomto">zoomTo</a></strong>[]</td>
+<td>Configuration for the URL query parameters <code>zoomToFeatureId</code> and <code>zoomToGeometry</code>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>layerInformation</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-layerinformation">layerInformation</a></strong></td>
+<td></td>
+<td>Configuration for the layerInformation window.</td>
+<td></td>
+</tr>
+<tr>
+<td>vuetify</td>
+<td>no</td>
+<td>String</td>
+<td>undefined</td>
+<td>Path to the optional instance of the vuetify UI library. e.g. portal or addon specific.</td>
+<td><code>addons/cosi/vuetify/index.js</code></td>
+</tr>
+<tr>
+<td>layerSequence</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-layersequence">layerSequence</a></strong></td>
+<td></td>
+<td>Configuration for layerSequence.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="alerting">alerting<a class="headerlink" href="#alerting" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fetchBroadcastUrl</td>
+<td>no</td>
+<td>String</td>
+<td><code>false</code></td>
+<td>The alerting module will initially use a linked configuration file from this URL, if set.</td>
+</tr>
+<tr>
+<td>localStorageDisplayedAlertsKey</td>
+<td>no</td>
+<td>String</td>
+<td><code>"displayedAlerts"</code></td>
+<td>Arbitrary key used to store information regarding the alerting module in the browser's local storage.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cameraparameter">cameraParameter<a class="headerlink" href="#cameraparameter" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Cesium Scene camera settings in 3D mode.
+<em>Deprecated in the next major release. Please use <strong><a href="#markdown-header-cesiumParameter">cesiumParameter</a></strong> instead.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heading</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial heading in radians</td>
+</tr>
+<tr>
+<td>tilt</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial tile in radians</td>
+</tr>
+<tr>
+<td>altitude</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial height in meters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cesiumparameter">cesiumParameter<a class="headerlink" href="#cesiumparameter" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Cesium Scene settings in 3D mode.
+For more attributes see <strong><a href="https://cesium.com/learn/cesiumjs/ref-doc/Scene.html?classFilter=scene">Scene</a></strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>camera</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-cesiumParametercamera">camera</a></strong></td>
+<td></td>
+<td>Cesium Scene camera settings in 3D mode.</td>
+</tr>
+<tr>
+<td>fog</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-cesiumParameterfog">fog</a></strong></td>
+<td></td>
+<td>Cesium Scene fog settings in 3D mode.</td>
+</tr>
+<tr>
+<td>fxaa</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>activates <em>fast approximate anti-aliasing</em></td>
+</tr>
+<tr>
+<td>globe</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-cesiumParameterglobe">globe</a></strong></td>
+<td></td>
+<td>Cesium Scene globe settings in 3D mode.</td>
+</tr>
+<tr>
+<td>maximumScreenSpaceError</td>
+<td>no</td>
+<td>Number</td>
+<td><code>2.0</code></td>
+<td>Detail level in which terrain/raster tiles are fetched. 4/3 is the highest quality level.</td>
+</tr>
+<tr>
+<td>tileCacheSize</td>
+<td>no</td>
+<td>Number</td>
+<td><code>100</code></td>
+<td>terrain/raster tile cache size</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;camera&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="nt">&quot;altitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="nt">&quot;heading&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.2502079000000208</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&quot;tilt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;fog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;fxaa&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;globe&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;enableLighting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&quot;maximumScreenSpaceError&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">&quot;tileCacheSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="cesiumparametercamera">cesiumParameter.camera<a class="headerlink" href="#cesiumparametercamera" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Cesium Scene camera settings in 3D mode.
+The camera is defined by a position, orientation, and view frustum.
+For more attributes see <strong><a href="https://cesium.com/learn/cesiumjs/ref-doc/Camera.html">Scene</a></strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>altitude</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial height in meters</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial heading in radians</td>
+</tr>
+<tr>
+<td>tilt</td>
+<td>no</td>
+<td>Number</td>
+<td></td>
+<td>Camera's initial tile in radians</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;camera&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="nt">&quot;altitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&quot;heading&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.2502079000000208</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nt">&quot;tilt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="cesiumparameterfog">cesiumParameter.fog<a class="headerlink" href="#cesiumparameterfog" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Cesium Scene fog settings in 3D mode.
+Blends the atmosphere to geometry far from the camera for horizon views.
+For more attributes see <strong><a href="https://cesium.com/learn/cesiumjs/ref-doc/Fog.html">Scene</a></strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>True if fog is enabled.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;fog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="cesiumparameterglobe">cesiumParameter.globe<a class="headerlink" href="#cesiumparameterglobe" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Cesium Scene globe settings in 3D mode.
+The globe rendered in the scene, including its terrain and imagery layers.
+For more attributes see <strong><a href="https://cesium.com/learn/cesiumjs/ref-doc/Globe.html">Scene</a></strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enableLighting</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Activates light effects on the map based on the sun's position.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;globe&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="nt">&quot;enableLighting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="footer">footer<a class="headerlink" href="#footer" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urls</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-footerurls">urls</a></strong>[]</td>
+<td></td>
+<td>Array of URL configuration objects.</td>
+</tr>
+<tr>
+<td>showVersion</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>If <code>true</code>, the Masterportal version number is included in the footer.</td>
+</tr>
+<tr>
+<td>footerInfo</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-footerfooterInfo">footerInfo</a></strong>[]</td>
+<td></td>
+<td>Array of information configuration objects.</td>
+</tr>
+<tr>
+<td>mobileFooterInfoToggler</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>If <code>true</code>, it is possible to toggle the footer info in mobile version.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="footerurls">footer.urls<a class="headerlink" href="#footerurls" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alias</td>
+<td>no</td>
+<td>String</td>
+<td><code>"Landesbetrieb Geoinformation und Vermessung"</code></td>
+<td>Link text for desktop applications</td>
+</tr>
+<tr>
+<td>alias_mobil</td>
+<td>no</td>
+<td>String</td>
+<td><code>"LGV"</code></td>
+<td>Link text for mobile applications</td>
+</tr>
+<tr>
+<td>bezeichnung</td>
+<td>no</td>
+<td>String</td>
+<td><code>"Kartographie und Gestaltung: "</code></td>
+<td>Link prefix</td>
+</tr>
+<tr>
+<td>url</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>the URL the <code>alias</code> (or <code>alias_mobile</code>) text links to, e.g. <code>"https://example.com/"</code>. You may also link to mail creation with e.g. <code>"mailto:my_mail@example.com"</code></td>
+</tr>
+<tr>
+<td>toolModelId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"SdpDownload"</code></td>
+<td>The id of a module to be opened on clicking the link. Do not include a URL for such cases.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;footer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="nt">&quot;urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">                </span><span class="nt">&quot;bezeichnung&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cartography and design: &quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">                </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://geoinfo.hamburg.de/&quot;</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Landesbetrieb Geoniformation und Vermessung&quot;</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">                </span><span class="nt">&quot;alias_mobil&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGV&quot;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">                </span><span class="nt">&quot;bezeichnung&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">                </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.hamburg.de/bsu/timonline&quot;</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">                </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Map inconsistencies&quot;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">                </span><span class="nt">&quot;bezeichnung&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">                </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">                </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SDP Download&quot;</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">                </span><span class="nt">&quot;toolModelId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sdpdownload&quot;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="nt">&quot;showVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="footerfooterinfo">footer.footerInfo<a class="headerlink" href="#footerfooterinfo" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Title of the information tab.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Text displayed under the title.</td>
+</tr>
+<tr>
+<td>subtexts</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-footerfooterInfosubtexts">subtexts</a></strong>[]</td>
+<td></td>
+<td>Array of subtext configuration objects.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="footerfooterinfosubtexts">footer.footerInfo.subtexts<a class="headerlink" href="#footerfooterinfosubtexts" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subtitle</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Subtitle of the subtext.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Text displayed under the subtitle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;footerInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Contact&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Text under the titel&quot;</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">            </span><span class="nt">&quot;subtexts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">                    </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Postal address&quot;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Max-Mustermann-Str. 1 &lt;br&gt; 12345 City &lt;br&gt; Germany&quot;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                    </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Phone and fax&quot;</span><span class="p">,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tel: +49 (0) 1234 56789 &lt;br&gt; Fax: +49 (0) 1234 5678910&quot;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Privacy&quot;</span><span class="p">,</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">            </span><span class="nt">&quot;subtexts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">                    </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Subtitle&quot;</span><span class="p">,</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...&quot;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="login">login<a class="headerlink" href="#login" title="Copy heading link to clipboard">🔗</a></h2>
+<p>This module allows the user to login with an OIDC server. The retrieved access token is stored in cookies which can be used by the backend to deliver user-specific data (e.g. layers). Since the cookies are technically required to implement the login functionality, there is not corresponding cookie notice.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oidcAuthorizationEndpoint</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The oidc auth endpoint, e.g. "https://idm.domain.de/auth/realms/REALM/protocol/openid-connect/auth".</td>
+</tr>
+<tr>
+<td>oidcTokenEndpoint</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The oidc token endpoint, e.g. "https://idm.domain.de/auth/realms/REALM/protocol/openid-connect/token".</td>
+</tr>
+<tr>
+<td>oidcClientId</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The oidc client, e.g. "masterportal" (must be created in your IDM, e.g. keycloak).</td>
+</tr>
+<tr>
+<td>oidcScope</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The scope used for oidc, defaults to "profile email openid".</td>
+</tr>
+<tr>
+<td>oidcRedirectUri</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The url to redirect the oidc process to - after login.</td>
+</tr>
+<tr>
+<td>interceptorUrlRegex</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>An regexp pattern that allows to specify urls the oidc token will be attached to.</td>
+</tr>
+</tbody>
+</table>
+<p>Make sure in keycloak the client is configured as follows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Access Type: public
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Standard Flow Enabled: ON
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Valid Redirect URIs: &lt;PORTAL URL, e.g. https://localhost/*&gt;
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Web Origins: &lt;PORTAL HOST, e.g. https://localhost&gt;
+</span></code></pre></div>
+<p>Specific ports are not allowed ports here. Especially, ports on localhost, e.g. <code>localhost:9001</code> will not work with keycloak since ports are not accepted in web origins.</p>
+<p>In the section <code>OpenID Connect Compatibility Modes</code> activate <code>Use Refresh Tokens</code>. In the section <code>Advanced Settings</code> set <code>Proof Key for Code Exchange Code Challenge Method</code> to <code>S256</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">      </span><span class="nt">&quot;oidcAuthorizationEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://idm.DOMAIN.de/auth/realms/REALM/protocol/openid-connect/auth&quot;</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">&quot;oidcTokenEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://idm.DOMAIN.de/auth/realms/REALM/protocol/openid-connect/token&quot;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">&quot;oidcClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;masterportal&quot;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">&quot;oidcScope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;profile email openid&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nt">&quot;oidcRedirectUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://localhost/portal/basic/&quot;</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">&quot;interceptorUrlRegex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https?://localhost.*&quot;</span><span class="w"> </span><span class="c1">// add authorization to all URLs that match the given regex</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="mapinteractions">mapInteractions<a class="headerlink" href="#mapinteractions" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>interactionModes</td>
+<td>no</td>
+<td>Object</td>
+<td><code>{dragPan: false, altShiftDragRotate: false, pinchRotate: false}</code></td>
+<td>Interaction settings for the ol default interactions. If not set, the default setting is used.</td>
+</tr>
+<tr>
+<td>keyboardEventTarget</td>
+<td>no</td>
+<td>Object/false</td>
+<td><code>false</code></td>
+<td>possibility to set the keyboard event target for the ol map e.g keyboardEventTarget: document</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">&quot;mapInteractions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="nt">&quot;interactionModes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;dragPan&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;altShiftDragRotate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;pinchRotate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;dragZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="nt">&quot;keyboardEventTarget&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="mapmarker">mapMarker<a class="headerlink" href="#mapmarker" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pointStyleId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"defaultMapMarkerPoint"</code></td>
+<td>StyleId to refer to a <code>style.json</code> point style. If not set, the <code>img/mapMarker.svg</code> is used.</td>
+</tr>
+<tr>
+<td>polygonStyleId</td>
+<td>no</td>
+<td>String</td>
+<td><code>"defaultMapMarkerPolygon"</code></td>
+<td>StyleId to refer to a <code>style.json</code> polygon style.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&quot;mapMarker&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="nt">&quot;pointStyleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;customMapMarkerPoint&quot;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="nt">&quot;polygonStyleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;customMapMarkerPolygon&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="mousehover">mouseHover<a class="headerlink" href="#mousehover" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>minShift</td>
+<td>no</td>
+<td>Integer</td>
+<td><code>5</code></td>
+<td>Minimum mouse position movement required to render a new tooltip; in pixels.</td>
+</tr>
+<tr>
+<td>numFeaturesToShow</td>
+<td>no</td>
+<td>Integer</td>
+<td><code>2</code></td>
+<td>Maximum amount of element information per tooltip; when exceeded, an information text informs the user of cut content.</td>
+</tr>
+<tr>
+<td>infoText</td>
+<td>no</td>
+<td>String</td>
+<td><code>"(Further objects. Please zoom.)"</code></td>
+<td>Information text shown when <code>numFeaturesToShow</code> is exceeded.</td>
+</tr>
+<tr>
+<td>highlightOnHover</td>
+<td>no</td>
+<td>Boolean</td>
+<td>false</td>
+<td>If hovered features should be highlighted</td>
+</tr>
+<tr>
+<td>highlightVectorRulesPolygon</td>
+<td>no</td>
+<td>Object</td>
+<td></td>
+<td>Specify the fill color and outline color and stroke width for highlighting the polygon features as well as a zoom parameter.</td>
+</tr>
+<tr>
+<td>highlightVectorRulesPointLine</td>
+<td>no</td>
+<td>Object</td>
+<td></td>
+<td>Specify outline color and stroke width for highlighting lines and fill color and scale factor for highlighting points as well as a zoom parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">&quot;mouseHover&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="nt">&quot;numFeaturesToShow&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">&quot;infoText&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Info Text&quot;</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nt">&quot;highlightOnHover&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nt">&quot;highlightVectorRulesPolygon&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="nt">&quot;fill&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">                </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">]</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="nt">&quot;stroke&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">                </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">                </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="nt">&quot;highlightVectorRulesPointLine&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="nt">&quot;stroke&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">                </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">                </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">            </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">                </span><span class="nt">&quot;scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="mousehoverhighlightvectorrulespolygon">mouseHover.highlightVectorRulesPolygon<a class="headerlink" href="#mousehoverhighlightvectorrulespolygon" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Specify the fill color and outline color and stroke width for highlighting the polygon features as well as a zoom level.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehoverhighlightvectorrulespolygonfill">fill</a></strong></td>
+<td></td>
+<td>Possible setting: color</td>
+<td>false</td>
+</tr>
+<tr>
+<td>stroke</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehoverhighlightvectorrulespolygonstroke">stroke</a></strong></td>
+<td></td>
+<td>Possible setting: width</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespolygonfill">mouseHover.highlightVectorRulesPolygon.fill<a class="headerlink" href="#mousehoverhighlightvectorrulespolygonfill" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>no</td>
+<td>Float[]</td>
+<td>[255, 255, 255, 0.5]</td>
+<td>Possible setting: color (RGBA)</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&quot;fill&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">215</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespolygonstroke">mouseHover.highlightVectorRulesPolygon.stroke<a class="headerlink" href="#mousehoverhighlightvectorrulespolygonstroke" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>no</td>
+<td>Integer</td>
+<td>1</td>
+<td>Possible setting: width</td>
+<td>false</td>
+</tr>
+<tr>
+<td>color</td>
+<td>no</td>
+<td>Float[]</td>
+<td>[255, 0, 0, 0.9]</td>
+<td>Possible setting: color (RGBA)</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&quot;stroke&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespointline">mouseHover.highlightVectorRulesPointLine<a class="headerlink" href="#mousehoverhighlightvectorrulespointline" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Specify outline color and stroke width for highlighting lines and fill color and scale factor for highlighting points. Also a zoom level.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehoverhighlightvectorrulespointlinefill">fill</a></strong></td>
+<td></td>
+<td>Possible setting: color</td>
+<td>false</td>
+</tr>
+<tr>
+<td>stroke</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehoverhighlightvectorrulespointlinestroke">stroke</a></strong></td>
+<td></td>
+<td>Possible setting: width</td>
+<td>false</td>
+</tr>
+<tr>
+<td>image</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-mousehoverhighlightvectorrulespointlineimage">image</a></strong></td>
+<td></td>
+<td>Possible setting: scale</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespointlinefill">mouseHover.highlightVectorRulesPointLine.fill<a class="headerlink" href="#mousehoverhighlightvectorrulespointlinefill" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>no</td>
+<td>Float[]</td>
+<td>[255, 255, 255, 0.5]</td>
+<td>Possible setting: color (RGBA)</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&quot;fill&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">215</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespointlinestroke">mouseHover.highlightVectorRulesPointLine.stroke<a class="headerlink" href="#mousehoverhighlightvectorrulespointlinestroke" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>no</td>
+<td>Integer</td>
+<td>1</td>
+<td>Possible setting: width</td>
+<td>false</td>
+</tr>
+<tr>
+<td>color</td>
+<td>no</td>
+<td>Float[]</td>
+<td>[255, 255, 255, 0.5]</td>
+<td>Possible setting: color (RGBA)</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">&quot;stroke&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">]}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mousehoverhighlightvectorrulespointlineimage">mouseHover.highlightVectorRulesPointLine.image<a class="headerlink" href="#mousehoverhighlightvectorrulespointlineimage" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale</td>
+<td>no</td>
+<td>Integer</td>
+<td>1.5</td>
+<td>Possible setting: scale</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="portallanguage">portalLanguage<a class="headerlink" href="#portallanguage" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>yes</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Controls whether a button to switch the portal's language is provided.</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Controls whether debug information regarding translations is logged to the console.</td>
+</tr>
+<tr>
+<td>languages</td>
+<td>yes</td>
+<td>Object</td>
+<td><code>{ de: "deutsch", en: "englisch" }</code></td>
+<td>Language abbreviations. Please mind that matching locale files must exist.</td>
+</tr>
+<tr>
+<td>fallbackLanguage</td>
+<td>no</td>
+<td>String</td>
+<td><code>"de"</code></td>
+<td>Fallback language used if contents are not available in the currently selected language.</td>
+</tr>
+<tr>
+<td>changeLanguageOnStartWhen</td>
+<td>no</td>
+<td>String[]</td>
+<td><code>["querystring", "localStorage", "navigator", "htmlTag"]</code></td>
+<td>Order of user language detection. See <a href="https://github.com/i18next/i18next-browser-languageDetector">i18next browser language detection documentation</a> for details.</td>
+</tr>
+<tr>
+<td>loadPath</td>
+<td>no</td>
+<td>String</td>
+<td><code>"/locales/{{lng}}/{{ns}}.json"</code></td>
+<td>Path to load language files from, or a function returning such a path: <code>function(lngs, namespaces) { return path; }</code>. <code>lng</code> and <code>ns</code> are read from the path, if given, as if from a static path. You may also provide a URL like <code>"https://localhost:9001/locales/{{lng}}/{{ns}}.json"</code>. See <a href="https://github.com/i18next/i18next-http-backend">i18next http backend documentation</a> for details.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">&quot;portalLanguage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">        </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="nt">&quot;languages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">            </span><span class="nt">&quot;de&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deutsch&quot;</span><span class="p">,</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">            </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;englisch&quot;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="nt">&quot;fallbackLanguage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de&quot;</span><span class="p">,</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="nt">&quot;changeLanguageOnStartWhen&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;querystring&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;localStorage&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;navigator&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;htmlTag&quot;</span><span class="p">],</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="nt">&quot;loadPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/locales/{{lng}}/{{ns}}.json&quot;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="quickhelp">quickHelp<a class="headerlink" href="#quickhelp" title="Copy heading link to clipboard">🔗</a></h2>
+<p>See <strong><a href="../../Misc/quickHelp/">quickHelp</a></strong> for extended documentation.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imgPath</td>
+<td>no</td>
+<td>String</td>
+<td><code>"/"</code></td>
+<td>An absolute or relative path to the folder containing the quick help images.</td>
+</tr>
+<tr>
+<td>searchbarAllgemeines1</td>
+<td>no</td>
+<td>String</td>
+<td><code>"allgemein.png"</code></td>
+<td>First quick help image regarding the Searchbar, belonging to the chapter "General information". The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>searchbarAllgemeines2</td>
+<td>no</td>
+<td>String</td>
+<td><code>"allgemein_2.png"</code></td>
+<td>Second quick help image regarding the Searchbar, belonging to the chapter "General information". The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>searchbarAllgemeines3</td>
+<td>no</td>
+<td>String</td>
+<td><code>"allgemein_3.png"</code></td>
+<td>Third quick help image regarding the Searchbar, belonging to the chapter "General information". The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>searchbarFlurstueckssuche</td>
+<td>no</td>
+<td>String</td>
+<td><code>"allgemein_4.png"</code></td>
+<td>Quick help image regarding the Searchbar, belonging to the chapter "Parcel search". The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>aufbau1</td>
+<td>no</td>
+<td>String</td>
+<td><code>"themen.png"</code></td>
+<td>First quick help image regarding the layer tree (CustomTree), belonging to the structure chapter. The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>aufbau2</td>
+<td>no</td>
+<td>String</td>
+<td><code>"themen_2.png"</code></td>
+<td>Second quick help image regarding the layer tree (CustomTree), belonging to the structure chapter. The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool1</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_1.png"</code></td>
+<td>First quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool2</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_2.png"</code></td>
+<td>Second quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool3</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_3.png"</code></td>
+<td>Third quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool4</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_4.png"</code></td>
+<td>Fourth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool5</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_5.png"</code></td>
+<td>Fifth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool6</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_6.png"</code></td>
+<td>Sixth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool7</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_7.png"</code></td>
+<td>Seventh quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool8</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_8.png"</code></td>
+<td>Eighth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool9</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_9.png"</code></td>
+<td>Nineth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool10</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_10.png"</code></td>
+<td>Tenth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool11</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_11.png"</code></td>
+<td>Eleventh quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool12</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_12.png"</code></td>
+<td>Twelfth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool13</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_13.png"</code></td>
+<td>Thirteenth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool14</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_14.png"</code></td>
+<td>Fourteenth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool15</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_15.png"</code></td>
+<td>Fifteenth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+<tr>
+<td>routingTool16</td>
+<td>no</td>
+<td>String</td>
+<td><code>"routing_16.png"</code></td>
+<td>Sixteenth quick help image regarding the routing tool (RoutingTool). The image must exist in the <code>imgPath</code> folder.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="remoteinterface">remoteInterface<a class="headerlink" href="#remoteinterface" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postMessageUrl</td>
+<td>no</td>
+<td>String</td>
+<td><code>"http://localhost:8080"</code></td>
+<td>URL the portal will post to and receive messages from with the <code>postMessage</code> feature.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="nt">&quot;remoteInterface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="nt">&quot;postMessageUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8080&quot;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="tree">tree<a class="headerlink" href="#tree" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Settings for generating the tree automatically. Only works if treeType="default" in <strong><a href="../config.json/">config.json</a></strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderBy</td>
+<td>no</td>
+<td>enum["Opendata", "Inspire", "Behörde"]</td>
+<td><code>"Opendata"</code></td>
+<td>Category the layer tree is sorted by initially.</td>
+</tr>
+<tr>
+<td>layerIDsToIgnore</td>
+<td>no</td>
+<td>Array</td>
+<td></td>
+<td>Array of <code>services.json</code> layer ids not to be shown in the layer tree.</td>
+</tr>
+<tr>
+<td>layerIDsToStyle</td>
+<td>no</td>
+<td><strong><a href="#markdown-header-treelayeridstostyle">layerIDsToStyle</a></strong>[]</td>
+<td></td>
+<td>Special implementation for a HVV (Hamburg public transportation) service. Contains objects to request various styles of a layer id.</td>
+</tr>
+<tr>
+<td>metaIDsToMerge</td>
+<td>no</td>
+<td>String[]</td>
+<td></td>
+<td>All layers found in the <code>services.json</code> regarding these meta IDs are merged to a single layer of the layer tree.</td>
+</tr>
+<tr>
+<td>metaIDsToIgnore</td>
+<td>no</td>
+<td>String[]</td>
+<td></td>
+<td>All <code>services.json</code> layers listed will not be shown in the layer tree.</td>
+</tr>
+<tr>
+<td>isFolderSelectable</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Globally sets whether a selection box is provided on folders that de-/activates all layers in it. An override per element exists, see <strong><a href="../config.json/#Ordnerkonfiguration-Fachdaten">config.json</a></strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="treelayeridstostyle">tree.layerIDsToStyle<a class="headerlink" href="#treelayeridstostyle" title="Copy heading link to clipboard">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>no</td>
+<td>Sring</td>
+<td></td>
+<td>a <code>services.json</code> layer's id</td>
+</tr>
+<tr>
+<td>styles</td>
+<td>no</td>
+<td>String/String[]</td>
+<td></td>
+<td>Style to be used as string; if multiple styles are to be used, they are listed in an array.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>no</td>
+<td>String/String[]</td>
+<td></td>
+<td>Name to be used as string; if multiple names are to be used, they are listed in an array.</td>
+</tr>
+<tr>
+<td>legendUrl</td>
+<td>no</td>
+<td>String/String[]</td>
+<td></td>
+<td>Legend image URL to be used as string; if multiple legend images are to be used, their URLs are listed in an array.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nt">&quot;tree&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">        </span><span class="nt">&quot;orderBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Opendata&quot;</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">        </span><span class="nt">&quot;layerIDsToIgnore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1912&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;1913&quot;</span><span class="p">],</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">        </span><span class="nt">&quot;layerIDsToStyle&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1935&quot;</span><span class="p">,</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">                </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;geofox_Faehre&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;geofox-bahn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;geofox-bus&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;geofox_BusName&quot;</span><span class="p">],</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Fährverbindungen&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Bahnlinien&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Buslinien&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Busliniennummern&quot;</span><span class="p">],</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">                </span><span class="nt">&quot;legendURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://geoportal.metropolregion.hamburg.de/legende_mrh/hvv-faehre.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://geoportal.metropolregion.hamburg.de/legende_mrh/hvv-bahn.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://geoportal.metropolregion.hamburg.de/legende_mrh/hvv-bus.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://87.106.16.168/legende_mrh/hvv-bus.png&quot;</span><span class="p">]</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">        </span><span class="nt">&quot;metaIDsToMerge&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">            </span><span class="s2">&quot;FE4DAF57-2AF6-434D-85E3-220A20B8C0F1&quot;</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="nt">&quot;metaIDsToIgnore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">            </span><span class="s2">&quot;09DE39AB-A965-45F4-B8F9-0C339A45B154&quot;</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">        </span><span class="nt">&quot;isFolderSelectable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="metadata">metadata<a class="headerlink" href="#metadata" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>useProxy</td>
+<td>no</td>
+<td>String[]</td>
+<td></td>
+<td><em>Deprecated in the next major release. <em><a href="https://www.gdi-de.org/en">GDI-DE</a></em> recommends setting CORS headers on the required services instead.</em> Describes which metadata URLs are to be requested via proxy. The request will contain the requested URL as path, with dots replaced by underscores.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">        </span><span class="nt">&quot;useProxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">            </span><span class="s2">&quot;https://metaver.de/csw&quot;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="zoomto">zoomTo<a class="headerlink" href="#zoomto" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>|id|yes|enum["zoomToFeatureId", "zoomToGeometry"]||Id of the URL query parameter the configuration refers to.|
+|layerId|yes|String||Id of the layer the feature should be fetched from.|
+|property|yes|String||Name of the property the features should be filtered by.|
+|addFeatures|no|Boolean|true|Specifies whether the desired features should be added to the map in a separate layer.|
+|allowedValues|no|Array||Only relevant when <code>id</code> equal <code>zoomToGeometry</code>. Further filters the values allowed in the URL query parameters.|
+|styleId|no|String||Only relevant when <code>id</code> equal <code>zoomToFeatureId</code>. Id of the <code>styleObject</code> that should be used to style the features retrieved from the service.|</p>
+<p><strong>Example</strong>:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nx">zoomTo</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;zoomToGeometry&quot;</span><span class="p">,</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">            </span><span class="nx">layerId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1692&quot;</span><span class="p">,</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">            </span><span class="nx">property</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bezirk_name&quot;</span><span class="p">,</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">            </span><span class="nx">allowedValues</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">                </span><span class="s2">&quot;ALTONA&quot;</span><span class="p">,</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">                </span><span class="s2">&quot;HARBURG&quot;</span><span class="p">,</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">                </span><span class="s2">&quot;HAMBURG-NORD&quot;</span><span class="p">,</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">                </span><span class="s2">&quot;BERGEDORF&quot;</span><span class="p">,</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">                </span><span class="s2">&quot;EIMSBÜTTEL&quot;</span><span class="p">,</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">                </span><span class="s2">&quot;HAMBURG-MITTE&quot;</span><span class="p">,</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">                </span><span class="s2">&quot;WANDSBEK&quot;</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;zoomToFeatureId&quot;</span><span class="p">,</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">            </span><span class="nx">layerId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;4560&quot;</span><span class="p">,</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="w">            </span><span class="nx">property</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;flaechenid&quot;</span><span class="p">,</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">            </span><span class="nx">styleId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;location_eventlotse&quot;</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="zoomtofeature">zoomToFeature<a class="headerlink" href="#zoomtofeature" title="Copy heading link to clipboard">🔗</a></h2>
+<p><em>Deprecated in the next major release. Please use <strong><a href="#markdown-header-zoomto">zoomTo</a></strong> instead.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imgLink</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Marker link. <em>Deprecated in the next major release.</em></td>
+</tr>
+<tr>
+<td>wfsId</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>ID to a WFS layer of which features to a position are requested from.</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Attribute by which the WFS is filtered.</td>
+</tr>
+<tr>
+<td>styleId</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>A styleId from the <code>styles.json</code> may be supplied to override the map marker's design</td>
+</tr>
+<tr>
+<td>setFeature</td>
+<td>no</td>
+<td>Boolean</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>useProxy</td>
+<td>no</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td><em>Deprecated in the next major release. <em><a href="https://www.gdi-de.org/en">GDI-DE</a></em> recommends setting CORS headers on the required services instead.</em> Whether the service URL is to be requested via proxy. The request will contain the requested URL as path, with dots replaced by underdashes.</td>
+</tr>
+<tr>
+<td>addFeatures</td>
+<td>no</td>
+<td>Boolean</td>
+<td>true</td>
+<td>Specifies whether the desired features should be added to the map in a separate layer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="nt">&quot;zoomtofeature&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;flaechenid&quot;</span><span class="p">,</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">        </span><span class="nt">&quot;wfsId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4560&quot;</span><span class="p">,</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">        </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;location_eventlotse&quot;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="zoomtogeometry">zoomToGeometry<a class="headerlink" href="#zoomtogeometry" title="Copy heading link to clipboard">🔗</a></h2>
+<p><em>Deprecated in the next major release. Please use <strong><a href="#markdown-header-zoomto">zoomTo</a></strong> instead.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imgLink</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Marker link. <em>Deprecated in the next major release.</em></td>
+</tr>
+<tr>
+<td>layerId</td>
+<td>yes</td>
+<td>String</td>
+<td><code>"123456789"</code></td>
+<td>Id of the WFS layer the geometry is requested from.</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>yes</td>
+<td>String</td>
+<td><code>"district_name"</code></td>
+<td>Attribute by which the WFS is filtered.</td>
+</tr>
+<tr>
+<td>geometries</td>
+<td>yes</td>
+<td>String</td>
+<td><code>["DISTRICT1", "DISTRICT2"]</code></td>
+<td>Contains the geometries to be filtered from the WFS.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="nt">&quot;zoomToGeometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">        </span><span class="nt">&quot;layerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">        </span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;district_name&quot;</span><span class="p">,</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">        </span><span class="nt">&quot;geometries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;DISTRICT1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DISTRICT2&quot;</span><span class="p">]</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="layerselector">layerSelector<a class="headerlink" href="#layerselector" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Module to configure interactions with the layertree and the map, executed on a defined event.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>events</td>
+<td>yes</td>
+<td>Object[]</td>
+<td></td>
+<td>Events to be executed from other modules to select or add layers in layertree.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>no</td>
+<td>Object</td>
+<td></td>
+<td>Object to overwrite the missing parts in the events objects.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">            </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modulname&quot;</span><span class="p">,</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">            </span><span class="nt">&quot;deselectPreviousLayers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">            </span><span class="nt">&quot;layerIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1001&quot;</span><span class="p">]</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">            </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modulname&quot;</span><span class="p">,</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">            </span><span class="nt">&quot;deselectPreviousLayers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">            </span><span class="nt">&quot;layerIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1000&quot;</span><span class="p">]</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">        </span><span class="nt">&quot;openFolderForLayerIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="layerselectorevents">layerSelector.events<a class="headerlink" href="#layerselectorevents" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Array of Objects. In a single object, interactions with the layertree and the map can be configured. Those interactions are executed on a defined event.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>The name of the event that can trigger actions. For possible values and their meanings see the table below.</td>
+</tr>
+<tr>
+<td>showLayerId</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Layer ID of the layer to be shown in the layer tree. Opens the layer tree and extends all correspoding folders at the location of the defined layer. Only in destop mode.</td>
+</tr>
+<tr>
+<td>layerIds</td>
+<td>no</td>
+<td>String[]</td>
+<td></td>
+<td>Layer IDs to select in the layer tree.</td>
+</tr>
+<tr>
+<td>openFolderForLayerIds</td>
+<td>no</td>
+<td>String[]</td>
+<td></td>
+<td>List of Layer IDs to open their folders in the layer tree.</td>
+</tr>
+<tr>
+<td>extent</td>
+<td>no</td>
+<td>Integer[]</td>
+<td></td>
+<td>Bounding Box to zoom to when this event is triggered.</td>
+</tr>
+<tr>
+<td>deselectPreviousLayers</td>
+<td>no</td>
+<td>String</td>
+<td>always</td>
+<td>Deselects all selected layers if it has the value 'always'. For value 'none' nothing happens.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">        </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;measure_geometry&quot;</span><span class="p">,</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">        </span><span class="nt">&quot;showLayerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">        </span><span class="nt">&quot;layerIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;2345&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;3456&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;4567&quot;</span><span class="p">],</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">        </span><span class="nt">&quot;openFolderForLayerIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;2345&quot;</span><span class="p">],</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">        </span><span class="nt">&quot;extent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">550697</span><span class="p">,</span><span class="w"> </span><span class="mi">5927004</span><span class="p">,</span><span class="mi">579383</span><span class="p">,</span><span class="w"> </span><span class="mi">5941340</span><span class="p">],</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">        </span><span class="nt">&quot;deselectPreviousLayers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="p">}]</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<p><strong>Values for event</strong></p>
+<p>Events that can trigger actions.</p>
+<table>
+<thead>
+<tr>
+<th>event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comparefeatures_select</td>
+<td>When a layer is selected for comparison in CompareFeatures module</td>
+</tr>
+<tr>
+<td>fileimport_imported</td>
+<td>When files were successfully imported in FileImport module</td>
+</tr>
+<tr>
+<td>measure_geometry</td>
+<td>When the selected geometry value changed in Measure module</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="featureviaurl">featureViaURL<a class="headerlink" href="#featureviaurl" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>epsg</td>
+<td>no</td>
+<td>Integer</td>
+<td><code>4326</code></td>
+<td>EPSG code for coordinate reference system to translate coordinates to.</td>
+</tr>
+<tr>
+<td>layers</td>
+<td>yes</td>
+<td><strong><a href="#markdown-header-featureviaurllayers">layers</a></strong>[]</td>
+<td></td>
+<td>Layer configuration array for given features.</td>
+</tr>
+<tr>
+<td>zoomTo</td>
+<td></td>
+<td>String/String[]</td>
+<td></td>
+<td>Id of <strong><a href="#markdown-header-featureviaurllayers">layers</a></strong> or array thereof, to which the Masterportal initially zooms. If none are given, the usual initial center coordinate is used.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="nt">&quot;featureViaURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">        </span><span class="nt">&quot;epsg&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25832</span><span class="p">,</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">        </span><span class="nt">&quot;zoomTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlPointFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="nt">&quot;layers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlPointFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL Point Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_points&quot;</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlLineFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL Line Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_lines&quot;</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlPolygonFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL Polygon Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_polygons&quot;</span>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlMultiPointFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MultiPoint&quot;</span><span class="p">,</span>
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL MultiPoint Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_mulitpoints&quot;</span>
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-30"><a id="__codelineno-25-30" name="__codelineno-25-30" href="#__codelineno-25-30"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-31"><a id="__codelineno-25-31" name="__codelineno-25-31" href="#__codelineno-25-31"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlMultiLineStringFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MultiLineString&quot;</span><span class="p">,</span>
+</span><span id="__span-25-33"><a id="__codelineno-25-33" name="__codelineno-25-33" href="#__codelineno-25-33"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL MultiLineString Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34" href="#__codelineno-25-34"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_multilinestring&quot;</span>
+</span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35" href="#__codelineno-25-35"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-36"><a id="__codelineno-25-36" name="__codelineno-25-36" href="#__codelineno-25-36"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-25-37"><a id="__codelineno-25-37" name="__codelineno-25-37" href="#__codelineno-25-37"></a><span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlMultiPolygonFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-25-38"><a id="__codelineno-25-38" name="__codelineno-25-38" href="#__codelineno-25-38"></a><span class="w">                </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MultiPolygon&quot;</span><span class="p">,</span>
+</span><span id="__span-25-39"><a id="__codelineno-25-39" name="__codelineno-25-39" href="#__codelineno-25-39"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL MultiPolygon Features&quot;</span><span class="p">,</span>
+</span><span id="__span-25-40"><a id="__codelineno-25-40" name="__codelineno-25-40" href="#__codelineno-25-40"></a><span class="w">                </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_multipolygons&quot;</span>
+</span><span id="__span-25-41"><a id="__codelineno-25-41" name="__codelineno-25-41" href="#__codelineno-25-41"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-25-42"><a id="__codelineno-25-42" name="__codelineno-25-42" href="#__codelineno-25-42"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-25-43"><a id="__codelineno-25-43" name="__codelineno-25-43" href="#__codelineno-25-43"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-44"><a id="__codelineno-25-44" name="__codelineno-25-44" href="#__codelineno-25-44"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="featureviaurllayers">featureViaURL.layers<a class="headerlink" href="#featureviaurllayers" title="Copy heading link to clipboard">🔗</a></h3>
+<p>The parameters described apply for each entry of the <strong><a href="#markdown-header-featureviaurllayers">layers</a></strong> array.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>unique ID for the layer to be created</td>
+</tr>
+<tr>
+<td>geometryType</td>
+<td>yes</td>
+<td>enum["LineString", "Point", "Polygon", "MultiPoint", "MultiLineString", "MultiPolygon"]</td>
+<td></td>
+<td>Geometry type of the feature to be shown.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>String</td>
+<td></td>
+<td>Layer name displayed in the layer tree, the legend, and the GFI pop-up.</td>
+</tr>
+<tr>
+<td>styleId</td>
+<td>no</td>
+<td>String</td>
+<td></td>
+<td>Style id to be used for the feature, referring to the <strong><a href="style.json.md">style.json</a></strong>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="nt">&quot;layers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urlPolygonFeatures&quot;</span><span class="p">,</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">        </span><span class="nt">&quot;geometryType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;URL Polygon Features&quot;</span><span class="p">,</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">        </span><span class="nt">&quot;styleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url_polygons&quot;</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="p">}]</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="layerinformation">layerInformation<a class="headerlink" href="#layerinformation" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Configuration for the layerInformation window.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showUrlGlobal</td>
+<td>no</td>
+<td>Boolean</td>
+<td></td>
+<td>parameter to globally toggle the dispaly of the service url for all layers. Referring to the "urlIsVisible" Parameter (see <strong><a href="../config.json/#markdown-header-themenconfiglayer">config.json</a></strong> )</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="nt">&quot;layerInformation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">        </span><span class="nt">&quot;showUrlGlobal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="layersequence">layerSequence<a class="headerlink" href="#layersequence" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Configuration for the layerSequence.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>moveModelInTree</td>
+<td>no</td>
+<td>Boolean</td>
+<td>true</td>
+<td>Flag whether it should be possible to move a layer in the topic tree despite a defined LayerSequence.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="nt">&quot;layerSequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">        </span><span class="nt">&quot;moveModelInTree&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<blockquote>
+<p><strong><a href="languages.md">Masterportal translation documentation</a></strong></p>
+<p><strong><a href="doc.md">Return to the Masterportal documentation</a></strong></p>
+</blockquote>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.masterportal.org/home.html" target="_blank" rel="noopener" title="www.masterportal.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-40-176h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" target="_blank" rel="noopener" title="bitbucket.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.instant", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../../_docsCustomization/js/copyHeadingLinkToClipboard.js"></script>
+      
+    
+  </body>
+</html>

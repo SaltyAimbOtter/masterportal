@@ -1,0 +1,2419 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Masterportal Open Source Community">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Remote interface - Masterportal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_docsCustomization/css/contentAreaFullWidth.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#remote-interface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Masterportal" class="md-header__button md-logo" aria-label="Masterportal" data-md-component="logo">
+      
+  <img src="../../../_media/Logo_Masterportal.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Masterportal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Remote interface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M223.5 32C100 32 0 132.3 0 256s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BitBucket
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Setup/About/" class="md-tabs__link">
+          
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../User/About/" class="md-tabs__link">
+          
+  
+  User Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About/" class="md-tabs__link">
+          
+  
+  Developer
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Masterportal" class="md-nav__button md-logo" aria-label="Masterportal" data-md-component="logo">
+      
+  <img src="../../../_media/Logo_Masterportal.svg" alt="logo">
+
+    </a>
+    Masterportal
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BitBucket
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Setup/About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Setup/quick-start-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    User Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Global Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Global-Config/services.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    services.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Global-Config/rest-services.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rest-services.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Global-Config/style.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    style.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Portal Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Portal Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Portal-Config/config.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Portal-Config/config.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    config.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/urlParameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URL Parameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Misc/translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Misc/sensorThings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SensorThings API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Misc/quickHelp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Help Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Proxies (deprecated)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Proxies (deprecated)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Proxies/proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User/Proxies/proxyconf.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    proxyconf.json
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Developer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Developer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setupDev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/vueTutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/backboneTutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backbone Tutorial (deprecated)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tech
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tech
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fonts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fonts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/browserTest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/unittestingBackbone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backbone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/unitTestVue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contributing/gitWorkflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contributing/codingConventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contributing/codingConventionsInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Conventions Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contributing/library_evaluation/Library_Evaluation.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Library Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contributing/versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generic-remote-interface-to-call-vuex-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generic remote interface to call VueX actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic remote interface to call VueX actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calling-a-dedicated-function-via-remote-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calling a dedicated function via remote interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calling a dedicated function via remote interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-dedicated-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of dedicated functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List of dedicated functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#showpositionbyextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      showPositionByExtent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="showPositionByExtent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showpositionbyextentnoscroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      showPositionByExtentNoScroll
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="showPositionByExtentNoScroll">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactfeaturebyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      transactFeatureById
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="transactFeatureById">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zoomtoextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      zoomToExtent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="zoomToExtent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlightfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      highlightfeature
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="highlightfeature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hideposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      hidePosition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="hidePosition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generic-remote-interface-for-backboneradio-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generic remote interface for Backbone.Radio (deprecated)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic remote interface for Backbone.Radio (deprecated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masterportal-communication-to-the-parent-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masterportal communication to the parent window
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Masterportal communication to the parent window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masterportal-communication-to-the-parent-window-via-backboneradio-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masterportal communication to the parent window via Backbone.Radio (deprecated)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Masterportal communication to the parent window via Backbone.Radio (deprecated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-integration-of-the-master-portal-into-an-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial: Integration of the master portal into an iframe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial: Integration of the master portal into an iframe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-first-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      The first step
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-second-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      The second step
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-third-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      The third step
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/default/docs/Developer/RemoteInterface/remoteInterface.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="remote-interface">Remote interface<a class="headerlink" href="#remote-interface" title="Copy heading link to clipboard">🔗</a></h1>
+<p>The remote interface allows programmatic interaction with the Masterportal. It gives access to all registered VueX actions and a set of dedicated additional functions.</p>
+<h2 id="generic-remote-interface-to-call-vuex-actions">Generic remote interface to call VueX actions<a class="headerlink" href="#generic-remote-interface-to-call-vuex-actions" title="Copy heading link to clipboard">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespace</td>
+<td>String</td>
+<td>Namespace of VueX module</td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>Name of action to call on module</td>
+</tr>
+<tr>
+<td>args</td>
+<td>Object</td>
+<td>Parameter object provided as payload to action</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Any VueX action may be called as follows:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">myIframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Name/Space/Of/VueX/Store&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nameOfAction&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;valueX&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>The remote interface will interpret the message given and produce the following call:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="s2">&quot;Name/Space/Of/VueX/Store/nameOfAction&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;valueX&quot;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="calling-a-dedicated-function-via-remote-interface">Calling a dedicated function via remote interface<a class="headerlink" href="#calling-a-dedicated-function-via-remote-interface" title="Copy heading link to clipboard">🔗</a></h2>
+<p>The singular key given to <code>.postMessage()</code>'s parameter object is to correspond to a function name. The value of this key must be an array and will be spread to be the call's parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>${nameOfFunction}</code></td>
+<td>Array</td>
+<td>Parameters to call <code>${nameOfFunction}</code> with</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>Receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Copy heading link to clipboard">🔗</a></h3>
+<p>A function may be called as follows:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nameOfFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;this should be the name of a function&quot;</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nx">myIframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">nameOfFunction</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">domain</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="list-of-dedicated-functions">List of dedicated functions<a class="headerlink" href="#list-of-dedicated-functions" title="Copy heading link to clipboard">🔗</a></h3>
+<h4 id="showpositionbyextent">showPositionByExtent<a class="headerlink" href="#showpositionbyextent" title="Copy heading link to clipboard">🔗</a></h4>
+<p>A map marker will be placed at the center of the given extent, and the map's view will center on it.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showPositionByExtent</td>
+<td>Array</td>
+<td>extent; map marker will be set to its center</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_2">Example<a class="headerlink" href="#example_2" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s2">&quot;showPositionByExtent&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">xMin</span><span class="p">,</span><span class="w"> </span><span class="nx">yMin</span><span class="p">,</span><span class="w"> </span><span class="nx">xMax</span><span class="p">,</span><span class="w"> </span><span class="nx">yMax</span><span class="p">]</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="showpositionbyextentnoscroll">showPositionByExtentNoScroll<a class="headerlink" href="#showpositionbyextentnoscroll" title="Copy heading link to clipboard">🔗</a></h4>
+<p>A map marker will be placed at the center of the given extent. The map is <strong>not</strong> center to it, hence it may remain outside of the user's view.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showPositionByExtent</td>
+<td>Array</td>
+<td>extent; map marker will be set to its center</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_3">Example<a class="headerlink" href="#example_3" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="s2">&quot;showPositionByExtentNoScroll&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">xMin</span><span class="p">,</span><span class="w"> </span><span class="nx">yMin</span><span class="p">,</span><span class="w"> </span><span class="nx">xMax</span><span class="p">,</span><span class="w"> </span><span class="nx">yMax</span><span class="p">]</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="transactfeaturebyid">transactFeatureById<a class="headerlink" href="#transactfeaturebyid" title="Copy heading link to clipboard">🔗</a></h4>
+<p>Modify a WFS-T layer's feature, triggering a server interaction.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transactFeaturesById</td>
+<td>String</td>
+<td>feature id</td>
+</tr>
+<tr>
+<td>layerId</td>
+<td>String</td>
+<td>WFS-T layer id</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>String</td>
+<td>JSON containing feature attributes</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>String</td>
+<td>name of the WFS-T operation that is to be executed; Currently only "update" is available</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_4">Example<a class="headerlink" href="#example_4" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;the id of the feature to modify&quot;</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="s2">&quot;transactFeatureById&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="s2">&quot;layerId&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">layerId</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="s2">&quot;attributes&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">attrs</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="s2">&quot;mode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;update&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="zoomtoextent">zoomToExtent<a class="headerlink" href="#zoomtoextent" title="Copy heading link to clipboard">🔗</a></h4>
+<p>The map's view will fit the given extent.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zoomToExtent</td>
+<td>Array</td>
+<td>extent</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_5">Example<a class="headerlink" href="#example_5" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="s2">&quot;zoomToExtent&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">xmin</span><span class="p">,</span><span class="w"> </span><span class="nx">ymin</span><span class="p">,</span><span class="w"> </span><span class="nx">xmax</span><span class="p">,</span><span class="w"> </span><span class="nx">ymax</span><span class="p">]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="highlightfeature">highlightfeature<a class="headerlink" href="#highlightfeature" title="Copy heading link to clipboard">🔗</a></h4>
+<p>Highlight a vector feature on the map.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>highlightfeature</td>
+<td>String</td>
+<td>id of layer and feature as comma-separated string</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_6">Example<a class="headerlink" href="#example_6" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="s2">&quot;highlightfeature&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;layerid,featureId&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="hideposition">hidePosition<a class="headerlink" href="#hideposition" title="Copy heading link to clipboard">🔗</a></h4>
+<p>Hide the map marker.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hidePosition</td>
+<td>String</td>
+<td>used standalone (not in object)</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example_7">Example<a class="headerlink" href="#example_7" title="Copy heading link to clipboard">🔗</a></h5>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">&quot;hidePosition&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="generic-remote-interface-for-backboneradio-deprecated">Generic remote interface for <code>Backbone.Radio</code> (deprecated)<a class="headerlink" href="#generic-remote-interface-for-backboneradio-deprecated" title="Copy heading link to clipboard">🔗</a></h2>
+<p>The functions registered to the <code>Backbone.Radio</code> element may also be used via <code>postMessage()</code>. They are called by channel and function name.</p>
+<blockquote>
+<p>Please mind that the usage of Backbone.Radio itself is currently deprecated. Backbone will eventually be removed.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>radio_channel</td>
+<td>String</td>
+<td>radio channel to target</td>
+</tr>
+<tr>
+<td>radio_function</td>
+<td>String</td>
+<td>radio channel function to call</td>
+</tr>
+<tr>
+<td>radio_para_object</td>
+<td>Object</td>
+<td>optional parameter object forwarded to the called function</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>String</td>
+<td>receiver window's domain</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_8">Example<a class="headerlink" href="#example_8" title="Copy heading link to clipboard">🔗</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myIframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;my-iframe&quot;</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">iframe</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="s2">&quot;radio_channel&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MyRadioChannel&quot;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="s2">&quot;radio_function&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myRequestedFunction&quot;</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="s2">&quot;radio_para_object&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">},</span><span class="w"> </span><span class="nx">domain</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This will construct and execute the following call.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">Radio</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="s2">&quot;MyRadioChannel&quot;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="s2">&quot;myRequestedFunction&quot;</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="masterportal-communication-to-the-parent-window">Masterportal communication to the parent window<a class="headerlink" href="#masterportal-communication-to-the-parent-window" title="Copy heading link to clipboard">🔗</a></h2>
+<p>Previously the <em>top-down</em> communication (parent to Masterportal) has been shown. The Masterportal may also communicate in the opposite direction.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>params</td>
+<td>Object</td>
+<td>parameter object sent to parent window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Copy heading link to clipboard">🔗</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// From a Vue component</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$remoteInterface</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">({</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// From a VueX action</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">_vm</span><span class="p">.</span><span class="nx">$remoteInterface</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">({</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>The remote interface translates both to the following call:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nx">parent</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">},</span><span class="w"> </span><span class="nx">options</span><span class="p">.</span><span class="nx">postMessageUrl</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="masterportal-communication-to-the-parent-window-via-backboneradio-deprecated">Masterportal communication to the parent window via <code>Backbone.Radio</code> (deprecated)<a class="headerlink" href="#masterportal-communication-to-the-parent-window-via-backboneradio-deprecated" title="Copy heading link to clipboard">🔗</a></h2>
+<blockquote>
+<p>Please mind that the usage of Backbone.Radio itself is currently deprecated. Backbone will eventually be removed.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>params</td>
+<td>Object</td>
+<td>parameter object sent to parent window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_9">Example<a class="headerlink" href="#example_9" title="Copy heading link to clipboard">🔗</a></h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nx">Radio</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="s2">&quot;RemoteInterface&quot;</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="s2">&quot;postMessage&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="s2">&quot;param1&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="s2">&quot;paramX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;paramX&quot;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="tutorial-integration-of-the-master-portal-into-an-iframe">Tutorial: Integration of the master portal into an iframe<a class="headerlink" href="#tutorial-integration-of-the-master-portal-into-an-iframe" title="Copy heading link to clipboard">🔗</a></h2>
+<p>The following tutorial shows how to use the masterportal remote interface within an iFrame.</p>
+<h3 id="the-first-step">The first step<a class="headerlink" href="#the-first-step" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Configure the remoteInterface in the config.js of a portal. This entry is necessary to open the interface to the outside of the portal.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">...</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nx">remoteInterface</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">        </span><span class="nx">postMessageUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://localhost:9001&quot;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">...</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="the-second-step">The second step<a class="headerlink" href="#the-second-step" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Configure the input map and in it the target projection in the config.js of the same portals as the first step. Coordinates will be translated to it before being communicated via remoteInterface.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">...</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nx">inputMap</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">        </span><span class="nx">targetProjection</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EPSG:4326&quot;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">...</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="the-third-step">The third step<a class="headerlink" href="#the-third-step" title="Copy heading link to clipboard">🔗</a></h3>
+<p>Create an html-file and add the follow content. In it, an iframe is created in which the portal <code>https://localhost:9001/portal/master</code> is loaded. Then 3 buttons are created and a click event is assigned to each.</p>
+<p>Note: The html-file must be stored in a path that is accessible via the localhost.</p>
+<p>The example can also be called directly here with a running server:  <strong><a href="https://localhost:9001/doc/remoteInterface/iframeExample.html">iframe Example</a></strong>.
+To do this, the following must be added to <code>portal/master/config.js</code></p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nx">remoteInterface</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="nx">postMessageUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://localhost:9001&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">},</span>
+</span></code></pre></div>
+<p>Example of an iframe:
+<div class="language-html highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:100%&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">&lt;</span><span class="nt">body</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:100%&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="nt">html</span><span class="o">,</span><span class="w"> </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">height</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="cm">&lt;!-- Create a iframe with the portal master as source. --&gt;</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">&lt;</span><span class="nt">iframe</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    <span class="na">id</span><span class="o">=</span><span class="s">&quot;iframe&quot;</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://localhost:9001/portal/master&quot;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;85%&quot;</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;SELFHTML_in_a_box&quot;</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="cm">&lt;!-- Createthree buttons. --&gt;</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b1&quot;</span><span class="p">&gt;</span>1<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b2&quot;</span><span class="p">&gt;</span>2<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b3&quot;</span><span class="p">&gt;</span>3<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">    </span><span class="c1">// Gets the elements from dom.</span>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">iframe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;iframe&quot;</span><span class="p">),</span>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="w">        </span><span class="nx">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;b1&quot;</span><span class="p">),</span>
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="w">        </span><span class="nx">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;b2&quot;</span><span class="p">),</span>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="w">        </span><span class="nx">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;b3&quot;</span><span class="p">);</span>
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">    </span><span class="c1">// Sets the screen back to the start scale</span>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">    </span><span class="nx">b1</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="w">        </span><span class="nx">iframe1</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a><span class="w">            </span><span class="nx">radio_channel</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RemoteInterface&quot;</span><span class="p">,</span>
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="w">            </span><span class="nx">radio_function</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;resetView&quot;</span><span class="p">,</span>
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="w">            </span><span class="nx">radio_para_object</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="w">        </span><span class="p">});</span>
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a>
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="w">    </span><span class="c1">// Outputs a message with the message &quot;foo&quot;.</span>
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="w">    </span><span class="nx">b2</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a><span class="w">        </span><span class="nx">iframe1</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="w">            </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Alerting&quot;</span><span class="p">,</span>
+</span><span id="__span-18-46"><a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a><span class="w">            </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;addSingleAlert&quot;</span><span class="p">,</span>
+</span><span id="__span-18-47"><a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a><span class="w">            </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">}</span>
+</span><span id="__span-18-48"><a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a><span class="w">        </span><span class="p">});</span>
+</span><span id="__span-18-49"><a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-18-50"><a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a>
+</span><span id="__span-18-51"><a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a><span class="w">    </span><span class="c1">// Starts a draw event. A polygon can be drawn on the map with the mouse.</span>
+</span><span id="__span-18-52"><a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a><span class="w">    </span><span class="nx">b3</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-53"><a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a><span class="w">        </span><span class="nx">iframe1</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span>
+</span><span id="__span-18-54"><a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a><span class="w">            </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tools/Draw&quot;</span><span class="p">,</span>
+</span><span id="__span-18-55"><a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a><span class="w">            </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;initializeWithoutGUI&quot;</span><span class="p">,</span>
+</span><span id="__span-18-56"><a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a><span class="w">            </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;drawType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Polygon&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">127</span><span class="p">,</span><span class="mf">255</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;opacity&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;maxFeatures&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;initialJSON&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
+</span><span id="__span-18-57"><a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a><span class="w">        </span><span class="p">});</span>
+</span><span id="__span-18-58"><a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-18-59"><a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a>
+</span><span id="__span-18-60"><a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a><span class="w">    </span><span class="c1">// Logs the message event.</span>
+</span><span id="__span-18-61"><a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a><span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">messageEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-62"><a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messageEvent</span><span class="p">);</span>
+</span><span id="__span-18-63"><a id="__codelineno-18-63" name="__codelineno-18-63" href="#__codelineno-18-63"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">messageEvent</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;portalReady&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-64"><a id="__codelineno-18-64" name="__codelineno-18-64" href="#__codelineno-18-64"></a><span class="w">            </span><span class="nx">Radio</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s2">&quot;RemoteInterface&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;getZoomLevel&quot;</span><span class="p">);</span>
+</span><span id="__span-18-65"><a id="__codelineno-18-65" name="__codelineno-18-65" href="#__codelineno-18-65"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-18-66"><a id="__codelineno-18-66" name="__codelineno-18-66" href="#__codelineno-18-66"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+</span><span id="__span-18-67"><a id="__codelineno-18-67" name="__codelineno-18-67" href="#__codelineno-18-67"></a>
+</span><span id="__span-18-68"><a id="__codelineno-18-68" name="__codelineno-18-68" href="#__codelineno-18-68"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-18-69"><a id="__codelineno-18-69" name="__codelineno-18-69" href="#__codelineno-18-69"></a>
+</span><span id="__span-18-70"><a id="__codelineno-18-70" name="__codelineno-18-70" href="#__codelineno-18-70"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.masterportal.org/home.html" target="_blank" rel="noopener" title="www.masterportal.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-40-176h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bitbucket.org/geowerkstatt-hamburg/masterportal/" target="_blank" rel="noopener" title="bitbucket.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.instant", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../../_docsCustomization/js/copyHeadingLinkToClipboard.js"></script>
+      
+    
+  </body>
+</html>
