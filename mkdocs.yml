@@ -53,6 +53,11 @@ markdown_extensions:
 
     - attr_list
 
+    # Icons and Emojis
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
     -   toc:
             permalink: 🔗
             permalink_title: Copy heading link to clipboard
@@ -71,29 +76,31 @@ extra_javascript:
 
 nav:
     -   Home: index.md
-    -   Setup: Setup/quick-start.md
-    - User Documentation:
-          - "About": "User/About.md"
-          - Global Settings:
-                - 'services.json': User/Global-Config/services.json.md
-                - 'rest-services.json': User/Global-Config/rest-services.json.md
-                - 'style.json': User/Global-Config/style.json.md
-          - Portal Settings:
-                - 'config.js': User/Portal-Config/config.js.md
-                - 'config.json': User/Portal-Config/config.json.md
-          - Miscellaneous:
-                - 'URL Parameters': User/urlParameter.md
-                - 'Translations': User/Misc/translations.md
-                - 'SensorThings API': User/Misc/sensorThings.md
-                - 'Quick Help Dialog': User/Misc/quickHelp.md
-          - 'Proxies (deprecated)':
-                - 'Proxy': User/Proxies/proxy.md
-                - 'proxyconf.json': User/Proxies/proxyconf.json.md
+    -   Setup:
+            -   "About": "Setup/About.md"
+            - "Quick Start Tutorial": Setup/quick-start-tutorial.md
+    -   User Documentation:
+            -   "About": "User/About.md"
+            -   Global Settings:
+                    -   'services.json': User/Global-Config/services.json.md
+                    -   'rest-services.json': User/Global-Config/rest-services.json.md
+                    -   'style.json': User/Global-Config/style.json.md
+            -   Portal Settings:
+                    -   'config.js': User/Portal-Config/config.js.md
+                    -   'config.json': User/Portal-Config/config.json.md
+            -   Miscellaneous:
+                    -   'URL Parameters': User/urlParameter.md
+                    -   'Translations': User/Misc/translations.md
+                    -   'SensorThings API': User/Misc/sensorThings.md
+                    -   'Quick Help Dialog': User/Misc/quickHelp.md
+            -   'Proxies (deprecated)':
+                    -   'Proxy': User/Proxies/proxy.md
+                    -   'proxyconf.json': User/Proxies/proxyconf.json.md
 
     -   Developer:
             -   'Setup': Dev/setupDev.md
             -   'Testing':
-                    - 'Unit Tests': Dev/testing/browserTest.md
-                    - 'Backbone': Dev/testing/unittestingBackbone.md
-                    - 'Vue': Dev/testing/unitTestVue.md
+                    -   'Unit Tests': Dev/testing/browserTest.md
+                    -   'Backbone': Dev/testing/unittestingBackbone.md
+                    -   'Vue': Dev/testing/unitTestVue.md
 
