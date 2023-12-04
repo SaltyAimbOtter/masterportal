@@ -1,5 +1,3 @@
->[Return to the Masterportal documentation](doc.md)
-
 # URL parameters
 
 Special URL parameters exist to change configuration details or execute initial actions on opening the Masterportal. The URL parameter list begins with a `"?"`, and individual parameters are separated with `"&"` characters. The Parameters are not case sensitive.
