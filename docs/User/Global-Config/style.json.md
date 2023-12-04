@@ -586,15 +586,15 @@ The polygonFillHatch allows drawing various patterns to distinguish polygons by 
 
 With the example style above, the following patterns are rendered, where `pattern` and `lineWidth` are adjusted as follows:
 
-|`polygonFillHatch` override|Result|
-|-|-|
-|`{"patternCode": "rectangle", "lineWidth": 2}`|![Polygon Fill Rectangle Hatch Pattern Example](images/style/style.rectangle.png)|
-|`{"patternCode": "triangle", "lineWidth": 1}`|![Polygon Fill Triangle Hatch Pattern Example](images/style/style.triangle.png)|
-|`{"patternCode": "diamond", "lineWidth": 1}`|![Polygon Fill Diamond Hatch Pattern Example](images/style/style.diamond.png)|
-|`{"patternCode": "circle", "lineWidth": 2}`|![Polygon Fill Circle Hatch Pattern Example](images/style/style.circle.png)|
-|`{"patternCode": "circle", "lineWidth": 10}`|![Polygon Fill Filled Circle Hatch Pattern Example](images/style/style.filledcircle.png)|
-|`{"patternCode": "diagonal", "lineWidth": 10}`|![Polygon Fill Diagonal Hatch Pattern Example](images/style/style.diagonal.png)|
-|`{"patternCode": "zig-line", "lineWidth": 10}`|![Polygon Fill Zig-Line Hatch Pattern Example](images/style/style.zigline.png)|
+| `polygonFillHatch` override                    | Result                                                                                                     |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| `{"patternCode": "rectangle", "lineWidth": 2}` | ![Polygon Fill Rectangle Hatch Pattern Example](../../_media/User/Global-Config/style/style.rectangle.png) |
+| `{"patternCode": "triangle", "lineWidth": 1}`  | ![Polygon Fill Triangle Hatch Pattern Example](../../_media/User/Global-Config/style/style.triangle.png)                            |
+| `{"patternCode": "diamond", "lineWidth": 1}`   | ![Polygon Fill Diamond Hatch Pattern Example](../../_media/User/Global-Config/style/style.diamond.png)                              |
+| `{"patternCode": "circle", "lineWidth": 2}`    | ![Polygon Fill Circle Hatch Pattern Example](../../_media/User/Global-Config/style/style.circle.png)                                |
+| `{"patternCode": "circle", "lineWidth": 10}`   | ![Polygon Fill Filled Circle Hatch Pattern Example](../../_media/User/Global-Config/style/style.filledcircle.png)                   |
+| `{"patternCode": "diagonal", "lineWidth": 10}` | ![Polygon Fill Diagonal Hatch Pattern Example](../../_media/User/Global-Config/style/style.diagonal.png)                            |
+| `{"patternCode": "zig-line", "lineWidth": 10}` | ![Polygon Fill Zig-Line Hatch Pattern Example](../../_media/User/Global-Config/style/style.zigline.png)                             |
 
 The alternatives `"zig-lines-horizontal"` and `"diagonal-right"` match the above patterns rotated by 90°.
 
@@ -638,7 +638,7 @@ The parameters match the [arc](https://developer.mozilla.org/en-US/docs/Web/API/
 
 With these, the following example pattern resembling a commonly used deciduous tree symbol can be produced:
 
-![Polygon Fill Hatch Pattern Expert Feature Tree Pattern Example](images/style/style.trees.png)
+![Polygon Fill Hatch Pattern Expert Feature Tree Pattern Example](../../_media/User/Global-Config/style/style.trees.png)
 
 It is drawn with three elements: A 2/3 circle describing the general shape, and a 1/3 circle to the right and a short line at the ground level to indicate shadow.
 
