@@ -63,3 +63,6 @@ npm-debug.log
 #ignore pipeline files
 .gitlab-ci.yml
 bitbucket-pipelines.yml
+
+# Ignore mkdocs build dir
+site/*
