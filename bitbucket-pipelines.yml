@@ -145,3 +145,16 @@ pipelines:
                     - git clone --single-branch --branch dev https://geowerkstatt@bitbucket.org/geowerkstatt-hamburg/masterportal.git
                     - cd masterportal
                     - git push https://$OpenCode_User:$OpenCode_Password@gitlab.opencode.de/geowerkstatt-hamburg/masterportal.git -f
+        mkdocs:
+            - step:
+                name: create mkdocs
+                image: python:3.8
+                caches:
+                    - pip
+                script:
+                    - pip install mkdocs-material==9.5.3
+                    - pip install mike==2.0.0
+                    - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
+                    - git checkout gh_pages
+                    - git push 
+
