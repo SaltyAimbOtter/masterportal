@@ -156,5 +156,5 @@ pipelines:
                     - pip install mike==2.0.0
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
                     - apt-get update && apt-get install ncftp
-                    - ncftpput -v -u "$LGV_TEST_FTP_USERNAME" -p "$LGV_TEST_FTP_PASSWORD" -R ftp://test.geoportal-hamburg.de/ masterportal_docs_v3.0.0-beta2 /opt/atlassian/pipelines/agent/build/site/*
+                    - ncftpput -v -u "$LGV_TEST_FTP_USERNAME" -p "$LGV_TEST_FTP_PASSWORD" -R ftp://qs.geoportal-hamburg.de/ masterportal_docs_v3.0.0-beta2 /opt/atlassian/pipelines/agent/build/site/*
                     - echo Finished uploading /opt/atlassian/pipelines/agent/build/site files to https://test.geoportal-hamburg.de/
