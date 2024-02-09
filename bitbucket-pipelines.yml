@@ -13,7 +13,7 @@ definitions:
             - dist/**
         script:
             - export FTP_USERNAME="$LGV_TEST_FTP_USERNAME"
-            - export FTP_PASSWORD="$LGV_TEST_FTP_PASSWORD"
+            - export FTP_PASSWORD="$LGV_TEST_FTP_USERNAME"
             - export FTP_SOURCE_PATH="dist"
             - export FTP_TARGET_URL="ftpes://test.geoportal-hamburg.de/"
             - export FTP_GITLOGFILE="testGitLog"
@@ -155,6 +155,12 @@ pipelines:
                     - pip install mkdocs-material==9.5.3
                     - pip install mike==2.0.0
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
-                    - git checkout gh_pages
-                    - git push 
+                    - pipe: atlassian/ftp-deploy:0.7.0
+                      variables:
+                        USER: $LGV_TEST_FTP_USERNAME
+                        PASSWORD: $LGV_TEST_FTP_USERNAME
+                        SERVER: 'https://test.geoportal-hamburg.de/'
+                        REMOTE_PATH: /masterportlDocs_v3.0.0-beta2
+                        DELETE_FLAG: 'false' # Don't delete existing files
+                        EXTRA_ARGS: "--exclude=.bitbucket/ --exclude=.git/ --exclude=bitbucket-pipelines.yml --exclude=.gitignore" # Ignore these
 
