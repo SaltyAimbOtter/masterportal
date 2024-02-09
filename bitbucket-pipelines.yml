@@ -152,7 +152,7 @@ pipelines:
                 caches:
                     - pip
                 script:
-                    - sudo apt-get install zip
+                    - apt-get install zip
                     - pip install mkdocs-material==9.5.3
                     - pip install mike==2.0.0
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
