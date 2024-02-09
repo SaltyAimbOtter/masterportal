@@ -155,6 +155,13 @@ pipelines:
                     - pip install mkdocs-material==9.5.3
                     - pip install mike==2.0.0
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
-                    - apt-get update && apt-get install ncftp
-                    - ncftpput -v -u "$LGV_TEST_FTP_USERNAME" -p "$LGV_TEST_FTP_PASSWORD" -R ftp://qs.geoportal-hamburg.de/ masterportal_docs_v3.0.0-beta2 /opt/atlassian/pipelines/agent/build/site/*
+                    - export FTP_USERNAME="$LGV_TEST_FTP_USERNAME"
+                    - export FTP_PASSWORD="$LGV_TEST_FTP_PASSWORD"
+                    - export FTP_SOURCE_PATH="/opt/atlassian/pipelines/agent/build/site"
+                    - export FTP_TARGET_URL="ftp://test.geoportal-hamburg.de/"
+                    - export FTP_GITLOGFILE="testGitLog"
+                    - git clone git@bitbucket.org:geowerkstatt-hamburg/ci_scripts.git
+                    - mv ./ci_scripts/deployScripts ./deployScripts # mv deployScripts scripts to masterportal root
+                    - rm -rf ./ci_scripts
+                    - /bin/bash ./deployScripts/transfer_ftp.sh
                     - echo Finished uploading /opt/atlassian/pipelines/agent/build/site files to https://test.geoportal-hamburg.de/
