@@ -158,7 +158,7 @@ pipelines:
                     - export FTP_USERNAME="$LGV_TEST_FTP_USERNAME"
                     - export FTP_PASSWORD="$LGV_TEST_FTP_PASSWORD"
                     - export FTP_SOURCE_PATH="/opt/atlassian/pipelines/agent/build/site"
-                    - export FTP_TARGET_URL="ftp://test.geoportal-hamburg.de/"
+                    - export FTP_TARGET_URL="ftps://test.geoportal-hamburg.de/"
                     - export FTP_GITLOGFILE="testGitLog"
                     - git clone git@bitbucket.org:geowerkstatt-hamburg/ci_scripts.git
                     - mv ./ci_scripts/deployScripts ./deployScripts # mv deployScripts scripts to masterportal root
