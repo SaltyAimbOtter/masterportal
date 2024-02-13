@@ -159,8 +159,8 @@ pipelines:
                     - zip -r masterportal_docs.zip /opt/atlassian/pipelines/agent/build/site
                     - apt-get update && apt-get -qq install git-ftp
                     - git config git-ftp.url "ftp://test.geoportal-hamburg.de/masterportalDocs"
-                    - git config git-ftp.user $LGV_TEST_FTP_USERNAME
-                    - git config git-ftp.password $LGV_TEST_FTP_PASSWORD
+                    - git config git-ftp.user "lgvdaten"
+                    - git config git-ftp.password "Bimmelbahn"
                     - git ftp init
                     - git ftp push --user $LGV_TEST_FTP_USERNAME --passwd $LGV_TEST_FTP_PASSWORD ftp://test.geoportal-hamburg.de/masterportalDocs
                     
