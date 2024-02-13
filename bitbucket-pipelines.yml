@@ -158,9 +158,6 @@ pipelines:
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
                     - zip -r masterportal_docs.zip /opt/atlassian/pipelines/agent/build/site
                     - apt-get update && apt-get -qq install git-ftp
-                    - git config git-ftp.url "ftp://test.geoportal-hamburg.de/portale/masterportalDocs"
-                    - git config git-ftp.user "lgvdaten"
-                    - git config git-ftp.password "Bimmelbahn"
-                    - git ftp init
+                    - git ftp init -u "lgvdaten" -p "Bimmelbahn" "ftp://test.geoportal-hamburg.de/portale/masterportalDocs"
                     - git ftp push --user "lgvdaten" --passwd "Bimmelbahn" ftp://test.geoportal-hamburg.de/portale/masterportalDocs
                     
