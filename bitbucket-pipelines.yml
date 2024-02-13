@@ -156,6 +156,7 @@ pipelines:
                     - pip install mkdocs-material==9.5.3
                     - pip install mike==2.0.0
                     - mike deploy v3.0.0-beta2 #if triggered by tag use $BITBUCKET_TAG
-                    - ls -al /opt/atlassian/pipelines/agent/build/site
                     - zip -r masterportal_docs.zip /opt/atlassian/pipelines/agent/build/site
-                    - curl -X POST --user "$bbapi_name:$bbapi_key" "https://api.bitbucket.org/2.0/repositories/geowerkstatt-hamburg/masterportal/downloads/" --form files=@"masterportal_docs.zip" --verbose;
+                    - apt-get update && apt-get -qq install git-ftp
+                    - git ftp push --user $LGV_TEST_FTP_USERNAME --passwd $LGV_TEST_FTP_PASSWORD ftp://test.geoportal-hamburg.de/masterportalDocs
+                    
