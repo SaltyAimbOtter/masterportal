@@ -1,8 +1,6 @@
->Browser testing with Selenium WebDriver
+# Browser testing with Selenium WebDriver
 
-[TOC]
-
-# Install browser test drivers (WebDrivers)
+## Install browser test drivers (WebDrivers)
 
    To locally run the browser tests, drivers have to be installed on your system. At least *chromedriver* should be installed, but you may also install further drivers for test automation. (Hint: For Firefox, the name of the WebDriver is *geckodriver*.)
 
@@ -16,7 +14,7 @@
 
    To test your setup, open a new `cmd` terminal (no administrative rights required) and run e.g. `chromedriver`. This should print *"ChromeDriver was started successfully."*, or any other confirmation, depending on the driver you're testing.
 
-# Locally run tests
+# Run tests locally
 
 To locally run the tests, a Masterportal dev server has to be started. Run `npm start` to do so. Then, run `npm run browsertest` to execute the tests.
 

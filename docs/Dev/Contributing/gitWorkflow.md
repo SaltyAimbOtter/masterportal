@@ -1,7 +1,5 @@
 >Our git workflow.
 
-[TOC]
-
 # Git workflow
 
 ## Commit
@@ -92,7 +90,7 @@ git push
         - The code honors the **[conventions](codingConventions.md)**.
     - The documentation has been extended:
         - **[User documentation](doc.md)**
-        - **[Developer documentation](devdoc.md)**
+        - **[Developer documentation](About)**
     - Test suites with tests are available:
         - For new functions: A short description of a test case to add it to the test protocol is provided. (Should result from the ticket.)
         - Unit tests are written: **[Test documentation](testing.md)**
