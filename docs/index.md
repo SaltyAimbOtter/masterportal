@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# Welcome to the Masterportal Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Masterportal is a web-based GIS application that allows you to display and edit spatial data.
+It is based on the Open Source JavaScript library [OpenLayers](https://openlayers.org/) and the [Vue.js](https://vuejs.org/) framework.
+The Masterportal is developed under the MIT License by a group of public authorities in Germany. Visit [masterportal.org](https://masterportal.org) for more information.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<iframe width="100%" height="700px" src="https://gisdemo.dp.dsecurecloud.de/PM-MP/Basic/#" class=""></iframe>

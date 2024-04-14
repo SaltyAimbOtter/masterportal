@@ -1,9 +1,7 @@
->This describes how to set up the local development environment.
+# Developer Setup
+This describes how to set up the local development environment.
 
-[TOC]
-
-
-# System requirements
+## System requirements
 
 If you are behind a proxy there are several things to do. In Linux/macOS several settings
 are required (e.g: wget, curl, git, npm, /etc/enviroment....). Mostly in Windows you can
