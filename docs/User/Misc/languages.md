@@ -1,4 +1,4 @@
-# Masterportal translation guide
+# Translation
 
 This document describes how to work with languages and translations in the Masterportal. It is intended for beginners, advanced users, and experts.
 

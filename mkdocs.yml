@@ -53,10 +53,19 @@ markdown_extensions:
     -   toc:
             permalink: 🔗
             permalink_title: Copy heading link to clipboard
+
+    # Extra CSS-Attributes for Markdown Elements
+    - attr_list
+
+    # Emoji Support
+    -   pymdownx.emoji:
+            emoji_index: !!python/name:material.extensions.emoji.twemoji
+            emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 extra:
     social:
         -   icon: fontawesome/solid/circle-info
-            link: https://www.masterportal.org/home.html
+            link: https://www.masterportal.org/
         -   icon: fontawesome/brands/bitbucket
             link: https://bitbucket.org/geowerkstatt-hamburg/masterportal/
 
@@ -68,25 +77,40 @@ extra_javascript:
 
 nav:
     -   Home: index.md
-    -   Setup: setup.md
-    - User Documentation:
-          - User/About.md
-          - Global Settings:
-                - 'services.json': User/Global-Config/services.json.md
-                - 'rest-services.json': User/Global-Config/rest-services.json.md
-                - 'style.json': User/Global-Config/Style/style.json.md
-          - Portal Settings:
-                - 'config.js': User/Portal-Config/config.js.md
-                - 'config.json': User/Portal-Config/config.json.md
-          - 'URL Parameters': User/urlParameter.md
-          - 'Proxies':
-                - 'Proxy': User/Proxies/proxy.md
-                - 'proxyconf.json': User/Proxies/proxyconf.json.md
+    -   Setup:
+            - Setup/setup.md
+    -   User Documentation:
+            - User/About.md
+            -   Global Settings:
+                    -   'services.json': User/Global-Config/services.json.md
+                    -   'rest-services.json': User/Global-Config/rest-services.json.md
+                    -   'style.json': User/Global-Config/style.json.md
+            -   Portal Settings:
+                    -   'config.js': User/Portal-Config/config.js.md
+                    -   'config.json': User/Portal-Config/config.json.md
+            -   'Misc':
+                    - User/Misc/languages.md
+                    - User/Misc/quickHelp.md
+                    -   'URL Parameters': User/Misc/urlParameter.md
+            -   'Proxies':
+                    -   'Proxy': User/Proxies/proxy.md
+                    -   'proxyconf.json': User/Proxies/proxyconf.json.md
 
-    -   Developer:
-            -   'Setup': Dev/setupDev.md
+    -   'Developer Documentation':
+            -   'About': Dev/About.md
+            -   'Tutorials':
+                    - Dev/Tutorials/tutorial.md
+                    - Dev/Tutorials/addOnsVue.md
+                    - Dev/Tutorials/addons_backbone.md
+                    - Dev/Tutorials/02_backbone_tutorial_new_module_scale_switcher.md
+            -   'Contributing':
+                    - Dev/Contributing/setupDev.md
+                    - Dev/Contributing/codingConventions.md
+                    - Dev/Contributing/codingConventionsInfo.md
+                    - Dev/Contributing/gitWorkflow.md
+                    - Dev/Contributing/versioning.md
             -   'Testing':
-                    - 'Unit Tests': Dev/testing/browserTest.md
-                    - 'Backbone': Dev/testing/unittestingBackbone.md
-                    - 'Vue': Dev/testing/unitTestVue.md
+                    -   'Unit Tests': Dev/testing/browserTest.md
+                    -   'Backbone': Dev/testing/unittestingBackbone.md
+                    -   'Vue': Dev/testing/unitTestVue.md
 

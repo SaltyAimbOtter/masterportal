@@ -1,7 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
-[TOC]
-
 # style.json
 
 The *style.json* file describes visualization rules to control the styling of vector features. It may be used in all sorts of vector layers, namely *WFS*, *GeoJSON*, and *Sensor*.
@@ -401,7 +397,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 {
     "style": {
         "imageName": "/icons/hospital.svg",
-        "clusterImageName": "/icons/clusterHospital.svg"    
+        "clusterImageName": "/icons/clusterHospital.svg"
         }
 }
 ```
@@ -410,7 +406,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 {
     "style": {
         "imageName": "https://host.de/geodaten/icons/hospital.svg",
-        "clusterImageName": "/icons/clusterHospital.svg"    
+        "clusterImageName": "/icons/clusterHospital.svg"
         }
 }
 ```
@@ -595,13 +591,13 @@ With the example style above, the following patterns are rendered, where `patter
 
 |`polygonFillHatch` override|Result|
 |-|-|
-|`{"patternCode": "rectangle", "lineWidth": 2}`|![Polygon Fill Rectangle Hatch Pattern Example](images/style/style.rectangle.png)|
-|`{"patternCode": "triangle", "lineWidth": 1}`|![Polygon Fill Triangle Hatch Pattern Example](images/style/style.triangle.png)|
-|`{"patternCode": "diamond", "lineWidth": 1}`|![Polygon Fill Diamond Hatch Pattern Example](images/style/style.diamond.png)|
-|`{"patternCode": "circle", "lineWidth": 2}`|![Polygon Fill Circle Hatch Pattern Example](images/style/style.circle.png)|
-|`{"patternCode": "circle", "lineWidth": 10}`|![Polygon Fill Filled Circle Hatch Pattern Example](images/style/style.filledcircle.png)|
-|`{"patternCode": "diagonal", "lineWidth": 10}`|![Polygon Fill Diagonal Hatch Pattern Example](images/style/style.diagonal.png)|
-|`{"patternCode": "zig-line", "lineWidth": 10}`|![Polygon Fill Zig-Line Hatch Pattern Example](images/style/style.zigline.png)|
+|`{"patternCode": "rectangle", "lineWidth": 2}`|![Polygon Fill Rectangle Hatch Pattern Example](media/style.rectangle.png)|
+|`{"patternCode": "triangle", "lineWidth": 1}`|![Polygon Fill Triangle Hatch Pattern Example](media/style.triangle.png)|
+|`{"patternCode": "diamond", "lineWidth": 1}`|![Polygon Fill Diamond Hatch Pattern Example](media/style.diamond.png)|
+|`{"patternCode": "circle", "lineWidth": 2}`|![Polygon Fill Circle Hatch Pattern Example](media/style.circle.png)|
+|`{"patternCode": "circle", "lineWidth": 10}`|![Polygon Fill Filled Circle Hatch Pattern Example](media/style.filledcircle.png)|
+|`{"patternCode": "diagonal", "lineWidth": 10}`|![Polygon Fill Diagonal Hatch Pattern Example](media/style.diagonal.png)|
+|`{"patternCode": "zig-line", "lineWidth": 10}`|![Polygon Fill Zig-Line Hatch Pattern Example](media/style.zigline.png)|
 
 The alternatives `"zig-lines-horizontal"` and `"diagonal-right"` match the above patterns rotated by 90°.
 

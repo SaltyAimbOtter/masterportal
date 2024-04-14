@@ -1,5 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
 # rest-services.json
 
 This is the file referred to by the *config.js* as `restConf`. It is read on Masterportal start-up and kept in memory. Modules may then refer to the web service definitions in it.

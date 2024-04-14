@@ -1,4 +1,4 @@
-# Choosing a version number
+# Versioning
 
 Masterportal versioning is done according to the rules of [semantic versioning](https://semver.org/), matching the following pattern:
 

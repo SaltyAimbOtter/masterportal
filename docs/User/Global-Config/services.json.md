@@ -1,7 +1,3 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
-[TOC]
-
 # services.json
 
 All services available for display in the Masterportal (WMS, WFS, [SensorThings-API](sensorThings.md), and more) are configured and maintained in this JSON file. The file is linked to from the *config.js* of each individual portal by the *layerConf* parameter. For an example, see the *services-internet.json* included in the *examples.zip* at *//examples/Basic/resources/*.
