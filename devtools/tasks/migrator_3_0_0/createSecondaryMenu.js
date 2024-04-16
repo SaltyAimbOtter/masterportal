@@ -30,19 +30,25 @@ function fillSections (data, secondaryMenu, migratedTools, toRemoveFromTools) {
     if (tools) {
         Object.entries(tools).forEach(([toolName, toolConfig]) => {
             if (!migratedTools.includes(toolName)) {
-                console.info("       " + toolName);
+                let moduleName = toolName;
+
+                if(moduleName.toLowerCase() === "coordtoolkit")
+                {
+                    moduleName = "coordToolkit";
+                }
+                console.info("       " + moduleName);
                 const tool = {...toolConfig};
 
-                if (toolName === "layerClusterToggler") {
+                if (moduleName === "layerClusterToggler") {
                     console.info("--- HINT configuration of LayerClusterToggler in Layers must be done by hand . 'Suffix' is replaced by direct suffix at layer id.");
                 }
-                tool.type = toolName;
+                tool.type = moduleName;
                 if (tool.name?.includes("translate#")) {
                     delete tool.name;
                 }
                 removeAttributesFromTools(toRemoveFromTools, tool);
                 section.push(tool);
-                migratedTools.push(toolName);
+                migratedTools.push(moduleName);
             }
         });
     }

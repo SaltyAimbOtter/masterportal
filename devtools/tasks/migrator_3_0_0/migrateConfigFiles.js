@@ -4,7 +4,7 @@ const fs = require("fs").promises,
     createMainMenu = require("./createMainMenu"),
     createSecondaryMenu = require("./createSecondaryMenu"),
     {copyDir, replaceInFile, removeAttributesFromTools} = require("./utils"),
-    {PORTALCONFIG, PORTALCONFIG_OLD, TOPICS, TOPICS_OLD, BASEMAPS, BASEMAPS_OLD, BASEMAPS_NEW, SUBJECTDATA, SUBJECTDATA_OLD} = require("./constants"),
+    {PORTALCONFIG, PORTALCONFIG_OLD, TOPICS, TOPICS_OLD, BASEMAPS, BASEMAPS_OLD, BASEMAPS_NEW, SUBJECTDATA, SUBJECTDATA_OLD, DATA3D_OLD} = require("./constants"),
     rootPath = path.resolve(__dirname, "../../../"),
     {deprecated, toolsNotToMigrate, toRemoveFromConfigJs, toRemoveFromTools} = require("./configuration"),
     migratedTools = toolsNotToMigrate.concat(deprecated);
@@ -140,7 +140,7 @@ function migrateTree (data, configJS) {
  * @returns {Object} the migrated map parameters from config.js
  */
 function migrateMapParameters (configJS) {
-    console.info("map parameters from config.jhs");
+    console.info("map parameters from config.js");
 
     const map = {
         layerPills: {
@@ -200,10 +200,11 @@ function migrateTopics (data) {
     const oldTopics = data[TOPICS_OLD],
         oldBaseMaps = oldTopics[BASEMAPS] || oldTopics[BASEMAPS_OLD],
         oldSubjectData = oldTopics[SUBJECTDATA_OLD],
+        old3DData = oldTopics[DATA3D_OLD],
         topics = {};
 
     topics[BASEMAPS_NEW] = migrateBaseMaps(oldBaseMaps);
-    topics[SUBJECTDATA] = migrateSubjectData(oldSubjectData);
+    topics[SUBJECTDATA] = migrateSubjectData(oldSubjectData, old3DData);
     return topics;
 }
 
@@ -219,6 +220,7 @@ function migrateBaseMaps (oldData) {
     };
 
     if (oldData.Layer) {
+        createGroupLayer(oldData.Layer)
         baseMaps.elements = oldData.Layer;
     }
 
@@ -231,19 +233,80 @@ function migrateBaseMaps (oldData) {
  * @param {Object} oldData content of v2 config.json's subjectdata
  * @returns {Object} the migrated subject data
  */
-function migrateSubjectData (oldData) {
-    console.info("   " + SUBJECTDATA_OLD + "\n");
+function migrateSubjectData (oldSubjectData, old3DData) {
+    console.info("   " + SUBJECTDATA_OLD);
     const subjectData = {
         elements: []
     };
 
-    if (oldData && JSON.stringify(oldData).includes("Ordner")) {
-        console.warn("NOTICE --- migrating layers in folder strucure ist not implemented yet!");
+    if (oldSubjectData && JSON.stringify(oldSubjectData).includes("Ordner")) {
+        migrateFolderStructure(oldSubjectData, subjectData.elements);
     }
-    else if (oldData?.Layer) {
-        subjectData.elements = oldData.Layer;
+    else if (oldSubjectData?.Layer) {
+        createGroupLayer(oldSubjectData.Layer)
+        subjectData.elements = oldSubjectData.Layer;
+    }
+    if (old3DData && JSON.stringify(old3DData).includes("Ordner")) {
+        if (old3DData?.Ordner) {
+           const headFolder = {};
+
+           headFolder.name = "common:modules.layerTree.subjectData3D";
+           headFolder.type = "folder";
+           headFolder.elements = [];
+           subjectData.elements.push(headFolder);
+           migrateFolderStructure(old3DData, headFolder.elements);
+        }
+    }
+    else if (old3DData?.Layer) {
+        createGroupLayer(old3DData.Layer)
+        subjectData.elements.push(old3DData.Layer);
     }
     return subjectData;
+}
+
+/**
+ * Migrates old Ordner structure to folder structure.
+ * @param {Object} oldData containing 'Ordner'
+ * @param {Array} elements to add new folder structure to
+ * @returns {void}
+ */
+function migrateFolderStructure(oldData, elements){
+    oldData.Ordner.forEach(folder => {
+        let newData = {};
+
+        newData.name = folder.Titel;
+        newData.type = "folder";
+        newData.elements = [];
+        if(folder.Layer){
+            createGroupLayer(folder.Layer)
+            newData.elements.push(...folder.Layer);
+        }
+        if(folder.Ordner){
+            migrateFolderStructure(folder, newData.elements);
+        }
+        elements.push(newData);
+    });
+}
+
+function createGroupLayer(layers){
+    let createdGroup = false;
+
+    layers.forEach(layer => {
+        if(layer.children){
+            const ids = [];
+
+            layer.children.forEach(child => {
+                ids.push(child.id)
+            });
+            layer.id = ids;
+            delete layer.children;
+            console.info("   " + "created Grouplayer "+ layer.name);
+            createdGroup = true;
+        }
+    });
+    if(createdGroup){
+        console.info("   --- HINT: layers are shown as configured in services.json. For special configuration add this to services.json.\n");
+    }
 }
 
 /**
