@@ -7,7 +7,7 @@ const
     BASEMAPS_OLD = "Hintergrundkarten",
     BASEMAPS_NEW = "baselayer",
     SUBJECTDATA = "subjectlayer",
-    SUBJECTDATA_OLD = "Fachdaten";
+    SUBJECTDATA_OLD = "Fachdaten",
     DATA3D_OLD = "Fachdaten_3D";
 
 module.exports = {

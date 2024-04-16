@@ -32,8 +32,7 @@ function fillSections (data, secondaryMenu, migratedTools, toRemoveFromTools) {
             if (!migratedTools.includes(toolName)) {
                 let moduleName = toolName;
 
-                if(moduleName.toLowerCase() === "coordtoolkit")
-                {
+                if (moduleName.toLowerCase() === "coordtoolkit") {
                     moduleName = "coordToolkit";
                 }
                 console.info("       " + moduleName);

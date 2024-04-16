@@ -220,7 +220,7 @@ function migrateBaseMaps (oldData) {
     };
 
     if (oldData.Layer) {
-        createGroupLayer(oldData.Layer)
+        createGroupLayer(oldData.Layer);
         baseMaps.elements = oldData.Layer;
     }
 
@@ -230,7 +230,8 @@ function migrateBaseMaps (oldData) {
 /**
  * Migrates the subject data.
  * NOTICE migration of folder structure with 'Ordner' is not implemented!
- * @param {Object} oldData content of v2 config.json's subjectdata
+ * @param {Object} oldSubjectData content of v2 config.json's subjectdata
+ * @param {Object} old3DData content of v2 config.json's 3D data
  * @returns {Object} the migrated subject data
  */
 function migrateSubjectData (oldSubjectData, old3DData) {
@@ -243,22 +244,22 @@ function migrateSubjectData (oldSubjectData, old3DData) {
         migrateFolderStructure(oldSubjectData, subjectData.elements);
     }
     else if (oldSubjectData?.Layer) {
-        createGroupLayer(oldSubjectData.Layer)
+        createGroupLayer(oldSubjectData.Layer);
         subjectData.elements = oldSubjectData.Layer;
     }
     if (old3DData && JSON.stringify(old3DData).includes("Ordner")) {
         if (old3DData?.Ordner) {
-           const headFolder = {};
+            const headFolder = {};
 
-           headFolder.name = "common:modules.layerTree.subjectData3D";
-           headFolder.type = "folder";
-           headFolder.elements = [];
-           subjectData.elements.push(headFolder);
-           migrateFolderStructure(old3DData, headFolder.elements);
+            headFolder.name = "common:modules.layerTree.subjectData3D";
+            headFolder.type = "folder";
+            headFolder.elements = [];
+            subjectData.elements.push(headFolder);
+            migrateFolderStructure(old3DData, headFolder.elements);
         }
     }
     else if (old3DData?.Layer) {
-        createGroupLayer(old3DData.Layer)
+        createGroupLayer(old3DData.Layer);
         subjectData.elements.push(old3DData.Layer);
     }
     return subjectData;
@@ -270,41 +271,46 @@ function migrateSubjectData (oldSubjectData, old3DData) {
  * @param {Array} elements to add new folder structure to
  * @returns {void}
  */
-function migrateFolderStructure(oldData, elements){
+function migrateFolderStructure (oldData, elements) {
     oldData.Ordner.forEach(folder => {
-        let newData = {};
+        const newData = {};
 
         newData.name = folder.Titel;
         newData.type = "folder";
         newData.elements = [];
-        if(folder.Layer){
-            createGroupLayer(folder.Layer)
+        if (folder.Layer) {
+            createGroupLayer(folder.Layer);
             newData.elements.push(...folder.Layer);
         }
-        if(folder.Ordner){
+        if (folder.Ordner) {
             migrateFolderStructure(folder, newData.elements);
         }
         elements.push(newData);
     });
 }
 
-function createGroupLayer(layers){
+/**
+ * Inspects for group layers and changes them to v3 structure.
+ * @param {Array} layers to inspect and change group layers at
+ * @returns {Array} the layers and if groups available, with v3 structure
+ */
+function createGroupLayer (layers) {
     let createdGroup = false;
 
     layers.forEach(layer => {
-        if(layer.children){
+        if (layer.children) {
             const ids = [];
 
             layer.children.forEach(child => {
-                ids.push(child.id)
+                ids.push(child.id);
             });
             layer.id = ids;
             delete layer.children;
-            console.info("   " + "created Grouplayer "+ layer.name);
+            console.info("   created Grouplayer " + layer.name);
             createdGroup = true;
         }
     });
-    if(createdGroup){
+    if (createdGroup) {
         console.info("   --- HINT: layers are shown as configured in services.json. For special configuration add this to services.json.\n");
     }
 }
