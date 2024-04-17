@@ -127,6 +127,8 @@ describe("src_3_0_0/modules/menu/js/menuUrlParams.js", () => {
     });
 
     describe("getCurrentComponent", () =>{
+        const searchType = "fileimport";
+
         beforeEach(() => {
             store.getters = {
                 "Menu/mainMenu": {
@@ -143,13 +145,38 @@ describe("src_3_0_0/modules/menu/js/menuUrlParams.js", () => {
         });
 
         it("returns the current component and side", () => {
-            const searchType = "fileimport";
-
             expect(menuUrlParams.getCurrentComponent(searchType)).to.deep.equals({
                 currentComponent: {
                     type: "fileImport"
                 },
                 side: "mainMenu"
+            });
+        });
+        it("returns the current component and the correct side if the tool is in both menues", () => {
+            const menuSide = "SECONDARY";
+
+            store.getters = {
+                "Menu/mainMenu": {
+                    sections: [[
+                        {
+                            type: "fileImport"
+                        }
+                    ]]
+                },
+                "Menu/secondaryMenu": {
+                    sections: [[
+                        {
+                            type: "fileImport"
+                        }
+                    ]]
+                }
+            };
+
+            expect(menuUrlParams.getCurrentComponent(searchType, menuSide)).to.deep.equals({
+                currentComponent: {
+                    type: "fileImport"
+                },
+                side: "secondaryMenu"
             });
         });
     });

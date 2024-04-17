@@ -39,7 +39,7 @@ function setAttributesToComponent (params) {
 
     Object.keys(menuParams).forEach(menuSide => {
         const menuSideParams = changeCase.upperCaseKeys(menuParams[menuSide]),
-            {currentComponent, side} = getCurrentComponent(menuSideParams.CURRENTCOMPONENT),
+            {currentComponent, side} = getCurrentComponent(menuSideParams.CURRENTCOMPONENT, menuSide),
             attributes = menuSideParams.ATTRIBUTES,
             type = currentComponent ? changeCase.upperFirst(currentComponent.type) : changeCase.upperFirst(menuSideParams.CURRENTCOMPONENT);
 
@@ -73,13 +73,21 @@ function isInitOpen (params) {
 /**
  * Gets the current component and the related menu side in which the currentComponent is configured.
  * @param {String} searchType The search type.
+ * @param {String} menuSide The menu side.
  * @returns {Object} The current component and the related menu side.
  */
-function getCurrentComponent (searchType) {
-    const mainMenuComponent = findInSections(store.getters["Menu/mainMenu"]?.sections, searchType),
-        secondaryMenuComponent = findInSections(store.getters["Menu/secondaryMenu"]?.sections, searchType);
-    let side,
+function getCurrentComponent (searchType, menuSide) {
+    let mainMenuComponent = findInSections(store.getters["Menu/mainMenu"]?.sections, searchType),
+        secondaryMenuComponent = findInSections(store.getters["Menu/secondaryMenu"]?.sections, searchType),
+        side,
         currentComponent;
+
+    if (menuSide === "MAIN" && mainMenuComponent && secondaryMenuComponent) {
+        secondaryMenuComponent = undefined;
+    }
+    else if (menuSide === "SECONDARY" && mainMenuComponent && secondaryMenuComponent) {
+        mainMenuComponent = undefined;
+    }
 
     if (mainMenuComponent) {
         currentComponent = mainMenuComponent;
@@ -109,7 +117,6 @@ function findInSections (sections, searchType) {
             currentComponent = element;
         }
     });
-
     return currentComponent;
 }
 
@@ -136,7 +143,6 @@ function findElement (elements, searchType) {
             currentComponent = findElement(element.elements, searchType);
         }
     });
-
     return currentComponent;
 }
 

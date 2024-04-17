@@ -11,7 +11,9 @@
 - Added config.json-Parameter `Portalconfig.tree.showFolderPath`. Determines whether the folder structure of visible layers is displayed. Default is false.
 - Added Shared Component for spinner.
 - Added Shared Component for accordion.
-- ShareView: Legend, Layer information, getFeatureInfo, draw_old and wfsSearch can be shared.
+- ShareView:
+    - Legend, Layer information, getFeatureInfo, draw_old and wfsSearch can be shared.
+    - bufferAnalysis can be shared even if it is configured in both menus.
 - 3D: Min- and MaxScale are now available for layers.
 - Print: An option "Improve scaling resolution" is implemented for 3d Layers to supply an improved and better resolution.
 - WfsSearch:
