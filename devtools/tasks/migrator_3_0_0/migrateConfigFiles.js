@@ -3,7 +3,7 @@ const fs = require("fs").promises,
     path = require("path"),
     createMainMenu = require("./createMainMenu"),
     createSecondaryMenu = require("./createSecondaryMenu"),
-    {copyDir, replaceInFile, removeAttributesFromTools} = require("./utils"),
+    {copyDir, deleteTranslateInName, getToolFromOldConfig, replaceInFile, removeAttributesFromTools} = require("./utils"),
     {PORTALCONFIG, PORTALCONFIG_OLD, TOPICS, TOPICS_OLD, BASEMAPS, BASEMAPS_OLD, BASEMAPS_NEW, SUBJECTDATA, SUBJECTDATA_OLD, DATA3D_OLD} = require("./constants"),
     rootPath = path.resolve(__dirname, "../../../"),
     {deprecated, toolsNotToMigrate, toRemoveFromConfigJs, toRemoveFromTools} = require("./configuration"),
@@ -34,6 +34,7 @@ function readMapView (data, configJS) {
 function migrateControls (data) {
     console.info("controls");
     const controls = data[PORTALCONFIG_OLD].controls;
+    let addWMSConfig = null;
 
     if (controls.button3d === true) {
         controls.rotation = true;
@@ -41,8 +42,33 @@ function migrateControls (data) {
     }
 
     if (controls?.startTool?.tools?.length > 0) {
+        const startTools = [];
+
         controls.startModule = {};
-        controls.startModule.secondaryMenu = controls.startTool.tools;
+        controls.startTool.tools.forEach(startTool => {
+            const toolConfig = getToolFromOldConfig(data, startTool),
+                startToolConfig = {...toolConfig};
+
+            startToolConfig.type = startTool;
+            deleteTranslateInName(startToolConfig);
+            startTools.push(startToolConfig);
+        });
+        controls.startModule.secondaryMenu = startTools;
+    }
+    addWMSConfig = getToolFromOldConfig(data, "addWMS");
+
+    if (addWMSConfig) {
+        const tool = {...addWMSConfig};
+
+        tool.type = "addWMS";
+        deleteTranslateInName(tool);
+        if (!controls.startModule) {
+            controls.startModule = {};
+        }
+        if (!controls.startModule.secondaryMenu) {
+            controls.startModule.secondaryMenu = [];
+        }
+        controls.startModule.secondaryMenu.push(tool);
     }
 
     delete controls.attributions;
@@ -448,7 +474,7 @@ async function migrateFiles (sourcePath, destPath) {
 
                             if (!parsed[PORTALCONFIG_OLD].mainMenu) {
                                 console.info("\n#############################     migrate     #############################\n");
-                                console.info("ATTENTION --- the following tools are not migrated: ", toolsNotToMigrate.join(", ") + "\n");
+                                console.info("ATTENTION --- this version will not migrate the following tools: ", toolsNotToMigrate.join(", ") + "\n");
                                 console.info("source: ", configJsonSrcFile, "\ndestination: ", configJsonDestFile, "\n");
                                 getTitleFromHtml(sourceFolder, indexFile).then((titleAndLogo) => {
                                     const gfi = migrateGFI(parsed);

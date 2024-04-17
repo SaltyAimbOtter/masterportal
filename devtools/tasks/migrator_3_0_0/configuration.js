@@ -30,12 +30,13 @@ const toolsNotToMigrate = [
         "staticlinks",
         "vcOblique",
         "coord",
-        "styleWMS"
+        "styleWMS",
+        "addWMS"
     ],
     deprecated = ["searchByCoord", "supplyCoord", "parcelSearch", "extendedFilter"],
     // toRemoveFromTools => attributes not to provide at tool-configs in v3.0.0
     toRemoveFromTools = {
-        "all": ["icon", "renderToWindow", "active", "isVisibleInMenu", "resizableWindow", "initialWidth", "glyphicon", "onlyDesktop"],
+        "all": ["renderToWindow", "active", "isVisibleInMenu", "resizableWindow", "initialWidth", "glyphicon", "onlyDesktop"],
         "draw": ["enableAttributesSelector", "iconList", "addIconsOfActiveLayers"],
         "legend": ["showCollapseAllButton"],
         "filter": ["deactivateGFI", "isInitOpen", "isGeneric"],

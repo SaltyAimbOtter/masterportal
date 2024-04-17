@@ -31,7 +31,8 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
         tools = menu.tools?.children,
         firstSection = mainMenu.sections[0],
         secondSection = mainMenu.sections[1];
-    let contact = null;
+    let contact = null,
+        infoConf = null;
 
     if (tools?.print) {
         console.info("       print");
@@ -44,7 +45,7 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
     }
 
     Object.entries(menu).forEach(([menuName, menuConfig]) => {
-        if (!["info", "tree", "ansichten", "tools"].includes(menuName) && !migratedTools.includes(menuName)) {
+        if (!["tree", "ansichten", "tools"].includes(menuName) && !migratedTools.includes(menuName)) {
             const config = {...menuConfig};
 
             config.type = menuName;
@@ -52,6 +53,27 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
             if (menuName === "contact") {
                 config.fileUpload = true;
                 contact = config;
+            }
+            if (menuName === "info") {
+                infoConf = {};
+
+                infoConf.icon = menuConfig.icon ? menuConfig.icon : "bi-question-circle";
+                infoConf.type = "folder";
+                infoConf.name = menuConfig.name;
+                infoConf.elements = [];
+
+                if (menuConfig.children?.staticlinks) {
+                    menuConfig.children.staticlinks.forEach(staticLink => {
+                        const linkConfig = {};
+
+                        linkConfig.type = "customMenuElement";
+                        linkConfig.icon = staticLink.icon ? staticLink.icon : "bi-link";
+                        linkConfig.name = staticLink.name;
+                        linkConfig.openURL = staticLink.url;
+                        infoConf.elements.push(linkConfig);
+                    });
+                }
+
             }
             else if (menuName !== "filter") {
                 console.info("       " + menuName);
@@ -67,7 +89,7 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
     });
 
     // second section
-    if (contact) {
+    if (contact !== null) {
         console.info("       contact");
         secondSection.push(contact);
         migratedTools.push("contact");
@@ -83,6 +105,19 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
         });
         migratedTools.push("language");
     }
+    if (infoConf !== null) {
+        console.info("       info");
+        secondSection.push(infoConf);
+        migratedTools.push("info");
+    }
+    console.info("       about");
+    console.info("--- HINT: about 'metaUrl' and 'metaId' have to be filled by user.");
+    secondSection.push({
+        type: "about",
+        cswUrl: "https://metaver.de/csw",
+        metaUrl: "to be filled",
+        metaId: "to be filled"
+    });
     console.info("--- HINT: add nested folders to menu containing menu entries by using type 'folder'.");
     console.info("--- HINT: display HTML or excute action or open url by using type 'customMenuElement'.");
 }

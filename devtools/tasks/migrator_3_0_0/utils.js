@@ -1,7 +1,8 @@
 const fs = require("fs-extra"),
     path = require("path"),
     {replacementsInConfigJson} = require("./configuration"),
-    replace = require("replace-in-file");
+    replace = require("replace-in-file"),
+    {PORTALCONFIG_OLD} = require("./constants");
 
 /**
  * Removes all attributes from tool config found in 'toRemoveFromTools'.
@@ -61,8 +62,41 @@ function replaceInFile (file) {
     });
 }
 
+/**
+ * Returns the tool config with the given name.
+ * @param {Object} data content of v2 config.json
+ * @param {String} name of the tool to search for
+ * @returns {Object} the tool config with the given name
+ */
+function getToolFromOldConfig (data, name) {
+    const tools = data[PORTALCONFIG_OLD].menu.tools?.children;
+    let oldToolConfig = null;
+
+    if (tools) {
+        Object.entries(tools).forEach(([toolName, toolConfig]) => {
+            if (toolName === name) {
+                oldToolConfig = toolConfig;
+            }
+        });
+    }
+    return oldToolConfig;
+}
+
+/**
+ * If 'translate#' is contained in name, the name is deleted.
+ * @param {Object} toolConfig config of a tool
+ * @returns {void}
+ */
+function deleteTranslateInName (toolConfig) {
+    if (toolConfig.name?.includes("translate#")) {
+        delete toolConfig.name;
+    }
+}
+
 module.exports = {
     copyDir,
+    deleteTranslateInName,
+    getToolFromOldConfig,
     removeAttributesFromTools,
     replaceInFile
 };
