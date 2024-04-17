@@ -50,6 +50,7 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.superfences
 
+    # Table of contents:
     -   toc:
             permalink: 🔗
             permalink_title: Copy heading link to clipboard
