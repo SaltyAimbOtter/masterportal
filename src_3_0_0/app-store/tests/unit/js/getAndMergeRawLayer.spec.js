@@ -6,11 +6,17 @@ import {expect} from "chai";
 import sinon from "sinon";
 
 describe("src_3_0_0/app-store/js/getAndMergeRawLayer.js", () => {
-    let layerConfig;
+    let layerConfig,
+        warnSpy;
 
     before(() => {
         sinon.stub(layerFactory, "getLayerTypes3d").returns(["TERRAIN3D"]);
         resetZIndex();
+    });
+
+    beforeEach(() => {
+        warnSpy = sinon.spy();
+        sinon.stub(console, "warn").callsFake(warnSpy);
     });
 
     afterEach(() => {
@@ -20,6 +26,22 @@ describe("src_3_0_0/app-store/js/getAndMergeRawLayer.js", () => {
     describe("getAndMergeRawLayer", () => {
         it("should return undefined if no param is given", () => {
             expect(getAndMergeRawLayer()).to.be.undefined;
+        });
+        it("layer not in services.json and without name", () => {
+            sinon.stub(rawLayerList, "getLayerWhere").callsFake(function () {
+                return undefined;
+            });
+            const layer = getAndMergeRawLayer({id: "notExisting"}),
+                expected = {
+                    id: "notExisting",
+                    name: "WARN: Layer with id notExisting was not found in services.json and has no name! ",
+                    type: "layer",
+                    showInLayerTree: false,
+                    is3DLayer: false
+                };
+
+            expect(layer).to.be.deep.equals(expected);
+            expect(warnSpy.calledOnce).to.be.true;
         });
         it("should return a simple raw layer", () => {
             const simpleLayerList = [
@@ -64,6 +86,7 @@ describe("src_3_0_0/app-store/js/getAndMergeRawLayer.js", () => {
             expect(result.id).to.be.equals("453");
             expect(result.name).to.be.equals("layer453");
             expect(result.visibility).to.be.true;
+            expect(warnSpy.notCalled).to.be.true;
         });
 
         it("should return a merged raw layer, if ids are in an array", () => {

@@ -216,12 +216,28 @@ function migrateTopics (data) {
 function migrateBaseMaps (oldData) {
     console.info("   " + BASEMAPS);
     const baseMaps = {
-        elements: []
-    };
+            elements: []
+        },
+        data = {...oldData};
+    let layers = [];
 
-    if (oldData.Layer) {
-        createGroupLayer(oldData.Layer);
-        baseMaps.elements = oldData.Layer;
+    if (data && JSON.stringify(data).includes("Ordner")) {
+        if (data?.Ordner) {
+            data.Ordner.forEach(folder => {
+                if (folder.Layer) {
+                    createGroupLayer(folder.Layer);
+                    layers = layers.concat(folder.Layer);
+                }
+            });
+        }
+    }
+    if (data.Layer) {
+        if (JSON.stringify(data).includes("Oblique")) {
+            data.Layer = data.Layer.filter(layer => layer.name !== "Oblique" && layer.typ !== "Oblique");
+        }
+        createGroupLayer(data.Layer);
+        layers = layers.concat(data.Layer);
+        baseMaps.elements = layers;
     }
 
     return baseMaps;
@@ -259,8 +275,13 @@ function migrateSubjectData (oldSubjectData, old3DData) {
         }
     }
     else if (old3DData?.Layer) {
+        const head = {};
+
         createGroupLayer(old3DData.Layer);
-        subjectData.elements.push(old3DData.Layer);
+
+        head.name = "common:modules.layerTree.subjectData3D";
+        head.elements = old3DData.Layer;
+        subjectData.elements.push(head);
     }
     return subjectData;
 }
@@ -279,8 +300,13 @@ function migrateFolderStructure (oldData, elements) {
         newData.type = "folder";
         newData.elements = [];
         if (folder.Layer) {
-            createGroupLayer(folder.Layer);
-            newData.elements.push(...folder.Layer);
+            let layers = [...folder.Layer];
+
+            if (JSON.stringify(folder).includes("Oblique")) {
+                layers = layers.filter(layer => layer.name !== "Oblique" && layer.typ !== "Oblique");
+            }
+            createGroupLayer(layers);
+            newData.elements.push(...layers);
         }
         if (folder.Ordner) {
             migrateFolderStructure(folder, newData.elements);
@@ -316,6 +342,27 @@ function createGroupLayer (layers) {
 }
 
 /**
+ * Returns the title and the logo from index.html.
+ * @param {String} sourceFolder the spurce folder
+ * @param {Object} indexFile the index.html file
+ * @returns {String} the title and the logo from index.html
+ */
+async function getTitleFromHtml (sourceFolder, indexFile) {
+    const data = await fs.readFile(path.resolve(sourceFolder, indexFile), "utf8"),
+        startIndexTitle = data.indexOf("<title>"),
+        endIndexTitle = data.indexOf("</title>"),
+        title = data.substring(startIndexTitle + "<title>".length, endIndexTitle),
+        startIndexLogo = data.indexOf("<img id=\"portal-logo\" src=\""),
+        endIndexLogo = data.indexOf("/>", startIndexLogo);
+    let logo = data.substring(startIndexLogo + "<img id=\"portal-logo\" src=\"".length, endIndexLogo)?.trim();
+
+    if (logo?.endsWith("\"")) {
+        logo = logo.substring(0, logo.length - 1);
+    }
+    return {title, logo};
+}
+
+/**
  * Migrates the index.html and removes loader stuff.
  * @param {String} sourceFolder the spurce folder
  * @param {String} destFolder the destination folder
@@ -325,14 +372,21 @@ function createGroupLayer (layers) {
 function migrateIndexHtml (sourceFolder, destFolder, indexFile) {
     fs.readFile(path.resolve(sourceFolder, indexFile), "utf8")
         .then(data => {
-            let result;
+            let result,
 
-            // removes <div id="loader"... and load of special_loaders.js from index.html - loader is no longer provided.
-            const regex = /<div id="loader" [\s\S]*loaders.js"><\/script>/g,
-                // removes the Cesium.js script-tag
-                regexCesium = /<script [\s\S]*Cesium.js"><\/script>/g;
+                // removes <div id="loader"... and load of special_loaders.js from index.html - loader is no longer provided.
+                regex = /<div id="loader" [\s\S]*loaders.js"><\/script>/g;
+            // removes the Cesium.js script-tag
+            const regexCesium = /<script [\s\S]*Cesium.js"><\/script>/g;
 
             result = data.replace(regex, "");
+            if (result.length === data.length) {
+                regex = /<div id="loader" [\s\S]*.svg">[\s\S]*<\/div>[\s\S]*<\/div>/g;
+                result = data.replace(regex, "");
+                if (result.length === data.length) {
+                    console.warn("ATTENTION --- Removing of loader and logo in index.html failed! Must be done by user.");
+                }
+            }
             if (result.includes("Cesium.js")) {
                 result = result.replace(regexCesium, "");
             }
@@ -396,38 +450,40 @@ async function migrateFiles (sourcePath, destPath) {
                                 console.info("\n#############################     migrate     #############################\n");
                                 console.info("ATTENTION --- the following tools are not migrated: ", toolsNotToMigrate.join(", ") + "\n");
                                 console.info("source: ", configJsonSrcFile, "\ndestination: ", configJsonDestFile, "\n");
-                                const gfi = migrateGFI(parsed);
+                                getTitleFromHtml(sourceFolder, indexFile).then((titleAndLogo) => {
+                                    const gfi = migrateGFI(parsed);
 
-                                migrated[PORTALCONFIG] = {};
-                                migrated[PORTALCONFIG].map = migrateMapParameters(configJS);
-                                migrated[PORTALCONFIG].map.mapView = readMapView(parsed, configJS);
-                                migrated[PORTALCONFIG].portalFooter = migrateFooter(configJS);
-                                migrated[PORTALCONFIG].map.controls = migrateControls(parsed);
-                                if (gfi) {
-                                    migrated[PORTALCONFIG].map.getFeatureInfo = gfi;
-                                }
-                                migrated[PORTALCONFIG].tree = migrateTree(parsed, configJS);
-                                migrated[PORTALCONFIG].mainMenu = createMainMenu(parsed, configJS, migratedTools, toRemoveFromTools);
-                                migrated[PORTALCONFIG].secondaryMenu = createSecondaryMenu(parsed, migratedTools, toRemoveFromTools);
-                                migrated[TOPICS] = migrateTopics(parsed);
+                                    migrated[PORTALCONFIG] = {};
+                                    migrated[PORTALCONFIG].map = migrateMapParameters(configJS);
+                                    migrated[PORTALCONFIG].map.mapView = readMapView(parsed, configJS);
+                                    migrated[PORTALCONFIG].portalFooter = migrateFooter(configJS);
+                                    migrated[PORTALCONFIG].map.controls = migrateControls(parsed);
+                                    if (gfi) {
+                                        migrated[PORTALCONFIG].map.getFeatureInfo = gfi;
+                                    }
+                                    migrated[PORTALCONFIG].tree = migrateTree(parsed, configJS);
+                                    migrated[PORTALCONFIG].mainMenu = createMainMenu(parsed, titleAndLogo, configJS, migratedTools, toRemoveFromTools);
+                                    migrated[PORTALCONFIG].secondaryMenu = createSecondaryMenu(parsed, migratedTools, toRemoveFromTools);
+                                    migrated[TOPICS] = migrateTopics(parsed);
 
-                                fs.mkdir(destPath, {recursive: true})
-                                    .then(() => {
-                                        fs.writeFile(configJsonDestFile, JSON.stringify(migrated, null, 4), "utf8")
-                                            .then(() => {
-                                                replaceInFile(configJsonDestFile);
-                                                fs.copyFile(configJsSrcFile, configJsDestFile);
-                                                migrateIndexHtml(sourceFolder, destFolder, indexFile);
-                                                console.info("ATTENTION - TODO for User --- remove from config.js by yourself: ", toRemoveFromConfigJs.join(", ") + "\n");
-                                                console.info("SUCCESSFULL MIGRATED: ", destFolder);
-                                            })
-                                            .catch(err => {
-                                                console.error(err);
-                                            });
-                                    })
-                                    .catch(err => {
-                                        console.error(err);
-                                    });
+                                    fs.mkdir(destPath, {recursive: true})
+                                        .then(() => {
+                                            fs.writeFile(configJsonDestFile, JSON.stringify(migrated, null, 4), "utf8")
+                                                .then(() => {
+                                                    replaceInFile(configJsonDestFile);
+                                                    fs.copyFile(configJsSrcFile, configJsDestFile);
+                                                    migrateIndexHtml(sourceFolder, destFolder, indexFile);
+                                                    console.info("ATTENTION - TODO for User --- remove from config.js by yourself: ", toRemoveFromConfigJs.join(", ") + "\n");
+                                                    console.info("SUCCESSFULL MIGRATED: ", destFolder);
+                                                })
+                                                .catch(err => {
+                                                    console.error(err);
+                                                });
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                });
                             }
                             else {
                                 console.warn("IS ALREADY IN V3.0.0 - NOT MIGRATED: ", configJsonSrcFile);

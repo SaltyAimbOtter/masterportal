@@ -2,14 +2,14 @@
 const {PORTALCONFIG_OLD} = require("./constants"),
     {removeAttributesFromTools} = require("./utils");
 
-module.exports = function createMainMenu (data, configJS, migratedTools, toRemoveFromTools) {
+module.exports = function createMainMenu (data, titleAndLogo, configJS, migratedTools, toRemoveFromTools) {
     console.info("mainMenu");
     const mainMenu = {
         expanded: true,
         sections: [[], []]
     };
 
-    addTitle(data, mainMenu);
+    addTitle(data, mainMenu, titleAndLogo);
     addSearchbar(data, mainMenu);
     fillMainSections(data, configJS, mainMenu, migratedTools, toRemoveFromTools);
 
@@ -126,9 +126,10 @@ function addSearchbar (data, mainMenu) {
  * Adds title to main menu and fills it if content of titwl is available in v2 data.
  * @param {Object} data parsed config.json content
  * @param {Object} mainMenu v3 main menu object
+ * @param {Object} titleAndLogo from index.html
  * @returns {void}
  */
-function addTitle (data, mainMenu) {
+function addTitle (data, mainMenu, titleAndLogo) {
     let newTitle = {};
 
     if (data[PORTALCONFIG_OLD].portalTitle) {
@@ -140,9 +141,8 @@ function addTitle (data, mainMenu) {
         delete newTitle.title;
     }
     else {
-        console.warn("  no 'portalTitle' to migrate found - fill mainMenu/title with placeholder");
-        newTitle.text = "Titel des Portals";
-        newTitle.logo = "";
+        newTitle.text = titleAndLogo.title;
+        newTitle.logo = titleAndLogo.logo;
         newTitle.link = "";
         newTitle.toolTip = "toolTip";
     }

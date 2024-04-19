@@ -16,6 +16,15 @@ let zIndex = 1;
 export function getAndMergeRawLayer (layerConf, showAllLayerInTree = false) {
     const rawLayer = mergeRawLayer(layerConf, rawLayerList.getLayerWhere({id: splitId(layerConf?.id)}));
 
+    if (!rawLayer && layerConf) {
+        if (layerConf.name === undefined) {
+            const text = `Layer with id ${layerConf.id} was not found in services.json and has no name!`;
+
+            console.warn(text);
+            layerConf.name = `WARN: ${text} `;
+        }
+    }
+
     // use layerConf, if layer is not available in rawLayerList (services.json)
     return addAdditional(rawLayer || layerConf, showAllLayerInTree);
 }
