@@ -483,6 +483,13 @@
         "sort": "Werte sortieren"
       }
     },
+    "info": {
+        "name": "Info",
+        "disclaimer": "Haftungsausschluss",
+        "home": {
+            "name": "Hamburg"
+        }
+    },
     "language": {
       "de": "Deutsch",
       "description": "Wähle deine Sprache aus",

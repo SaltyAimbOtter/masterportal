@@ -483,6 +483,13 @@
         "sort": "Sort values"
       }
     },
+    "info": {
+      "name": "Info",
+      "disclaimer": "Legal disclaimer",
+      "home": {
+          "name": "Hamburg Town"
+      }
+    },
     "language": {
       "de": "Deutsch",
       "description": "Choose your language",

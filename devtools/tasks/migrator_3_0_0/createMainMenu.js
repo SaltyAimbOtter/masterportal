@@ -75,7 +75,7 @@ function fillMainSections (data, configJS, mainMenu, migratedTools, toRemoveFrom
                 }
 
             }
-            else if (menuName !== "filter") {
+            else if (menuName !== "filter" && menuName !== "contact") {
                 console.info("       " + menuName);
                 firstSection.push(config);
                 migratedTools.push(menuName);
