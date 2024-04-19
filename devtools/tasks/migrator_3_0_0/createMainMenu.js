@@ -140,10 +140,19 @@ function addSearchbar (data, mainMenu) {
                 let searchType = searchName;
 
                 if (searchConfig.minChars === 3) {
-                    delete searchConfig.minchars;
+                    delete searchConfig.minChars;
+                }
+                if (searchConfig.minChar === 3) {
+                    delete searchConfig.minChar;
                 }
                 if (searchName === "tree") {
                     searchType = "topicTree";
+                }
+                if (searchName.toLowerCase() === "specialwfs") {
+                    searchType = "specialWfs";
+                }
+                if (searchName.toLowerCase() === "visiblewfs") {
+                    searchType = "visibleWfs";
                 }
                 searchConfig.type = searchType;
                 console.info("   searchbar entry " + searchType);
