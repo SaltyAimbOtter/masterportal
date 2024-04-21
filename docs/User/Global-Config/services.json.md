@@ -4,9 +4,10 @@ All services available for display in the Masterportal (WMS, WFS, [SensorThings-
 
 All layer information the portal needs to use the services is stored here. Configuration details differ between WMS, WFS, [SensorThings-API](sensorThings.md) and other services types. You may also use local GeoJSON files; see GeoJSON example.
 
-***
 
-## WMS layer
+## WMS Layer
+
+A layer based on the OGC's [Web Map Service](https://www.ogc.org/standard/wms/) or Web Map Service with time support (WMS-T).
 
 |Name|Required|Type|Default|Description|Example|
 |----|--------|----|-------|-----------|-------|
@@ -42,9 +43,7 @@ All layer information the portal needs to use the services is stored here. Confi
 |crs|yes|String||Layer's coordinate reference system|`"EPSG:3857"`|
 |preview|no|**[preview](#markdown-header-wms_wmts_vectortile_preview)**||Shows a preview of a baselayer in layer-selection and baselayer-switcher, even if not configured here. For WMS and WMTS layers, the image is fetched as a GetMap request. For VectorTile layers, an image is stored in the file system.||
 
-**WMS example:**
-
-```json
+```json title="Example Configuration of a WMS Layer"
 {
       "id" : "8",
       "name" : "Aerial View DOP 10",
@@ -94,44 +93,39 @@ All layer information the portal needs to use the services is stored here. Confi
    }
 ```
 
-***
+### Secured WMS Services
 
-## WMS-Layer.isSecured ##
-
-WMS layer belonging to a secured WMS service.
-
-**CAUTION: If the layer belongs to a secured service, the following changes must be made to the service!**
+If a WMS layer belongs to a secured WMS service, `isSecured: "true"` must be appended to the layer's configuration.
 
 * Two headers must be set based on the referer.
-* The configuration for this must be done e.g. in the Apache web server.
+* The configuration for this must be done, e.g. in the Apache web server.
 * `Access-Control-Allow-Credentials: true`.
 * Dynamic rewrite of the following HTTP header from: <br>
 `Access-Control-Allow-Origin: *` <br>
 to <br>
 `Access-Control-Allow-Origin: URL of the accessing portal`.
 
-***
-
-## WMS-Layer.time ##
+### Using time related parameters (WMS-T)
 
 Possible configuration for the time related parameters of a WMS-T.
 If a parameter is also present in the service, the definition in this config is used.
 
 > ⚠️ Please mind that `version` must be set to `1.1.1`. The Masterportal implementation does currently not support newer versions.
 
-|Name|Verpflichtend|Typ|default|Beschreibung|Beispiel|
-|----|-------------|---|-------|------------|--------|
-|default|no|String||Initial moment to be displayed for the WMS-T. **Beware**: If the configured value is not part of the time range of possible values, the default of the service is used instead.|`"1970"`|
-|keyboardMovement|no|Number|`5`| Value in pixels that the swiper should be moved when using the arrow keys.|`5`|
-|playbackDelay|no|Number|`1`|When using the playback function, this is the time in seconds which a moment should be shown before the rendering of the next moment is initiated.|`42`|
-|dimensionName|no|String|`"time"`|Name of GetCapabilities <Dimension> tag to use for layer; time format|`"REFERENCE_TIME"`|
-|extentName|no|String|`"time"`|Name of GetCapabilities <Extent> tag to use for layer; contains valid points in time|`"REFERENCE_TIME"`|
+| Name             | Verpflichtend | Typ    | default  | Beschreibung                                                                                                                                                                    | Beispiel           |
+|------------------|---------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| default          | no            | String |          | Initial moment to be displayed for the WMS-T. **Beware**: If the configured value is not part of the time range of possible values, the default of the service is used instead. | `"1970"`           |
+| keyboardMovement | no            | Number | `5`      | Value in pixels that the swiper should be moved when using the arrow keys.                                                                                                      | `5`                |
+| playbackDelay    | no            | Number | `1`      | When using the playback function, this is the time in seconds which a moment should be shown before the rendering of the next moment is initiated.                              | `42`               |
+| dimensionName    | no            | String | `"time"` | Name of GetCapabilities <Dimension> tag to use for layer; time format                                                                                                           | `"REFERENCE_TIME"` |
+| extentName       | no            | String | `"time"` | Name of GetCapabilities <Extent> tag to use for layer; contains valid points in time                                                                                            | `"REFERENCE_TIME"` |
 
-***
 
-## WMTS layer
+## WMTS Layer
 
-WMTS layers can be added by
+A layer based on the OGC's [Web Map Tile Service](https://www.ogc.org/standard/wmts/).
+
+WMTS layers can be added by:
 
 * entering all the following WMTS parameters (EPSG:4326 and EPSG:3857 only)
 * using OpenLayers' `optionsFromCapabilities` method (see second example below)
@@ -165,9 +159,8 @@ WMTS layers can be added by
 |wrapX|no|Boolean|`false`|Whether world should be wrapped horizontally.|`true`|
 |preview|no|**[preview](#markdown-header-wms_wmts_vectortile_preview)**||Shows a preview of a baselayer in layer-selection and background-switcher, even if not configured here. For WMS and WMTS layers, the image is fetched as a GetMap request. For VectorTile layers, an image is stored in the file system.||
 
-**WMTS example 1:**
 
-```json
+```json title="Example Configuration of a WMTS Layer that explicitly defines all Options"
 {
    "id": "320",
    "name": "Geoland Basemap",
@@ -217,17 +210,15 @@ WMTS layers can be added by
    ],
    "resLength": "20",
    "requestEncoding": "REST",
-   "preview":{
+   "preview": {
             "zoomLevel": 6,
             "center":"566245.97,5938894.79",
             "radius": 500
-          }
+   }
 }
 ```
 
-**WMTS example 2 (`optionsFromCapabilities` method):**
-
-```
+```JSON title="Example Configuration of a WMTS Layer that loads its Options from the Service's Capabilities"
 {
   "id": "2020",
   "name": "EOC Basemap",
@@ -236,12 +227,11 @@ WMTS layers can be added by
   "layers": "eoc:basemap",
   "optionsFromCapabilities": true
 }
-
 ```
 
-***
+## WFS Layer
 
-## WFS layer
+A layer based on the OGC's [Web Feature Service](https://www.ogc.org/standard/wfs/) standard.
 
 |Name|Required|Type|Default|Description|Example|
 |----|--------|----|-------|-----------|-------|
@@ -274,10 +264,8 @@ WMTS layers can be added by
 |singleChar|no|String||The singlechar parameter for the highlightFeaturesByAttribute property query. Must be one character only.|
 |escapeChar|no|String||The escapechar parameter for the highlightFeaturesByAttribute property query. Must be one character only.|
 
-**WFS example:**
 
-```json
-
+```json title="Example Configuration of a WFS Layer"
 {
       "id" : "44",
       "name" : "Traffic situation on freeways",
@@ -319,59 +307,51 @@ WMTS layers can be added by
    }
 ```
 
-**WFS-T example:**
-
-```json
+```json title="Example Configuration of a WFS-T Layer"
 {
-    "id" : "1234",
-    "name" : "WFSTLayer",
-    "url" : "http://IP-Adresse/Beispiel/Pfad",
-    "typ" : "WFS",
-    "featureType" : "wfstBsp",
-    "format" : "image/png",
-    "version" : "1.1.0",
-    "featureNS" : "http://beispiel.link.org/gmlsf",
-    "featurePrefix" : "sf",
-    "outputFormat" : "XML",
-    "gfiAttributes" : "showAll",
-    "layerAttribution" : "nicht vorhanden",
-    "legend" : true,
-    "datasets" : [],
-    "propertyNames": [
-        "bezirk_name",
-        "stadtteil_name",
-        "anzahl_sus_primarstufe",
-        "geom"
-    ]
-  }
+  "id": "1234",
+  "name": "WFSTLayer",
+  "url": "http://IP-Adresse/Beispiel/Pfad",
+  "typ": "WFS",
+  "featureType": "wfstBsp",
+  "format": "image/png",
+  "version": "1.1.0",
+  "featureNS": "http://beispiel.link.org/gmlsf",
+  "featurePrefix": "sf",
+  "outputFormat": "XML",
+  "gfiAttributes": "showAll",
+  "layerAttribution": "nicht vorhanden",
+  "legend": true,
+  "datasets": [],
+  "propertyNames": [
+    "bezirk_name",
+    "stadtteil_name",
+    "anzahl_sus_primarstufe",
+    "geom"
+  ]
+}
 ```
 
-### wfsFilter
+### Filtering of WFS Layers
 
-You can create an xml ressource using wfs standard to request your server with complex filters.
-To learn more about wfs filter encoding see https://mapserver.org/de/ogc/filter_encoding.html .
+The WFS standard allows complex filters to be sent to the server using an XML format.
+To learn more about WFS filter encoding, see the [MapServer's Filter Encoding documentation](https://mapserver.org/de/ogc/filter_encoding.html).
 
 Remember to use the correct feature namespace (see prop featureNS) for xmlns:app.
 
-
-
 **Example**
 
-A filter for primary schools with more than 2 parallel first classes in a file named "primary_schools_with_more_than_two_first_classes.xml".
+A filter for primary schools with more than two parallel first classes in a file named "primary_schools_with_more_than_two_first_classes.xml".
 Remember to add/remove namespaces (e.g. xmlns:wfs and xmlns:ogc) for your purpose.
-If it doesn't work with the first try, go through your file - line for line - most of the time some prefix doesn't match a namespace or vice versa.
+If it doesn't work on the first try, go through your file - line for line - most of the time some prefix doesn't match a namespace or vice versa.
 
-Config:
-
-```json
+```json title="Additional Argument in the WFS Layer Configuration"
 {
     "wfsFilter": "primary_schools_with_more_than_two_first_classes.xml"
 }
 ```
 
-Content of primary_schools_with_more_than_two_first_classes.xml:
-
-```json
+```XML title="Content of primary_schools_with_more_than_two_first_classes.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="1.1.0" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs" xmlns:ogc="http://www.opengis.net/ogc">
     <wfs:Query typeName="app:schools">
@@ -391,23 +371,17 @@ Content of primary_schools_with_more_than_two_first_classes.xml:
 </wfs:GetFeature>
 ```
 
+### wfs_id
+If the configured layer id is a JSON object, the object should be in the following format:
 
+| Name    | Required | Type   | Default | Description              | Example     |
+|---------|----------|--------|---------|--------------------------|-------------|
+| layerId | yes      | String |         | Attribute value layerId. | `"1234567"` |
+| suffix  | yes      | String |         | Attribute value suffix.  | `"text"`    |
 
+The layerId and suffix must be unique as a pair!
 
-***
-
-## wfs_id
-If the layer id is in an object format, the content in the object should be in the format:
-
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|layerId|yes|String||Attribute value layerId.|`"1234567"`|
-|suffix|yes|String||Attribute value suffix.|`"text"`|
-**The layerId and suffix must be unique as a pair**
-
-**wfs layer Id Object example:**
-
-```json
+```json title="WFS Layer Id JSON Object Example"
 {
    "id": {
         "layerId": "1234567",
@@ -416,10 +390,7 @@ If the layer id is in an object format, the content in the object should be in t
 }
 ```
 
-***
-
-## WFS-Layer.isSecured ##
-WFS layer belonging to a secured WFS service.
+### Secured WFS Services
 
 **CAUTION: If the layer belongs to a secured service, the following changes must be made to the service!**
 
@@ -438,40 +409,40 @@ to <br>
 * If no setting has yet been made for this header, the header must be set as follows to avoid any effects on other requests: `Access-Control-Allow-Headers: Content-Type, * `
 * If settings have already been made for this header, the following entry must be added to the `Access-Control-Allow-Headers` header: `Content-Type`
 
-***
+
 ## Vector Tile Layer
 
+A layer based on the [Mapbox Vector Tile](https://docs.mapbox.com/vector-tiles/specification/) (VTL) standard.
 Please note the [VTL specification](https://docs.mapbox.com/vector-tiles/specification/#what-the-spec-doesnt-cover) on what VTL exactly is capable of.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|minZoom|no|Number||The minimum zoom level|4|
-|maxZoom|no|Number||The maximum zoom level|15|
-|zDirection|no|Number|1|Specifies, if the resolutions of the service and the portal are different, in which direction the resolution should be used. 1: the nearest higher resolution is used. 0: the nearest resolution is used. -1: the nearest lower resolution is used|-1|
-|datasets|no|**[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean||Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. It is also possible to retrieve metadata with a getMetaData request, in this case there can also be additional informations displayed. To remove the "i" button altogether, explicitly set `"datasets": false`.||
-|gfiAttributes|yes|String/**[gfiAttributes](#markdown-header-gfi_attributes)**||GFI attributes to be shown.|`"ignore"`|
-|epsg|no|String|The portal's default EPSG code.|EPSG string used for checking the coordinate reference system. If the value does not match the VTL, a warning is shown. Vector tile services should offer the data in the target CRS for performance reasons. If `"EPSG:3857"` is set with neither `"extend"`, nor `"origin"`, `"resolutions"`, or `"tileSize"`, no *GridSet* is created. The OL default will be used instead.|`"EPSG:3857"`|
-|extent|no|Number[4]||Required to define the VTC's *GridSet*. If not set, the portal's coordinate reference system's extent is used.|`[902186.674876469653, 7054472.60470921732, 1161598.35425907862, 7175683.41171819717]`|
-|origin|no|Number[2]||Required to define the VTC's *GridSet*. If not set, the portal's coordinate reference system's top-left corner is used.|`[-9497963.94293634221, 9997963.94293634221]`|
-|origins|no|Number[2][]||Required to define the VTC's *GridSet*. If `"origins"` is used, the parameter `"origin"` is ignored; else, `"origin"` is used.|`[[239323.44497139292, 9336416.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9320288.0],[239323.44497139292, 9321005.0],[239323.44497139292, 9320646.0],[239323.44497139292, 9320467.0],[239323.44497139292, 9320288.0],[239323.44497139292, 9320109.0],[239323.44497139292, 9320145.0],[239323.44497139292, 9320109.0]]`|
-|resolutions|no|Number[]||Required to define the VTC's *GridSet*. It not used, the portal's resolutions are used. Missing zoom levels are extrapolated only if the resolutions are explicitly specified. Therefore, only resolutions for which tiles exist may be specified.|`[78271.5169640117238, 39135.7584820058619, 19567.8792410029309, 9783.93962050146547, 4891.96981025073273, 2445.98490512536637, 1222.99245256268318, 611.496226281341592, 305.7481131406708, 152.8740565703354, 76.437028285167699, 38.2185141425838495, 19.1092570712919247, 9.55462853564596237, 4.77731426782298119, 2.38865713391149059, 1.1943285669557453]`|
-|tileSize|no|Number|`512`|Required to define the size of a VTC tile.|`256`|
-|id|yes|String||Arbitrary id|`"41"`|
-|layerAttribution|no|String|`"nicht vorhanden"`|Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.|`"nicht vorhanden"`|
-|transparency|no|number|`0`|Initial layer transparency, 0 to 100 (inclusive)|`0`|
-|visibility|no|boolean|`false`|Whether the layer is initially active|`true`|
-|maxScale|yes|String||The layer is shown only up to this scale.|`"1000000"`|
-|minScale|yes|String||The layer is shown only down to this scale.|`"0"`|
-|name|yes|String||Arbitrary display name used in the layer tree.|`"Traffic situation on freeways"`|
-|vtStyles|no|vtStyle[]||See example and definition in **[config.json](config.json.md)**. Describes available styles usable with the *styleVT* tool.|see example below|
-|typ|yes|String||Must be set to `"VectorTile"` for this layer.|`"VectorTile"`|
-|url|yes|String||Service URL|`"https://example.com/3857/tile/{z}/{y}/{x}.pbf"`|
-|useProxy|no|Boolean|`false`|_Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.|`false`|
-|gfiTheme|yes|String/Object||Display style of GFI information for this layer. Unless `"default"` is chosen, custom templates may be used to show GFI information in another format than the default table style.|`"default"`|
+| Name             | Required | Type                                                          | Default                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------|----------|---------------------------------------------------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| minZoom          | no       | Number                                                        |                                 | The minimum zoom level                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| maxZoom          | no       | Number                                                        |                                 | The maximum zoom level                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 15                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| zDirection       | no       | Number                                                        | 1                               | Specifies, if the resolutions of the service and the portal are different, in which direction the resolution should be used. 1: the nearest higher resolution is used. 0: the nearest resolution is used. -1: the nearest lower resolution is used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | -1                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| datasets         | no       | **[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean |                                 | Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. It is also possible to retrieve metadata with a getMetaData request, in this case there can also be additional informations displayed. To remove the "i" button altogether, explicitly set `"datasets": false`. |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| gfiAttributes    | yes      | String/**[gfiAttributes](#markdown-header-gfi_attributes)**   |                                 | GFI attributes to be shown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `"ignore"`                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| epsg             | no       | String                                                        | The portal's default EPSG code. | EPSG string used for checking the coordinate reference system. If the value does not match the VTL, a warning is shown. Vector tile services should offer the data in the target CRS for performance reasons. If `"EPSG:3857"` is set with neither `"extend"`, nor `"origin"`, `"resolutions"`, or `"tileSize"`, no *GridSet* is created. The OL default will be used instead.                                                                                                                                                                                                                                                                                                                                                                            | `"EPSG:3857"`                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| extent           | no       | Number[4]                                                     |                                 | Required to define the VTC's *GridSet*. If not set, the portal's coordinate reference system's extent is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `[902186.674876469653, 7054472.60470921732, 1161598.35425907862, 7175683.41171819717]`                                                                                                                                                                                                                                                                                                                                                                              |
+| origin           | no       | Number[2]                                                     |                                 | Required to define the VTC's *GridSet*. If not set, the portal's coordinate reference system's top-left corner is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `[-9497963.94293634221, 9997963.94293634221]`                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| origins          | no       | Number[2][]                                                   |                                 | Required to define the VTC's *GridSet*. If `"origins"` is used, the parameter `"origin"` is ignored; else, `"origin"` is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `[[239323.44497139292, 9336416.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9322080.0],[239323.44497139292, 9320288.0],[239323.44497139292, 9321005.0],[239323.44497139292, 9320646.0],[239323.44497139292, 9320467.0],[239323.44497139292, 9320288.0],[239323.44497139292, 9320109.0],[239323.44497139292, 9320145.0],[239323.44497139292, 9320109.0]]` |
+| resolutions      | no       | Number[]                                                      |                                 | Required to define the VTC's *GridSet*. It not used, the portal's resolutions are used. Missing zoom levels are extrapolated only if the resolutions are explicitly specified. Therefore, only resolutions for which tiles exist may be specified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `[78271.5169640117238, 39135.7584820058619, 19567.8792410029309, 9783.93962050146547, 4891.96981025073273, 2445.98490512536637, 1222.99245256268318, 611.496226281341592, 305.7481131406708, 152.8740565703354, 76.437028285167699, 38.2185141425838495, 19.1092570712919247, 9.55462853564596237, 4.77731426782298119, 2.38865713391149059, 1.1943285669557453]`                                                                                                   |
+| tileSize         | no       | Number                                                        | `512`                           | Required to define the size of a VTC tile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `256`                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| id               | yes      | String                                                        |                                 | Arbitrary id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `"41"`                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| layerAttribution | no       | String                                                        | `"nicht vorhanden"`             | Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `"nicht vorhanden"`                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| transparency     | no       | number                                                        | `0`                             | Initial layer transparency, 0 to 100 (inclusive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| visibility       | no       | boolean                                                       | `false`                         | Whether the layer is initially active                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| maxScale         | yes      | String                                                        |                                 | The layer is shown only up to this scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `"1000000"`                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| minScale         | yes      | String                                                        |                                 | The layer is shown only down to this scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `"0"`                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| name             | yes      | String                                                        |                                 | Arbitrary display name used in the layer tree.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `"Traffic situation on freeways"`                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| vtStyles         | no       | vtStyle[]                                                     |                                 | See example and definition in **[config.json](config.json.md)**. Describes available styles usable with the *styleVT* tool.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | see example below                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| typ              | yes      | String                                                        |                                 | Must be set to `"VectorTile"` for this layer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `"VectorTile"`                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| url              | yes      | String                                                        |                                 | Service URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `"https://example.com/3857/tile/{z}/{y}/{x}.pbf"`                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| useProxy         | no       | Boolean                                                       | `false`                         | _Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `false`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| gfiTheme         | yes      | String/Object                                                 |                                 | Display style of GFI information for this layer. Unless `"default"` is chosen, custom templates may be used to show GFI information in another format than the default table style.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `"default"`                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-**VectorTile example:**
 
-```json
+```json title="Example Configuration of a VectorTile Layer"
 
 {
   "id": "UNIQUE_ID",
@@ -505,11 +476,12 @@ Please note the [VTL specification](https://docs.mapbox.com/vector-tiles/specifi
 }
 ```
 
-***
 
 ## SensorLayer
 
-A feature kann hold multiple Datastreams. For each Datastream, the latest obervation is added as a feature attribute as `"dataStream_[id]_[name]"`, where `id` is the Datastream's `@iot.id`.
+A layer based on the OGC's [SensorThings API](https://www.ogc.org/standard/sensorthings/) (STA) standard.
+
+A feature can hold multiple Datastreams. For each Datastream, the latest observation is added as a feature attribute as `"dataStream_[id]_[name]"`, where `id` is the Datastream's `@iot.id`.
 
 The name is read from `datastream.properties.type`; if not available, `datastream.unitOfMeasurement.name` is used.
 
@@ -549,9 +521,7 @@ For more details, consider reading the [extensive SensorThings-API documentation
 |enableContinuousRequest|no|Boolean||Set true to enable continuous requests in an interval based on the configured `factor`. Will be ignored if no `factor` is configured.|`true`|
 |scaleStyleByZoom|no|Boolean|Scales the style depending on the zoom level. Works only for image styles and subclasses.|'true'|
 
-**Sensor example:**
-
-```json
+```json title="Example Configuration of a SensorLayer"
 
    {
       "id" : "999999",
@@ -596,106 +566,109 @@ For more details, consider reading the [extensive SensorThings-API documentation
    }
 ```
 
-## SensorLayer.mqttOptions ##
+### MQTT Options
 
 Used to configure the target of a mqtt web socket connection. If nothing is set, the portal tries to infer the parameters from the service URL.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|host|no|String|https://localhost|the server to connect to, keep in mind that port and path are seperate parameters|`"https://www.example.com"`|
-|port|no|String||the port to connect to, leave empty to use default by protocol|`"8883"`|
-|path|no|String|/mqtt|the path on the server to connect to, keep in mind with Versions 3.1 or 3.1.1 to give a seperate rhPath if you want to simulate retained messaging|`"/mqtt"`|
-|protocol|no|String|wss|the protocol to use|`"wss"`|
-|mqttVersion|no|String|3.1.1|the mqtt version to use (3.1, 3.1.1 or 5.0) if any other is given, latest is used|`"3.1.1"`|
-|rhPath|no|String||for mqttVersion 3.1 and 3.1.1 to simulate retained handling based on SensorThingsApi, hint: the topic will be put onto this url to call the SensorThingsApi via http|`"https://example.com/"`|
+| Name        | Required | Type   | Default           | Description                                                                                                                                                          | Example                     |
+|-------------|----------|--------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| host        | no       | String | https://localhost | the server to connect to, keep in mind that port and path are seperate parameters                                                                                    | `"https://www.example.com"` |
+| port        | no       | String |                   | the port to connect to, leave empty to use default by protocol                                                                                                       | `"8883"`                    |
+| path        | no       | String | /mqtt             | the path on the server to connect to, keep in mind with Versions 3.1 or 3.1.1 to give a seperate rhPath if you want to simulate retained messaging                   | `"/mqtt"`                   |
+| protocol    | no       | String | wss               | the protocol to use                                                                                                                                                  | `"wss"`                     |
+| mqttVersion | no       | String | 3.1.1             | the mqtt version to use (3.1, 3.1.1 or 5.0) if any other is given, latest is used                                                                                    | `"3.1.1"`                   |
+| rhPath      | no       | String |                   | for mqttVersion 3.1 and 3.1.1 to simulate retained handling based on SensorThingsApi, hint: the topic will be put onto this url to call the SensorThingsApi via http | `"https://example.com/"`    |
 
-**Example mqttOptions:**
-```json
-
-    {
-      "mqttOptions" : {
-         "host" : "https://localhost",
-         "port" : "8883",
-         "path": "/mqtt",
-         "protocol": "wss"
-      }
-   }
-```
-
-## SensorLayer.urlParameter ##
-
-Enables filtering SensorThingsAPI requests.
-
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|expand|no|String/Array||See [full documentation](sensorThings.md)|`"Locations,Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)"`|
-|filter|no|String||See [full documentation](sensorThings.md)|`"startswith(Things/name,'Charging')"`|
-|root|no|String|"Things"|The root element in the URL to which the query is applied. possible are `"Things"` or `"Datastreams"`|"Datastreams"|
-
-**urlParameter example:** Show all Things where the name starts with `"Charging"`, and all Datastreams belonging to those Things. Show each Datastream's latest Observation.
-
-```json
+```json title="Example Configuration of a SensorLayer with mqttOptions"
 {
-    "urlParameter" : {
-        "filter" : "startswith(Things/name,'Charging')",
-        "expand" : "Locations,Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)",
-        "root": "Things"
-    }
+  "mqttOptions": {
+    "host": "https://localhost",
+    "port": "8883",
+    "path": "/mqtt",
+    "protocol": "wss"
+  }
 }
 ```
 
-**urlParameter example:** Show all Things where the name starts with `"Charging"`, and all Datastreams belonging to those Things where `"Lastenrad"` is part of the name. Show each Datastream's latest Observation and the Phaenomenon (ObversedProperty) that is observed. If available, the ObservedProperty will be used for dynamic attribute creation.
+### Filtering STA Requests
 
-```json
+SensorThingsAPI requests can be filtered with the `urlParameter` option.
+
+| Name   | Required | Type         | Default  | Description                                                                                           | Example                                                                       |
+|--------|----------|--------------|----------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| expand | no       | String/Array |          | See [full documentation](sensorThings.md)                                                             | `"Locations,Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)"` |
+| filter | no       | String       |          | See [full documentation](sensorThings.md)                                                             | `"startswith(Things/name,'Charging')"`                                        |
+| root   | no       | String       | "Things" | The root element in the URL to which the query is applied. possible are `"Things"` or `"Datastreams"` | "Datastreams"                                                                 |
+
+
+
+```json title="Show all Things where the name starts with 'Charging', and all Datastreams belonging to those Things. Show each Datastream's latest Observation."
 {
-    "urlParameter": {
-        "filter": "startswith(Things/name,'Charging')",
-        "expand": [
-            "Locations",
-            "Datastreams($filter=indexof(Datastream/name,'Lastenrad') ge 1)",
-            "Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)",
-        "Datastreams/ObservedProperty"
-        ]
-    }
+  "urlParameter": {
+    "filter": "startswith(Things/name,'Charging')",
+    "expand": "Locations,Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)",
+    "root": "Things"
+  }
 }
 ```
 
-***
+```json title="Show all Things where the name starts with 'Charging', and all Datastreams belonging to those Things where 'Lastenrad' is part of the name. Show each Datastream's latest Observation and the Phaenomenon (ObversedProperty) that is observed. If available, the ObservedProperty will be used for dynamic attribute creation."
+{
+  "urlParameter": {
+    "filter": "startswith(Things/name,'Charging')",
+    "expand": [
+      "Locations",
+      "Datastreams($filter=indexof(Datastream/name,'Lastenrad') ge 1)",
+      "Datastreams/Observations($orderby=phenomenonTime%20desc;$top=1)",
+      "Datastreams/ObservedProperty"
+    ]
+  }
+}
+```
 
-## WMS_WFS_OAF_datasets
+## Metadata
 
-Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. It is also possible to retrieve metadata with a getMetaData request, in this case there can also be additional informations displayed. To remove the "i" button altogether, explicitly set `"datasets": false`.||
+Settings related to layer metadata.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|md_id|no|String||Metadata record identifier|
-|csw_url|no|String||Link to the CSW service. From this, the data that is displayed in the layer information is retrieved.|
-|show_doc_url|no|String||Link to the entry in the metadata catalog. The link to the metadata entry of the layer is created from this URL and the `"md_id"`.|
-|rs_id|no|String||Resource identifier of the metadata record.|
-|md_name|no|String||Record name.|
-|bbox|no|String||Record extension.|
-|kategorie_opendata|no|String||Opendata category from the govdata.de code list.|
-|kategorie_inspire|no|String||Inspire category from the Inspire code list, if available; if not, set to `"nicht Inspire-identifiziert"`.|
-|kategorie_organisation|no|String||Organization name of the data holding body.|
-|customMetadata|no|Boolean|false|Flag for requesting metadata via getMetaData and making customized metadata possible.|
-|attributes|no|Object||Key and value pairs with paths to a specific metadata value.|
+### WMS_WFS_OAF_datasets
 
-**datasets example:**
+All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user.
+For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface.
+The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`.
+ It is also possible to retrieve metadata with a getMetaData request. In this case, additional information can be displayedn/activate. To remove the "i" button altogether, explicitly set `"datasets": false`.
 
-```json
-"datasets" : [
+| Name                   | Required | Type    | Default | Description                                                                                                                        |
+|------------------------|----------|---------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| md_id                  | no       | String  |         | Metadata record identifier                                                                                                         |
+| csw_url                | no       | String  |         | Link to the CSW service. From this, the data that is displayed in the layer information is retrieved.                              |
+| show_doc_url           | no       | String  |         | Link to the entry in the metadata catalog. The link to the metadata entry of the layer is created from this URL and the `"md_id"`. |
+| rs_id                  | no       | String  |         | Resource identifier of the metadata record.                                                                                        |
+| md_name                | no       | String  |         | Record name.                                                                                                                       |
+| bbox                   | no       | String  |         | Record extension.                                                                                                                  |
+| kategorie_opendata     | no       | String  |         | Opendata category from the govdata.de code list.                                                                                   |
+| kategorie_inspire      | no       | String  |         | Inspire category from the Inspire code list, if available; if not, set to `"nicht Inspire-identifiziert"`.                         |
+| kategorie_organisation | no       | String  |         | Organization name of the data holding body.                                                                                        |
+| customMetadata         | no       | Boolean | false   | Flag for requesting metadata via getMetaData and making customized metadata possible.                                              |
+| attributes             | no       | Object  |         | Key and value pairs with paths to a specific metadata value.                                                                       |
+
+```json title="Example Configuration of a WMS_WFS_OAF_Dataset"
+  "datasets": [
     {
-        "md_id" : "9329C2CB-4552-4780-B343-0CC847538896",
-        "csw_url" : "https://metaver.de/csw",
-        "show_doc_url" : "https://metaver.de/trefferanzeige?cmd=doShowDocument&docuuid=",
-        "rs_id" : "https://registry.gdi-de.org/id/de.hh/010d7370-5306-4b63-983b-59cdd6e94c3c",
-        "md_name" : "Krankenhäuser Hamburg",
-        "bbox" : "461468.968928975,5916367.22980651,587010.909598947,5980347.75579767",
-        "kategorie_opendata" : [ "Gesundheit" ],
-        "kategorie_inspire" : [ "Versorgungswirtschaft und staatliche Dienste" ],
-        "kategorie_organisation" : "Behörde für Arbeit, Gesundheit, Soziales, Familie und Integration"
+      "md_id": "9329C2CB-4552-4780-B343-0CC847538896",
+      "csw_url": "https://metaver.de/csw",
+      "show_doc_url": "https://metaver.de/trefferanzeige?cmd=doShowDocument&docuuid=",
+      "rs_id": "https://registry.gdi-de.org/id/de.hh/010d7370-5306-4b63-983b-59cdd6e94c3c",
+      "md_name": "Krankenhäuser Hamburg",
+      "bbox": "461468.968928975,5916367.22980651,587010.909598947,5980347.75579767",
+      "kategorie_opendata": [
+        "Gesundheit"
+      ],
+      "kategorie_inspire": [
+        "Versorgungswirtschaft und staatliche Dienste"
+      ],
+      "kategorie_organisation": "Behörde für Arbeit, Gesundheit, Soziales, Familie und Integration"
     }
-]
+  ]
 ```
 
 **datasets example with getMetaData request:**
@@ -712,32 +685,31 @@ Metadata specification. All metadata of the layer data is referenced here. By cl
       }],
 ```
 
-***
-## WMS_WMTS_VectorTile_preview
+### WMS_WMTS_VectorTile_preview
 
 Properties `center`, `zoomLevel` and `radius` are used to load WMS or WMTS-Preview image, else `src` ist used.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|center|no|Array/String|initial center of the map|Center coordinates for the preview.|
-|zoomLevel|no|Number|initial zoom-level of the map|Zoom-level for the preview.|
-|radius|no|Number|1000|Radius of the extent.|
-|customClass|no|String|""|Custom css-class to overwrite style, NOTICE: maybe `!important` must be used.|
-|src|no|String||Path to preview image.|
+| Name        | Required | Type         | Default                       | Description                                                                   |
+|-------------|----------|--------------|-------------------------------|-------------------------------------------------------------------------------|
+| center      | no       | Array/String | initial center of the map     | Center coordinates for the preview.                                           |
+| zoomLevel   | no       | Number       | initial zoom-level of the map | Zoom-level for the preview.                                                   |
+| radius      | no       | Number       | 1000                          | Radius of the extent.                                                         |
+| customClass | no       | String       | ""                            | Custom css-class to overwrite style, NOTICE: maybe `!important` must be used. |
+| src         | no       | String       |                               | Path to preview image.                                                        |
 
-***
-## gfi_theme
 
+## GFI Theme
+
+The GFI theme is used to define the display style of Get Feature Info (GFI) information for a layer.
 This attribute may be either a string or an object. In case it's a string, the matching template will be used. In case it's an object, the following parameters are interpreted.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|name|yes|String||GFI template name|
-|params|no|**[params](#markdown-header-gfi_theme_params)**||Template-specific attributes|
+| Name   | Required | Type                                            | Default | Description                  |
+|--------|----------|-------------------------------------------------|---------|------------------------------|
+| name   | yes      | String                                          |         | GFI template name            |
+| params | no       | **[params](#markdown-header-gfi_theme_params)** |         | Template-specific attributes |
 
-**gfiTheme example:**
 
-```json
+```json title="Example Configuration of a GFI Theme"
 {
     "gfiTheme": {
         "name": "default",
@@ -746,37 +718,30 @@ This attribute may be either a string or an object. In case it's a string, the m
 }
 ```
 
-***
+### Built-in GFI Types
 
-## gfi_theme_params
+The following GFI themes are build-in. Addons may register additional themes.
 
-Definition of template-specific parameters.
+| Name    | params                                                  |
+|---------|---------------------------------------------------------|
+| default | **[params](#markdown-header-gfi_theme_default_params)** |
+| sensor  | **[params](#markdown-header-gfi_theme_sensor_params)**  |
 
-|Name|params|
-|----|------|
-|default|**[params](#markdown-header-gfi_theme_default_params)**|
-|sensor|**[params](#markdown-header-gfi_theme_sensor_params)**|
 
-***
-
-## gfi_theme_default_params
+#### Default Theme
 
 Definition of parameters for GFI template `"default"`.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|iframe|no|**[iframe](#markdown-header-gfi_theme_default_params_iframe)**||Defines the size of the iframe. Only works if the infoFormat="text/html" is configured for the layer.|
-|imageLinks|no|String/String[]|`["bildlink", "link_bild", "Bild", "bild"]`|Defines in which attribute an image reference is given. Attributes will be searched in given order, and the first hit will be used.|
-|maxWidth|no|String|`"600px"`|Defines the max width of the gfi content. The max width must be at least 280px.|
-|showFavoriteIcons|no|Boolean|`true`|Specifies whether an icon bar allowing tool access is to be displayed. The icons are only displayed if the corresponding tools are configured. Usable tools: `compareFeatures` (not yet implemented for WMS).|
-|beautifyKeys|no|Boolean|true|Defines if the attribute keys are beautified (true) or not (false).|
-|showObjectKeys|no|Boolean|false|Displays attribute keys and values of objects in the data if set to true.|
+| Name              | Required | Type                             | Default                                     | Description                                                                                                                                                                                                   |
+|-------------------|----------|----------------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iframe            | no       | **[iframe](#iframe-parameters)** |                                             | Defines the size of the iframe. Only works if the infoFormat="text/html" is configured for the layer.                                                                                                         |
+| imageLinks        | no       | String/String[]                  | `["bildlink", "link_bild", "Bild", "bild"]` | Defines in which attribute an image reference is given. Attributes will be searched in given order, and the first hit will be used.                                                                           |
+| maxWidth          | no       | String                           | `"600px"`                                   | Defines the max width of the gfi content. The max width must be at least 280px.                                                                                                                               |
+| showFavoriteIcons | no       | Boolean                          | `true`                                      | Specifies whether an icon bar allowing tool access is to be displayed. The icons are only displayed if the corresponding tools are configured. Usable tools: `compareFeatures` (not yet implemented for WMS). |
+| beautifyKeys      | no       | Boolean                          | true                                        | Defines if the attribute keys are beautified (true) or not (false).                                                                                                                                           |
+| showObjectKeys    | no       | Boolean                          | false                                       | Displays attribute keys and values of objects in the data if set to true.                                                                                                                                     |
 
-
-**gfiTheme example for template "Default":**
-
-Example for show images in the gfi:
-```json
+```json title="Example Configuration for showing images with the 'default' GFI Theme"
 {
     "gfiTheme": {
         "name": "default",
@@ -797,8 +762,18 @@ Example for show images in the gfi:
 }
 ```
 
-Example for set size of an iframe:
-```json
+##### iframe Parameters
+
+The GFI can be displayed as an iframe. Here you can define the size of the iframe.
+
+Note: Only works if the infoFormat="text/html" is configured for the layer.
+
+| Name   | Required | Type   | Default | Description           |
+|--------|----------|--------|---------|-----------------------|
+| height | no       | String | "450px" | Width of the iframe.  |
+| width  | no       | String | "450px" | Height of the iframe. |
+
+```json title="Configuration with a custom iframe size"
 {
     "gfiTheme": {
         "name": "default",
@@ -812,48 +787,21 @@ Example for set size of an iframe:
 }
 ```
 
-***
 
-## gfi_theme_default_params_iframe
-
-The GFI can be displayed as an iframe. Here you can define the size of the iframe.
-
-Note: Only works if the infoFormat="text/html" is configured for the layer.
-
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|height|no|String|"450px"|Width of the iframe.|
-|width|no|String|"450px"|Height of the iframe.|
-
-**Example for the size of an iframe:**
-```json
-{
-    "iframe": {
-        "width": "200px",
-        "height": "200px"
-    }
-}
-```
-
-
-***
-
-## gfi_theme_sensor_params
+#### Sensor Theme
 
 This theme allows the visualization of historical data regarding a SensorThings-API layer. For each configured Observation result an image is created. Therefore, this GFI theme is only usable for results providing a status; e.g., for charging stations such a status range is "free", "loading", "out of order".
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|charts|yes|**[charts](#markdown-header-gfi_theme_sensor_params_charts)**||Contains attributes for chart creation.|
-|data|no|**[data](#markdown-header-gfi_theme_sensor_params_data)**||Data column names.|
-|header|no|Object|`{"name": "Name", "description": "Beschreibung", "ownerThing": "Eigentümer"}`|Specifies which attributes are to be used for the headers. The display name of each attribute can be specified here, e.g. `"description"` may be displayed `"Arbitrary String"`.|
-|historicalData|no|**[historicalData](#markdown-header-gfi_theme_sensor_params_historicalData)**||Indicates for which period the historical Observations should be requested.|
-|beautifyKeys|no|Boolean|true|Defines if the attribute keys are beautified (true) or not (false).|
-|showObjectKeys|no|Boolean|false|Displays attribute keys and values of objects in the data if set to true.|
+| Name           | Required | Type                                                                          | Default                                                                       | Description                                                                                                                                                                      |
+|----------------|----------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| charts         | yes      | **[charts](#markdown-header-gfi_theme_sensor_params_charts)**                 |                                                                               | Contains attributes for chart creation.                                                                                                                                          |
+| data           | no       | **[data](#markdown-header-gfi_theme_sensor_params_data)**                     |                                                                               | Data column names.                                                                                                                                                               |
+| header         | no       | Object                                                                        | `{"name": "Name", "description": "Beschreibung", "ownerThing": "Eigentümer"}` | Specifies which attributes are to be used for the headers. The display name of each attribute can be specified here, e.g. `"description"` may be displayed `"Arbitrary String"`. |
+| historicalData | no       | **[historicalData](#markdown-header-gfi_theme_sensor_params_historicalData)** |                                                                               | Indicates for which period the historical Observations should be requested.                                                                                                      |
+| beautifyKeys   | no       | Boolean                                                                       | true                                                                          | Defines if the attribute keys are beautified (true) or not (false).                                                                                                              |
+| showObjectKeys | no       | Boolean                                                                       | false                                                                         | Displays attribute keys and values of objects in the data if set to true.                                                                                                        |
 
-**gfiTheme example for template "Sensor":**
-
-```json
+```json title="Example Configuration for the 'sensor' GFI theme"
 {
     "gfiTheme": {
         "name": "sensor",
@@ -897,20 +845,17 @@ This theme allows the visualization of historical data regarding a SensorThings-
 }
 ```
 
-***
-
-## gfi_theme_sensor_params_charts
+##### Charts
 
 Chart display parameters.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|values|yes|String[]/**[valuesObject](#markdown-header-gfi_theme_sensor_params_charts_valuesObject)**||Definition of which Observation Results are turned into charts. A separate tab will be created for each result. Results may be entered as array or object; when given as object, further attributes may be defined.|
-|hoverBackgroundColor|no|String|`"rgba(0, 0, 0, 0.8)"`|Bar background color on hovering.|
-|barPercentage|no|Number|`1.0`|Bar width.|
+| Name                 | Required | Type                                                                                      | Default                | Description                                                                                                                                                                                                         |
+|----------------------|----------|-------------------------------------------------------------------------------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| values               | yes      | String[]/**[valuesObject](#markdown-header-gfi_theme_sensor_params_charts_valuesObject)** |                        | Definition of which Observation Results are turned into charts. A separate tab will be created for each result. Results may be entered as array or object; when given as object, further attributes may be defined. |
+| hoverBackgroundColor | no       | String                                                                                    | `"rgba(0, 0, 0, 0.8)"` | Bar background color on hovering.                                                                                                                                                                                   |
+| barPercentage        | no       | Number                                                                                    | `1.0`                  | Bar width.                                                                                                                                                                                                          |
 
-**Configuration example with array value:**
-```json
+```json title="Configuration example with array value"
 {
     "charts": {
         "hoverBackgroundColor": "rgba(0, 0, 0, 0.8)",
@@ -924,8 +869,8 @@ Chart display parameters.
 }
 ```
 
-**Configuration example with object value:**
-```json
+
+```json title="Configuration example with object value"
 {
     "charts": {
         "hoverBackgroundColor": "rgba(0, 0, 0, 0.8)",
@@ -948,17 +893,15 @@ Chart display parameters.
 }
 ```
 
-***
-
-## gfi_theme_sensor_params_charts_valuesObject
+##### Chart Values
 
 Layout definition for each result's chart.
 
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|title|no|String||Chart image title. May also be set to a path in the translation files in `masterportal/locales`, which you may extend at your own discretion.|
-|color|no|String|`"rgba(0, 0, 0, 1)"`|Bar color.|
-|noticeText|no|String|""|Text that gives a hint about the data.|
+| Name       | Required | Type   | Default              | Description                                                                                                                                   |
+|------------|----------|--------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| title      | no       | String |                      | Chart image title. May also be set to a path in the translation files in `masterportal/locales`, which you may extend at your own discretion. |
+| color      | no       | String | `"rgba(0, 0, 0, 1)"` | Bar color.                                                                                                                                    |
+| noticeText | no       | String | ""                   | Text that gives a hint about the data.                                                                                                        |
 
 ```json
 {
@@ -980,17 +923,15 @@ Layout definition for each result's chart.
 }
 ```
 
-***
-
-## gfi_theme_sensor_params_data
+##### Data
 
 Data display configuration.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|name|no|String||Tab name.|
-|firstColumnHeaderName|no|String|`"Properties"`|Column title for attribute names.|
-|columnHeaderAttribute|no|String|`"dataStreamName"`|Value column title.|
+| Name                  | Required | Type   | Default            | Description                       | Example |
+|-----------------------|----------|--------|--------------------|-----------------------------------|---------|
+| name                  | no       | String |                    | Tab name.                         |
+| firstColumnHeaderName | no       | String | `"Properties"`     | Column title for attribute names. |
+| columnHeaderAttribute | no       | String | `"dataStreamName"` | Value column title.               |
 
 ```json
 {
@@ -1002,17 +943,15 @@ Data display configuration.
 }
 ```
 
-***
+##### Historical Data
 
-## gfi_theme_sensor_params_historicalData
+Configuration of the historical data period to be requested.
 
-Configuration of historical data period to be request.
-
-|Name|Required|Type|Default|Description|
-|----|--------|----|-------|-----------|
-|name|no|String||Tab name.|
-|periodLength|no|Number|`3`|Period length.|
-|periodUnit|no|String|`"month"`|Unit for period. Use `"month"` or `"year"`.|
+| Name         | Required | Type   | Default   | Description                                 |
+|--------------|----------|--------|-----------|---------------------------------------------|
+| name         | no       | String |           | Tab name.                                   |
+| periodLength | no       | Number | `3`       | Period length.                              |
+| periodUnit   | no       | String | `"month"` | Unit for period. Use `"month"` or `"year"`. |
 
 ```json
 {
@@ -1023,9 +962,8 @@ Configuration of historical data period to be request.
 }
 ```
 
-***
 
-## gfi_attributes
+## GFI Attributes
 
 Potentially cryptic service-side attribute names may be translated with these key-value pairs within the portal.
 
@@ -1094,15 +1032,15 @@ The portal excludes a set of standard attributes that have no information value 
 
 If the gfiAttributes are given as an object, a key's value may also be an object. In that case, the nested object defines a restriction for using that key.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|name|yes|String||Name to be shown on an exact match.|`"Test"`|
-|condition|yes|enum["contains", "startsWith", "endsWith"]||Condition checked on each feature attribute.|`"startsWith"`|
-|type|no|enum["string", "date", "number", "boolean", "html"]|`"string"`|If `"date"`, the portal will attempt to parse the attribute value to a date; If `"Number"`, the portal will attempt to parse the attribute value to with thousand seperator; If “boolean”, the portal will attempt to parse the attribute value to boolean value.|`"date"`|
-|html|no|**[html](#markdown-header-gfi_attributes-html)**||Object to define the html tag properties. this is neccessary if type ist set to 'html'.|`"Test"`|
-|format|no|String/Object|`"YYYY-MM-DDTHH:mm:ss.SSSZ"/{"key": "value"}`|Data format.|`"DD.MM.YYY"`|
-|prefix|no|String||Attribute value prefix.|Add string to value without whitespace `"https://"`|
-|suffix|no|String||Attribute value suffix.|`"°C"`|
+| Name      | Required | Type                                                | Default                                       | Description                                                                                                                                                                                                                                                       | Example                                             |
+|-----------|----------|-----------------------------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| name      | yes      | String                                              |                                               | Name to be shown on an exact match.                                                                                                                                                                                                                               | `"Test"`                                            |
+| condition | yes      | enum["contains", "startsWith", "endsWith"]          |                                               | Condition checked on each feature attribute.                                                                                                                                                                                                                      | `"startsWith"`                                      |
+| type      | no       | enum["string", "date", "number", "boolean", "html"] | `"string"`                                    | If `"date"`, the portal will attempt to parse the attribute value to a date; If `"Number"`, the portal will attempt to parse the attribute value to with thousand seperator; If “boolean”, the portal will attempt to parse the attribute value to boolean value. | `"date"`                                            |
+| html      | no       | **[html](#markdown-header-gfi_attributes-html)**    |                                               | Object to define the html tag properties. this is neccessary if type ist set to 'html'.                                                                                                                                                                           | `"Test"`                                            |
+| format    | no       | String/Object                                       | `"YYYY-MM-DDTHH:mm:ss.SSSZ"/{"key": "value"}` | Data format.                                                                                                                                                                                                                                                      | `"DD.MM.YYY"`                                       |
+| prefix    | no       | String                                              |                                               | Attribute value prefix.                                                                                                                                                                                                                                           | Add string to value without whitespace `"https://"` |
+| suffix    | no       | String                                              |                                               | Attribute value suffix.                                                                                                                                                                                                                                           | `"°C"`                                              |
 
 **gfiAttributes example object using `suffix` and `prefix` :**
 
@@ -1235,11 +1173,11 @@ If the gfiAttributes are given as an object, a key's value may also be an object
 ## gfiAttributes html
 With these confurations a url in the feature properties can be displayed either as a link with configurable name, or as an img-tag or as an iframe. Furthermore properties for the tag can be configured.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|tag|yes|String||tag to be created|`"a"`|
-|innerHTML|no|String||innerHTML to be created. If innerHTML is set to "%value%", the attributes value is used.|`"Link"`|
-|properties|no|Object||properties to be set at the html tag. If value is set to "%value%", the attributes value is used|`{"target": "_blank"}`|
+| Name       | Required | Type   | Default | Description                                                                                      | Example                |
+|------------|----------|--------|---------|--------------------------------------------------------------------------------------------------|------------------------|
+| tag        | yes      | String |         | tag to be created                                                                                | `"a"`                  |
+| innerHTML  | no       | String |         | innerHTML to be created. If innerHTML is set to "%value%", the attributes value is used.         | `"Link"`               |
+| properties | no       | Object |         | properties to be set at the html tag. If value is set to "%value%", the attributes value is used | `{"target": "_blank"}` |
 
 
 **gfiAttributes example object using type `html` and tag `a`**
@@ -1390,18 +1328,18 @@ With these confurations a url in the feature properties can be displayed either 
 
 ## Heatmap layer
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|id|yes|String||Arbitrary id|`"11111"`|
-|layerAttribution|no|String|`"nicht vorhanden"`|Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.|`"nicht vorhanden"`|
-|name|yes|String||Arbitrary display name used in the layer tree.|`"My heatmap layer"`|
-|typ|yes|String||Service type; in this case, `"Heatmap"`. |`"Heatmap"`|
-|attribute|no|String|`""`|Attribute name. Only features holding "key" and "value" will be used.|`"attr1"`|
-|value|no|String|`""`|Attribute value. Only features holding "key" and "value" will be used.|`"val1"`|
-|radius|no|Number|`10`|Radius of a heatmap feature.|`10`|
-|blur|no|Number|`15`|Blur of heatmap features.|`15`|
-|gradient|no|String[]|`["#00f", "#0ff", "#0f0", "#ff0", "#f00"]`|Heatmap color gradient.|`["#f00", "#0f0", "#00f"]`|
-|dataLayerId|yes|String||Id of layer to use for heatmap features.|`"4321"`|
+| Name             | Required | Type     | Default                                    | Description                                                                                                                                                                                                                    | Example                    |
+|------------------|----------|----------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| id               | yes      | String   |                                            | Arbitrary id                                                                                                                                                                                                                   | `"11111"`                  |
+| layerAttribution | no       | String   | `"nicht vorhanden"`                        | Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown. | `"nicht vorhanden"`        |
+| name             | yes      | String   |                                            | Arbitrary display name used in the layer tree.                                                                                                                                                                                 | `"My heatmap layer"`       |
+| typ              | yes      | String   |                                            | Service type; in this case, `"Heatmap"`.                                                                                                                                                                                       | `"Heatmap"`                |
+| attribute        | no       | String   | `""`                                       | Attribute name. Only features holding "key" and "value" will be used.                                                                                                                                                          | `"attr1"`                  |
+| value            | no       | String   | `""`                                       | Attribute value. Only features holding "key" and "value" will be used.                                                                                                                                                         | `"val1"`                   |
+| radius           | no       | Number   | `10`                                       | Radius of a heatmap feature.                                                                                                                                                                                                   | `10`                       |
+| blur             | no       | Number   | `15`                                       | Blur of heatmap features.                                                                                                                                                                                                      | `15`                       |
+| gradient         | no       | String[] | `["#00f", "#0ff", "#0f0", "#ff0", "#f00"]` | Heatmap color gradient.                                                                                                                                                                                                        | `["#f00", "#0f0", "#00f"]` |
+| dataLayerId      | yes      | String   |                                            | Id of layer to use for heatmap features.                                                                                                                                                                                       | `"4321"`                   |
 
 **Heatmap layer example:**
 
@@ -1531,20 +1469,20 @@ With these confurations a url in the feature properties can be displayed either 
 
 ## Oblique Layer
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|datasets|no|**[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean||Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. To remove the "i" button altogether, explicitly set `"datasets": false`.||
-|id|yes|String||Arbitrary id|`"44"`|
-|layerAttribution|no|String|`"nicht vorhanden"`|Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.|`"nicht vorhanden"`|
-|name|yes|String||Arbitrary display name used in the layer tree.|`"Charging locations"`|
-|typ|yes|String||Service type; in this case, `"Oblique"`.|`"Oblique"`|
-|hideLevels|no|Number||Amount of image levels of the image pyramid not to be shown.|`0`|
-|minZoom|no|Number||Minimal zoom level 0 shows the complete oblique image.|`0`|
-|terrainUrl|no|String||URL to the *Cesium Quantized Mesh Terrain* dataset.|`"https://geodienste.hamburg.de/terrain"`|
-|resolution|no|Number||Resolution of oblique images in centimeters.|`10`|
-|projection|yes|String||Projection of the oblique image layer.|`EPSG:25832`|
-|url|yes|String||Service URL|`"https://geodienste.hamburg.de/oblique"`|
-|useProxy|no|Boolean|`false`|_Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.|`false`|
+| Name             | Required | Type                                                          | Default             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Example                                   |
+|------------------|----------|---------------------------------------------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| datasets         | no       | **[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean |                     | Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. To remove the "i" button altogether, explicitly set `"datasets": false`. |                                           |
+| id               | yes      | String                                                        |                     | Arbitrary id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `"44"`                                    |
+| layerAttribution | no       | String                                                        | `"nicht vorhanden"` | Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.                                                                                                                                                                                                                                                                                                                                                                                     | `"nicht vorhanden"`                       |
+| name             | yes      | String                                                        |                     | Arbitrary display name used in the layer tree.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `"Charging locations"`                    |
+| typ              | yes      | String                                                        |                     | Service type; in this case, `"Oblique"`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `"Oblique"`                               |
+| hideLevels       | no       | Number                                                        |                     | Amount of image levels of the image pyramid not to be shown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `0`                                       |
+| minZoom          | no       | Number                                                        |                     | Minimal zoom level 0 shows the complete oblique image.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `0`                                       |
+| terrainUrl       | no       | String                                                        |                     | URL to the *Cesium Quantized Mesh Terrain* dataset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `"https://geodienste.hamburg.de/terrain"` |
+| resolution       | no       | Number                                                        |                     | Resolution of oblique images in centimeters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `10`                                      |
+| projection       | yes      | String                                                        |                     | Projection of the oblique image layer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `EPSG:25832`                              |
+| url              | yes      | String                                                        |                     | Service URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `"https://geodienste.hamburg.de/oblique"` |
+| useProxy         | no       | Boolean                                                       | `false`             | _Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.                                                                                                                                                                                                                                                                                                                                                 | `false`                                   |
 
 **Oblique layer example:**
 
@@ -1581,31 +1519,31 @@ With these confurations a url in the feature properties can be displayed either 
 
 Used to display 3D models in Gltf or Glb format.
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|datasets|no|**[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean||Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. To remove the "i" button altogether, explicitly set `"datasets": false`.||
-|id|yes|String||Arbitrary id|`"41"`|
-|layerAttribution|no|String|`"nicht vorhanden"`|Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.|`"nicht vorhanden"`|
-|name|yes|String||Arbitrary display name used in the layer tree.|`"Charging locations"`|
-|typ|yes|String||Service type; in this case, `"Entities3D"`.|`"Entities3D"`|
-|entities|yes|Array||Models to be shown|`[]`|
-|useProxy|no|Boolean|`false`|_Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.|`false`|
+| Name             | Required | Type                                                          | Default             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Example                |
+|------------------|----------|---------------------------------------------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
+| datasets         | no       | **[datasets](#markdown-header-wms_wfs_oaf_datasets)**/Boolean |                     | Metadata specification. All metadata of the layer data is referenced here. By clicking the "i" button in the layer tree, the information is retrieved by the CSW interface and shown to the user. For this, the **[rest-services.json](rest-services.json.md)** has to provide the URL of the metadata catalog resp. its CSW interface. The values *kategorie_opendata*, *kategorie_inspire*, and *kategorie_organisation* are used for layer categorization if the **[config.json](config.json.md)** has `tree.type` set to `"default"`. To remove the "i" button altogether, explicitly set `"datasets": false`. |                        |
+| id               | yes      | String                                                        |                     | Arbitrary id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `"41"`                 |
+| layerAttribution | no       | String                                                        | `"nicht vorhanden"` | Additional layer information to be shown in the portal's control element *LayerAttribution*, if configured to appear. If `"nicht vorhanden"` (technical key meaning "not available") is chosen, no layer attribution is shown.                                                                                                                                                                                                                                                                                                                                                                                     | `"nicht vorhanden"`    |
+| name             | yes      | String                                                        |                     | Arbitrary display name used in the layer tree.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `"Charging locations"` |
+| typ              | yes      | String                                                        |                     | Service type; in this case, `"Entities3D"`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `"Entities3D"`         |
+| entities         | yes      | Array                                                         |                     | Models to be shown                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `[]`                   |
+| useProxy         | no       | Boolean                                                       | `false`             | _Deprecated in the next major release. *[GDI-DE](https://www.gdi-de.org/en)* recommends setting CORS headers on the required services instead._ Only used for GFI requests. The request will contain the requested URL as path, with dots replaced by underscores.                                                                                                                                                                                                                                                                                                                                                 | `false`                |
 
 **Entity options**
 
-|Name|Required|Type|Default|Description|Example|
-|----|--------|----|-------|-----------|-------|
-|url|yes|String|`""`|Model URL|`"https://hamburg.virtualcitymap.de/gltf/4AQfNWNDHHFQzfBm.glb"`|
-|attributes|no|Object|`{}`|Model attributes|`{"name": "test"}`|
-|latitude|yes|Number||Model origin latitude in degree|`53.541831`|
-|longitude|yes|Number||Model origin longitude in degree|`9.917963`|
-|height|no|Number|`0`|Model origin height|`10`|
-|heading|no|Number|`0`|Model origin rotation in degree|`0`|
-|pitch|no|Number|`0`|Model pitch in degree|`0`|
-|roll|no|Number|`0`|Model roll in degree|`0`|
-|scale|no|Number|`1`|Model scale|`1`|
-|allowPicking|no|Boolean|`true`|Whether model may be clicked for GFI|`true`|
-|show|no|Boolean|`true`|Whether model should be visible (should be `true`)|`true`|
+| Name         | Required | Type    | Default | Description                                        | Example                                                         |
+|--------------|----------|---------|---------|----------------------------------------------------|-----------------------------------------------------------------|
+| url          | yes      | String  | `""`    | Model URL                                          | `"https://hamburg.virtualcitymap.de/gltf/4AQfNWNDHHFQzfBm.glb"` |
+| attributes   | no       | Object  | `{}`    | Model attributes                                   | `{"name": "test"}`                                              |
+| latitude     | yes      | Number  |         | Model origin latitude in degree                    | `53.541831`                                                     |
+| longitude    | yes      | Number  |         | Model origin longitude in degree                   | `9.917963`                                                      |
+| height       | no       | Number  | `0`     | Model origin height                                | `10`                                                            |
+| heading      | no       | Number  | `0`     | Model origin rotation in degree                    | `0`                                                             |
+| pitch        | no       | Number  | `0`     | Model pitch in degree                              | `0`                                                             |
+| roll         | no       | Number  | `0`     | Model roll in degree                               | `0`                                                             |
+| scale        | no       | Number  | `1`     | Model scale                                        | `1`                                                             |
+| allowPicking | no       | Boolean | `true`  | Whether model may be clicked for GFI               | `true`                                                          |
+| show         | no       | Boolean | `true`  | Whether model should be visible (should be `true`) | `true`                                                          |
 
 **Entities3D layer example:**
 
@@ -1650,5 +1588,3 @@ Used to display 3D models in Gltf or Glb format.
      ]
    }
 ```
-
->**[Return to the Masterportal documentation](doc.md)**.
