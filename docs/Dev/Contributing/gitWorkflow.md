@@ -24,56 +24,48 @@ Below is a guide for rebasing:
 
 
 #### Rebase a checked out feature branch with remote dev
-```
-#!js
+```BASH
 git pull --rebase origin dev
 ```
 
 #### Repeat following steps until rebasing is completed:
 #### 1. After solving each conflict:
 - To check the rebase state of the current rebase step:
-```
-#!js
+```BASH
 git status
 ```
 
 #### 2. If "Working directory clean" (No further changes are available)
-```
-#!js
+```BASH
 git rebase --skip
 ```
 
 #### 3. If "modified" (changes still exist)
 - --> Resolve conflicts in the individual files.
-```
-#!js
+```BASH
 git add [Path to file whose conflict has been resolved]
 git rebase --continue
 ```
 
 #### 4. If "deleted" (Files have been deleted). Check whether displayed files should be deleted
 - File will be deleted:
-```
-#!js
+```BASH
 git rm
 git rebase --continue
 ```
 File won't be deleted:
-```
-#!js
+```BASH
 git checkout [File path]
 git rebase --continue
 ```
 
 #### Pushing results after finished rebasing
 - If the feature branch has already been pushed (force push):
-```
-#!js
+```BASH
 git push -f oder git push --force
 ```
 If the feature branch still exists:
-```
-#!js
+```BASH
 git push
 ```
 

@@ -87,8 +87,7 @@ Configuration of the topic selection tree
 ```
 
 **Example Highlighting**
-```
-#!json
+```JSON
 "tree":{
     "highlightedFeatures": {
         "active": true,
@@ -108,8 +107,7 @@ Configuration in addition to highlighting features. If features are highlighted 
 |layerName|no|String|"common:tree.selectedFeatures"|Name of the created layer with the highlighted features. The name also contains the name of the tool that was used.|true|
 
 **Example**
-```
-#!json
+```JSON
 "highlightedFeatures": {
     "active": false,
     "layerName": "common:tree.selectedFeatures"
@@ -128,8 +126,7 @@ Configuration of LayerPills.
 |mobileOnly|no|Boolean|false|Indicates whether this feature is active on small Screens only.|false|
 
 **Example**
-```
-#!json
+```JSON
 layerPills": {
     "active": true,
     "mobileOnly": true
@@ -668,8 +665,7 @@ Configuration of layerInformation.
 |showMetaDataRevision|no|boolean|true|Decides if to show "Letzte Änderung" in Meta data of layer information|false|
 
 **Example**
-```
-#!json
+```JSON
 "layerInformation":{
     "showMetaDataRevision": true
 },
@@ -825,16 +821,14 @@ The attribute rotation may be of type boolean or object. If of type boolean and 
 |showAlways|no|Boolean|false|If the attribut is set to true the control is shown permanently . Via default it appears only if the map rotation is not equal north/0.|
 
 **Example using type object rotation**
-```
-#!json
+```JSON
 "rotation": {
     "showAlways": true
 }
 ```
 
 **Example using type boolean rotation**
-```
-#!json
+```JSON
 "rotation": true
 ```
 
@@ -910,8 +904,7 @@ The startModule attribute must be of type Object. A button is displayed for each
 |secondaryMenu|no|**[secondaryMenu](#markdown-header-portalconfigcontrolsstartmodulesecondaryMenu)**||Here you can configure the modules for which a button should be displayed. These will be displayed in the `secondaryMenu` when opened.|false|
 
 **Example startModule:**
-```
-#!json
+```JSON
 "startModule": {
     "mainMenu": [
         {
@@ -1420,8 +1413,7 @@ Configuration options for a map view.
 |tilt|no|Number||Tilt of the camera in radians. Used only for map views in 3D mode.|false|
 
 **Example of a map view for 2D and 3D mode**
-```
-#!json
+```JSON
 "ansichten": {
     "name": "translate#common:menu.views.name",
     "icon": "bi-binoculars-fill",
@@ -2725,8 +2717,7 @@ Module used to draw features on the map. This includes points, which may also be
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "draw": {
         "name": "Draw / Write",
@@ -2923,8 +2914,7 @@ Object to change the drawing tool's configured circle default value.
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "circleMethod": "interactive",
     "unit": "m",
@@ -4198,8 +4188,7 @@ Coordinates tool. To display the height above sea level in addition to the 2 dim
 
 
 **Example**
-```
-#!json
+```JSON
  "coordToolkit": {
             "name": "translate#common:menu.tools.coordToolkit",
             "icon": "bi-globe",
@@ -4288,8 +4277,7 @@ Import "*.kml", "*.geojson" and "*.gpx" files with this tool.
 
 
 **Example**
-```
-#!json
+```JSON
 "fileImport": {
     "name": "translate#common:menu.tools.fileImport",
     "icon":"bi-box-arrow-in-down-right",
@@ -4366,8 +4354,7 @@ This module can open a link, display HTML from config.json or an external file, 
 |execute|no|[execute](#markdown-header-portalconfigmenutoolcustomMenuElementexecute)||Action to be executed by clicking on the menu item.|true|
 
 **Example**
-```
-#!json
+```JSON
  {
     "type": "customMenuElement",
     "name": "Open url",
@@ -4401,8 +4388,7 @@ CustomMenuElement Module `execute` options.
 |payload|no|[payload](#markdown-header-portalconfigmenutoolcustomMenuElementexecutepayload)||Payload that is transferred to the action.|true|
 
 **Example**
-```
-#!json
+```JSON
 {
     "action": "Alerting/addSingleAlert",
     "payload":  {"title":"to all people", "content": "Hallo world"}
@@ -4419,8 +4405,7 @@ CustomMenuElement Module `execute` from `payload`. The appropriate payload for t
 |content|yes|String||Content of the message.|true|
 
 **Example**
-```
-#!json
+```JSON
 {
     "title":"to all people",
     "content": "Hallo world"
@@ -4464,8 +4449,7 @@ Routing-tool. Enables user to plan routes between multiple points with multiple 
 
 
 **Example**
-```
-#!json
+```JSON
 {
     "routing": {
         "name": "translate#common:menu.tools.routing",
@@ -4576,8 +4560,7 @@ Routing-tool download options.
 |format|no|String|"GEOJSON"|Which format should be selected by default. ("GEOJSON", "KML", "GPX")|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "download": {
         "filename": "",
@@ -4607,8 +4590,7 @@ Routing-tool geosearch options.
 |sortField|no|String||The path to the field that specifies the sorting of the results in ascending order when using Elastic Search.|false|
 
 **Example for BKG**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "type": "BKG",
@@ -4618,8 +4600,7 @@ Routing-tool geosearch options.
 }
 ```
 **Example for SPECIALWFS**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "minChars": 3,
@@ -4635,8 +4616,7 @@ Routing-tool geosearch options.
 }
 ```
 **Example for ELASTIC**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "minChars": 3,
@@ -4660,8 +4640,7 @@ BBOX value according to the speedProfile. Coordinate system depends on the epsg 
 |speedProfile|no|String||Coordinate values "West,South,East,North"|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "bbox": {"CYCLING": "9.6,53.40,10.4,53.84"}
 }
@@ -4681,8 +4660,7 @@ Routing-tool geosearch reverse options.
 |serviceId|yes|String||Which service should be used for the geosearch reverse.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "geosearchReverse": {
         "distance": 1000,
@@ -4713,8 +4691,7 @@ Routing-tool directions options.
 |batchProcessing|no|**[batchProcessing](#markdown-header-portalconfigmenutoolroutingdirectionssettingsbatchprocessing)**||Batchprocessingoptions|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "directionsSettings": {
         "type": "ORS",
@@ -4772,8 +4749,7 @@ Possibility to define additional avoid features for the different speed profiles
 |speedProfile|no|String[]||Options for avoid traffic routes that should be available for the speedProfile.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "customAvoidFeatures": {
        "CYCLING": ["STEPS", "FERRIES", "UNPAVEDROADS"],
@@ -4794,8 +4770,7 @@ Possibility to define additional preferences for the different speed profiles (a
 |speedProfile|no|String[]||Which preferences should be available for the speedProfile.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "customPreferences": {
        "CYCLING": ["RECOMMENDED", "SHORTEST", "GREEN"],
@@ -4819,8 +4794,7 @@ Routing-tool directions route style options.
 |highlightWidth|no|Number|9|How thick should the highlighting part of the route be displayed.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "styleRoute": {
         "fillColor": [255, 44, 0],
@@ -4851,8 +4825,7 @@ Routing-tool directions waypoint style options.
 |radius|no|Number|8|How big should the waypoint be displayed.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "styleWaypoint": {
         "lineColor": [255, 127, 0],
@@ -4883,8 +4856,7 @@ Routing-tool directions avoid areas style options.
 |pointLineWidth|no|Number|4|How big should the border of the corner points be displayed.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "styleAvoidAreas": {
         "lineColor": [0, 127, 255],
@@ -4911,8 +4883,7 @@ Routing-tool directions batch processing options.
 |maximumConcurrentRequests|no|Number|3|The maximum concurrent requests allowed to be made by the batch processing task handler.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "batchProcessing": {
         "enabled": false,
@@ -4950,8 +4921,7 @@ Routing-tool isochrones options.
 
 
 **Example**
-```
-#!json
+```JSON
 {
     "isochronesSettings": {
         "type": "ORS",
@@ -5005,8 +4975,7 @@ Routing-tool isochrones centers style options.
 |radius|no|Number|8|How big should the waypoint be displayed.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "styleCenter": {
         "lineColor": [255, 127, 0],
@@ -5032,8 +5001,7 @@ Routing-tool isochrones style options.
 |endColor|no|Number[]|[245, 66, 66]|The end color for the fill color interpolation calculation.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "styleIsochrones": {
         "lineWidth": 2,
@@ -5058,8 +5026,7 @@ Routing-tool isochrones batch processing options.
 |maximumConcurrentRequests|no|Number|3|The maximum concurrent requests allowed to be made by the batch processing task handler.|false|
 
 **Example**
-```
-#!json
+```JSON
 {
     "batchProcessing": {
         "enabled": false,
@@ -5674,8 +5641,7 @@ For such cases, define `gfiAsNewWindow` manually as described above.
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "id": "123456",
     // (...)
@@ -5713,8 +5679,7 @@ Example invocations:
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "id": "1",
     "styleId": "1",
@@ -5940,8 +5905,7 @@ List of attributes typically used in vector layers. Vector layers are WFS, GeoJS
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "id": "123456",
     "name": "MyVectorLayerName",
