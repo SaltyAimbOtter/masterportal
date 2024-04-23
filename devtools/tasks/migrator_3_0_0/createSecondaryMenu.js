@@ -29,14 +29,14 @@ function fillSections (data, secondaryMenu, migratedTools, toRemoveFromTools) {
 
     if (tools) {
         Object.entries(tools).forEach(([toolName, toolConfig]) => {
-            let name = toolName;
+            if (!migratedTools.includes(toolName)) {
+                let tool = {...toolConfig},
+                    name = toolName;
 
-            if (!migratedTools.includes(name)) {
                 if (name.toLowerCase() === "coordtoolkit") {
                     name = "coordToolkit";
                 }
                 console.info("       " + name);
-                let tool = {...toolConfig};
 
                 if (name === "layerClusterToggler") {
                     console.info("--- HINT configuration of LayerClusterToggler in Layers must be done by hand. 'Suffix' is replaced by direct suffix at layer id.");
@@ -53,7 +53,7 @@ function fillSections (data, secondaryMenu, migratedTools, toRemoveFromTools) {
                 deleteTranslateInName(tool);
                 removeAttributesFromTools(toRemoveFromTools, tool);
                 section.push(tool);
-                migratedTools.push(moduleName);
+                migratedTools.push(toolName);
             }
         });
     }
