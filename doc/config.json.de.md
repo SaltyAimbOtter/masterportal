@@ -100,8 +100,7 @@ Konfiguration zusätzlich zum Highlighting von Features. Wenn mit dem Werkzeug "
 |layerName|nein|String|"common:tree.selectedFeatures"|Name der erzeugten Layer mit den hervorgehobenen Features. Der Name enthält zusätzlich den Namen des Werkzeuges mit dem gearbeitet wurde.|true|
 
 **Beispiel**
-```
-#!json
+```JSON
 "highlightedFeatures": {
     "active": false,
     "layerName": "common:tree.selectedFeatures"
@@ -121,8 +120,7 @@ Konfiguration der LayerPills.
 |mobileOnly|no|Boolean|false|Gibt an, ob dieses Feature nur auf kleinen Bildschirmen aktiv ist.|false|
 
 **Example**
-```
-#!json
+```JSON
 layerPills": {
     "active": true,
     "mobileOnly": true
@@ -342,8 +340,7 @@ Konfiguration des Gazetteer Suchdienstes
 |showGeographicIdentifier|nein|Boolean|false|Gibt an ob das Attribut `geographicIdentifier` zur Anzeige des Suchergebnisses verwendet werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "gazetteer": {
     "minChars": 3,
     "serviceId": "6",
@@ -369,8 +366,7 @@ Deprecated in 3.0.0. Bitte **[elasticSearch](#markdown-header-portalconfigsearch
 |queryObject|ja|**[queryObject](#markdown-header-portalconfigsearchbargdiqueryobject)**||Query Objekt, das vom Elastic Search Model ausgelesen wird.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "gdi": {
     "minChars": 3,
     "serviceId": "elastic",
@@ -424,8 +420,7 @@ Konfiguration des Elastic Search Suchdienstes
 Als zusätzliches property kann `payload` hinzugefügt werden. Es muss nicht zwingend gesetzt sein, und passt zur Beschreibung von **[CustomObject](#markdown-header-datatypescustomobject)**. Per default wird es als leeres Objekt `{}` gesetzt. Das Objekt beschreibt die Payload, die mitgeschickt werden soll. Es muss das Attribut für den searchString vorhalten. Für weitere Infos zu den nutzbaren Attributen siehe **[Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html)**. Dieses Objekt kann im Admintool nicht gepflegt werden, da dort **[CustomObject](#markdown-header-datatypescustomobject)** nicht definiert ist.
 
  **Beispiel**
-```
-#!json
+```JSON
 "elasticSearch": {
     "minChars":3,
     "serviceId":"elastic",
@@ -518,8 +513,7 @@ Die WFS 2 query wird dabei dynamisch durch das Masterportal erstellt. Die Konfig
 |definitions|nein|**[definition](#markdown-header-portalconfigsearchbarspecialwfsdefinition)**[]||Definition der speziellen WFS suchen.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "specialWFS": {
     "minChars": 5,
     "timeout": 10000,
@@ -563,8 +557,7 @@ Konfiguration einer Definition bei der SpecialWFS Suche
 |data|nein|String||Deprecated in 3.0.0 Filterparameter für den WFS request.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "url": "https://geodienste_hamburg_de/HH_WFS_Bebauungsplaene",
     "typeName": "app:prosin_imverfahren",
@@ -584,8 +577,7 @@ Alle Layer, die im Themenbaum des Portals sind, werden durchsucht.
 |minChars|nein|Integer|3|Minimale Anzahl an Buchstaben, ab der die Suche losläuft.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "tree": {
     "minChars": 5
 }
@@ -601,8 +593,7 @@ Konfiguration der Suche über die sichtbaren WFS. Deprecated in 3.0.0. Verwenden
 |minChars|nein|Integer|3|Minimale Anzahl an Buchstaben, ab der die Suche losläuft.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "visibleWFS": {
     "minChars": 3
 }
@@ -636,8 +627,7 @@ Konfiguration der layerInformation.
 |showMetaDataRevision|nein|Boolean|true|Legt fest, ob "Letzte Änderung" in Metadaten von layerinformation angezeigt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "layerInformation":{
     "showMetaDataRevision": true
 },
@@ -698,14 +688,12 @@ Das Attribut attributions kann vom Typ Boolean oder Object sein. Wenn es vom Typ
 |isInitOpenMobile|nein|Boolean|false|Legt fest, ob die Attributions (Mobile-Ansicht) initial ausgeklappt werden sollen.|false|
 
 **Beispiel als Boolean**
-```
-#!json
+```JSON
 "attributions": true
 ```
 
 **Beispiel als Object**
-```
-#!json
+```JSON
 "attributions": {
     "isInitOpenDesktop": true,
     "isInitOpenMobile": false,
@@ -722,8 +710,7 @@ Das Attribut attributions kann vom Typ Boolean oder Object sein. Wenn es vom Typ
 |poiDistances|nein|Boolean/Integer[]|true|Bei poiDistances=true werden die Defaultwerte verwendet. Legt fest, ob "In meiner Nähe" geladen wird und zeigt eine Liste von Features in der Umgebung an. Bei Angabe eines Array werden die darin definierten Abstände in Metern angeboten. Bei Angabe von true werden diese Abstände angeboten: [500,1000,2000].|false|
 
 **Beispiel mit poiDistances vom Typ Boolean**
-```
-#!json
+```JSON
 "orientation": {
     "zoomMode": "once",
     "poiDistances": true
@@ -731,8 +718,7 @@ Das Attribut attributions kann vom Typ Boolean oder Object sein. Wenn es vom Typ
 ```
 
 **Beispiel mit poiDistances vom Typ Integer[]**
-```
-#!json
+```JSON
 "orientation": {
     "zoomMode": "once",
     "poiDistances": [500, 1000, 2000, 5000]
@@ -755,8 +741,7 @@ Das Attribut overviewMap kann vom Typ Boolean oder Object sein. Wenn es vom Typ 
 |isInitOpen|nein|Boolean|true|Legt fest, ob die OverviewMap beim Start dargestellt oder verborgen sein soll.|
 
 **Beispiel overviewmap als Object:**
-```
-#!json
+```JSON
 "overviewMap": {
     "resolution": 305.7487246381551,
     "layerId": "452",
@@ -765,8 +750,7 @@ Das Attribut overviewMap kann vom Typ Boolean oder Object sein. Wenn es vom Typ 
 ```
 
 **Beispiel overviewmap als Boolean:**
-```
-#!json
+```JSON
 "overviewMap": true
 ```
 
@@ -781,16 +765,14 @@ Das Attribut rotation kann vom Typ Boolean oder Object sein. Wenn es vom Typ Boo
 |showAlways|nein|Boolean|false|Ist das Attribut auf true gesetzt wird das Control permanent angezeigt. Per default wird es nur angezeigt wenn die Maprotation ungleich 0/Norden ist.|
 
 **Beispiel rotation als Object:**
-```
-#!json
+```JSON
 "rotation": {
     "showAlways": true
 }
 ```
 
 **Beispiel rotation als Boolean:**
-```
-#!json
+```JSON
 "rotation": true
 ```
 
@@ -806,8 +788,7 @@ Das Attribut totalView kann vom Typ Boolean oder Object sein. Wenn es vom Typ Bo
 |tableIcon|nein|String|"bi-house-door-fill"|Über den Parameter tableIcon kann bei einem TABLE Style ein anderes Icon für das Zurückschalten zur Startansicht verwendet werden.|false|
 
 **Beispiel totalView als Object:**
-```
-#!json
+```JSON
 "totalView" : {
     "icon": "bi-skip-forward-fill",
     "tableIcon": "bi-skip-forward-fill"
@@ -815,8 +796,7 @@ Das Attribut totalView kann vom Typ Boolean oder Object sein. Wenn es vom Typ Bo
 ```
 
 **Beispiel totalView als Boolean:**
-```
-#!json
+```JSON
 "totalView": true
 ```
 
@@ -832,8 +812,7 @@ Das Attribut backForward kann vom Typ Boolean oder Object sein. Wenn es vom Typ 
 |iconBack|nein|String||Über den Parameter iconBack kann ein anderes Icon für das Zurückschalten der Kartenansicht verwendet werden.|false|
 
 **Beispiel backForward als Object:**
-```
-#!json
+```JSON
 "backForward" : {
     "iconFor": "bi-skip-forward-fill",
     "iconBack": "bi-skip-backward-fill"
@@ -841,8 +820,7 @@ Das Attribut backForward kann vom Typ Boolean oder Object sein. Wenn es vom Typ 
 ```
 
 **Beispiel backForward als Boolean:**
-```
-#!json
+```JSON
 "backForward": true
 ```
 
@@ -858,8 +836,7 @@ Das Attribut startModule muss vom Typ Object sein. Es wird für jedes konfigurie
 |secondaryMenu|nein|**[secondaryMenu](#markdown-header-portalconfigcontrolsstartmodulesecondaryMenu)**||Hier werden die Module zu denen jeweils ein Button angezeigt werden soll konfiguriert. Diese werden beim öffnen in dem `secondaryMenu` dargestellt.|false|
 
 **Beispiel startModule:**
-```
-#!json
+```JSON
 "startModule": {
     "mainMenu": [
         {
@@ -898,8 +875,7 @@ In der Menüleiste kann der Portalname und ein Bild angezeigt werden, sofern die
 |toolTip|nein|String|"Landesbetrieb Geoinformation und Vermessung"|Tooltip, der beim Hovern über das PortalLogo angezeigt wird.|false|
 
 **Beispiel portalTitle:**
-```
-#!json
+```JSON
 "portalTitle": {
     "title": "Master",
     "logo": "https://geodienste.hamburg.de/lgv-config/img/hh-logo.png",
@@ -928,8 +904,7 @@ In der Menüleiste kann der Portalname und ein Bild angezeigt werden, sofern die
 |twoFingerPan|nein|Boolean|false|Soll für mobile Geräte ein 2-Finger-Pan anstatt 1-Finger-Pan gesetzt werden?|false
 
 **Beispiel:**
-```
-#!json
+```JSON
 "mapView": {
     "backgroundImage": "https://geodienste.hamburg.de/lgv-config/img/backgroundCanvas.jpeg",
     "startCenter": [561210, 5932600],
@@ -1010,8 +985,7 @@ Eine option definiert eine Zoomstufe. Diese muss definiert werden über die Aufl
 |zoomLevel|ja|Integer||Zoomstufe der definierten Zoomstufe.|false|
 
 **Beispiel einer mapview Option**
-```
-#!json
+```JSON
 {
     "resolution": 611.4974492763076,
     "scale": 2311167,
@@ -1361,8 +1335,7 @@ Konfigurations-Optionen für eine Kartenansicht.
 |tilt|nein|Number||Neigung der Kamera in Radiant. Wird nur für Kartenansichten im 3D Modus verwendet.|false|
 
 **Beispiel einer Kartenansicht für den 2D und 3D Modus**
-```
-#!json
+```JSON
 "ansichten": {
     "name": "translate#common:menu.views.name",
     "icon": "bi-binoculars-fill",
@@ -1470,8 +1443,7 @@ Ein Ordner-Object wird dadurch definiert, dass es neben "name" und "icon" noch d
 |children|nein|**[tool](#markdown-header-portalconfigmenutool)**/**[staticlinks](#markdown-header-portalconfigmenustaticlinks)**||Kindelemente dieses Ordners.|false|
 
 **Beispiel eines Ordners**
-```
-#!json
+```JSON
 {
     "tools": {
         "name": "Werkzeuge",
@@ -1595,8 +1567,7 @@ Neben **Portalconfig.menu.tools** können auch die Pfade **Portalconfig.menu.inf
 |resizableWindow|nein|Boolean|false|Flag, ob das Tool-Fenster vergrößer-/verkleinerbar ist.|false|
 
 **Beispiel eines Tools**
-```
-#!json
+```JSON
 {
     "draw": {
         "name": "Zeichnen / Schreiben",
@@ -1627,8 +1598,7 @@ Bei allen GFI-Abfragen, außer dem direkten Beziehen von HTML, welches durch das
 |hideMapMarkerOnVectorHighlight|no|Boolean|false|Wenn Wert auf true gesetzt ist, wird der MapMarker beim VectorHighlighting nicht mit angezeigt. Gilt nur für das DetachedTemplate.|false|
 
 **Beispiel einer GFI Konfiguration**
-```
-#!json
+```JSON
 "gfi":{
     "name":"Informationen abfragen",
     "icon":"bi-info-circle-fill",
@@ -1656,8 +1626,7 @@ Bei allen GFI-Abfragen, außer dem direkten Beziehen von HTML, welches durch das
 ```
 
 **Beispiel einer GFI Konfiguration zur Informationsabfrage von Features**
-```
-#!json
+```JSON
 "gfi":{
     "name":"Informationen abfragen",
     "icon":"bi-info-circle-fill",
@@ -1713,8 +1682,7 @@ Hinweis: Das Highlighting funktioniert nur, wenn der Layer in der config.json ü
 |----|-------------|---|-------|------------|------|
 |color|nein|Float[]|[255, 255, 255, 0.5]|Mögliche Einstellung: color (RGBA)|false|
 
-```
-#!json
+```JSON
 "fill": { "color": [215, 102, 41, 0.9] }
 ```
 
@@ -1725,8 +1693,7 @@ Hinweis: Das Highlighting funktioniert nur, wenn der Layer in der config.json ü
 |----|-------------|---|-------|------------|------|
 |scale|nein|Float|1|Mögliche Einstellung: scale|false|
 
-```
-#!json
+```JSON
 "image": { "scale": 1.5 }
 ```
 
@@ -1738,8 +1705,7 @@ Hinweis: Das Highlighting funktioniert nur, wenn der Layer in der config.json ü
 |width|nein|Integer|1|Mögliche Einstellung: width|false|
 |color|nein|Float[]|[255, 255, 255, 0.5]|Mögliche Einstellung: color (RGBA)|false|
 
-```
-#!json
+```JSON
 "stroke": { "width": 4, "color": [215, 102, 41, 0.9] }
 ```
 
@@ -1750,8 +1716,7 @@ Hinweis: Das Highlighting funktioniert nur, wenn der Layer in der config.json ü
 |----|-------------|---|-------|------------|------|
 |scale|nein|Float|1|Mögliche Einstellung: scale|false|
 
-```
-#!json
+```JSON
 "text": { "scale": 2 }
 ```
 
@@ -2427,8 +2392,7 @@ Hier können Vector Features miteinander verglichen werden. Dazu werden vektorba
 |numberOfAttributesToShow|nein|Integer|12|Anzahl der Attribute die angezeigt werden. Gibt es mehrere Attribute können diese über einen Button zusätzlich ein-/ bzw. ausgeblendet werden.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "compareFeatures": {
     "name": "Vergleichsliste",
     "icon": "bi-list-ul",
@@ -2462,8 +2426,7 @@ Beispiel: **https://geodienste.hamburg.de/HH_WFS_DOG?service=WFS&request=GetFeat
 |zoomLevel|nein|Number|7|Gibt an, auf welches ZoomLevel gezoomt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "parcelSearch": {
     "name": "Flurstückssuche",
     "icon": "bi-search",
@@ -2513,8 +2476,7 @@ Zurücksetzen des Themenbaums.
 
 **Beispiel**
 
-```
-#!json
+```JSON
 "resetTree": {
     "name": "translate#additional:modules.tools.resetTree.title",
     "icon": "bi-arrow-clockwise"
@@ -2533,8 +2495,7 @@ Koordinatensuche.
 |zoomLevel|nein|Number|7|Gibt an, auf welches ZoomLevel gezoomt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "searchByCoord": {
     "name": "Flurstückssuche",
     "icon": "bi-search",
@@ -2577,8 +2538,7 @@ Druckmodul. Konfigurierbar für 2 Druckdienste: den High Resolution PlotService 
 |isPrintDrawnGeoms|nein|Boolean|false|Gibt an, ob es möglich ist, Geometrien zu drucken, die durch das Draw oder Measure Tool entstanden sind. Nur in Kombination mit dem Druckdienst 'plotservice' zu verwenden.|false|
 
 **Beispiel Konfiguration mit High Resolution PlotService**
-```
-#!json
+```JSON
 "print": {
     "name": "Karte drucken",
     "icon": "bi-printer",
@@ -2597,8 +2557,7 @@ Druckmodul. Konfigurierbar für 2 Druckdienste: den High Resolution PlotService 
 ```
 
 **Beispiel Konfiguration mit MapfishPrint3**
-```
-#!json
+```JSON
 "print": {
     "name": "Karte drucken",
     "icon": "bi-printer",
@@ -2618,8 +2577,7 @@ Liste von Layouts und Formaten, welche die Antwort vom Druckdienst in der jeweil
 |outputFormats|nein|String[]||Liste von Formaten, welche in der Oberfläche angezeigt werden sollen.|false|
 
 **Beispiel capabilitiesFilter:**
-```
-#!json
+```JSON
 "capabilitiesFilter": {
     "layouts": ["A4 Hochformat", "A3 Hochformat"],
     "outputFormats": ["PDF"]
@@ -2652,8 +2610,7 @@ Modul für das Zeichnen von Features auf der Karte. Dies beinhaltet Punkte, welc
 
 **Beispiel**
 
-```
-#!json
+```JSON
 "draw": {
     "name": "Zeichnen / Schreiben",
     "icon": "bi-pencil-flll",
@@ -2712,8 +2669,7 @@ Punkt Objekt, bestehend aus der Beschriftung, dem Typ und dem Wert.
 
 **Beispiele**
 
-```
-#!json
+```JSON
     {
         "id": "iconPoint",
         "type": "simple_point",
@@ -2748,8 +2704,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes des Punkt-Symbols im Zeiche
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         color: [55, 126, 184, 1],
         opacity: 1
@@ -2770,8 +2725,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für eine Linie im Zeichen-
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         strokeWidth: 1,
         opacityContour: 1,
@@ -2793,8 +2747,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für eine Freihandlinie im 
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         strokeWidth: 1,
         opacityContour: 1,
@@ -2818,8 +2771,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für eine Fläche im Zeiche
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         strokeWidth: 1,
         color: [55, 126, 184, 1],
@@ -2849,8 +2801,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für einen Kreis im Zeichen
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         circleMethod: "interactive",
         unit: "m",
@@ -2884,8 +2835,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für einen Doppelkreis im Z
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         circleMethod: "defined",
         unit: "m",
@@ -2915,8 +2865,7 @@ Objekt zum Ändern des konfigurierten Default-Wertes für einen Text im Zeichen-
 
 **Beispiel**
 
-```
-#!json
+```JSON
     {
         text: "",
         fontSize: 10,
@@ -3227,8 +3176,7 @@ Mit dem Messwerkzeug können Strecken und Flächen gemessen werden. Dabei werden
 
 **Beispiel**
 
-```
-#!json
+```JSON
 "measure": {
     "name": "translate#common:menu.tools.measure",
     "earthRadius": 6378137,
@@ -3433,8 +3381,7 @@ Der Layerslider ist ein Werkzeug um verschiedene Layer in der Anwendung hinterei
 |sliderType|nein|enum["player","handle"]|"player"|Typ des Layer sliders. Entweder als "player" mit Start/Pause/Stop-Buttons oder als "handle" mit einem Hebel. Bei "handle" wird die Transparenz der Layer zusätzlich mit angepasst.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "layerSlider": {
     "name": "Zeitreihe",
     "icon": "bi-hourglass-split",
@@ -3470,8 +3417,7 @@ Definiert einen Layer für den Layerslider.
 |layerId|ja|String||Id des Diestes, der im Portal angezeigt werden soll. ACHTUNG: Diese LayerId muss auch in der Themenconfig konfiguriert sein!|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "title": "Dienst 1",
     "layerId": "123"
@@ -3494,8 +3440,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "shadowTime": {
         "month": "6",
@@ -3521,8 +3466,7 @@ Todo
 |minute|nein|String||minute|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "month": "6",
     "day": "20",
@@ -4131,8 +4075,7 @@ Koordinaten-Werkzeug. Um zusätzlich zu den 2 dimensionalen Koordinaten die Höh
 
 
 **Beispiel**
-```
-#!json
+```JSON
  "coordToolkit": {
             "name": "translate#common:menu.tools.coordToolkit",
             "icon": "bi-globe",
@@ -4222,8 +4165,7 @@ Ermöglicht die Suche von Koordinaten mithilfe einer Eingabemaske sowie die Abfr
 
 
 **Beispiel**
-```
-#!json
+```JSON
 "fileImport": {
     "name": "translate#common:menu.tools.fileImport",
     "icon":"bi-box-arrow-in-down-right",
@@ -4301,8 +4243,7 @@ Dieses Modul kann einen Link öffnen, HTML aus config.json oder einer externen D
 
 
 **Beispiel**
-```
-#!json
+```JSON
  {
     "type": "customMenuElement",
     "name": "Url öffnen",
@@ -4336,8 +4277,7 @@ CustomMenuElement Module `execute` Optionen.
 |payload|nein|[payload](#markdown-header-portalconfigmenutoolcustomMenuElementexecutepayload)||Payload, der an die Aktion übergeben wird.|true|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "action": "Alerting/addSingleAlert",
     "payload":  {"title":"An alle Menschen", "content": "Hallo Welt"}
@@ -4354,8 +4294,7 @@ CustomMenuElement Module `execute` vom `payload`. Der passende payload zu der Ak
 |content|ja|String||Inhalt der Meldung.|true|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "title":"An alle Menschen",
     "content": "Hallo Welt"
@@ -4401,8 +4340,7 @@ Routing-Werkzeug. Ermöglicht Nutzern das Planen von Routen zwischen mehreren Pu
 
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "routing": {
         "name": "translate#common:menu.tools.routing",
@@ -4513,8 +4451,7 @@ Routing-Werkzeug Download Optionen.
 |format|nein|String|"GEOJSON"|Welches Format default ausgewählt ist. Aktuell möglich sind "GEOJSON", "KML" und "GPX".|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "download": {
         "filename": "",
@@ -4544,8 +4481,7 @@ Routing-Werkzeug Geosuche Optionen.
 |sortField|nein|String||Der Pfad zum Feld welches bei der Nutzung von Elastic Search die Sortierung der Ergebnisse in aufsteigender Reihenfolge vorgibt.|false|
 
 **Beispiel für BKG**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "type": "BKG",
@@ -4555,8 +4491,7 @@ Routing-Werkzeug Geosuche Optionen.
 }
 ```
 **Beispiel für SPECIALWFS**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "minChars": 3,
@@ -4572,8 +4507,7 @@ Routing-Werkzeug Geosuche Optionen.
 }
 ```
 **Beispiel FÜR ELASTIC**
-```
-#!json
+```JSON
 {
     "geosearch": {
         "minChars": 3,
@@ -4597,8 +4531,7 @@ BBOX-Wert zugeordnet zu einem speedProfile. Koordinatensystem ist abhängig von 
 |speedProfile|nein|String||Koordinatenwerte "West,Süd,Ost,Nord"|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "bbox": {"CYCLING": "9.6,53.40,10.4,53.84"}
 }
@@ -4618,8 +4551,7 @@ Routing-Werkzeug Geosuche Reverse Optionen.
 |serviceId|ja|String||Welcher Service für die Geosuche verwendet werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "geosearchReverse": {
         "distance": 1000,
@@ -4650,8 +4582,7 @@ Routing-Werkzeug Routenplanung Optionen.
 |batchProcessing|nein|**[batchProcessing](#markdown-header-portalconfigmenutoolroutingdirectionssettingsbatchprocessing)**||Batchprocessingoptionen|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "directionsSettings": {
         "type": "ORS",
@@ -4709,8 +4640,7 @@ Möglichkeit eigene Optionen für Verkehrswege meiden (zusätzlich zum BKG-Diens
 |speedProfile|nein|String[]||Welche Optionen für ´Verkehrswege meiden´ für das angegebene speedProfile verfügbar sein sollen.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "customAvoidFeatures": {
        "CYCLING": ["STEPS", "FERRIES", "UNPAVEDROADS"],
@@ -4729,8 +4659,7 @@ Möglichkeit eigene Routenpräferenzen (zusätzlich zum BKG-Dienst) für speedPr
 |speedProfile|nein|String[]||Welche Präferenzen für das angegebene speedProfile verfügbar sein sollen.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "customPreferences": {
        "CYCLING": ["RECOMMENDED", "SHORTEST", "GREEN"],
@@ -4754,8 +4683,7 @@ Routing-Werkzeug Routenplanung Routen Style Optionen.
 |highlightWidth|nein|Number|9|Wie breit das Highlighting dargestellt werden soll, wenn nur ein Teil der Route gehighlightet wird.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "styleRoute": {
         "fillColor": [255, 44, 0],
@@ -4786,8 +4714,7 @@ Routing-Werkzeug Routenplanung Wegpunkt Style Optionen.
 |radius|nein|Number|8|Wie groß der Wegpunkt dargestellt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "styleWaypoint": {
         "lineColor": [255, 127, 0],
@@ -4818,8 +4745,7 @@ Routing-Werkzeug Routenplanung Sperrflächen Style Optionen.
 |pointLineWidth|nein|Number|4|Wie groß die Umrandung der Eckpunkte dargestellt werden sollen.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "styleAvoidAreas": {
         "lineColor": [0, 127, 255],
@@ -4846,8 +4772,7 @@ Routing-Werkzeug Routenplanung Stapelverarbeitung Optionen.
 |maximumConcurrentRequests|nein|Number|3|Die maximale Anzahl an Aufrufen die an externe Services parallel gemacht werden dürfen. Zu viele schränken die parallele Arbeit mit der Karte ein. Zu Wenige verlangsamt die Stapelverarbeitung. Maximal können in den Browsern 6 Requests gleichzeitig gemacht werden.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "batchProcessing": {
         "enabled": false,
@@ -4885,8 +4810,7 @@ Routing-Werkzeug Erreichbarkeitsanalysen Optionen.
 
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "isochronesSettings": {
         "type": "ORS",
@@ -4940,8 +4864,7 @@ Routing-Werkzeug Erreichbarkeitsanalysen Center Style Optionen.
 |radius|nein|Number|8|Wie groß der Wegpunkt dargestellt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "styleCenter": {
         "lineColor": [255, 127, 0],
@@ -4967,8 +4890,7 @@ Routing-Werkzeug Erreichbarkeitsanalysen Isochrone Style Optionen.
 |endColor|nein|Number[]|[245, 66, 66]|Bis zu welcher Farbe zum Füllen interpoliert werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "styleIsochrones": {
         "lineWidth": 2,
@@ -4993,8 +4915,7 @@ Routing-Werkzeug Erreichbarkeitsanalysen Stapelverarbeitung Optionen.
 |maximumConcurrentRequests|nein|Number|3|Die maximale Anzahl an Aufrufen die an externe Services parallel gemacht werden dürfen. Zu viele schränken die parallele Arbeit mit der Karte ein. Zu Wenige verlangsamt die Stapelverarbeitung. Maximal können in Browsern 6 Requests gleichzeitig gemacht werden.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "batchProcessing": {
         "enabled": false,
@@ -5016,8 +4937,7 @@ Das Array staticlink beinhaltet Objekte die entweder als Link zu einer anderen W
 
 
 **Beispiel als onClickTrigger**
-```
-#!json
+```JSON
 "staticlinks": [
     {
         "name": "Alert",
@@ -5046,8 +4966,7 @@ Ein Staticlink-Objekt enthält folgende Attribute.
 |onClickTrigger|nein|**[onClickTrigger](#markdown-header-portalconfigmenustaticlinksstaticlinkonclicktrigger)**[]||Array von OnClickTrigger events.|false|
 
 **Beispiel als url**
-```
-#!json
+```JSON
 {
     "name": "Hamburg",
     "icon": "bi-globe",
@@ -5056,8 +4975,7 @@ Ein Staticlink-Objekt enthält folgende Attribute.
 ```
 
 **Beispiel als onClickTrigger**
-```
-#!json
+```JSON
 {
     "name": "Alert",
     "icon": "bi-globe",
@@ -5083,8 +5001,7 @@ Ein Staticlink-Objekt enthält folgende Attribute.
 |data|nein|String/Boolean/Number||Daten die mitgeschickt werden sollen.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "channel": "Alert",
     "event": "alert",
@@ -5134,8 +5051,7 @@ Hier werden die Baselayer definiert
 |Ordner|nein|**[Ordner](#markdown-header-themenconfigordner)**[]||Definition der Ordner.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "Baselayer": {
     "name": "Meine Baselayer",
     "Layer": [
@@ -5163,8 +5079,7 @@ Hier werden die Fachdaten definiert
 |Ordner|nein|**[Ordner](#markdown-header-themenconfigordner)**[]||Definition der Ordner.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "Fachdaten": {
     "name": "Meine Fachdaten",
     "Layer": [
@@ -5189,8 +5104,7 @@ Hier werden die 3D-Daten für die 3D-Ansicht definiert. Im custom tree und defau
 |Layer|ja|**[Layer](#markdown-header-themenconfiglayer)**[]||Definition der 3DLayer.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 "Fachdaten_3D":
     {
       "name": "Meine Fachdaten 3D",
@@ -5250,8 +5164,7 @@ Hier werden die Ordner definiert. Ordner können auch verschachtelt konfiguriert
 |invertLayerOrder|nein|Boolean|false|Legt fest, ob bei Klick auf den Ordner die Reihenfolge, in der die Layer der Map hinzugefügt werden, umgekehrt werden soll.|false|
 
 **Beispiel Fachdaten-Ordner mit einem Layer**
-```
-#!json
+```JSON
 "Fachdaten": {
     "Ordner": [
         {
@@ -5320,8 +5233,7 @@ Hier werden die Ordner definiert. Ordner können auch verschachtelt konfiguriert
 
 **Beispiel Fachdaten-Ordner mit einem Unterordner in dem ein Layer konfiguriert ist**
 
-```
-#!json
+```JSON
 "Fachdaten": {
     "Ordner": [
         {
@@ -5343,8 +5255,7 @@ Hier werden die Ordner definiert. Ordner können auch verschachtelt konfiguriert
 ```
 
 **Beispiel Fachdaten-Ordner mit einem Unterordner. Auf der Ebene des Unterordners ist auch nochmal ein Layer definiert**
-```
-#!json
+```JSON
 "Fachdaten": {
     "Ordner": [
         {
@@ -5451,8 +5362,7 @@ Hier werden die GruppenLayer definiert, die mehrere Dienste mittels eines Klicks
 |urlIsVisible|nein|Boolean|true|Anzeige, ob die URL in der Layerinformation angezeigt werden soll.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "myId",
     "name": "myGroupLayer",
@@ -5548,8 +5458,7 @@ Hier werden WMS typische Attribute aufgelistet.
 |styles|nein|String[]||Werden styles angegeben, so werden diese mit an den WMS geschickt. Der Server interpretiert diese Styles und liefert die Daten entsprechend zurück.|true|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "123456",
     "name": "MyWMSLayerName",
@@ -5599,8 +5508,7 @@ Stellen Sie in einem solchen Fall *gfiAsNewWindow* wie oben beschrieben manuell 
 |specs|nein|String||Beliebig viele der folgenden Einstellungen lassen sich durch durch Komma-Separation (z.B. {"specs": "width=800,height=700"}) kombinieren. Weitere Einstellungsmöglichkeiten entnehmen Sie bitte den einschlägigen Informationen zum Thema "javascript + window.open": [https://www.w3schools.com/jsref/met_win_open.asp](https://www.w3schools.com/jsref/met_win_open.asp) (deutsch), [https://javascript.info/popup-windows](https://javascript.info/popup-windows) (englisch), [https://developer.mozilla.org/en-US/docs/Web/API/Window/open](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) (englisch)|true|
 
 Beispiel:
-```
-#!json
+```JSON
 {
     "id": "123456",
     // (...)
@@ -5638,8 +5546,7 @@ Beispiel-Aufrufe:
 
 **Example**
 
-```
-#!json
+```JSON
 {
     "id": "1",
     "visibility": false,
@@ -5665,8 +5572,7 @@ Hier werden Tileset typische Attribute aufgelistet.
 |**[cesium3DTilesetOptions](https://cesiumjs.org/Cesium/Build/Documentation/Cesium3DTileset.html)**|nein|**[cesium3DTilesetOption](#markdown-header-themenconfiglayertilesetcesium3dtilesetoption)**||Cesium 3D Tileset Options, werden direkt an das Cesium Tileset Objekt durchgereicht. maximumScreenSpaceError ist z.B. für die Sichtweite relevant.|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "123456",
     "name": "TilesetLayerName",
@@ -5689,8 +5595,7 @@ Todo
 |maximumScreenSpaceError|nein|Number||Todo|
 
 **Beispiel**
-```
-#!json
+```JSON
 "cesium3DTilesetOptions" : {
     maximumScreenSpaceError : 6
 }
@@ -5712,8 +5617,7 @@ Hier werden Terrain typische Attribute aufgelistet.
 [cesiumTerrainProviderOptions]: https://cesiumjs.org/Cesium/Build/Documentation/CesiumTerrainProvider.html
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "123456",
     "name": "TerrainLayerName",
@@ -5734,8 +5638,7 @@ Todo
 |----|-------------|---|-------|------------|
 |requestVertexNormals|nein|Boolean||Todo|
 
-```
-#!json
+```JSON
 "cesiumTerrainProviderOptions": {
     "requestVertexNormals" : true
 }
@@ -5763,8 +5666,7 @@ Hier werden Entities3D typische Attribute aufgelistet.
 
 
 **Beispiel**
-```
-#!json
+```JSON
 {
       "id": "123456",
       "name": "EntitiesLayerName",
@@ -5802,8 +5704,7 @@ Hier werden Entities3D typische Attribute aufgelistet.
 |name|nein|String|""|Todo|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
    "name": "Fernsehturm.kmz"
 }
@@ -5828,8 +5729,7 @@ Mit StaticImage lassen sich Bilder als Layer laden und georeferenziert auf der K
 
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "12345",
     "typ": "StaticImage",
@@ -5864,8 +5764,7 @@ Hier werden Vector typische Attribute aufgelistet. Vector Layer sind WFS, GeoJSO
 |loadingStrategy|nein|String|"bbox"|Ladestrategie zum Laden der Features. Mögliche Werte sind "bbox" oder "all". **[siehe dazu](https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html)**.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "123456",
     "name": "MyVectorLayerName",
@@ -5926,8 +5825,7 @@ Filteroption die vom Werkzeug "wfsFeatureFilter" in **[tools](#markdown-header-p
 |filterType|ja|String||Typ des Filters. Momentan wird nur "combo" unterstützt.|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "fieldName": "myFirstAttributeToFilter",
     "filterName": "Filter_1",
@@ -5948,8 +5846,7 @@ Style-Definition; nur für Vector Tile Layer.
 |resolutions|nein|Number[]||Auflösungen für die im Styling definierten Zoom Level. Wenn nicht angegeben werden die default Resolutions aus dem ol-mapbox-style Projekt benutzt|false|
 
 **Beispiel**
-```
-#!json
+```JSON
 {
     "id": "EINDEUTIGE_ID",
     "name": "Rote Linien",
@@ -5976,14 +5873,12 @@ In diesem Kapitel werden die erwarteten Datentypen definiert.
 Eine Koordinate besteht aus einem Array bestehend aus zwei Zahlen. Die erste repräsentiert den Rechtswert, die zweite den Hochwert.
 
 **Beispiel Koordinate bestehend aus Ganzzahlen(Integer)**
-```
-#!json
+```JSON
 [561210, 5932600]
 ```
 
 **Beispiel Koordinate bestehend aus Gleitkommazahlen(Float)**
-```
-#!json
+```JSON
 [561210.1458, 5932600.12358]
 ```
 
@@ -5994,8 +5889,7 @@ Eine Koordinate besteht aus einem Array bestehend aus zwei Zahlen. Die erste rep
 Ein Extent besteht aus einem Array bestehend aus vier Zahlen. Ein Extent beschreibt einen rechteckigen Gültigkeitsbereich. Dabei wird ein Rechteck aufgespannt, das durch die "linke untere" und die "rechte obere" Ecke definiert wird. Das Schema lautet [Rechtswert-Links-Unten, Hochwert-Links-Unten, Rechtswert-Rechts-Oben, Hochwert-Rechts-Oben] oder [minx, miny, maxx, maxy].
 
 **Beispiel Extent**
-```
-#!json
+```JSON
 [510000.0, 5850000.0, 625000.4, 6000000.0]
 ```
 
