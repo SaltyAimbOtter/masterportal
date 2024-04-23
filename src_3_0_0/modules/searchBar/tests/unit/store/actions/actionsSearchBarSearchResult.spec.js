@@ -393,6 +393,12 @@ describe("src_3_0_0/modules/searchBar/store/actions/actionsSearchBarSearchResult
                         return {
                             getType: () => {
                                 return "MultiPolygon";
+                            },
+                            intersectsCoordinate: () => {
+                                return coordinates;
+                            },
+                            getCoordinates: () => {
+                                return coordinates;
                             }
                         };
                     }
@@ -447,6 +453,9 @@ describe("src_3_0_0/modules/searchBar/store/actions/actionsSearchBarSearchResult
                         return {
                             getType: () => {
                                 return "MultiPolygon";
+                            },
+                            intersectsCoordinate: () => {
+                                return coordinates;
                             }
                         };
                     }
