@@ -1,3 +1,4 @@
+import markerHelper from "../../js/marker";
 import {treeSubjectsKey} from "../../../../shared/js/utils/constants";
 import WKTUtil from "../../../../shared/js/utils/getWKTGeom";
 import wmsGFIUtil from "../../../../shared/js/utils/getWmsFeaturesByMimeType";
@@ -149,10 +150,11 @@ export default {
      * @returns {void}
      */
     setMarker: ({dispatch, rootGetters}, {coordinates, feature, layer}) => {
+        const numberCoordinates = coordinates?.map(coordinate => parseFloat(coordinate, 10)),
+            geomType = feature?.getGeometry()?.getType();
+        let coordinateForMarker = geomType === "GeometryCollection" ? markerHelper.getFirstPointCoordinates(feature, numberCoordinates) : numberCoordinates;
 
-        const numberCoordinates = coordinates?.map(coordinate => parseFloat(coordinate, 10));
-
-        if (layer && feature?.getGeometry().getType() === "MultiPolygon") {
+        if (layer && geomType === "MultiPolygon") {
             const highlightObject = {},
                 highlightVectorRules = rootGetters["Modules/GetFeatureInfo/highlightVectorRules"],
                 styleObject = highlightVectorRules ? highlightVectorRules : styleList.returnStyleObject("defaultMapMarkerPolygon"),
@@ -171,7 +173,14 @@ export default {
             highlightObject.styleId = layer.get("styleId");
             dispatch("Maps/highlightFeature", highlightObject, {root: true});
         }
-        dispatch("Maps/placingPointMarker", numberCoordinates, {root: true});
+        if (feature && geomType === "Polygon" || geomType === "MultiPolygon") {
+            const isPointInsidePolygon = markerHelper.checkIsCoordInsidePolygon(feature, coordinateForMarker);
+
+            if (!isPointInsidePolygon) {
+                coordinateForMarker = markerHelper.getRandomCoordinate(feature.getGeometry().getCoordinates());
+            }
+        }
+        dispatch("Maps/placingPointMarker", coordinateForMarker, {root: true});
     },
 
 

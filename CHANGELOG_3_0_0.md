@@ -64,7 +64,9 @@
 - Issue #1132: Routing module: error messages have been improved.
 - Issue #1140: AddWMS module: GFI display works again with imported WMS.
 - Issue #1144/#1146: The baselayer preview now works for WMTS Layer that have an XML as getCapabilities-URL.
+- Issue #1148: fixed bug in vector search so that it can handle GeometryCollection.
 - Issue #1153: The Parameter "isSecured" is now recognized if defined in the config.json.
+- Issue #1084: fix wrong pointMarker placement when featureType is MultiPolygon. 
 - Layer selection: The order of the layers corresponds to the order of the layers in config.json.
 - Fixed HighlightFeature for MultiPolygons: In certain WFS layers, when polygon selection is enabled,
     clicking on a polygon would highlight it, but multiPolygons wouldn't. This has now been corrected.
