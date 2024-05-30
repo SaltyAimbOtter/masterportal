@@ -6,7 +6,7 @@
 
 ***
 
-# config.json
+# config.json 3.0
 
 Die *config.json* enthält die gesamte Konfiguration der Portal-Oberfläche. In ihr wird geregelt welche Elemente sich wo in der Menüleiste befinden, worauf die Karte zentriert werden soll und welche Layer geladen werden sollen. Hier geht es zu einem **[Beispiel](https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/dev_vue/portal/basic/config.json)**.
 Die config.json besteht aus der **[portalConfig](#markdown-header-portalConfig)** und der **[layerConfig](#markdown-header-layerConfig)**
