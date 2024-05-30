@@ -13,3 +13,4 @@ examples/
 !/portal/basic
 !/portal/master
 site/
+venv/
