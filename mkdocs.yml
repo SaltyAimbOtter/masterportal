@@ -88,7 +88,9 @@ nav:
                     -   'style.json': User/Global-Config/style.json.md
             -   Portal Settings:
                     -   'config.js': User/Portal-Config/config.js.md
+                    -   'config.js 3.0': User/Portal-Config/config_3_0_0.js.md
                     -   'config.json': User/Portal-Config/config.json.md
+                    -   'config.json 3.0': User/Portal-Config/config_3_0_0.json.md
             -   'Misc':
                     - User/Misc/languages.md
                     - User/Misc/quickHelp.md

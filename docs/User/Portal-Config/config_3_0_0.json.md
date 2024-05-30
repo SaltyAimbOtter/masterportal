@@ -1,12 +1,4 @@
->**[Back to the Masterportal documentation](doc.md)**.
-
->If this site isn´t displayed correctly please use this link: **[alternative config.json documentation](https://www.masterportal.org/files/masterportal/html-doku/doc/latest/config.json.de.html)**
-
-[TOC]
-
-***
-
-# config.json
+# config.json 3.0
 
 The *config.json* file contains all configuration of the portal interface. It controls which elements are placed where on the menu bar, how the map is to be centered initially, and which layers are to be loaded. See **[this file for an example](https://bitbucket.org/geowerkstatt-hamburg/masterportal/src/dev_vue/portal/basic/config.json)**.
 The configuration is separated into two sections, **[portalConfig](#markdown-header-portalConfig)** and **[layerConfig](#markdown-header-layerConfig)**
@@ -22,7 +14,7 @@ The configuration is separated into two sections, **[portalConfig](#markdown-hea
 
 ***
 
-## portalConfig
+## portalConfig {data-toc-label='Portal Config'}
 The section *portalConfig* controls the following properties:
 
 1. Menu entries in main menu and availability as well as order of modules (*mainMenu*)
@@ -57,7 +49,7 @@ The configuration options listed in the following table exist:
 
 ***
 
-### portalConfig.map
+### portalConfig.map {data-toc-label='Map'}
 Configuration of the map and elements placed on it.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -93,7 +85,7 @@ Configuration of the map and elements placed on it.
 
 ***
 
-#### portalConfig.map.baselayerSwitcher
+#### portalConfig.map.baselayerSwitcher {data-toc-label='Base Layer Switcher'}
 The baselayerSwitcher allows you to easily switch or select a baselayer.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -112,7 +104,7 @@ activatedExpandable|no|Boolean|false|Specifies whether the baselayerSwitcher is 
 
 ***
 
-#### portalConfig.map.controls
+#### portalConfig.map.controls {data-toc-label='Controls'}
 Allows setting which interactions are active in the map.
 
 Controls can be configured to be expandable so they will not initially show up in the sidebar but if you click the button with the three dots. You need to add the object "expandable" to the controls configuration.
@@ -145,7 +137,7 @@ Controls can be configured to be expandable so they will not initially show up i
 
 ***
 
-##### portalConfig.map.controls.backForward
+##### portalConfig.map.controls.backForward {data-toc-label='Back Forward'}
 The attribute backForward may be of type boolean or object. If of type boolean, it shows a button using the default configuration that allows the user to switch back and forth between view states. When of type object, the following attributes may be set:
 
 |Name|Required|Type|Default|Description|Expert|
@@ -172,7 +164,7 @@ The attribute backForward may be of type boolean or object. If of type boolean, 
 
 ***
 
-##### portalConfig.map.controls.button3d
+##### portalConfig.map.controls.button3d {data-toc-label='Button 3D'}
 The button3d attribute can be of type Boolean or Object. If it is of type Boolean, it indicates the button for switching to 3D mode. If it is of type Object, the following attributes apply
 
 |Name|Required|Type|Default|Description|Expert|
@@ -184,7 +176,7 @@ The button3d attribute can be of type Boolean or Object. If it is of type Boolea
 
 ***
 
-##### portalConfig.map.controls.freeze
+##### portalConfig.map.controls.freeze {data-toc-label='Freeze'}
 Screen is locked so that no more actions can be performed in the map. Whether a "lock view" button is shown.
 
 The freeze attribute can be of type Boolean or Object. If it is of type Boolean, it shows the buttons that are set in the default settings. If it is of type Object, the following attributes apply:
@@ -197,7 +189,7 @@ The freeze attribute can be of type Boolean or Object. If it is of type Boolean,
 
 ***
 
-##### portalConfig.map.controls.fullScreen
+##### portalConfig.map.controls.fullScreen {data-toc-label='Full Screen'}
 Allows the user to view the portal in full screen mode by clicking a button without the browser's tabs and address bar, by clicking a button. A second click on the element returns the view back to default.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -224,7 +216,7 @@ Allows the user to view the portal in full screen mode by clicking a button with
 
 ***
 
-##### portalConfig.map.controls.orientation
+##### portalConfig.map.controls.orientation {data-toc-label='Orientation'}
 Orientation uses the browser's geolocation to determine the user's location. A list of features in the vicinity of the location is displayed.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -260,7 +252,7 @@ Orientation uses the browser's geolocation to determine the user's location. A l
 
 ***
 
-##### portalConfig.map.controls.rotation
+##### portalConfig.map.controls.rotation {data-toc-label='Rotation'}
 The attribute rotation may be of type boolean or object. If of type boolean and value is set to true, the rotation control is just shown when the map rotation is not equal north/0. When of type object, the following attributes may be set:
 
 |Name|Required|Type|Default|Description|Expert|
@@ -285,7 +277,7 @@ The attribute rotation may be of type boolean or object. If of type boolean and 
 
 ***
 
-##### portalConfig.map.controls.startModule
+##### portalConfig.map.controls.startModule {data-toc-label='Start Module'}
 The startModule attribute must be of type Object. A button is displayed for each configured module, which can be used to open and close the respective module.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -314,7 +306,7 @@ The startModule attribute must be of type Object. A button is displayed for each
 
 ***
 
-###### portalConfig.map.controls.startModule.mainMenu
+###### portalConfig.map.controls.startModule.mainMenu {data-toc-label='Main Menu'}
 Here you can configure the modules for which a button is to be displayed. These are displayed in the `mainMenu` when opened.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -333,7 +325,7 @@ Here you can configure the modules for which a button is to be displayed. These 
 
 ***
 
-###### portalConfig.map.controls.startModule.secondaryMenu
+###### portalConfig.map.controls.startModule.secondaryMenu {data-toc-label='Secondary Menu'}
 Here you can configure the modules for which a button is to be displayed. These are displayed in the `secondaryMenu` when opened.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -352,7 +344,7 @@ Here you can configure the modules for which a button is to be displayed. These 
 
 ***
 
-##### portalConfig.map.controls.tiltView
+##### portalConfig.map.controls.tiltView {data-toc-label='Tilt View'}
 Displays two buttons that can be used to tilt the camera up or down in the 3D scene.
 
 The tiltView attribute can be of type Boolean or Object. If it is of type Boolean, it shows the buttons that are set in the default settings. If it is of type Object, the following attributes apply:
@@ -381,7 +373,7 @@ The tiltView attribute can be of type Boolean or Object. If it is of type Boolea
 
 ***
 
-##### portalConfig.map.controls.totalView
+##### portalConfig.map.controls.totalView {data-toc-label='Total View'}
 Offers a button to return to the initial view.
 
 The attribute totalView may be of type boolean or object. If of type boolean, it shows a button using the default configuration that allows the user to switch back to the initial view. When of type object, the following attributes may be set:
@@ -408,7 +400,7 @@ The attribute totalView may be of type boolean or object. If of type boolean, it
 
 ***
 
-##### portalConfig.map.controls.zoom
+##### portalConfig.map.controls.zoom {data-toc-label='Zoom'}
 Defines whether zoom buttons should be displayed.
 
 The attribute zoom may be of type boolean or object. If of type boolean, it shows two buttons using the default configuration that allows the user to zoom in the map. When of type object, the following attributes may be set:
@@ -437,7 +429,7 @@ The attribute zoom may be of type boolean or object. If of type boolean, it show
 
 ***
 
-#### portalConfig.map.featureViaURL
+#### portalConfig.map.featureViaURL {data-toc-label='Feature Via URL'}
 Optional configuration for the URL parameter `featureViaURL`. See **[urlParameter](urlParameter.md)** for details.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -497,7 +489,7 @@ Optional configuration for the URL parameter `featureViaURL`. See **[urlParamete
 
 ***
 
-##### portalConfig.map.featureViaURL.layers
+##### portalConfig.map.featureViaURL.layers {data-toc-label='Layers'}
 The parameters described apply for each entry of the **[layers](#markdown-header-portalconfigmapfeatureviaurllayers)** array.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -522,7 +514,7 @@ The parameters described apply for each entry of the **[layers](#markdown-header
 
 ***
 
-#### portalConfig.map.getFeatureInfo
+#### portalConfig.map.getFeatureInfo {data-toc-label='Get Feature Info'}
 Displays information to a clicked feature by firing a *GetFeatureInfo* or *GetFeature* request, respectively using the loaded data on vector layers.
 
 On all GFI request types except directly fetching HTML, which is done by using `"text/html"` as `"infoFormat"` on a WMS, the "|" character is interpreted as linebreak. You may also use `"\r\n"` or `"\n"`.
@@ -575,7 +567,7 @@ On all GFI request types except directly fetching HTML, which is done by using `
 
 ***
 
-##### portalConfig.map.getFeatureInfo.coloredHighlighting3D
+##### portalConfig.map.getFeatureInfo.coloredHighlighting3D {data-toc-label='Colored Highlighting 3D'}
 Highlight Setting of 3D Tiles.
 If e.g. a building is selected by left mouse click, it will be highlighted in the given color.
 For color configuration see **[Color-documentation](https://cesium.com/learn/cesiumjs/ref-doc/Color.html)**
@@ -605,7 +597,7 @@ For color configuration see **[Color-documentation](https://cesium.com/learn/ces
 
 ***
 
-##### portalConfig.map.getFeatureInfo.highlightVectorRules
+##### portalConfig.map.getFeatureInfo.highlightVectorRules {data-toc-label='Highlight Vector Rules'}
 
 [type:Image]: # (Datatypes.Image)
 [type:Fill]: # (Datatypes.Fill)
@@ -624,7 +616,7 @@ Hint: highlighting only works if there is a styleId in config.json configured fo
 
 ***
 
-###### portalConfig.map.getFeatureInfo.highlightVectorRules.text
+###### portalConfig.map.getFeatureInfo.highlightVectorRules.text {data-toc-label='Text'}
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |scale|no|Float|1|Text scale number|false|
@@ -639,7 +631,7 @@ Hint: highlighting only works if there is a styleId in config.json configured fo
 
 ***
 
-#### portalConfig.map.layerPills
+#### portalConfig.map.layerPills {data-toc-label='Layer Pills'}
 Configuration to make settings for LayerPills.
 
 Layerpills are buttons on top of the map that show the selected layers. When clicking on a LayerPill, the corresponding layer information is displayed in the menu. The close button deselects the layer. The LayerPills attribute is specified as an object and contains the following attributes:
@@ -660,7 +652,7 @@ Layerpills are buttons on top of the map that show the selected layers. When cli
 
 ***
 
-#### portalConfig.map.map3dParameter
+#### portalConfig.map.map3dParameter {data-toc-label='Map 3D Parameter'}
 Cesium Scene settings in 3D mode.
 For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Scene.html?classFilter=scene)**
 
@@ -696,7 +688,7 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Scen
 
 ***
 
-##### portalConfig.map.map3dParameter.camera
+##### portalConfig.map.map3dParameter.camera {data-toc-label='Camera'}
 Cesium Scene camera settings in 3D mode.
 The camera is defined by a position, orientation, and view frustum.
 For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Camera.html)**
@@ -721,7 +713,7 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Came
 
 ***
 
-##### portalConfig.map.map3dParameter.fog
+##### portalConfig.map.map3dParameter.fog {data-toc-label='Fog'}
 Cesium Scene fog settings in 3D mode.
 Blends the atmosphere to geometry far from the camera for horizon views.
 For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Fog.html)**
@@ -742,7 +734,7 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Fog.
 
 ***
 
-##### portalConfig.map.map3dParameter.globe
+##### portalConfig.map.map3dParameter.globe {data-toc-label='Globe'}
 Cesium Scene globe settings in 3D mode.
 The globe rendered in the scene, including its terrain and imagery layers.
 For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Globe.html)**
@@ -763,7 +755,7 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Glob
 
 ***
 
-#### portalConfig.map.mapMarker
+#### portalConfig.map.mapMarker {data-toc-label='Map Marker'}
 Overrides the map marker module's default values. Useful for 3D markers since OpenLayers's overlays can not be displayed in 3D mode. For this, the map marker has to be defined as vector layer.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -784,7 +776,7 @@ Overrides the map marker module's default values. Useful for 3D markers since Op
 
 ***
 
-#### portalConfig.map.mapView
+#### portalConfig.map.mapView {data-toc-label='Map View'}
 Defines the initial map view and a background shown when no layer or map is selected.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -873,7 +865,7 @@ Defines the initial map view and a background shown when no layer or map is sele
 
 ***
 
-##### portalConfig.map.mapView.mapInteractions
+##### portalConfig.map.mapView.mapInteractions {data-toc-label='Map Interactions'}
 Overrides the ol map interactions. Provides further configuration possibilities for control behaviour and keyboardEventTarget.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -899,7 +891,7 @@ Overrides the ol map interactions. Provides further configuration possibilities 
 
 ***
 
-##### portalConfig.map.mapView.mapInteractions
+##### portalConfig.map.mapView.mapInteractions {data-toc-label='Interaction Modes'}
 Interaction settings for the ol default interactions. If not set, the default setting is used.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -922,7 +914,7 @@ Interaction settings for the ol default interactions. If not set, the default se
 
 ***
 
-##### portalConfig.map.mapView.option
+##### portalConfig.map.mapView.option {data-toc-label='Option'}
 An option defines a zoom level. Each zoom level is defined by resolution, scale number, and a unique zoom level. The higher the zoom level, the smaller the scale and the closer you have zoomed.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -943,7 +935,7 @@ An option defines a zoom level. Each zoom level is defined by resolution, scale 
 
 ***
 
-#### portalConfig.map.mouseHover
+#### portalConfig.map.mouseHover {data-toc-label='Mouse Hover'}
 Enables the MouseHover function for vector layers, e.g. WFS or GeoJSON. For per-layer configuration see **[Vector](#markdown-header-layerconfigelementslayersvector)**.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -962,7 +954,7 @@ Enables the MouseHover function for vector layers, e.g. WFS or GeoJSON. For per-
 
 ***
 
-#### portalConfig.map.zoomTo
+#### portalConfig.map.zoomTo {data-toc-label='Zoom To'}
 Configuration for the URL query parameters `zoomToFeatureId` and `zoomToGeometry`.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1005,7 +997,7 @@ Configuration for the URL query parameters `zoomToFeatureId` and `zoomToGeometry
 
 ***
 
-### portalConfig.menu
+### portalConfig.menu {data-toc-label='Menu'}
 Here you can configure the menu items for the `mainMenu` (in the desktop view on the left) and `secondaryMenu` (in the desktop view on the right) and their arrangement. The order of the modules results from the order in the *Config.json*.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1019,7 +1011,7 @@ Here you can configure the menu items for the `mainMenu` (in the desktop view on
 
 ***
 
-#### portalConfig.menu.searchBar
+#### portalConfig.menu.searchBar {data-toc-label='Search Bar'}
 Configuration of the search bar. Different search services can be configured.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1034,7 +1026,7 @@ Configuration of the search bar. Different search services can be configured.
 
 ```json
 {
-    "searchBar" {
+    "searchBar": {
         "minCharacters": 3,
         "placeholder": "common:modules.searchBar.placeholder.address",
         "searchInterfaces": [
@@ -1057,7 +1049,7 @@ Configuration of the search bar. Different search services can be configured.
 
 ***
 
-##### portalConfig.menu.searchBar.searchInterfaces
+##### portalConfig.menu.searchBar.searchInterfaces {data-toc-label='Search Interfaces'}
 Definitions of the search interfaces.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1091,7 +1083,7 @@ Definitions of the search interfaces.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.bkg
+###### portalConfig.menu.searchBar.searchInterfaces.bkg {data-toc-label='BKG'}
 
 [type:Extent]: # (Datatypes.Extent)
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
@@ -1141,7 +1133,7 @@ ProxyPass /bkg_suggest http://sg.geodatenzentrum.de/gdz_geokodierung__[UUID]/sug
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.elasticSearch
+###### portalConfig.menu.searchBar.searchInterfaces.elasticSearch {data-toc-label='Elastic Search'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1189,7 +1181,7 @@ As an additional property, you may add `payload`. It is not required, and matche
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.elasticSearch.hitMap
+###### portalConfig.menu.searchBar.searchInterfaces.elasticSearch.hitMap {data-toc-label='Hit Map'}
 Mapping Objekt. Mappt die Attribute des Ergebnis Objektes auf den entsprechenden Key.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1218,7 +1210,7 @@ Mapping Objekt. Mappt die Attribute des Ergebnis Objektes auf den entsprechenden
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.gazetteer
+###### portalConfig.menu.searchBar.searchInterfaces.gazetteer {data-toc-label='Gazetteer'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1257,7 +1249,7 @@ Gazetteer search service configuration.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.komootPhoton
+###### portalConfig.menu.searchBar.searchInterfaces.komootPhoton {data-toc-label='Komoot Photon'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1291,7 +1283,7 @@ Search by **[Komoot Photon](https://photon.komoot.io/)**.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.locationFinder
+###### portalConfig.menu.searchBar.searchInterfaces.locationFinder {data-toc-label='Location Finder'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1325,7 +1317,7 @@ Configuration of the search by usage of an ESRI CH LocationFinder.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.locationFinder.LocationFinderClass
+###### portalConfig.menu.searchBar.searchInterfaces.locationFinder.LocationFinderClass {data-toc-label='Location Finder Class'}
 Definition of classes that should be considered with the results.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1359,7 +1351,7 @@ Definition of classes that should be considered with the results.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.osmNominatim
+###### portalConfig.menu.searchBar.searchInterfaces.osmNominatim {data-toc-label='OSM Nominatim'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1388,7 +1380,7 @@ OpenStreetMap search for city, street, and house number. Only executed on clicki
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.specialWFS
+###### portalConfig.menu.searchBar.searchInterfaces.specialWFS {data-toc-label='Special WFS'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1454,7 +1446,7 @@ The WFS 2.0 query is dynamically created by the Masterportal. No stored query co
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.specialWFS.definition
+###### portalConfig.menu.searchBar.searchInterfaces.specialWFS.definition {data-toc-label='Definition'}
 Configuration of definition of the SpecialWFS search.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1482,7 +1474,7 @@ Configuration of definition of the SpecialWFS search.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.topicTree
+###### portalConfig.menu.searchBar.searchInterfaces.topicTree {data-toc-label='Topic Tree'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1505,7 +1497,7 @@ Searching all topic selection tree layers.
 
 ***
 
-###### portalConfig.menu.searchBar.searchInterfaces.visibleVector
+###### portalConfig.menu.searchBar.searchInterfaces.visibleVector {data-toc-label='Visible Vector'}
 
 [type:resultEvents]: # (portalConfig.menu.searchBar.searchInterfaces.resultEvents)
 
@@ -1526,7 +1518,7 @@ Visible vector layer search configuration. For all vector layers supposed to be 
 
 ***
 
-##### portalConfig.menu.searchBar.searchInterfaces.resultEvents
+##### portalConfig.menu.searchBar.searchInterfaces.resultEvents {data-toc-label='Result Events'}
 Actions that are executed when an interaction, such as hover or click, is performed with a result list item.
 
 The following events exist. Which events can be configured can be found in the descriptions of the respective search interface:
@@ -1567,7 +1559,7 @@ The following events exist. Which events can be configured can be found in the d
 
 ***
 
-#### portalConfig.menu.sections
+#### portalConfig.menu.sections {data-toc-label='Sections'}
 
 [type:addWMS]: # (portalConfig.menu.sections.modules)
 [type:bufferAnalysis]: # (portalConfig.menu.sections.modules)
@@ -1621,7 +1613,7 @@ Modules can be divided into sections. In the menu, sections are divided with a h
 
 ***
 
-#### portalConfig.menu.sections.modules
+#### portalConfig.menu.sections.modules {data-toc-label='Modules'}
 
 |Name|Required|Type|Default|Description|Expert|
 |----|-------------|---|-------|------------|------|
@@ -1635,7 +1627,7 @@ Modules can be divided into sections. In the menu, sections are divided with a h
 
 ***
 
-##### portalConfig.menu.sections.modules.addWMS
+##### portalConfig.menu.sections.modules.addWMS {data-toc-label='Add WMS'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1659,7 +1651,7 @@ The module allows for adding additional WMS layers via a provided URL.
 
 ***
 
-##### portalConfig.menu.sections.modules.bufferAnalysis
+##### portalConfig.menu.sections.modules.bufferAnalysis {data-toc-label='Buffer Analysis'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1683,7 +1675,7 @@ The module highlights features of a target layer, that are located within or out
 
 ***
 
-##### portalConfig.menu.sections.modules.contact
+##### portalConfig.menu.sections.modules.contact {data-toc-label='Contact'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1764,7 +1756,7 @@ We warn against automatically setting the customer email as *REPLY-TO*.
 >The unchecked copying of data to email headers is warned against depending on the security level (resp. age) of the SMTP server, since the risk of *Carriage Return* and *Line Feed* injections may lead to e.g. allowing *REPLY-TO* from the email header line to be escaped to ultimately manipulate the email header itself. (Example: "test@example.com\r\nBCC:target1@example.com,target2@example.com,(...),target(n)@example.com"). In a more abstract case, UTF attacks may be possible, where normally harmless UTF-16 or UTF-32 characters may change the email header's behavior when interpreted as ANSI or UTF-8, having a comparable effect.
 
 ***
-###### portalConfig.menu.sections.modules.contact.email
+###### portalConfig.menu.sections.modules.contact.email {data-toc-label='Email'}
 Email object containing email address, and display name.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -1783,7 +1775,7 @@ Email object containing email address, and display name.
 
 ***
 
-##### portalConfig.menu.sections.modules.coordToolkit
+##### portalConfig.menu.sections.modules.coordToolkit {data-toc-label='Coordinate Toolkit'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1829,7 +1821,7 @@ Coordinates tool: to display the height above sea level in addition to the 2 dim
 
 ***
 
-###### portalConfig.menu.sections.modules.coordToolkit.coordInfo
+###### portalConfig.menu.sections.modules.coordToolkit.coordInfo {data-toc-label='Coord Info'}
 
 [inherits]: # (portalConfig.menu.sections.modules.coordToolkit)
 [type:Explanations]: # (Datatypes.Explanations)
@@ -1841,7 +1833,7 @@ Coordinates tool: to display the height above sea level in addition to the 2 dim
 
 ***
 
-##### portalConfig.menu.sections.modules.customMenuElement
+##### portalConfig.menu.sections.modules.customMenuElement {data-toc-label='Custom Menu Element'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1884,7 +1876,7 @@ This module can open a link, display HTML from config.json or an external file, 
 
 ***
 
-###### portalConfig.menu.sections.modules.customMenuElement.execute
+###### portalConfig.menu.sections.modules.customMenuElement.execute {data-toc-label='Execute'}
 
 [type:Payload]: # (Datatypes.Payload)
 
@@ -1906,7 +1898,7 @@ CustomMenuElement Module `execute` options.
 
 ***
 
-##### portalConfig.menu.sections.modules.draw
+##### portalConfig.menu.sections.modules.draw {data-toc-label='Draw'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1915,7 +1907,7 @@ CustomMenuElement Module `execute` options.
 
 ***
 
-##### portalConfig.menu.sections.modules.featureLister
+##### portalConfig.menu.sections.modules.featureLister {data-toc-label='Feature Lister'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -1967,7 +1959,7 @@ As soon as you position the mouse pointer over a feature in the list, it will be
 
 ***
 
-###### portalConfig.menu.sections.modules.featureLister.highlightVectorRulesPointLine
+###### portalConfig.menu.sections.modules.featureLister.highlightVectorRulesPointLine {data-toc-label='Highlight Vector Rules Point Line'}
 
 [type:Image]: # (Datatypes.Image)
 [type:Fill]: # (Datatypes.Fill)
@@ -1984,7 +1976,7 @@ Specify outline color and stroke width for highlighting lines and fill color and
 
 ***
 
-###### portalConfig.menu.sections.modules.featureLister.highlightVectorRulesPolygon
+###### portalConfig.menu.sections.modules.featureLister.highlightVectorRulesPolygon {data-toc-label='Highlight Vector Rules Polygon'}
 
 [type:Fill]: # (Datatypes.Fill)
 [type:Stroke]: # (Datatypes.Stroke)
@@ -1999,7 +1991,7 @@ Specify the fill color, the outline color and stroke width for highlighting the 
 
 ***
 
-##### portalConfig.menu.sections.modules.fileImport
+##### portalConfig.menu.sections.modules.fileImport {data-toc-label='File Import'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2023,7 +2015,7 @@ Import "*.kml", "*.geojson" and "*.gpx" files with this module.
 
 ***
 
-##### portalConfig.menu.sections.modules.filter
+##### portalConfig.menu.sections.modules.filter {data-toc-label='Filter'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2078,7 +2070,7 @@ The following example uses only a layer id to generate the filter automatically.
 
 ***
 
-#### portalConfig.menu.sections.modules.filter.filterGeometrySelector
+#### portalConfig.menu.sections.modules.filter.filterGeometrySelector {data-toc-label='Filter Geometry Selector'}
 
 An additional selection appears above the filter where a geometry can be selected and drawn on the map. The filter filters only in the selected area.
 If you use this modul in conjunction with external filtering (`external`: `true`), please remember to configure your layer filter with geometryName.
@@ -2147,7 +2139,7 @@ Example of a completely changed configuration of the `filterGeometrySelector`.
 
 ***
 
-#### portalConfig.menu.sections.modules.filter.filterLayer
+#### portalConfig.menu.sections.modules.filter.filterLayer {data-toc-label='Filter Layer'}
 
 [type:Snippets]: # (Datatypes.Snippets)
 
@@ -2215,7 +2207,7 @@ In this example one snippet is set with only an attrName. The snippet type is de
 
 ***
 
-#### portalConfig.menu.sections.modules.filter.filterLayerGroups
+#### portalConfig.menu.sections.modules.filter.filterLayerGroups {data-toc-label='Filter Layer Groups'}
 An object to define a group layer to filter with.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -2255,7 +2247,7 @@ An object to define a group layer to filter with.
 
 ***
 
-##### portalConfig.menu.sections.modules.language
+##### portalConfig.menu.sections.modules.language {data-toc-label='Language'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2279,7 +2271,7 @@ In this module the language of the portal can be switched.
 
 ***
 
-##### portalConfig.menu.sections.modules.layerClusterToggler
+##### portalConfig.menu.sections.modules.layerClusterToggler {data-toc-label='Layer Cluster Toggler'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2310,7 +2302,7 @@ This module allows to activate/load and deactivate layers in clusters simultaneo
 
 ***
 
-##### portalConfig.menu.sections.modules.layerSlider
+##### portalConfig.menu.sections.modules.layerSlider {data-toc-label='Layer Slider'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2354,7 +2346,7 @@ The slider can switch between two modes in the interface. Layer slider type. `"p
 
 ***
 
-###### portalConfig.menu.sections.modules.layerSlider.layerId
+###### portalConfig.menu.sections.modules.layerSlider.layerId {data-toc-label='Layer Id'}
 Defines a layer slider layer.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -2373,7 +2365,7 @@ Defines a layer slider layer.
 
 ***
 
-##### portalConfig.menu.sections.modules.legend
+##### portalConfig.menu.sections.modules.legend {data-toc-label='Legend'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2388,7 +2380,7 @@ Legend configuration options.
 
 ***
 
-##### portalConfig.menu.sections.modules.measure
+##### portalConfig.menu.sections.modules.measure {data-toc-label='Measure'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2418,7 +2410,7 @@ The measure tool allows measuring distances and areas.
 
 ***
 
-##### portalConfig.menu.sections.modules.news
+##### portalConfig.menu.sections.modules.news {data-toc-label='News'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2442,7 +2434,7 @@ This module shows all messages from the newsFeedPortalAlerts.json and the config
 
 ***
 
-##### portalConfig.menu.sections.modules.openConfig
+##### portalConfig.menu.sections.modules.openConfig {data-toc-label='Open Config'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2466,7 +2458,7 @@ With this module a configuration file (config.json) can be reloaded at runtime. 
 
 ***
 
-##### portalConfig.menu.sections.modules.print
+##### portalConfig.menu.sections.modules.print {data-toc-label='Print'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2533,7 +2525,7 @@ Print module, configurable for 2 print services: *High Resolution PlotService* a
 
 ***
 
-###### portalConfig.menu.sections.modules.print.capabilitiesFilter
+###### portalConfig.menu.sections.modules.print.capabilitiesFilter {data-toc-label='Capabilities Filter'}
 List of layouts and formats that filters the response from the print service in the respective category.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -2552,7 +2544,7 @@ List of layouts and formats that filters the response from the print service in 
 
 ***
 
-##### portalConfig.menu.sections.modules.routing
+##### portalConfig.menu.sections.modules.routing {data-toc-label='Routing'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2670,7 +2662,7 @@ Routing module. Enables user to plan routes between multiple points with multipl
 
 ***
 
-#### portalConfig.menu.sections.modules.routing.download
+###### portalConfig.menu.sections.modules.routing.download {data-toc-label='Download'}
 Routing-tool download options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -2691,7 +2683,7 @@ Routing-tool download options.
 
 ***
 
-#### portalConfig.menu.sections.modules.routing.geosearch
+###### portalConfig.menu.sections.modules.routing.geosearch {data-toc-label='Geosearch'}
 
 [type:Bbox]: # (Datatypes.Bbox)
 
@@ -2757,7 +2749,7 @@ Routing-tool geosearch options.
 
 ***
 
-#### portalConfig.menu.sections.modules.routing.geosearchReverse
+###### portalConfig.menu.sections.modules.routing.geosearchReverse {data-toc-label='Geosearch Reverse'}
 Routing-tool geosearch reverse options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -2782,7 +2774,7 @@ Routing-tool geosearch reverse options.
 
 ***
 
-#### portalConfig.menu.sections.modules.routing.directionsSettings
+###### portalConfig.menu.sections.modules.routing.directionsSettings {data-toc-label='Directions Settings'}
 
 [type:BatchProcessing]: # (Datatypes.BatchProcessing)
 [type:StyleAvoidAreas]: # (Datatypes.StyleAvoidAreas)
@@ -2859,7 +2851,7 @@ Routing-tool directions options.
 
 ***
 
-#### portalConfig.menu.sections.modules.routing.isochronesSettings
+###### portalConfig.menu.sections.modules.routing.isochronesSettings {data-toc-label='Isochrones Settings'}
 
 [type:BatchProcessing]: # (Datatypes.BatchProcessing)
 [type:StyleCenter]: # (Datatypes.StyleCenter)
@@ -2929,7 +2921,7 @@ Routing-tool isochrones options.
 
 ***
 
-##### portalConfig.menu.sections.modules.scaleSwitcher
+##### portalConfig.menu.sections.modules.scaleSwitcher {data-toc-label='Scale Switcher'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -2953,7 +2945,7 @@ Module that allows changing the map's current scale.
 
 ***
 
-##### portalConfig.menu.sections.modules.selectFeatures
+##### portalConfig.menu.sections.modules.selectFeatures {data-toc-label='Select Features'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3000,7 +2992,7 @@ Allows selecting a set of vector features by letting the user draw a box on the 
 
 ***
 
-###### portalConfig.menu.sections.modules.selectFeatures.highlightVectorRulesPointLine
+###### portalConfig.menu.sections.modules.selectFeatures.highlightVectorRulesPointLine {data-toc-label='Highlight Vector Rules Point Line'}
 
 [type:Image]: # (Datatypes.Image)
 [type:Fill]: # (Datatypes.Fill)
@@ -3017,7 +3009,7 @@ Specify outline color and stroke width for highlighting lines and fill color and
 
 ***
 
-###### portalConfig.menu.sections.modules.selectFeatures.highlightVectorRulesPolygon
+###### portalConfig.menu.sections.modules.selectFeatures.highlightVectorRulesPolygon {data-toc-label='Highlight Vector Rules Polygon'}
 
 [type:Fill]: # (Datatypes.Fill)
 [type:Stroke]: # (Datatypes.Stroke)
@@ -3032,7 +3024,7 @@ Specify the fill color and stroke width for highlighting the polygon features as
 
 ***
 
-##### portalConfig.menu.sections.modules.shadow
+##### portalConfig.menu.sections.modules.shadow {data-toc-label='Shadow'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3063,7 +3055,7 @@ The shadow tool provides a UI element to define a point in time by using sliders
 
 ***
 
-###### portalConfig.menu.sections.modules.shadow.shadowTime
+###### portalConfig.menu.sections.modules.shadow.shadowTime {data-toc-label='Shadow Time'}
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|
 |month|no|String||month|false|
@@ -3084,7 +3076,7 @@ The shadow tool provides a UI element to define a point in time by using sliders
 
 ***
 
-##### portalConfig.menu.sections.modules.shareView
+##### portalConfig.menu.sections.modules.shareView {data-toc-label='Share View'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3113,7 +3105,7 @@ Module to share a link to the current map view. It is possible to share the curr
 
 ***
 
-##### portalConfig.menu.sections.modules.styleVT
+##### portalConfig.menu.sections.modules.styleVT {data-toc-label='Style Vector Tiles'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3137,7 +3129,7 @@ The module allows for switching the style of vector tile layers(❗) which provi
 
 ***
 
-##### portalConfig.menu.sections.modules.wfsSearch
+##### portalConfig.menu.sections.modules.wfsSearch {data-toc-label='WFS Search'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3197,7 +3189,7 @@ Multiple **[SearchInstances](#markdown-header-portalconfigmenusectionsmoduleswfs
 
 ***
 
-##### portalConfig.menu.sections.modules.wfsSearch.searchInstance
+##### portalConfig.menu.sections.modules.wfsSearch.searchInstance {data-toc-label='Search Instance'}
 
 [type:Literal]: # (Datatypes.Literal)
 [type:ResultList]: # (Datatypes.ResultList)
@@ -3260,7 +3252,7 @@ A singular instance of the WFS Search which is selectable through a dropdown.
 
 ***
 
-##### portalConfig.menu.sections.modules.wfst
+##### portalConfig.menu.sections.modules.wfst {data-toc-label='WFS-T'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3323,7 +3315,7 @@ When editing properties of a feature / adding properties to a new feature, the a
 
 ***
 
-###### portalConfig.menu.sections.modules.wfst.TransactionConfig
+###### portalConfig.menu.sections.modules.wfst.TransactionConfig {data-toc-label='Transaction Config'}
 Specific configuration for transaction methods of given layers.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3360,7 +3352,7 @@ Specific configuration for transaction methods of given layers.
 
 ***
 
-#### portalConfig.menu.title
+### portalConfig.menu.title {data-toc-label='Portal Title'}
 The menu bar allows showing a portal name and portal image.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3383,7 +3375,7 @@ The menu bar allows showing a portal name and portal image.
 
 ***
 
-### portalConfig.portalFooter
+### portalConfig.portalFooter {data-toc-label='Portal Footer'}
 Possibility to configure the content of the portal footer.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3414,7 +3406,7 @@ Possibility to configure the content of the portal footer.
 }
 ```
 
-#### portalConfig.portalFooter.urls
+#### portalConfig.portalFooter.urls {data-toc-label='Urls'}
 
 A Url can be defined in various ways.
 
@@ -3438,7 +3430,7 @@ A Url can be defined in various ways.
 
 ***
 
-### portalConfig.tree
+### portalConfig.tree {data-toc-label='Tree'}
 Possibility to make settings for the topic selection tree.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3512,7 +3504,7 @@ Possibility to make settings for the topic selection tree.
 
 ***
 
-#### portalConfig.tree.addLayerButton
+#### portalConfig.tree.addLayerButton {data-toc-label='Add Layer Button'}
 Configuration of the addLayerButton to select layers.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3538,7 +3530,7 @@ Configuration of the addLayerButton to select layers.
 
 ***
 
-#### portalConfig.tree.categories
+#### portalConfig.tree.categories {data-toc-label='Categories'}
 Configuration of the categories from the metadata. Only for the tree.type `auto`.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3569,7 +3561,7 @@ Configuration of the categories from the metadata. Only for the tree.type `auto`
 
 ***
 
-#### portalConfig.tree.highlightedFeatures
+#### portalConfig.tree.highlightedFeatures {data-toc-label='Highlighted Features'}
 Configuration in addition to highlighting features. If features are highlighted with the "List" or "Select Features" module with "Zoom to this Feature" or via url parameter, then a layer with these features is selectable in the menu tree.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3588,7 +3580,7 @@ Configuration in addition to highlighting features. If features are highlighted 
 
 ***
 
-#### portalConfig.tree.layerIDsToStyle
+#### portalConfig.tree.layerIDsToStyle {data-toc-label='Layer IDs To Style'}
 Special implementation for a HVV service (Hamburger Verkehrsbetriebe). Contains objects to query different styles of a layer ID. Only for the tree.type `auto`.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -3615,7 +3607,7 @@ Special implementation for a HVV service (Hamburger Verkehrsbetriebe). Contains 
 
 ***
 
-## layerConfig
+## layerConfig {data-toc-label='Layer Config'}
 The `layerConfig` entry defines the contents and their order in the topic selection. The following properties can be configured:
 
 1. Layers containing background maps (*baselayer*)
@@ -3639,7 +3631,7 @@ The `layerConfig` entry defines the contents and their order in the topic select
 
 ***
 
-### layerConfig.baselayer
+### layerConfig.baselayer {data-toc-label='Base Layer'}
 
 [type:elements]: # (layerConfig.elements)
 
@@ -3661,7 +3653,7 @@ Here you define layers to be displayed as background maps.
 
 ***
 
-### layerConfig.subjectlayer
+### layerConfig.subjectlayer {data-toc-label='Subject Layer'}
 
 [type:elements]: # (layerConfig.elements)
 
@@ -3683,7 +3675,7 @@ Layers or folders with layers to be displayed as subject data are defined here.
 
 ***
 
-### layerConfig.elements
+### layerConfig.elements {data-toc-label='Elements'}
 
 [type:elements]: # (layerConfig.elements)
 
@@ -3769,7 +3761,7 @@ Layers or folders are defined here. Folders can in turn contain **[elements](#ma
 
 ***
 
-### layerConfig.elements.layers
+### layerConfig.elements.layers {data-toc-label='Layers'}
 
 [inherits]: # (layerConfig.elements)
 
@@ -3821,7 +3813,7 @@ Besides these attributes, there are also type-specific attributes for the differ
 
 ***
 
-#### layerConfig.elements.layers.preview
+#### layerConfig.elements.layers.preview {data-toc-label='Preview'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -3858,7 +3850,7 @@ With the VectorTile layer a dropped preview image is displayed, with WMS and WMT
 
 ***
 
-#### layerConfig.elements.layers.Group
+#### layerConfig.elements.layers.Group {data-toc-label='Group'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -3875,8 +3867,8 @@ Baselayer: It is important here that the specified ids address the same URL, i.e
 
 **Example**
 ```json
- { 
-    "id": [ "20501", "20502", "20503", "20504" ], 
+ {
+    "id": [ "20501", "20502", "20503", "20504" ],
     "name": "Gruppe Freizeitrouten und Radfernwege",
     "styleId": "4515"
 }
@@ -3884,7 +3876,7 @@ Baselayer: It is important here that the specified ids address the same URL, i.e
 
 ***
 
-#### layerConfig.elements.layers.Raster
+#### layerConfig.elements.layers.Raster {data-toc-label='Raster'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -3892,7 +3884,7 @@ Raster layer typical attributes are listed here. Raster layers are of type **[St
 
 ***
 
-##### layerConfig.elements.layers.Raster.StaticImage
+##### layerConfig.elements.layers.Raster.StaticImage {data-toc-label='Static Image'}
 
 [inherits]: # (layerConfig.elements.layers.Raster)
 
@@ -3920,7 +3912,7 @@ StaticImage can be used to load images as layers and display them georeferenced 
 
 ***
 
-##### layerConfig.elements.layers.Raster.WMS
+##### layerConfig.elements.layers.Raster.WMS {data-toc-label='WMS'}
 
 [inherits]: # (layerConfig.elements.layers.Raster)
 
@@ -3953,7 +3945,7 @@ WMS typical attributes are listed here.
 
 ***
 
-###### layerConfig.elements.layers.Raster.WMS.gfiAsNewWindow
+###### layerConfig.elements.layers.Raster.WMS.gfiAsNewWindow {data-toc-label='gfiAsNewWindow'}
 
 [inherits]: # (layerConfig.elements.layers.Raster)
 
@@ -3990,7 +3982,7 @@ For such cases, define `gfiAsNewWindow` manually as described above.
 
 ***
 
-#### layerConfig.elements.layers.Vector
+#### layerConfig.elements.layers.Vector {data-toc-label='Vector'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -4043,7 +4035,7 @@ Vector typical attributes are listed here. Vector layers are of type **[WFS](#ma
 
 ***
 
-##### layerConfig.elements.layers.Vector.WFS
+##### layerConfig.elements.layers.Vector.WFS {data-toc-label='WFS'}
 
 [inherits]: # (layerConfig.elements.layers.Vector)
 
@@ -4080,7 +4072,7 @@ Example calls:
 
 ***
 
-#### layerConfig.elements.layers.VectorTile
+#### layerConfig.elements.layers.VectorTile {data-toc-label='VectorTile'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -4121,7 +4113,7 @@ VectorTile typical attributes are listed here.
 
 ***
 
-#### layerConfig.elements.layers.VectorTile.vtStyle
+##### layerConfig.elements.layers.VectorTile.vtStyle {data-toc-label='vtStyle'}
 
 [inherits]: # (layerConfig.elements.layers.VectorTile)
 
@@ -4156,7 +4148,7 @@ Style definitions. Available for *Vector Tile Layers* only.
 
 ***
 
-#### layerConfig.elements.layers.Tileset
+#### layerConfig.elements.layers.Tileset {data-toc-label='Tileset'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -4183,7 +4175,7 @@ List of attributes typically used for tilesets.
 
 ***
 
-#### layerConfig.elements.layers.Tileset.cesium3DTilesetOption
+##### layerConfig.elements.layers.Tileset.cesium3DTilesetOption {data-toc-label='cesium3DTilesetOption'}
 
 [inherits]: # (layerConfig.elements.layers.Tileset)
 
@@ -4203,7 +4195,7 @@ Cesium 3D tileset options directly forwarded to the *Cesium tileset object*.
 
 ***
 
-#### layerConfig.elements.layers.Terrain
+#### layerConfig.elements.layers.Terrain {data-toc-label='Terrain'}
 
 [inherits]: # (layerConfig.elements.layers)
 
@@ -4228,7 +4220,7 @@ List of attributes typically used for Terrain.
 
 ***
 
-#### layerConfig.elements.layers.Terrain.cesiumTerrainProviderOption
+#### layerConfig.elements.layers.Terrain.cesiumTerrainProviderOption {data-toc-label='Cesium TerrainProviderOption'}
 
 [inherits]: # (layerConfig.elements.layers.Terrain)
 
@@ -4249,7 +4241,7 @@ Initialization options for the CesiumTerrainProvider constructor.
 
 ***
 
-#### layerConfig.elements.layers.Entity3D
+#### layerConfig.elements.layers.Entity3D {data-toc-label='Entity3D'}
 
 [inherits]: # (layerConfig.elements.layers)
 [type:Attribute]: # (layerConfig.elements.layers.Entity3D.entities)
@@ -4262,7 +4254,7 @@ List of attributes typically used for Entities 3D.
 
 ***
 
-#### layerConfig.elements.layers.Entity3D.entities
+##### layerConfig.elements.layers.Entity3D.entities {data-toc-label='Entities'}
 
 [inherits]: # (layerConfig.elements.layers.Entity3D)
 [type:Attribute]: # (layerConfig.elements.layers.Entity3D.entities)
@@ -4317,7 +4309,7 @@ Entities3D entities typical attributes are listed here.
 
 ***
 
-#### layerConfig.elements.layers.Entity3D.entities.Attribute
+###### layerConfig.elements.layers.Entity3D.entities.Attribute {data-toc-label='Attribute'}
 
 [inherits]: # (layerConfig.elements.layers.Entity3D)
 
@@ -4335,7 +4327,7 @@ Entities3D entities typical attributes are listed here.
 ```
 ***
 
-## Datatypes.Extent
+## Datatypes.Extent {data-toc-label='Extent'}
 
 An extent is an array of four numbers describing a rectangular scope. The rectangle is constructed from the "lower left" and "upper right" corner, so the scheme used is `[Easting lower left, Northing lower left, Easting upper right, Northing upper right]`, or `[minx, miny, maxx, maxy]`.
 
@@ -4347,7 +4339,7 @@ An extent is an array of four numbers describing a rectangular scope. The rectan
 
 ***
 
-## Datatypes.Payload
+## Datatypes.Payload {data-toc-label='Payload'}
 CustomMenuElement Module `execute` from `payload`. The appropriate payload for the action must be specified. Here is the example of the `Alerting/addSingleAlert`.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -4366,7 +4358,7 @@ CustomMenuElement Module `execute` from `payload`. The appropriate payload for t
 
 ***
 
-## Datatypes.Fill
+## Datatypes.Fill {data-toc-label='Fill'}
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |color|no|Float[]||Possible setting: color (RGBA)|false|
@@ -4381,7 +4373,7 @@ CustomMenuElement Module `execute` from `payload`. The appropriate payload for t
 
 ***
 
-## Datatypes.Stroke
+## Datatypes.Stroke {data-toc-label='Stroke'}
 |Name|Required|Type|Default|Description|Expert|
 |----|-------------|---|-------|------------|------|
 |width|no|Integer||Possible setting: width|false|
@@ -4396,7 +4388,7 @@ CustomMenuElement Module `execute` from `payload`. The appropriate payload for t
 
 ***
 
-## Datatypes.Image
+## Datatypes.Image {data-toc-label='Image'}
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |scale|no|Integer||Possible setting: scale|false|
@@ -4410,7 +4402,7 @@ CustomMenuElement Module `execute` from `payload`. The appropriate payload for t
 ***
 
 
-## Datatypes.Snippets
+## Datatypes.Snippets {data-toc-label='Snippets'}
 
 [type:Children]: # (Datatypes.Snippets.Children)
 [type:eParams]: # (Datatypes.Snippets.LocaleCompareParams)
@@ -4763,7 +4755,7 @@ Example of a chart snippet. Queries the features from the configured "service" a
 
 ***
 
-### Datatypes.Snippets.Children
+### Datatypes.Snippets.Children {data-toc-label='Children'}
 Child snippet configuration.
 The child snippets are configured in the same way as "normal" snippets.
 See [filterLayerSnippets](#markdown-header-portalconfigmenusectionsmodulesfilterfilterlayersnippets).
@@ -4807,7 +4799,7 @@ Example of a dropdown snippet with parent-child relationship. The `cityA` and `c
 
 ***
 
-### Datatypes.Snippets.Timeouts
+### Datatypes.Snippets.Timeouts {data-toc-label='Timeouts'}
 User experience can be improved with the adjustment of timeouts.
 This is especially true for filters that work with `strategy`: `active`.
 
@@ -4834,7 +4826,7 @@ An example of a sliderRange snippet with accelerated filtering after input into 
 
 ***
 
-### Datatypes.Snippets.Service
+### Datatypes.Snippets.Service {data-toc-label='Service'}
 
 An object that describes a service for a snippet. All service types that the filter supports can theoretically be used.
 The configuration depends on the type of service.
@@ -4877,7 +4869,7 @@ The configuration depends on the type of service.
 
 ***
 
-### Datatypes.Snippets.ChartConfig
+### Datatypes.Snippets.ChartConfig {data-toc-label='ChartConfig'}
 
 An object that describes a chart. Click **[here](https://www.chartjs.org/docs/latest/configuration/)** for more information.
 
@@ -4898,7 +4890,7 @@ The top level structure of Chart.js configuration:
 
 ***
 
-### Datatypes.Snippets.LocaleCompareParams
+### Datatypes.Snippets.LocaleCompareParams {data-toc-label='LocaleCompareParams'}
 
 [type:Options]: # (Datatypes.Snippets.LocaleCompareParams.Options)
 
@@ -4928,7 +4920,7 @@ A string or object that supply the parameters for util function localeCompare.
 
 ***
 
-### Datatypes.Snippets.LocaleCompareParams.Options
+#### Datatypes.Snippets.LocaleCompareParams.Options {data-toc-label='Options'}
 An object for custom control of the localeCompare function used to sort dropdown boxes, the documentation is: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 
 |Name|Required|Typ|Default|Description|Expert|
@@ -4947,7 +4939,7 @@ An object for custom control of the localeCompare function used to sort dropdown
 
 ***
 
-### Datatypes.Snippets.UniversalSearch
+### Datatypes.Snippets.UniversalSearch {data-toc-label='UniversalSearch'}
 
 An object for configuring a universal search of value
 
@@ -4969,7 +4961,7 @@ An object for configuring a universal search of value
 
 ***
 
-### Datatypes.Snippets.BeautifiedAttrName
+### Datatypes.Snippets.BeautifiedAttrName {data-toc-label='BeautifiedAttrName'}
 
 An object for configuring beautified names for attributes in stack
 
@@ -4989,7 +4981,7 @@ An object for configuring beautified names for attributes in stack
 
 ***
 
-## Datatypes.Bbox
+## Datatypes.Bbox {data-toc-label='Bbox'}
 BBOX value according to the speedProfile. Coordinate system depends on the epsg parameter. Geosearch service must support bbox string.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5006,7 +4998,7 @@ BBOX value according to the speedProfile. Coordinate system depends on the epsg 
 
 ***
 
-## Datatypes.CustomAvoidFeatures
+## Datatypes.CustomAvoidFeatures {data-toc-label='CustomAvoidFeatures'}
 Possibility to define additional avoid features for the different speed profiles (additionally to the BKG service) (requires own modified backend).
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5026,7 +5018,7 @@ Possibility to define additional avoid features for the different speed profiles
 
 ***
 
-## Datatypes.CustomPreferences
+## Datatypes.CustomPreferences {data-toc-label='CustomPreferences'}
 Routing-tool directions route customPreferences.
 Possibility to define additional preferences for the different speed profiles (additionally to the BKG service)  (requires own modified backend)
 
@@ -5047,7 +5039,7 @@ Possibility to define additional preferences for the different speed profiles (a
 
 ***
 
-## Datatypes.StyleRoute
+## Datatypes.StyleRoute {data-toc-label='StyleRoute'}
 Routing-tool directions route style options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5076,7 +5068,7 @@ Routing-tool directions route style options.
 
 ***
 
-## Datatypes.StyleWaypoint
+## Datatypes.StyleWaypoint {data-toc-label='StyleWaypoint'}
 Routing-tool directions waypoint style options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5109,7 +5101,7 @@ Routing-tool directions waypoint style options.
 
 ***
 
-## Datatypes.StyleAvoidAreas
+## Datatypes.StyleAvoidAreas {data-toc-label='StyleAvoidAreas'}
 Routing-tool directions avoid areas style options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5138,7 +5130,7 @@ Routing-tool directions avoid areas style options.
 
 ***
 
-## Datatypes.BatchProcessing
+## Datatypes.BatchProcessing {data-toc-label='BatchProcessing'}
 Routing-tool directions batch processing options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5163,7 +5155,7 @@ Routing-tool directions batch processing options.
 
 ***
 
-## Datatypes.StyleCenter
+## Datatypes.StyleCenter {data-toc-label='StyleCenter'}
 Routing-tool isochrones centers style options.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5190,7 +5182,7 @@ Routing-tool isochrones centers style options.
 
 ***
 
-## Datatypes.StyleIsochrones
+## Datatypes.StyleIsochrones {data-toc-label='StyleIsochrones'}
 
 Routing-tool isochrones style options.
 
@@ -5216,7 +5208,7 @@ Routing-tool isochrones style options.
 
 ***
 
-## Datatypes.Literal
+## Datatypes.Literal {data-toc-label='Literal'}
 
 [type:Clause]: # (Datatypes.Literal.Clause)
 [type:Field]: # (Datatypes.Literal.Field)
@@ -5283,7 +5275,7 @@ However, a `field` needs to be wrapped inside a `clause` (as seen in most exampl
 
 ***
 
-### Datatypes.Literal.Clause
+### Datatypes.Literal.Clause {data-toc-label='Clause'}
 
 [type:Literal]: # (Datatypes.Literal)
 
@@ -5324,7 +5316,7 @@ A `clause` defines the way multiple `literals` should be queried together.
 
 ***
 
-### Datatypes.Literal.Field
+### Datatypes.Literal.Field {data-toc-label='Field'}
 
 [type:Option]: # (Datatypes.Literal.Field.Option)
 
@@ -5441,7 +5433,7 @@ Then the order of the config should look like this:
 
 ***
 
-#### Datatypes.Literal.Field.Option
+#### Datatypes.Literal.Field.Option {data-toc-label='Option'}
 A selectable option for a queryable parameter.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5460,7 +5452,7 @@ A selectable option for a queryable parameter.
 
 ***
 
-## Datatypes.ResultList
+## Datatypes.ResultList {data-toc-label='ResultList'}
 Settings for the output of the found features in the result list.
 By specifying `showAll` all attributes of the found features are displayed in their original form.
 By using an object, a key of the object must represent one of the attributes of the feature,
@@ -5485,7 +5477,7 @@ and the corresponding value defines the textual output of that attribute.
 
 ***
 
-## Datatypes.RequestConfig
+## Datatypes.RequestConfig {data-toc-label='RequestConfig'}
 
 [type:Gazetteer]: # (Datatypes.RequestConfig.Gazetteer)
 [type:LikeFilter]: # (Datatypes.RequestConfig.LikeFilter)
@@ -5516,7 +5508,7 @@ If both are defined `restLayerId` is used.
 
 ***
 
-### Datatypes.RequestConfig.LikeFilter
+### Datatypes.RequestConfig.LikeFilter {data-toc-label='LikeFilter'}
 Values inside a filter for a WFS service can be compared with an `equal` or a `like`.
 If the comparison should be with a `like` then the filter needs additional properties. These may vary in value and property definition.
 For the documentation, it is assumed that the properties are called `wildCard`, `singleChar` and `escapeChar`; variations like e.g. `single` and `escape` are possible and need to be configured in line with the service. All key-value pairs are used in the request as given.
@@ -5541,7 +5533,7 @@ In this example case, the key for `escapeChar` deviates.
 
 ***
 
-### Datatypes.RequestConfig.Gazetteer
+### Datatypes.RequestConfig.Gazetteer {data-toc-label='Gazetteer'}
 Parameters that are exclusively needed for using a WFS-G (Gazetteer).
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5565,7 +5557,7 @@ Parameters that are exclusively needed for using a WFS-G (Gazetteer).
 
 ***
 
-## Datatypes.Suggestions
+## Datatypes.Suggestions {data-toc-label='Suggestions'}
 Configuration for the suggestions of the user input.
 
 |Name|Required|Type|Default|Description|Expert|
@@ -5575,8 +5567,8 @@ Configuration for the suggestions of the user input.
 
 ***
 
-## Datatypes.Explanations
+## Datatypes.Explanations {data-toc-label='Explanations'}
 
-Can contain an array of explanations of the coordinate reference systems from which a list is created.
+Can contain an array with explanations of the coordinate reference systems from which a list is created.
 
 ***

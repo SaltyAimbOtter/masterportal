@@ -1,8 +1,4 @@
->**[Return to the Masterportal documentation](doc.md)**
-
-[TOC]
-
-# config.js
+# config.js 3.0
 
 The `config.js` contains Masterportal configuration not directly related to UI or layers. For example, paths to other configuration files belong here. This file is usually placed next to the `index.html` and `config.json` files.
 

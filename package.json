@@ -37,7 +37,7 @@
     "versionHotfix:all": "npm run versionHotfix && cd addons && npm run versionHotfix && cd .. && cd portalconfigs && npm run versionHotfix && cd ..",
     "versionMinor:all": "npm run versionMinor && cd addons && npm run versionMinor && cd .. && cd portalconfigs && npm run versionMinor && cd ..",
     "versionMajor:all": "npm run versionMajor && cd addons && npm run versionMajor && cd .. && cd portalconfigs && npm run versionMajor && cd ..",
-    "prePushHook": "node ./node_modules/@masterportal/mpconfigparser/cli.js ./doc/config_3_0_0.json.md ./doc/config_3_0_0.json.de.md && eslint --max-warnings 0 \"./**/*.{vue,js}\" && npm run test",
+    "prePushHook": "node ./node_modules/@masterportal/mpconfigparser/cli.js ./docs/User/Portal-Config/config_3_0_0.json.md ./docs/User/Portal-Config/config_3_0_0.json.de.md && eslint --max-warnings 0 \"./**/*.{vue,js}\" && npm run test",
     "prepare": "husky install"
   },
   "@comment dependencies and devDependencies": [
