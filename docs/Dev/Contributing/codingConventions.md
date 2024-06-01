@@ -59,15 +59,15 @@ All the following rules must hold.
 * A.4.3 Backbone: For each function a JSDoc block comment with description, parameters, return value, and possibly events, is provided.
 * A.4.4 Backbone: Class definitions are located above the `initialize()` with specification of all default values. All event listeners, event triggers, and event requests occurring are part of the class documentation.
 * A.4.5 Backbone: If a class is inherited from, a *lend* comment exists.
-* A.4.6 Backbone: Namespaces are defined in **[namespaces.js](../devtools/jsdoc/namespaces.js)**. They represent the folder structure and modules of the code.
-* A.4.7 Backbone: Events are defined in **[events.js](../devtools/jsdoc/events.js)**.
+* A.4.6 Backbone: Namespaces are defined in */devtools/jsdoc/namespaces.js*. They represent the folder structure and modules of the code.
+* A.4.7 Backbone: Events are defined in */devtools/jsdoc/events.js*.
 
 ---
 
 #### A.5 Unit tests
 
 * A.5.1 Unit tests exist for each testable function.
-* A.5.2 For each module a test file exists with file extension `.test.js` (Backbone) or `.spec.js` (Vue). It lives in **[test/unittests/modules](../test/unittests/modules)** within a folder structure mirroring the code folder structure.
+* A.5.2 For each module a test file exists with file extension `.test.js` (Backbone) or `.spec.js` (Vue). It lives in *test/unittests/modules* within a folder structure mirroring the code folder structure.
 * A.5.3 For each function a positive test (call with plausible values) and a negative test (call with bad values, e.g. `undefined`, `[]`, `{}`, `""`, ...).
 
 ---

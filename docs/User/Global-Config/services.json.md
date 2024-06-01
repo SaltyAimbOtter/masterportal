@@ -972,7 +972,7 @@ Other options:
 * `"ignore"`: GFI requests disabled
 * `"showAll"`: All GFI attributes are requested and shown as given
 
-The portal excludes a set of standard attributes that have no information value to users. See **[config.js](config.js.md)** for details.
+The portal excludes a set of standard attributes that have no information value to users. See **[config.js](../Portal-Config/config.js.md)** for details.
 
 **gfiAttributes string example:**
 

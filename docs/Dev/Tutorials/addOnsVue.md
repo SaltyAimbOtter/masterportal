@@ -1,10 +1,10 @@
 # Vue.js Add-ons
 
-The Masterportal offers a mechanism to inject your own developments into the sources, without them becoming a part of the Masterportal repository. See **[setting up the development environment](setupDev.md)** for more information.
+The Masterportal offers a mechanism to inject your own developments into the sources, without them becoming a part of the Masterportal repository. See **[setting up the development environment](../Contributing/setupDev.md)** for more information.
 
-An add-on in itself is identically programmed as a native module is. For an example, see **[Tutorial 01: Creating a new module (Scale Switcher)](vueTutorial.md)**. However, an add-on lives in another repository and thus allows separate management.
+An add-on in itself is identically programmed as a native module is. For an example, see **[Tutorial 01: Creating a new module (Scale Switcher)](./tutorial.md)**. However, an add-on lives in another repository and thus allows separate management.
 
-All add-ons to be added are placed in the folder `addons` found at Masterportal root level. Any number of such add-ons may be configured in a portal's **[config.js](config.js.md)**. Add-ons may bring their own `package.json` file to specify further dependencies.
+All add-ons to be added are placed in the folder `addons` found at Masterportal root level. Any number of such add-ons may be configured in a portal's **[config.js](../../User/Portal-Config/config.js.md)**. Add-ons may bring their own `package.json` file to specify further dependencies.
 
 Please adhere to the following structure, in this example adding a tool (MyAddon1) and a GFI theme (MyGfiTheme):
 

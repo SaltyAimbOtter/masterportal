@@ -607,7 +607,7 @@ Section Keys are Strings used to identify the sections of existing QuickHelp con
 
 ### Default Images
 
-See **[config.js documentation](config.js.md)** for similar details.
+See **[config.js documentation](../Portal-Config/config.js.md)** for similar details.
 
 Default images are used for existing content. This is a list of these images.
 For historical reasons the image keys and names are in German language.

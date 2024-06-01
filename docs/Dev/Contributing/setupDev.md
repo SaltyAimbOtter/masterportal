@@ -122,7 +122,7 @@ $ npm install
 
 With this, all dependencies are installed.
 
-In case add-ons are to be used, please refer to the **[add-ons documentation](addOnsVue.md)** for further assistance.
+In case add-ons are to be used, please refer to the **[add-ons documentation](../Tutorials/addOnsVue.md)** for further assistance.
 
 
 ### `npm start`
@@ -141,7 +141,7 @@ $ npm start
 
 ### `npm run test`
 
-Executes unit tests. This also includes the unit tests of **[add-ons](addonsVue.md)**.
+Executes unit tests. This also includes the unit tests of **[add-ons](../Tutorials/addOnsVue.md)**.
 
 ```console
 $ npm run test

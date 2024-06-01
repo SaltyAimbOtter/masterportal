@@ -14,7 +14,7 @@ At the time of layer visualization, the readied [OpenLayers Styles](https://open
 
 ## Style module configuration
 
-The *style.json*'s path is defined in the **[config.js](config.js.md)** file. Follow the link for details. Please mind the following parameters::
+The *style.json*'s path is defined in the **[config.js](../Portal-Config/config.js.md)** file. Follow the link for details. Please mind the following parameters::
 
 - *styleConf*: Defining the file path
 
@@ -22,7 +22,7 @@ The *style.json*'s path is defined in the **[config.js](config.js.md)** file. Fo
 
 ## Layer connection
 
-Within the **[config.json](config.json.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#markdown-header-structure).
+Within the **[config.json](../Portal-Config/config.js.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#markdown-header-structure).
 
 >💡 Hint: Incorrect style ids do not provoke a run-time error. A warning is logged to the console to inform administrators of the erroneous configuration. Portal users will only notice that the misconfigured layer has the OpenLayers default vector styling.
 
@@ -325,7 +325,7 @@ Styling depends on the *GeometryType* of a *Feature*. All *MultiGeometry* featur
 
 >💡 Hint: *MultiGeometries* defined within a *GeometryCollection* (doubly nested) can currently not be styled.
 
-The *GeometryType* is determined by calling the *DescribeFeatureTypes* service of a WFS layer. In some cases, the type *"Geometry"* is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the [config.json's styleGeometryType parameter](config.json.md#markdown-header-themenconfiglayervector) of each layer.
+The *GeometryType* is determined by calling the *DescribeFeatureTypes* service of a WFS layer. In some cases, the type *"Geometry"* is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the [config.json's styleGeometryType parameter](../Portal-Config/config.json.md#themenconfiglayervector) of each layer.
 
 Styling is based on the feature's *GeometryType*. For each type, default display rules are applied that may be overwritten by *style* entries.
 
@@ -358,7 +358,7 @@ If the number of child *Features*  of a *MultiGeomtry* feature is higher than th
 The display rules for points are separated in
 
 - simple point geometries: See the following parameter *type*.
-- clustered points: If the layer configuration in the (**[config.json](config.json.md)**) file has *clusterDistance* set, a ClusterStyle is created. See the following parameter *clusterType*.
+- clustered points: If the layer configuration in the (**[config.json](../Portal-Config/config.json.md)**) file has *clusterDistance* set, a ClusterStyle is created. See the following parameter *clusterType*.
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -545,7 +545,7 @@ Please see the [OpenLayers Stroke documentation](https://openlayers.org/en/lates
 
 ### Polygon
 
-Please see the [OpenLayers Fill]([-](https://openlayers.org/en/latest/apidoc/module-ol_style_Fill-Fill.html) "OpenLayers Fill documentation") and [OpenLayers Stroke](https://openlayers.org/en/latest/apidoc/module-ol_style_Stroke-Stroke.html "OpenLayers Stroke documentation") documentation for additional details.
+Please see the [OpenLayers Fill](https://openlayers.org/en/latest/apidoc/module-ol_style_Fill-Fill.html "OpenLayers Fill documentation") and [OpenLayers Stroke](https://openlayers.org/en/latest/apidoc/module-ol_style_Stroke-Stroke.html "OpenLayers Stroke documentation") documentation for additional details.
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -641,7 +641,7 @@ The parameters match the [arc](https://developer.mozilla.org/en-US/docs/Web/API/
 
 With these, the following example pattern resembling a commonly used deciduous tree symbol can be produced:
 
-![Polygon Fill Hatch Pattern Expert Feature Tree Pattern Example](images/style/style.trees.png)
+![Polygon Fill Hatch Pattern Expert Feature Tree Pattern Example](./media/style.trees.png)
 
 It is drawn with three elements: A 2/3 circle describing the general shape, and a 1/3 circle to the right and a short line at the ground level to indicate shadow.
 

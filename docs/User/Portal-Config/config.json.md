@@ -870,7 +870,7 @@ The attribute backForward may be of type boolean or object. If of type boolean, 
 
 #### Portalconfig.controls.startModule {data-toc-label='Start Module'}
 
-The startModule attribute must be of type Object. A button is displayed for each configured module, which can be used to open and close the respective module. The requirement is that the modules are also configured under **[Tools](Portalconfig.menu.tools)**.
+The startModule attribute must be of type Object. A button is displayed for each configured module, which can be used to open and close the respective module. The requirement is that the modules are also configured under **[Tools](#portalconfigmenutools)**.
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -1049,7 +1049,7 @@ An option defines a zoom level. Each zoom level is defined by resolution, scale 
 
 ### Portalconfig.quickHelp {data-toc-label='Quick Help'}
 
-For a detailed documentation of the QuickHelp window see **[the QuickHelp documentation](quickHelp.md)** .
+For a detailed documentation of the QuickHelp window see **[the QuickHelp documentation](../Misc/quickHelp.md)** .
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
@@ -2538,7 +2538,7 @@ Tool that allows changing the map's current scale.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|isDisplayInFooter|no|Boolean|false|Activates the scale selection also in the footer (note: correlation with the **ScaleLine** parameter in the **[config.js](config.js)**).|false|
+|isDisplayInFooter|no|Boolean|false|Activates the scale selection also in the footer (note: correlation with the **ScaleLine** parameter in the **[config.js](./config.js.md)**).|false|
 
 ***
 
@@ -5634,7 +5634,7 @@ For such cases, define `gfiAsNewWindow` manually as described above.
 
 [inherits]: # (Themenconfig.Layer)
 
-List of typical WFS query attributes for highlightFeaturesByAttribute. For the invocation parameters see **[urlParameter](urlParameter.md)**.
+List of typical WFS query attributes for highlightFeaturesByAttribute. For the invocation parameters see **[urlParameter](../Misc/urlParameter.md)**.
 ```
 Example invocations:
 ?api/highlightFeaturesByAttribute=1&wfsId=1&attributeName=DK5&attributeValue=valueToSearchFor&attributeQuery=isequal
@@ -5645,7 +5645,7 @@ Example invocations:
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|styleId|yes|String||Id of the style. Id defined in the **[style.json](style.json.md)**.|false|
+|styleId|yes|String||Id of the style. Id defined in the **[style.json](../Global-Config/style.json.md)**.|false|
 |featurePrefix|yes|String||Search prefix for the WFS query - e.g. app:.|true|
 |wildCard|yes|String||The wildcard character for the WFS query -e.g. %|true|
 |singleChar|yes|String||The single character for the WFS query - e.g. #|true|
@@ -5860,7 +5860,7 @@ This type allows loading images as georeferenced map layers. Supported formats a
 
 [inherits]: # (Themenconfig.Layer)
 
-List of attributes typically used in vector layers. Vector layers are WFS, GeoJSON (EPSG:4326 only), [SensorLayer](sensorThings.md), and Vector Tile Layer.
+List of attributes typically used in vector layers. Vector layers are WFS, GeoJSON (EPSG:4326 only), [SensorLayer](../../Dev/sensorThings.md), and Vector Tile Layer.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
@@ -5870,8 +5870,8 @@ List of attributes typically used in vector layers. Vector layers are WFS, GeoJS
 |mouseHoverField|no|String/String[]||Attribute name or array thereorf to be shown on mouse hovering a feature.|false|
 |nearbyTitle|no|String/String[]||Attribute name or array of features to be shown on nearby search results.|false|
 |additionalInfoField|no|String|"name"|Feature's attribute name to use in the search bar's hit list. Should this attribute not exist in a hit feature, the layer name is used instead.|false|
-|styleId|no|String||Style ID. Resolved using the **[style.json](style.json.md)** file.|false|
-|styleGeometryType|no|String/String[]||WFS style geometry type to reduce visible features to the ones sharing the given geometry types. **[More information](style.json.md#markdown-header-abbildungsvorschriften)**.|false|
+|styleId|no|String||Style ID. Resolved using the **[style.json](../Global-Config/style.json.md)** file.|false|
+|styleGeometryType|no|String/String[]||WFS style geometry type to reduce visible features to the ones sharing the given geometry types. **[More information](../Global-Config/style.json.md#displayrules)**.|false|
 |hitTolerance|no|String||Click tolerance for hits in pixels when firing a *GetFeatureInfo* request.|false|
 |vtStyles|no|**[vtStyle](#markdown-header-themenconfiglayervectorvtstyle)**[]||Choosable external style definitions. Only available in a *Vector Tile Layer*.|false|
 |useMpFonts|no|Boolean|true|Only available in a *Vector Tile Layer*. Switch to overwrite Fontstacks of external style definitions, to assure needed fonts are available. If set to false, used fonts need to be added separately e.g. via '<link rel=stylesheet ...>' in index.html |false|

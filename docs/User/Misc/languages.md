@@ -35,7 +35,7 @@ A complete english translation is provided.
 
 ### Configuration
 
-i18next's languages are configured in the `config.js` file. See the **[config.js documentation](config.js.md)** for details.
+i18next's languages are configured in the `config.js` file. See the **[config.js documentation](../Portal-Config/config.js.md)** for details.
 
 ### Language files
 
@@ -53,7 +53,7 @@ Language files are translation core. To support a language, a separate language 
 1. common
 2. additional
 
-See the **[i18next architecture](i18next.jpeg)** on how these files are used.
+See the **[i18next architecture](./media/i18next.jpeg)** on how these files are used.
 
 ### Common language file - `common.json`
 

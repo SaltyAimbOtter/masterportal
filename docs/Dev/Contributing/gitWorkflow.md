@@ -81,11 +81,11 @@ git push
         - There are no warnings or errors in the linter report.
         - The code honors the **[conventions](codingConventions.md)**.
     - The documentation has been extended:
-        - **[User documentation](doc.md)**
-        - **[Developer documentation](About)**
+        - **[User documentation](../../User/About.md)**
+        - **[Developer documentation](../About.md)**
     - Test suites with tests are available:
         - For new functions: A short description of a test case to add it to the test protocol is provided. (Should result from the ticket.)
-        - Unit tests are written: **[Test documentation](testing.md)**
+        - Unit tests are written: **[Test documentation](../Testing/unitTestVue.md)**
     - A functional tests on a build portal was executed:
         - According to ticket description.
         - Cross-Browser (Chrome, IE 11, FF) - mobile behavior emulated in the browser.

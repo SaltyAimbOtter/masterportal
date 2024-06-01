@@ -2,15 +2,15 @@
 
 ACHTUNG: das masterportal wird vom Backbone nach Vue.js migriert. Daher ist es ratsam neue addons in vue.js zu schreiben, um die später notwendige Migrierung zu vermeiden! [Vue Addons]()
 
-Um eigene Entwicklungen in das MasterPortal zu integrieren existiert ein Mechanismus der es erlaubt, Code von außerhalb des MasterPortal-Repositories in die MasterPortal Sourcen zu integrieren. Siehe auch **[lokale Entwicklungsumgebung einrichten](setup-dev.md)**.
+Um eigene Entwicklungen in das MasterPortal zu integrieren existiert ein Mechanismus der es erlaubt, Code von außerhalb des MasterPortal-Repositories in die MasterPortal Sourcen zu integrieren. Siehe auch **[lokale Entwicklungsumgebung einrichten](../Contributing/setupDev.md)**.
 
 Dadurch werden die Models der externen Sourcen erst ganz zum Schluß initialisiert. Es wird temporär ein Platzhalter-Model in der Model-List angelegt.
 
 Die View-Klasse der externen Sourcen muss das zugehörige Model neu anlegen. Dieses wird dann in der Model-Liste mit dem Platzhalter-Model ausgetauscht.
 
-Das Addon selbst ist identisch wie ein natives Modul zu programmieren (siehe auch **[Tutorial 01: Ein neues Modul erstellen (Scale Switcher)](02_tutorial_new_module_scale_switcher.md)**). Es liegt lediglich außerhalb des Repository und erlaubt so eine getrennte Verwaltung.
+Das Addon selbst ist identisch wie ein natives Modul zu programmieren (siehe auch **[Tutorial 01: Ein neues Modul erstellen (Scale Switcher)](./02_backbone_tutorial_new_module_scale_switcher.md)**). Es liegt lediglich außerhalb des Repository und erlaubt so eine getrennte Verwaltung.
 
-Alle Addons liegen in einem Ordner namens "addons" auf Root-Ebene des Masterportals. Beliebig viele dieser Addons lassen sich in einem Portal in der **[config.js](config.js.md)** konfigurieren.
+Alle Addons liegen in einem Ordner namens "addons" auf Root-Ebene des Masterportals. Beliebig viele dieser Addons lassen sich in einem Portal in der **[config.js](../../User/Portal-Config/config.js.md)** konfigurieren.
 
 Folgende Struktur ist dabei zu beachten:
 

@@ -235,7 +235,7 @@ function untestableFunction (param) {
 
 #### A.5.2
 
-For more information on unit tests in Vue, refer to [the Vue unit test documentation](./unitTestVue.md).
+For more information on unit tests in Vue, refer to [the Vue unit test documentation](../Testing/unitTestVue.md).
 
 Tests employ the libraries **[Chai](https://www.chaijs.com/)** and **[Mocha](https://mochajs.org/)**.
 
@@ -245,19 +245,19 @@ Tests employ the libraries **[Chai](https://www.chaijs.com/)** and **[Mocha](htt
 
 Extend the `.md` file documentation by following these instructions.
 
-* For new configuration parameters that do not directly influence the Masterportal UI and displayed layers, or on changes to such existing parameters, extend the file **[config.js.md](./config.js.md)**.
-* For new configuration parameters regarding the Masterportal UI, or on changes to such existing parameters, extend the **[config.json.md](./config.json.md)**.
+* For new configuration parameters that do not directly influence the Masterportal UI and displayed layers, or on changes to such existing parameters, extend the file **[config.js.md](../../User/Portal-Config/config.js.md)**.
+* For new configuration parameters regarding the Masterportal UI, or on changes to such existing parameters, extend the **[config.json.md](../../User/Portal-Config/config.json.md)**.
 * The following parameters are mandatory for documenting configuration parameters:
     |Name|Required|Type|Default|Description|Expert|
     |-|-|-|-|-|-|
-    The row `Expert` only applies to the **[config.json.md](./config.json.md)**.
+    The row `Expert` only applies to the **[config.json.md](../../User/Portal-Config/config.json.md)**.
 * Each parameter in a `.md` file ends on a horizontal separation line produced by e.g. `***` or `---`.
 * The heading to be used depends on the parameter nesting. The top level starts with `#`, the next level with `##`, and so on. Please mind that Markdown only supports up to six chapter levels.
 * Configuration parameters describing an object containing further parameters are modelled in separate chapters and are each linked and described.
 * For complex configuration parameters, an example configuration is required.
-* Also extend the files **[services.json.md](./services.json.md)**, **[rest-services.json.md](./rest-services.json.md)**, and **[style.json.md](./style.json.md)**, if you add or change parameters to these global configuration files.
+* Also extend the files **[services.json.md](../../User/Global-Config/services.json.md)**, **[rest-services.json.md](../../User/Global-Config/rest-services.json.md)**, and **[style.json.md](../../User/Global-Config/style.json.md)**, if you add or change parameters to these global configuration files.
 
-For a more formal definition of the **[config.json.md](./config.json.md)** requirements, see [Masterportal configuration parser](https://bitbucket.org/geowerkstatt-hamburg/mpconfigparser/src/master/README.md).
+For a more formal definition of the **[config.json.md](../../User/Portal-Config/config.json.md)** requirements, see [Masterportal configuration parser](https://bitbucket.org/geowerkstatt-hamburg/mpconfigparser/src/master/README.md).
 
 *Nesting in .json is modeled with the amount of #*
 
@@ -351,7 +351,7 @@ The library [i18next](https://www.i18next.com/) is used for internationalization
 
 For more information of versions, read the [versioning documentation](./versioning.md).
 
-For each pull request, add an entry to the chapter "Unreleased" of the [CHANGELOG](../CHANGELOG.md) file. Avoid technical jargon. The changelog is supposed to be readable by both users and developers.
+For each pull request, add an entry to the chapter "Unreleased" of the CHANGELOG.md file. Avoid technical jargon. The changelog is supposed to be readable by both users and developers.
 
 ---
 

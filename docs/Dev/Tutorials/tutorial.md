@@ -10,7 +10,7 @@ A tool to control the map scale is needed. Scales are to be chosen from a drop-d
 
 Switch to the folder `src_3_0_0/modules` and create a new folder. The folder name should indicate the nature of the tool - e.g. `scaleSwitcher`. Create folders `components` and `store` in that folder, and the required files as shown in the example file tree below.
 
->💡 Hint: Testing is not part of this guide, but essential to merge a pull request. See our [testing documentation](testing.md) for more information.
+>💡 Hint: Testing is not part of this guide, but essential to merge a pull request. See our [testing documentation](../Testing/unitTestVue.md) for more information.
 
 ```
 src_3_0_0
@@ -63,7 +63,7 @@ export default {
 
 ## Register the *ScaleSwitcher* component
 
-Open `src_3_0_0\modules\modules-store\gettersModules.js`, import the *ScaleSwitcher* and add it to the component map. This initializes the component and loads the *ScaleSwitcher* configuration from the `config.json`, making it available in its state. The paths `configJson.Portalconfig.mainMenu.sections.scaleSwitcher` and `configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher` will be searched for *ScaleSwitcher* configuration. See the [config.json documentation](config_3_0_0.json.md).
+Open `src_3_0_0\modules\modules-store\gettersModules.js`, import the *ScaleSwitcher* and add it to the component map. This initializes the component and loads the *ScaleSwitcher* configuration from the `config.json`, making it available in its state. The paths `configJson.Portalconfig.mainMenu.sections.scaleSwitcher` and `configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher` will be searched for *ScaleSwitcher* configuration. See the [config.json documentation](../../User/Portal-Config/config_3_0_0.json.md).
 
 **Example gettersModules.js**
 ```js
@@ -360,7 +360,7 @@ import {mapGetters, mapActions, mapMutations} from "vuex";
 
 ## Internationalization
 
-Labels should be available in multiple languages. For this, create localization keys in the translation files `locales_3_0_0/[de/en]/common.json`. Read the [internationalization documentation](languages.md) for more details.
+Labels should be available in multiple languages. For this, create localization keys in the translation files `locales_3_0_0/[de/en]/common.json`. Read the [internationalization documentation](../../User/Misc/languages.md) for more details.
 
 ```js
 "modules": {

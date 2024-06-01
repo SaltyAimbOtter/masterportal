@@ -6,31 +6,31 @@ In the following, all configuration options are described. For all configuration
 
 |Name|Required|Type|Default|Description|Example|
 |----|--------|----|-------|-----------|-------|
-|layerConf|yes|String||Path to the **[services.json](services.json.md)** file containing all available WMS layers and WFS feature types. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/services-internet.json"`|
+|layerConf|yes|String||Path to the **[services.json](../Global-Config/services.json.md)** file containing all available WMS layers and WFS feature types. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/services-internet.json"`|
 |namedProjections|yes|String[]||Definition of the usable coordinate systems. See **[syntax definition](http://proj4js.org/#named-projections)** for details..|`[["EPSG:25832", "+title=ETRS89/UTM 32N +proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"]]`|
-|restConf|yes|String||Path to the **[rest-services.json](rest-services.json.md)** file describing further services, e.g. print service, WPS, CSW. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/rest-services-internet.json"`|
-|styleConf|yes|String||Path to the **[style.json](style.json.md)** file describing vector layer (WFS) styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/style.json"`|
+|restConf|yes|String||Path to the **[rest-services.json](../Global-Config/rest-services.json.md)** file describing further services, e.g. print service, WPS, CSW. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/rest-services-internet.json"`|
+|styleConf|yes|String||Path to the **[style.json](../Global-Config/style.json.md)** file describing vector layer (WFS) styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/style.json"`|
 |addons|no|String[]|`[]`|List of names for custom modules. The modules are to be placed in the folder `/addons/`, with their entry points being defined in the `addonsConf.json`.|`["myAddon1", "myAddon2"]`|
 |alerting|no|**[alerting](#markdown-header-alerting)**|`{"category": "alert-info", "isDismissable": true, "isConfirmable": false, "position": "top-center", "fadeOut": null}`|Overrides the alert module's default values.|{fadeOut: 6000}|
 |cesiumLibrary|no|String|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|The path to the cesium.js library.|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|
 |cameraParameter|no|**[cameraParameter](#markdown-header-cameraparameter)**||Initial camera parameter||
 |cesiumParameter|no|**[cesiumParameter](#markdown-header-cesiumparameter)**||Cesium flags||
-|cswId|no|String|`"3"`|Reference to a CSW interface used to retrieve layer information. The ID will be resolved to a service defined in the **[rest-services.json](rest-services.json.md)** file.|`"my CSW-ID"`|
+|cswId|no|String|`"3"`|Reference to a CSW interface used to retrieve layer information. The ID will be resolved to a service defined in the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|`"my CSW-ID"`|
 |defaultToolId|no|String|`"gfi"`|The tool with the given ID will be active when no other tool is active.|"filter"|
 |layerSelector|no|**[layerSelector](#markdown-header-layerselector)**||Module to configure interactions with the layertree and the map, executed on a defined event.||
-|featureViaURL|no|**[featureViaURL](#markdown-header-featureviaurl)**||Optional configuration for the URL parameter `featureViaURL`. See **[urlParameter](urlParameter.md)** for details. Implemented for treeTypes *light* and *custom*.||
+|featureViaURL|no|**[featureViaURL](#markdown-header-featureviaurl)**||Optional configuration for the URL parameter `featureViaURL`. See **[urlParameter](../Misc/urlParameter.md)** for details. Implemented for treeTypes *light* and *custom*.||
 |footer|no|**[footer](#markdown-header-footer)**||If set, a footer is shown and configured with this object.||
-|gfiWindow|no|String|`"detached"`|_Deprecated in the next major release. Please use the attribute "Portalconfig.menu.tool.gfi.desktopType" of the **[config.json](#config.json.md)** instead._ Display type and attribute information for all layer types. **attached**: the attribute information window is opened at click position **detached**: the attribute information window is opened at the top right of the map; a marker is set to the click position.|`"attached"`|
+|gfiWindow|no|String|`"detached"`|_Deprecated in the next major release. Please use the attribute "Portalconfig.menu.tool.gfi.desktopType" of the **[config.json](./config.json.md)** instead._ Display type and attribute information for all layer types. **attached**: the attribute information window is opened at click position **detached**: the attribute information window is opened at the top right of the map; a marker is set to the click position.|`"attached"`|
 |ignoredKeys|no|String[]|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|List of attribute names to be ignored for attribute information lists of all layer types. Only used with "gfiAttributes": "showAll".|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|
 |infoJson|no|String|`"info.json"`|Path to the `info.json` file containing additional information on snippets. The path is relative to the *index.html*.|`"info.json"`|
-|inputMap|no|Object|`{}`|If this object is set, and its field `setMarker` is set to true, the Masterportal is configured as input element for data. In that case, each click sets a Map Marker and communicates the coordinates via **[remoteInterface](remoteInterface.md)** in the chosen coordinate reference system.|`{setMarker: true, targetProjection: "EPSG:4326", setCenter: false}`|
+|inputMap|no|Object|`{}`|If this object is set, and its field `setMarker` is set to true, the Masterportal is configured as input element for data. In that case, each click sets a Map Marker and communicates the coordinates via **[remoteInterface](../../Dev/remoteInterface/remoteInterface.md)** in the chosen coordinate reference system.|`{setMarker: true, targetProjection: "EPSG:4326", setCenter: false}`|
 |inputMap.setCenter|no|Boolean|`false`|Center on a marker after producing it?|`setCenter: true`|
 |inputMap.setMarker|no|Boolean|`false`|Flag to activate the 'setMarker' functionality.|`setMarker: true`|
-|inputMap.targetProjection|no|String|`"EPSG:25832"`|The target coordinate reference system. Coordinates will be translated to it before being communicated via **[remoteInterface](remoteInterface.md)**.|`targetprojection: "EPSG:4326"`|
+|inputMap.targetProjection|no|String|`"EPSG:25832"`|The target coordinate reference system. Coordinates will be translated to it before being communicated via **[remoteInterface](../../Dev/remoteInterface/remoteInterface.md)**.|`targetprojection: "EPSG:4326"`|
 |login|no|Object|`{}`|Activates the Login module. This displays a login button in the toolbar that allows login and logout with an IDM server, e.g. keycloak, as configured.||
 |mapInteractions|no|**[mapInteractions](#markdown-header-mapInteractions)**||Overrides the ol map interactions. Provides further configuration possibilities for control behaviour and keyboardEventTarget.||
 |mapMarker|no|**[mapMarker](#markdown-header-mapmarker)**||Overrides the map marker module's default values. Useful for 3D markers since OpenLayers's overlays can not be displayed in 3D mode. For this, the map marker has to be defined as vector layer.||
-|metaDataCatalogueId|no|String|`"2"`|URL to the metadata catalog linked to in the layer information window. The ID is resolved to a service of the **[rest-services.json](rest-services.json.md)** file. Note: This attribute is only necessary, when no "show_doc_url" is configured in the metadata dataset in the **[services.json](services.json.md)**. The url can either be set globally (**[config.js](config.js.md)**) or layer-specific(**[services.json](services.json.md)**).|`"MetaDataCatalogueUrl"`|
+|metaDataCatalogueId|no|String|`"2"`|URL to the metadata catalog linked to in the layer information window. The ID is resolved to a service of the **[rest-services.json](../Global-Config/rest-services.json.md)** file. Note: This attribute is only necessary, when no "show_doc_url" is configured in the metadata dataset in the **[services.json](../Global-Config/services.json.md)**. The url can either be set globally (**[config.js](config.js.md)**) or layer-specific(**[services.json](../Global-Config/services.json.md)**).|`"MetaDataCatalogueUrl"`|
 |metadata|no|**[metadata](#markdown-header-metadata)**||Allows configuration of which metadata URLs are to be resolved via proxy.||
 |obliqueMap|no|Boolean|`false`|If set to `true`, an oblique map layer is created. An additional oblique layer must be defined.||
 |portalConf|no|String|`"config.json"`|Path to the portal's `config.json` file. You may also enter a node; in that case the taken path is controlled by the urlParameter `config`.|Direct path: "../masterTree/config.json"; Node: "../../portal/master/". In the node scenario, a query parameter like `config=config.json` must exist in the URL.|
@@ -38,14 +38,14 @@ In the following, all configuration options are described. For all configuration
 |proxyHost|no|String||Host name of a remote proxy with CORS configured to support the portal's domain, among others.|`"https://proxy.example.com"`|
 |quickHelp|no|Object|`{}`|Activates the QuickHelp module. This displays a window containing help text for supported functions of the modules. Available for the layer tree (CustomTree), the search bar (Searchbar) and the routing tool (RoutingTool).||
 |remoteInterface|no|**[remoteInterface](#markdown-header-remoteinterface)**||Optional remote interface configuration.||
-|scaleLine|no|Boolean|`false`|Controls whether a scale line is displayed at the bottom right of the map. To activate scale selection (as a **ScaleSwitcher**) use the configuration parameter `isDisplayInFooter` in **[config.json](config.json)**.|`true`|
+|scaleLine|no|Boolean|`false`|Controls whether a scale line is displayed at the bottom right of the map. To activate scale selection (as a **ScaleSwitcher**) use the configuration parameter `isDisplayInFooter` in **[config.json](./config.json.md)**.|`true`|
 |simpleMap|no|Boolean|`false`|_Deprecated in the next major release. Please use the parameter `simpleMap` as part of the configuration of the `saveSelection` tool in the **[config.json](config.json.md)**._ Adds a SimpleMap URL to the `Save selection` dialogue. When calling this URL, the menu bar, layer tree, and map controls are deactivated. Not implemented for tree type *„light“*.|`false`|
 |startingMap3D|bi|Boolean|`false`|Controls whether the map should start in 3D mode.||
 |tree|no|**[tree](#tree)**||||
 |uiStyle|no|String|`"default"`|Sets the control element layout. |`table`|
 |wfsImgPath|no|String||Path to the folder holding images for the WFS styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/img/"`|
-|wpsID|no|String|`""`|Reference to a WPS interface used in various modules. The ID is resolved to a service defined in the **[rest-services.json](rest-services.json.md)** file.|`""`|
-|zoomToFeature|no|**[zoomToFeature](#markdown-header-zoomtofeature)**||_Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zoomto)** instead._ Optional configuration of the URL query parameter `featureid`. For details, see **[urlParameter](urlParameter.md)**. ||
+|wpsID|no|String|`""`|Reference to a WPS interface used in various modules. The ID is resolved to a service defined in the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|`""`|
+|zoomToFeature|no|**[zoomToFeature](#markdown-header-zoomtofeature)**||_Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zoomto)** instead._ Optional configuration of the URL query parameter `featureid`. For details, see **[urlParameter](../Misc/urlParameter.md)**. ||
 |zoomTo|no|**[zoomTo](#markdown-header-zoomto)**[]|Configuration for the URL query parameters `zoomToFeatureId` and `zoomToGeometry`.||
 |layerInformation|no|**[layerInformation](#markdown-header-layerinformation)**||Configuration for the layerInformation window.||
 |vuetify|no|String|undefined|Path to the optional instance of the vuetify UI library. e.g. portal or addon specific.|`addons/cosi/vuetify/index.js`|
@@ -701,7 +701,7 @@ The parameters described apply for each entry of the **[layers](#markdown-header
 |id|yes|String||unique ID for the layer to be created|
 |geometryType|yes|enum["LineString", "Point", "Polygon", "MultiPoint", "MultiLineString", "MultiPolygon"]||Geometry type of the feature to be shown.|
 |name|yes|String||Layer name displayed in the layer tree, the legend, and the GFI pop-up.|
-|styleId|no|String||Style id to be used for the feature, referring to the **[style.json](style.json.md)**.|
+|styleId|no|String||Style id to be used for the feature, referring to the **[style.json](../Global-Config/style.json.md)**.|
 
 **Example:**
 
@@ -758,8 +758,3 @@ Configuration for the layerSequence.
 }
 ```
 
-***
-
->**[Masterportal translation documentation](languages.md)**
-
->**[Return to the Masterportal documentation](doc.md)**

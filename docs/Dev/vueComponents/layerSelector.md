@@ -77,6 +77,6 @@ Array of Objects. In a single object, interactions with the layertree and the ma
 
 **Information for developer**
 
-To add more events, just add an entry into the eventMap attribute in **[stateLayerSelector.js](src\modules\layerSelector\store\stateLayerSelector.js)**
+To add more events, just add an entry into the eventMap attribute in **stateLayerSelector.js** (src\modules\layerSelector\store\stateLayerSelector.js).
 
 ***
