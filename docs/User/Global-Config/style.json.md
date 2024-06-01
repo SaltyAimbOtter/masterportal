@@ -22,7 +22,7 @@ The *style.json*'s path is defined in the **[config.js](../Portal-Config/config.
 
 ## Layer connection
 
-Within the **[config.json](../Portal-Config/config.js.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#markdown-header-structure).
+Within the **[config.json](../Portal-Config/config.js.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#structure).
 
 >💡 Hint: Incorrect style ids do not provoke a run-time error. A warning is logged to the console to inform administrators of the erroneous configuration. Portal users will only notice that the misconfigured layer has the OpenLayers default vector styling.
 
@@ -42,7 +42,7 @@ The *style.json* holds an array of objects at root level. Each object correspond
 ]
 ```
 
-To connect a style of the array to a layer, the attribute *styleId* is required. See chapter [Layer connection](#markdown-header-layerconnection).
+To connect a style of the array to a layer, the attribute *styleId* is required. See chapter [Layer connection](#layer-connection).
 
 **Example 2: Style with id**
 ```json
@@ -61,7 +61,7 @@ Next to the *styleId* attribute, a *rules* attribute is required. This is anothe
 }
 ```
 
-Each of the *rules* array entries is another object with at least the attribute *style*. This attribute holds the display instructions to be applied if the current rule is met. Please see [Display rules](#markdown-header-displayrules) for details.
+Each of the *rules* array entries is another object with at least the attribute *style*. This attribute holds the display instructions to be applied if the current rule is met. Please see [Display rules](#display-rules) for details.
 
 **Example 4: Value for a `rules` entry**
 ```json
@@ -72,7 +72,7 @@ Each of the *rules* array entries is another object with at least the attribute 
 ]
 ```
 
-Next to the *style* attribute an optional *conditions* can be added. This is supposed to contain the conditions to be met for the style to be applied to a feature. See chapter [Conditions](#markdown-header-conditions) for details.
+Next to the *style* attribute an optional *conditions* can be added. This is supposed to contain the conditions to be met for the style to be applied to a feature. See chapter [Conditions](#conditions) for details.
 
 **Example 5: Value for a `rules` entry with optional conditions entry**
 ```json
@@ -109,7 +109,7 @@ Unless this is desired behavior, we suggest providing a rule **without** *condit
 
 ## Conditions
 
-This section describes the file structure for the *conditions* value as introduced in the chapter [Structure](#markdown-header-structure).
+This section describes the file structure for the *conditions* value as introduced in the chapter [Structure](#structure).
 
 Two optional *condition types* may be used in a condition:
 
@@ -190,11 +190,11 @@ The *key* is a feature attribute's name of a direct feature child element.
 
 >💡 Hint: If a key does not exist, the *condition* is not met.
 
-Alternatively an arbitrarily nested property within the feature may be addressed by utilizing an [object path reference](#markdown-header-objectpathreference).
+Alternatively an arbitrarily nested property within the feature may be addressed by utilizing an [object path reference](#object-path-reference).
 
 >💡 Hint: Object paths are e.g. used by sensor layers in properties using multiple Datastreams.
 
-A *key* is always of type *String* or an [attributeObject](#markdown-header-attributeobject).
+A *key* is always of type *String* or an [attributeObject](#attributeobject).
 
 #### value
 
@@ -212,7 +212,7 @@ A *value* is the reference value which is compared to the feature's property wit
 
 >💡 Hint: `x` is in a range `[minValue, maxValue]` if `minValue <= x < maxValue` is true.
 
-Alternatively a *value* for any of the previously mentioned data types may refer to an arbitrarily nested attribute within a feature property. See chapter [Object path reference](#markdown-header-objectpathreference) for details.
+Alternatively a *value* for any of the previously mentioned data types may refer to an arbitrarily nested attribute within a feature property. See chapter [Object path reference](#object-path-reference) for details.
 
 #### Example
 
@@ -313,15 +313,15 @@ You can check whether the fields `"name"` and `"alternativeName"` are identical 
 
 ## Display rules
 
-This chapter describes how a *style* as introduced in the [Structure](#markdown-header-structure) chapter is constructed.
+This chapter describes how a *style* as introduced in the [Structure](#structure) chapter is constructed.
 
 Styling depends on the *GeometryType* of a *Feature*. All *MultiGeometry* features  consist of simpler *Features*. Within a *MultiGeomtry* feature all child *Features* are iterated and each one is styled individually. The following *GeometryTypes* can currently be styled:
 
 
-- [Linestring](#markdown-header-linestring)
-- [Point](#markdown-header-point)
-- [Polygon](#markdown-header-polygon)
-- [Cesium](#markdown-header-cesium)
+- [Linestring](#linestring)
+- [Point](#point)
+- [Polygon](#polygon)
+- [Cesium](#cesium)
 
 >💡 Hint: *MultiGeometries* defined within a *GeometryCollection* (doubly nested) can currently not be styled.
 
@@ -332,9 +332,9 @@ Styling is based on the feature's *GeometryType*. For each type, default display
 
 >This allows styling multiple *GeometryTypes* (Point, Linestring, Polygon, ...) within a *style* by adding display rules.
 
-Furthermore, all named geometry types may receive a text annotation. See chapter [Text](#markdown-header-text) for details.
+Furthermore, all named geometry types may receive a text annotation. See chapter [Text](#text) for details.
 
-For individual legend texts, see chapter [Legend](#markdown-header-legend).
+For individual legend texts, see chapter [Legend](#legend).
 
 ### Use Fallback, if no rule available
 
@@ -362,8 +362,8 @@ The display rules for points are separated in
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
-|type||String|`"circle"`|Type of styling; one of [icon](#markdown-header-pointicon), [circle](#markdown-header-pointcircle), [nominal](#markdown-header-pointnominal), [interval](#markdown-header-pointinterval).|
-|clusterType||String|`"circle"`|Type of styling for clustered points; one of [icon](#markdown-header-pointclustericon), [circle](#markdown-header-pointclustercircle).|
+|type||String|`"circle"`|Type of styling; one of [icon](#pointicon), [circle](#pointcircle), [nominal](#pointnominal), [interval](#pointinterval).|
+|clusterType||String|`"circle"`|Type of styling for clustered points; one of [icon](#pointclustericon), [circle](#pointclustercircle).|
 
 In the following, all options are described in detail.
 
@@ -381,7 +381,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 |imageOffsetY||Float|`0.5`|Image y offset|
 |imageOffsetXUnit||String|`"fraction"`|Units in which the anchor x value is specified.|
 |imageOffsetYUnit||String|`"fraction"`|Units in which the anchor y value is specified.|
-|rotation|no|**[rotation](#markdown-header-pointiconrotation)**|`0`|Attribute for rotation of wfs features. If not set, the default value is `0` to show icons in standard alignment.|
+|rotation|no|**[rotation](#pointiconrotation)**|`0`|Attribute for rotation of wfs features. If not set, the default value is `0` to show icons in standard alignment.|
 
 **_style_ example:**
 ```json
@@ -463,7 +463,7 @@ A dynamic style is set for each feature. This style supports sensor feature upda
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
 |scalingShape|yes|String||Display type `"CIRCLESEGMENTS"`|
-|scalingAttribute|yes|String||Attribute used for styling. You may use an [object path reference](#markdown-header-objectpathreference).|
+|scalingAttribute|yes|String||Attribute used for styling. You may use an [object path reference](#object-path-reference).|
 |scalingValues||Object||Attribute values with defined color, e.g. `{"charging" : [220, 0, 0, 1]}`. An arbitrary amount of attribute values may be specified.|
 |scalingValueDefaultColor||Integer[]|`[0, 0, 0, 1]`|Default color for all values not defined in the previously described *scalingValues* field.|
 |circleSegmentsRadius||Float|`10`|Circle segment radius|
@@ -475,12 +475,12 @@ A dynamic style is set for each feature. This style supports sensor feature upda
 
 Clustered points represent multiple close-by features with a single symbol. See the [OpenLayers Cluster documentation](https://openlayers.org/en/latest/apidoc/module-ol_source_Cluster-Cluster.html "OpenLayers Cluster documentation") for further details. Display depends upon amount and position of features, current zoom level, and the layer's defined *clusterDistance*. *PointClusters* may be displayed with these types:
 
-- [Icon](#markdown-header-pointclustericon")
-- [Circle](#markdown-header-pointclustercircle)
+- [Icon](#pointclustericon)
+- [Circle](#pointclustercircle)
 
-You may also add text to clustered points. This is usually done to add the amount of clustered points to a feature. See chapter [ClusterText](#markdown-header-pointclustertext).
+You may also add text to clustered points. This is usually done to add the amount of clustered points to a feature. See chapter [ClusterText](#pointclustertext).
 
-#### Point.Cluster.Icon
+##### Point.Cluster.Icon
 
 Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/apidoc/module-ol_style_Icon-Icon.html "OpenLayers Icon documentation") for additional details.
 
@@ -493,7 +493,7 @@ Please see the [OpenLayers Icon documentation](https://openlayers.org/en/latest/
 |clusterImageOffsetX||Float|`0.5`|Cluster style X offset|
 |clusterImageOffsetY||Float|`0.5`|Cluster style Y offset|
 
-#### Point.Cluster.Circle
+##### Point.Cluster.Circle
 
 Please see the [OpenLayers Circle documentation](https://openlayers.org/en/latest/apidoc/module-ol_geom_Circle-Circle.html "OpenLayers Circle documentation") for additional details.
 
@@ -504,7 +504,7 @@ Please see the [OpenLayers Circle documentation](https://openlayers.org/en/lates
 |clusterCircleStrokeColor||Integer[]|`[0, 0, 0, 1]`|Cluster style stroke color in rgba|
 |clusterCircleStrokeWidth||Integer|`2`|Cluster style stroke width in pixels|
 
-#### Point.Cluster.Text
+##### Point.Cluster.Text
 
 Please see the [OpenLayers Text documentation](https://openlayers.org/en/latest/apidoc/module-ol_style_Text-Text.html "OpenLayers Text documentation") for additional details.
 
@@ -557,7 +557,7 @@ Please see the [OpenLayers Fill](https://openlayers.org/en/latest/apidoc/module-
 |polygonStrokeDashOffset||Integer|`0`|Line dash offset|
 |polygonStrokeMiterLimit||Integer|`10`|`Miter limit`|
 |polygonFillColor|no|Integer[]|`[10, 200, 100, 0.5]`|Fill color in rgba|
-|polygonFillHatch|no|**[polygonFillHatch](#markdown-header-polygonpolygonfillhatch)**[]|`undefined`|Can be used to define a hatch pattern. Mutually exclusive to polygonFillColor – only one of the fields may be used. If both are defined, `polygonFillHatch` takes precedence.|
+|polygonFillHatch|no|**[polygonFillHatch](#polygonpolygonfillhatch)**[]|`undefined`|Can be used to define a hatch pattern. Mutually exclusive to polygonFillColor – only one of the fields may be used. If both are defined, `polygonFillHatch` takes precedence.|
 
 #### Polygon.polygonFillHatch
 
@@ -746,7 +746,7 @@ Use the attribute *labelField* within the *style* to choose one of the *FeatureP
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
-|labelField|yes|String|`"undefined"`|Feature attribute to be used as label. You may also use an [object path reference](#markdown-header-objectpathreference) or an [attributeObject](#markdown-header-attributeobject).|
+|labelField|yes|String|`"undefined"`|Feature attribute to be used as label. You may also use an [object path reference](#object-path-reference) or an [attributeObject](#attributeobject).|
 |textAlign||String|`"center"`|Text alignment|
 |textFont||String|`"Comic Sans MS"`|Text font|
 |textScale||Integer|`2`|Text scale|

@@ -101,9 +101,9 @@ Currently used mqtt versions:
 
 ## SensorThingsHttp
 
-The SensorThingsAPI provides automatic splitting of server responses to chunks to avoid overly large payloads. This allows displaying the progress of SensorThingsAPI calls for improved user experience. See [Automatic Split](#markdown-header-automatic-split) for details.
+The SensorThingsAPI provides automatic splitting of server responses to chunks to avoid overly large payloads. This allows displaying the progress of SensorThingsAPI calls for improved user experience. See [Automatic Split](#automatic-split) for details.
 
-The request can be minimized further by limiting it to the extent currently visible in the browser. See [Automatic call in Extent](#markdown-header-automatic-call-in-extent) for details.
+The request can be minimized further by limiting it to the extent currently visible in the browser. See [Automatic call in Extent](#automatic-split) for details.
 
 The Masterportal implements a software layer called `SensorThingsHttp` that provides the both split and extent handling.
 
@@ -113,7 +113,7 @@ The Masterportal implements a software layer called `SensorThingsHttp` that prov
 
 Your server configuration should activate the automatic splitting of responses. When activated, responses too large for a single response will contain a follow-up link ("@iot.nextLink") to the next data chunk. The total number of chunks is included as "@iot.count" value.
 
-Using the `SensorThingsHttp.get()` function, the `SensorThingsHttp` layer handles "@iot.nextLink" (see [The "@iot.nextLink" Value](#markdown-header-the-iotnextlink-value)) and "@iot.count" (see [The "@iot.count" Value](#markdown-header-the-iotcount-value)) for you.
+Using the `SensorThingsHttp.get()` function, the `SensorThingsHttp` layer handles "@iot.nextLink" (see [The "@iot.nextLink" Value](#the-iotnextlink-value)) and "@iot.count" (see [The "@iot.count" Value](#the-iotcount-value)) for you.
 
 Here is a basic implementation of `SensorThingsHttp`, using basic events of the Masterportal, to show its functionality:
 
@@ -280,7 +280,7 @@ Combining the absolute number ("@iot.count") and the value of the current `$skip
 
 You may want your server implementation of the *SensorThingsAPI* (e.g. the FROST Server) to return data only within a given extent (e.g. a polygon). The FROST Server provides you with this functionality. To use this feature, the `SensorThingsHttp` layer provides a method `SensorThingsHttp.getInExtent()` to retrieve data only within the given extent.
 
-Using `SensorThingsHttp.getInExtent()`, you may also use the splitting progress explained [above](#markdown-header-automatic-split). The `SensorThingsHttp` layer creates the correct URL query parameter `st_within(Locations/location,geography'POLYGON ((...))')` (see [The use of POLYGON](#the_use_of_polygon)) for you.
+Using `SensorThingsHttp.getInExtent()`, you may also use the splitting progress explained [above](#automatic-split). The `SensorThingsHttp` layer creates the correct URL query parameter `st_within(Locations/location,geography'POLYGON ((...))')` (see [The use of POLYGON](#the-use-of-polygon)) for you.
 
 The extent needs to be described including its source projection and target projection. The following extent options are mandatory for the use of `SensorThingsHttp.getInExtent()`:
 

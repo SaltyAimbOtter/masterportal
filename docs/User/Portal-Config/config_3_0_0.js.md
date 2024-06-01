@@ -7,7 +7,7 @@ In the following, all configuration options are described. For all configuration
 |Name|Required|Type|Default|Description|Example|
 |----|--------|----|-------|-----------|-------|
 |addons|no|String[]|`[]`|List of names for custom modules. The modules are to be placed in the folder `/addons/`, with their entry points being defined in the `addonsConf.json`.|`["myAddon1", "myAddon2"]`||
-|alerting|no|**[alerting](#markdown-header-alerting)**||Overrides the alert module's default values.||
+|alerting|no|**[alerting](#alerting)**||Overrides the alert module's default values.||
 |cesiumLibrary|no|String|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|The path to the cesium.js library.|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|
 |cswId|no|String|`"3"`|Reference to a CSW interface used to retrieve layer information. The ID will be resolved to a service defined in the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|`"my CSW-ID"`|
 |ignoredKeys|no|String[]|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|List of attribute names to be ignored for attribute information lists of all layer types. Only used with "gfiAttributes": "showAll".|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|
@@ -15,9 +15,9 @@ In the following, all configuration options are described. For all configuration
 |metaDataCatalogueId|no|String|`"2"`|URL to the metadata catalog linked to in the layer information window. The ID is resolved to a service of the **[rest-services.json](../Global-Config/rest-services.json.md)** file. Note: This attribute is only necessary, when no "show_doc_url" is configured in the metadata dataset in the **[services.json](../Global-Config/services.json.md)**. The url can either be set globally (**[config.js](config.js.md)**) or layer-specific(**[services.json](../Global-Config/services.json.md)**).|`"MetaDataCatalogueUrl"`|
 |namedProjections|yes|String[]||Definition of the usable coordinate systems. See **[syntax definition](http://proj4js.org/#named-projections)** for details..|`[["EPSG:25832", "+title=ETRS89/UTM 32N +proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"]]`|
 |portalConf|no|String|`"config.json"`|Path to the portal's `config.json` file. You may also enter a node; in that case the taken path is controlled by the urlParameter `config`.|Direct path: "../masterDefault/config.json"; Node: "../../portal/master/". In the node scenario, a query parameter like `config=config.json` must exist in the URL.|
-|portalLanguage|no|**[portalLanguage](#markdown-header-portalLanguage)**||Settings for multilingualism of the portal interface.||
+|portalLanguage|no|**[portalLanguage](#portallanguage)**||Settings for multilingualism of the portal interface.||
 |proxyHost|no|String||Host name of a remote proxy with CORS configured to support the portal's domain, among others.|`"https://proxy.example.com"`|
-|remoteInterface|no|**[remoteInterface](#markdown-header-remoteinterface)**||Optional remote interface configuration.||
+|remoteInterface|no|**[remoteInterface](#remoteinterface)**||Optional remote interface configuration.||
 |restConf|yes|String||Path to the **[rest-services.json](../Global-Config/rest-services.json.md)** file describing further services, e.g. print service, WPS, CSW. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/rest-services-internet.json"`||
 |styleConf|yes|String||Path to the **[style.json](../Global-Config/style.json.md)** file describing vector layer (WFS) styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/style.json"`||
 |vuetify|no|String|undefined|Path to the optional instance of the vuetify UI library. e.g. portal or addon specific.|`addons/cosi/vuetify/index.js`|
@@ -31,7 +31,7 @@ Overrides the alert module's default values.
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
 |fetchBroadcastUrl|no|String|`false`|The alerting module will initially use a linked configuration file from this URL, if set.|
-|initialAlerts|no|**[initialAlerts](#markdown-header-alertinginitialAlerts)**||Alerts that are displayed when the portal is started|
+|initialAlerts|no|**[initialAlerts](#alertinginitialalerts)**||Alerts that are displayed when the portal is started|
 |localStorageDisplayedAlertsKey|no|String|`"displayedAlerts"`|Arbitrary key used to store information regarding the alerting module in the browser's local storage.|
 
 ***

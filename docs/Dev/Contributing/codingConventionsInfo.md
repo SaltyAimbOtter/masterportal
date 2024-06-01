@@ -275,7 +275,7 @@ For a more formal definition of the **[config.json.md](../../User/Portal-Config/
     ## Portalconfig
     |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
     |----|-------------|---|-------|------------|------|
-    |controls|nein|[controls](#markdown-header-portalconfigcontrols)||Description text.|false|
+    |controls|nein|[controls](#portalconfigcontrols)||Description text.|false|
     ***
 
     ### Portalconfig.controls

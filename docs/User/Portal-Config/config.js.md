@@ -11,15 +11,15 @@ In the following, all configuration options are described. For all configuration
 |restConf|yes|String||Path to the **[rest-services.json](../Global-Config/rest-services.json.md)** file describing further services, e.g. print service, WPS, CSW. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/rest-services-internet.json"`|
 |styleConf|yes|String||Path to the **[style.json](../Global-Config/style.json.md)** file describing vector layer (WFS) styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/style.json"`|
 |addons|no|String[]|`[]`|List of names for custom modules. The modules are to be placed in the folder `/addons/`, with their entry points being defined in the `addonsConf.json`.|`["myAddon1", "myAddon2"]`|
-|alerting|no|**[alerting](#markdown-header-alerting)**|`{"category": "alert-info", "isDismissable": true, "isConfirmable": false, "position": "top-center", "fadeOut": null}`|Overrides the alert module's default values.|{fadeOut: 6000}|
+|alerting|no|**[alerting](#alerting)**|`{"category": "alert-info", "isDismissable": true, "isConfirmable": false, "position": "top-center", "fadeOut": null}`|Overrides the alert module's default values.|{fadeOut: 6000}|
 |cesiumLibrary|no|String|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|The path to the cesium.js library.|`"https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"`|
-|cameraParameter|no|**[cameraParameter](#markdown-header-cameraparameter)**||Initial camera parameter||
-|cesiumParameter|no|**[cesiumParameter](#markdown-header-cesiumparameter)**||Cesium flags||
+|cameraParameter|no|**[cameraParameter](#cameraparameter)**||Initial camera parameter||
+|cesiumParameter|no|**[cesiumParameter](#cesiumparameter)**||Cesium flags||
 |cswId|no|String|`"3"`|Reference to a CSW interface used to retrieve layer information. The ID will be resolved to a service defined in the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|`"my CSW-ID"`|
 |defaultToolId|no|String|`"gfi"`|The tool with the given ID will be active when no other tool is active.|"filter"|
-|layerSelector|no|**[layerSelector](#markdown-header-layerselector)**||Module to configure interactions with the layertree and the map, executed on a defined event.||
-|featureViaURL|no|**[featureViaURL](#markdown-header-featureviaurl)**||Optional configuration for the URL parameter `featureViaURL`. See **[urlParameter](../Misc/urlParameter.md)** for details. Implemented for treeTypes *light* and *custom*.||
-|footer|no|**[footer](#markdown-header-footer)**||If set, a footer is shown and configured with this object.||
+|layerSelector|no|**[layerSelector](#layerselector)**||Module to configure interactions with the layertree and the map, executed on a defined event.||
+|featureViaURL|no|**[featureViaURL](#featureviaurl)**||Optional configuration for the URL parameter `featureViaURL`. See **[urlParameter](../Misc/urlParameter.md)** for details. Implemented for treeTypes *light* and *custom*.||
+|footer|no|**[footer](#footer)**||If set, a footer is shown and configured with this object.||
 |gfiWindow|no|String|`"detached"`|_Deprecated in the next major release. Please use the attribute "Portalconfig.menu.tool.gfi.desktopType" of the **[config.json](./config.json.md)** instead._ Display type and attribute information for all layer types. **attached**: the attribute information window is opened at click position **detached**: the attribute information window is opened at the top right of the map; a marker is set to the click position.|`"attached"`|
 |ignoredKeys|no|String[]|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|List of attribute names to be ignored for attribute information lists of all layer types. Only used with "gfiAttributes": "showAll".|`["BOUNDEDBY", "SHAPE", "SHAPE_LENGTH", "SHAPE_AREA", "OBJECTID", "GLOBALID", "GEOMETRY", "SHP", "SHP_AREA", "SHP_LENGTH","GEOM"]`|
 |infoJson|no|String|`"info.json"`|Path to the `info.json` file containing additional information on snippets. The path is relative to the *index.html*.|`"info.json"`|
@@ -28,16 +28,16 @@ In the following, all configuration options are described. For all configuration
 |inputMap.setMarker|no|Boolean|`false`|Flag to activate the 'setMarker' functionality.|`setMarker: true`|
 |inputMap.targetProjection|no|String|`"EPSG:25832"`|The target coordinate reference system. Coordinates will be translated to it before being communicated via **[remoteInterface](../../Dev/remoteInterface/remoteInterface.md)**.|`targetprojection: "EPSG:4326"`|
 |login|no|Object|`{}`|Activates the Login module. This displays a login button in the toolbar that allows login and logout with an IDM server, e.g. keycloak, as configured.||
-|mapInteractions|no|**[mapInteractions](#markdown-header-mapInteractions)**||Overrides the ol map interactions. Provides further configuration possibilities for control behaviour and keyboardEventTarget.||
-|mapMarker|no|**[mapMarker](#markdown-header-mapmarker)**||Overrides the map marker module's default values. Useful for 3D markers since OpenLayers's overlays can not be displayed in 3D mode. For this, the map marker has to be defined as vector layer.||
+|mapInteractions|no|**[mapInteractions](#mapinteractions)**||Overrides the ol map interactions. Provides further configuration possibilities for control behaviour and keyboardEventTarget.||
+|mapMarker|no|**[mapMarker](#mapmarker)**||Overrides the map marker module's default values. Useful for 3D markers since OpenLayers's overlays can not be displayed in 3D mode. For this, the map marker has to be defined as vector layer.||
 |metaDataCatalogueId|no|String|`"2"`|URL to the metadata catalog linked to in the layer information window. The ID is resolved to a service of the **[rest-services.json](../Global-Config/rest-services.json.md)** file. Note: This attribute is only necessary, when no "show_doc_url" is configured in the metadata dataset in the **[services.json](../Global-Config/services.json.md)**. The url can either be set globally (**[config.js](config.js.md)**) or layer-specific(**[services.json](../Global-Config/services.json.md)**).|`"MetaDataCatalogueUrl"`|
-|metadata|no|**[metadata](#markdown-header-metadata)**||Allows configuration of which metadata URLs are to be resolved via proxy.||
+|metadata|no|**[metadata](#metadata)**||Allows configuration of which metadata URLs are to be resolved via proxy.||
 |obliqueMap|no|Boolean|`false`|If set to `true`, an oblique map layer is created. An additional oblique layer must be defined.||
 |portalConf|no|String|`"config.json"`|Path to the portal's `config.json` file. You may also enter a node; in that case the taken path is controlled by the urlParameter `config`.|Direct path: "../masterTree/config.json"; Node: "../../portal/master/". In the node scenario, a query parameter like `config=config.json` must exist in the URL.|
 |postMessageUrl|no|String|`"http://localhost:8080"`|URL the portal is supposed to post messages to and receive messages from with the `postMessage` feature.|"http://localhost:8080"|
 |proxyHost|no|String||Host name of a remote proxy with CORS configured to support the portal's domain, among others.|`"https://proxy.example.com"`|
 |quickHelp|no|Object|`{}`|Activates the QuickHelp module. This displays a window containing help text for supported functions of the modules. Available for the layer tree (CustomTree), the search bar (Searchbar) and the routing tool (RoutingTool).||
-|remoteInterface|no|**[remoteInterface](#markdown-header-remoteinterface)**||Optional remote interface configuration.||
+|remoteInterface|no|**[remoteInterface](#remoteinterface)**||Optional remote interface configuration.||
 |scaleLine|no|Boolean|`false`|Controls whether a scale line is displayed at the bottom right of the map. To activate scale selection (as a **ScaleSwitcher**) use the configuration parameter `isDisplayInFooter` in **[config.json](./config.json.md)**.|`true`|
 |simpleMap|no|Boolean|`false`|_Deprecated in the next major release. Please use the parameter `simpleMap` as part of the configuration of the `saveSelection` tool in the **[config.json](config.json.md)**._ Adds a SimpleMap URL to the `Save selection` dialogue. When calling this URL, the menu bar, layer tree, and map controls are deactivated. Not implemented for tree type *„light“*.|`false`|
 |startingMap3D|bi|Boolean|`false`|Controls whether the map should start in 3D mode.||
@@ -45,11 +45,11 @@ In the following, all configuration options are described. For all configuration
 |uiStyle|no|String|`"default"`|Sets the control element layout. |`table`|
 |wfsImgPath|no|String||Path to the folder holding images for the WFS styles. The path is relative to *js/main.js*.|`https://geodienste.hamburg.de/lgv-config/img/"`|
 |wpsID|no|String|`""`|Reference to a WPS interface used in various modules. The ID is resolved to a service defined in the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|`""`|
-|zoomToFeature|no|**[zoomToFeature](#markdown-header-zoomtofeature)**||_Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zoomto)** instead._ Optional configuration of the URL query parameter `featureid`. For details, see **[urlParameter](../Misc/urlParameter.md)**. ||
-|zoomTo|no|**[zoomTo](#markdown-header-zoomto)**[]|Configuration for the URL query parameters `zoomToFeatureId` and `zoomToGeometry`.||
-|layerInformation|no|**[layerInformation](#markdown-header-layerinformation)**||Configuration for the layerInformation window.||
+|zoomToFeature|no|**[zoomToFeature](#zoomtofeature)**||_Deprecated in the next major release. Please use **[zoomTo](#zoomto)** instead._ Optional configuration of the URL query parameter `featureid`. For details, see **[urlParameter](../Misc/urlParameter.md)**. ||
+|zoomTo|no|**[zoomTo](#zoomto)**[]|Configuration for the URL query parameters `zoomToFeatureId` and `zoomToGeometry`.||
+|layerInformation|no|**[layerInformation](#layerinformation)**||Configuration for the layerInformation window.||
 |vuetify|no|String|undefined|Path to the optional instance of the vuetify UI library. e.g. portal or addon specific.|`addons/cosi/vuetify/index.js`|
-|layerSequence|no|**[layerSequence](#markdown-header-layersequence)**||Configuration for layerSequence.||
+|layerSequence|no|**[layerSequence](#layersequence)**||Configuration for layerSequence.||
 
 ***
 
@@ -65,7 +65,7 @@ In the following, all configuration options are described. For all configuration
 ## cameraParameter
 
 Cesium Scene camera settings in 3D mode.
-_Deprecated in the next major release. Please use **[cesiumParameter](#markdown-header-cesiumParameter)** instead._
+_Deprecated in the next major release. Please use **[cesiumParameter](#cesiumparameter)** instead._
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -82,10 +82,10 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Scen
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
-|camera|no|**[camera](#markdown-header-cesiumParametercamera)**||Cesium Scene camera settings in 3D mode.|
-|fog|no|**[fog](#markdown-header-cesiumParameterfog)**||Cesium Scene fog settings in 3D mode.|
+|camera|no|**[camera](#cesiumparametercamera)**||Cesium Scene camera settings in 3D mode.|
+|fog|no|**[fog](#cesiumparameterfog)**||Cesium Scene fog settings in 3D mode.|
 |fxaa|no|Boolean|`true`|activates *fast approximate anti-aliasing*|
-|globe|no|**[globe](#markdown-header-cesiumParameterglobe)**||Cesium Scene globe settings in 3D mode.|
+|globe|no|**[globe](#cesiumparameterglobe)**||Cesium Scene globe settings in 3D mode.|
 |maximumScreenSpaceError|no|Number|`2.0`|Detail level in which terrain/raster tiles are fetched. 4/3 is the highest quality level.|
 |tileCacheSize|no|Number|`100`|terrain/raster tile cache size|
 
@@ -182,9 +182,9 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Glob
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
-|urls|no|**[urls](#markdown-header-footerurls)**[]||Array of URL configuration objects.|
+|urls|no|**[urls](#footerurls)**[]||Array of URL configuration objects.|
 |showVersion|no|Boolean|`false`|If `true`, the Masterportal version number is included in the footer.|
-|footerInfo|no|**[footerInfo](#markdown-header-footerfooterInfo)**[]||Array of information configuration objects.|
+|footerInfo|no|**[footerInfo](#footerfooterinfo)**[]||Array of information configuration objects.|
 |mobileFooterInfoToggler|no|Boolean|`false`|If `true`, it is possible to toggle the footer info in mobile version.|
 
 ***
@@ -234,7 +234,7 @@ For more attributes see **[Scene](https://cesium.com/learn/cesiumjs/ref-doc/Glob
 |----|-------------|---|-------|------------|
 |title|yes|String||Title of the information tab.|
 |description|no|String||Text displayed under the title.|
-|subtexts|no|**[subtexts](#markdown-header-footerfooterInfosubtexts)**[]||Array of subtext configuration objects.|
+|subtexts|no|**[subtexts](#footerfooterinfosubtexts)**[]||Array of subtext configuration objects.|
 
 ***
 
@@ -440,7 +440,7 @@ Settings for generating the tree automatically. Only works if treeType="default"
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
 |orderBy|no|String|`"OpenData"`|Category the layer tree is sorted by initially.|
-|isFolderSelectable|no|Boolean|`true`|Globally sets whether a selection box is provided on folders that de-/activates all layers in it. An override per element exists, see **[config.json](config.json.md#Ordnerkonfiguration-Fachdaten)**.|
+|isFolderSelectable|no|Boolean|`true`|Globally sets whether a selection box is provided on folders that de-/activates all layers in it. An override per element exists, see **[config.json](config.json.md#themenconfigordner)**.|
 
 ## metadata
 
@@ -507,7 +507,7 @@ Settings for generating the tree automatically. Only works if treeType="default"
 
 ## zoomToFeature
 
-_Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zoomto)** instead._
+_Deprecated in the next major release. Please use **[zoomTo](#zoomto)** instead._
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -535,7 +535,7 @@ _Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zo
 
 ## zoomToGeometry
 
-_Deprecated in the next major release. Please use **[zoomTo](#markdown-header-zoomto)** instead._
+_Deprecated in the next major release. Please use **[zoomTo](#zoomto)** instead._
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -638,8 +638,8 @@ Events that can trigger actions.
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
 |epsg|no|Integer|`4326`|EPSG code for coordinate reference system to translate coordinates to.|
-|layers|yes|**[layers](#markdown-header-featureviaurllayers)**[]||Layer configuration array for given features.|
-|zoomTo||String/String[]||Id of **[layers](#markdown-header-featureviaurllayers)** or array thereof, to which the Masterportal initially zooms. If none are given, the usual initial center coordinate is used.|
+|layers|yes|**[layers](#featureviaurllayers)**[]||Layer configuration array for given features.|
+|zoomTo||String/String[]||Id of **[layers](#featureviaurllayers)** or array thereof, to which the Masterportal initially zooms. If none are given, the usual initial center coordinate is used.|
 
 **Example:**
 
@@ -694,7 +694,7 @@ Events that can trigger actions.
 
 ### featureViaURL.layers
 
-The parameters described apply for each entry of the **[layers](#markdown-header-featureviaurllayers)** array.
+The parameters described apply for each entry of the **[layers](#featureviaurllayers)** array.
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
@@ -724,7 +724,7 @@ Configuration for the layerInformation window.
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
-|showUrlGlobal|no|Boolean||parameter to globally toggle the dispaly of the service url for all layers. Referring to the "urlIsVisible" Parameter (see **[config.json](config.json.md#markdown-header-themenconfiglayer)** )|
+|showUrlGlobal|no|Boolean||parameter to globally toggle the dispaly of the service url for all layers. Referring to the "urlIsVisible" Parameter (see **[config.json](config.json.md#themenconfiglayer)** )|
 
 
 **Example:**
