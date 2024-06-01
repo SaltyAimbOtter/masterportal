@@ -1,14 +1,6 @@
->**[Return to the Masterportal documentation](doc.md)**.
-
 # Variables Documentation
 
 This documentation describes how the variables in Masterportal are intended to be used.
-
-
-## Structure of this documentation
-
-[TOC]
-
 
 ## Colors
 
@@ -71,5 +63,5 @@ Between two different content sections `$content_section_space` and between cont
 Theses variables also depend on the default base size 16px. If you change the font size in the html tag, the spaces will also be bigger/smaller, because this changes the base size.
 
 In this image you can see how the variables are meant to be used in tools:
-![toolSpacerVariables.png](toolSpacerVariables.PNG)
+![toolSpacerVariables.png](./media/toolSpacerVariables.PNG)
 

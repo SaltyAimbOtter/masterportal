@@ -35,9 +35,9 @@ This guide describes how to set up the Masterportal on your server and how to co
             - js/
                 - masterportal.js
 
-    The folder *Basic* comes with an example application providing the portal-specific configuration files **[config.js](config.js.md)**, **[config.json](config.json.md)**, and the index.html.
+    The folder *Basic* comes with an example application providing the portal-specific configuration files **[config.js](../User/Portal-Config/config.js.md)**, **[config.json](../User/Portal-Config/config.json.md)**, and the index.html.
 
-    Also contained is the folder *resources* providing the global configuration files **[services.json](services.json.md)**, **[rest-services.json](rest-services.json.md)**, and **[style.json](style.json.md)**, as well as the required images (folder *img*) of this portal instance.
+    Also contained is the folder *resources* providing the global configuration files **[services.json](../User/Global-Config/services.json.md)**, **[rest-services.json](../User/Global-Config/rest-services.json.md)**, and **[style.json](../User/Global-Config/style.json.md)**, as well as the required images (folder *img*) of this portal instance.
 
     The folder *mastercode* contains the compressed JavaScript and CSS files of the Masterportal. Here, the folder *img* holds the compass, loading screen images, the *MapMarker* icon, and svg files used in the draw tool.
 
@@ -52,7 +52,7 @@ By following these steps you can modify the example application to become your c
 
 2. Please subsequently duplicate the folder *Basic* and rename it to your portal name, e.g. *my_portal*.
 
-3. You may now modify the configuration files **[config.js](config.js.md)** and **[config.json](config.json.md)** within this new folder *my_portal*. For example, you may define which layers are to appear in the layer tree, configure the tools required, customize the baselayers, change the display name of the portal, and so on. For all options, please refer to the full documentation of the **[config.js](config.js.md)** and **[config.json](config.json.md)** files.
+3. You may now modify the configuration files **[config.js](../User/Portal-Config/config.js.md)** and **[config.json](../User/Portal-Config/config.json.md)** within this new folder *my_portal*. For example, you may define which layers are to appear in the layer tree, configure the tools required, customize the baselayers, change the display name of the portal, and so on. For all options, please refer to the full documentation of the **[config.js](../User/Portal-Config/config.js.md)** and **[config.json](../User/Portal-Config/config.json.md)** files.
 
 4. Your new portal may now be opened by navigating to the URL:
     - https://[web-server-name]/examples/my_portal/index.html

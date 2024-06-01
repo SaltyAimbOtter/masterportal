@@ -1,5 +1,4 @@
-
-## Tutorial: Ein neues Tool erstellen (Scale-Switcher)
+# Creating a new Tool
 Eine Schritt für Schritt Dokumentation zur Erstellung eines neuen Tools (Moduls).
 
 ### Beispiel Anforderung

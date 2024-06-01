@@ -75,7 +75,6 @@ extra_css:
 extra_javascript:
     - '_docsCustomization/js/copyHeadingLinkToClipboard.js'
 
-
 nav:
     -   Home: index.md
     -   Setup:
@@ -102,18 +101,33 @@ nav:
     -   'Developer Documentation':
             -   'About': Dev/About.md
             -   'Tutorials':
+                    - Dev/Tutorials/02_backbone_tutorial_new_module_scale_switcher.md
                     - Dev/Tutorials/tutorial.md
                     - Dev/Tutorials/addOnsVue.md
                     - Dev/Tutorials/addons_backbone.md
-                    - Dev/Tutorials/02_backbone_tutorial_new_module_scale_switcher.md
             -   'Contributing':
                     - Dev/Contributing/setupDev.md
                     - Dev/Contributing/codingConventions.md
                     - Dev/Contributing/codingConventionsInfo.md
                     - Dev/Contributing/gitWorkflow.md
                     - Dev/Contributing/versioning.md
+            -   'General':
+                    - Dev/fonts.md
+                    - Dev/jsdoc.md
+                    - Dev/sensorThings.md
+                    - Dev/variables.md
+                    - Dev/remoteInterface/remoteInterface.md
+            -   'Vue Components':
+                    - Dev/vueComponents/Alerting.md
+                    - Dev/vueComponents/Alerting_3_0_0.md
+                    - Dev/vueComponents/BasicDragHandle.md
+                    - Dev/vueComponents/BasicResizeHandle.md
+                    - Dev/vueComponents/confirmAction.md
+                    - Dev/vueComponents/GraphicalSelect_3_0_0.md
+                    - Dev/vueComponents/LayerPreview.md
+                    - Dev/vueComponents/layerSelector.md
             -   'Testing':
-                    -   'Unit Tests': Dev/testing/browserTest.md
-                    -   'Backbone': Dev/testing/unittestingBackbone.md
-                    -   'Vue': Dev/testing/unitTestVue.md
+                    -   'Unit Tests': Dev/Testing/browserTest.md
+                    -   'Backbone': Dev/Testing/unittestingBackbone.md
+                    -   'Vue': Dev/Testing/unitTestVue.md
 

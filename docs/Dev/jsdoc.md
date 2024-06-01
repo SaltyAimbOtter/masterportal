@@ -1,5 +1,3 @@
->**[back to Masterportal documentation](doc.md)**
-
 # JsDoc
 
 Create the jsdoc with `npm run buildJsDoc` and open file .../jsdoc/index.html.
@@ -21,7 +19,7 @@ To provide default values in jsdoc, do it like this:
 
 All methods must provide jsdoc, it is shown also in created jsdoc-files.
 
-## Example 
+## Example
 
 ```js
 /**
@@ -43,7 +41,7 @@ The jsdoc should have a module path corresponding to the path in the folder stru
 
 All functions must provide jsdoc, it is shown also in created jsdoc-files.
 
-## Examples 
+## Examples
 ```js
 /**
  * The actions for the draw module.
@@ -73,7 +71,7 @@ The jsdoc should have a module path corresponding to the path in the folder stru
 
 All properties must provide jsdoc.
 
-## Example 
+## Example
 ```js
 /**
  * State of module draw.
@@ -97,7 +95,7 @@ The jsdoc should have a module path corresponding to the path in the folder stru
 
 All functions must provide jsdoc.
 
-## Example 
+## Example
 ```js
 /**
  * Handling of interactions.

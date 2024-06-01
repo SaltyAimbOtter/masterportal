@@ -57,7 +57,7 @@ Configuration of the topic selection tree
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|type|no|enum["auto"]||The topic tree is build in same structure as the [Themenconfig](#markdown-header-Themenconfig). If type `auto` is configured, all layers from the [services.json](services.json.md) are provided in tree, structured by metadata (FHH-Atlas).|false|
+|type|no|enum["auto"]||The topic tree is build in same structure as the [Themenconfig](#markdown-header-Themenconfig). If type `auto` is configured, all layers from the [services.json](../Global-Config/services.json.md) are provided in tree, structured by metadata (FHH-Atlas).|false|
 |validLayerTypesAutoTree|no|enum|["WMS", "SENSORTHINGS", "TERRAIN3D", "TILESET3D", "OBLIQUE"]|Layer types to be used with the type `auto`.|false|
 |layerIDsToIgnore|no|String[]||Array of `services.json` layer ids not to be shown in the layer tree. Only for tree-type `auto`.|false|
 |metaIDsToIgnore|no|String[]||All `services.json` layers listed will not be shown in the layer tree. Only for tree-type `auto`.|false|
@@ -210,7 +210,7 @@ ProxyPass /bkg_suggest http://sg.geodatenzentrum.de/gdz_geokodierung__[UUID]/sug
 |----|--------|----|-------|-----------|------|
 |epsg|no|String|"EPSG:25832"|EPSG code of the coordinate reference system to use.|false|
 |extent|no|**[Extent](#markdown-header-datatypesextent)**|[454591, 5809000, 700000, 6075769]|Coordinate extent in which search algorithms should return.|false|
-|geoSearchServiceId|yes|String||Search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|geoSearchServiceId|yes|String||Search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |minScore|no|Number|0.6|Score defining the minimum quality of search results.|false|
 |resultCount|no|Integer|20|Maximum number of search hits returned by the service.|false|
 
@@ -232,7 +232,7 @@ OpenStreetMap search for city, street, and house number. Only executed on clicki
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|serviceId|yes|String||OSM search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||OSM search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |limit|no|Number|50|Maximum amount of requested unfiltered results.|false|
 |states|no|string|""|May contain federal state names with arbitrary separators. Names may also be used in English depending on whether the data has been added to the free open source project **[OpenStreetMap](https://www.openstreetmap.org)**.|false|
 |classes|no|string|[]|May contain the classes to search for.|false|
@@ -255,7 +255,7 @@ Search with **[Komoot Photon](https://photon.komoot.io/)**.
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
-|serviceId|yes|String||Komoot search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Komoot search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |limit|no|Number||Maximum amount of requested unfiltered results.|false|
 |lang|no|string|"de"|Language of the Komoot Search. Effects language specific locationnames (e.g. Countrynames) aus.|false|
 |lat|no|Number||Latitude of the center for the search.|false|
@@ -282,7 +282,7 @@ Search configuration to use a *ESRI CH LocationFinder*.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|serviceId|yes|String||Service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |classes|no|**[LocationFinderClass](#markdown-header-portalconfigsearchbarlocationfinderLocationFinderClass)**||May contain classes (with properties) to use in searches. If nothing is specified, all classes are considered valid.|false|
 |useProxy|no|Boolean|false|_Deprecated in the next major release. [GDI-DE](https://www.gdi-de.org/en) recommends setting CORS headers on the required services instead of using proxies._ Defines whether a service URL should be requested via proxy. For this, dots in the URL are replaced with underscores.|false|
 |epsg|no|String||Coordinate reference system (EPSG-Code) to use for requests. By default, the value in `Portalconfig.mapView.epsg` is used.|false|
@@ -336,7 +336,7 @@ Gazetteer search service configuration.
 |searchParcels|no|Boolean|false|Defines whether parcels search is active.|false|
 |searchStreetKey|no|Boolean|false|Defines whether streets should be searched for by key.|false|
 |searchStreet|no|Boolean|false|Defines whether street search is active. Precondition to set `searchHouseNumbers` to `true`.|false|
-|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |showGeographicIdentifier|no|Boolean|false|Specifies whether the attribute `geographicIdentifier` should be used to display the search result.|false|
 
 **Example**
@@ -365,7 +365,7 @@ GFI search service configuration.
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |minChars|no|Integer|3|Minimum amount of characters required to start a search.|false|
-|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |sortByName|no|Boolean|false|Defines whether search results are to be sorted alphanumerically.|false|
 |queryObject|yes|**[queryObject](#markdown-header-portalconfigsearchbargdiqueryobject)**||Query object read by the Elasticsearch model.|false|
 
@@ -412,7 +412,7 @@ Elasticsearch service configuration.
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |minChars|no|Integer|3|Minimum amount of characters required to start a search.|false|
-|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Search service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |type|no|enum["POST", "GET"]|"POST"|Request type.|false|
 |searchStringAttribute|no|String|"searchString"|Search string attribute name for `payload` object.|false|
 |responseEntryPath|no|String|""|Response JSON attribute path to found features.|false|
@@ -2493,7 +2493,7 @@ Example request: **https://geodienste.hamburg.de/HH_WFS_DOG?service=WFS&request=
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|serviceId|yes|String||Id of the service to request. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Id of the service to request. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |storedQueryId|yes|String||Id of the stored query to use.|true|
 |configJSON|yes|String||Path to the configuration file holding districts. **[Example file](https://geodienste.hamburg.de/lgv-config/gemarkungen_hh.json)**.|false|
 |parcelDenominator|no|Boolean|false|Flag defining whether parcel denominators are used as a level. (Hamburg special: As a city state, Hamburg has no parcel denominators.)|false|
@@ -2590,7 +2590,7 @@ Print module, configurable for 2 print services: *High Resolution PlotService* a
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|printServiceId|yes|String||Print service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|printServiceId|yes|String||Print service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |printService|no|String|"mapfish"|Flag determining which print service is in use. `plotservice` activates the *High Resolution PlotService*, if the parameter is not set, *Mapfish 3* is used.|false|
 |printAppCapabilities|no|String|"capabilities.json"|path for the configuration of the print service|false|
 |currentLayoutName|no|String|""|Defines which layout is the default layout on opening the print tool, e.g. "A4 portrait format". If the given layout is not available oder none is provided, the first layout mentioned in the Capabilities is used.|false|
@@ -3330,8 +3330,8 @@ The contact form allows users to send messages to a configured mail address.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|serviceId|yes|String||Email service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
-|serviceID|no|String||_Deprecated in the next major release. Please use **serviceId** instead._ Email service id. Resolved using the **[rest-services.json](rest-services.json.md)** file.|false|
+|serviceId|yes|String||Email service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
+|serviceID|no|String||_Deprecated in the next major release. Please use **serviceId** instead._ Email service id. Resolved using the **[rest-services.json](../Global-Config/rest-services.json.md)** file.|false|
 |from|yes|**[email](#markdown-header-portalconfigmenutoolcontactemail)**[]||Email sender. Please mind our **[hints regarding E-Mail safety](#markdown-header-hints-regarding-e-mail-safety)**.|false|
 |to|yes|**[email](#markdown-header-portalconfigmenutoolcontactemail)**[]||Recipient of the E-Mail. Please mind our **[hints regarding E-Mail safety](#markdown-header-hints-regarding-e-mail-safety)**.|false|
 |closeAfterSend|no|Boolean|false|Flag determining if the contact window should be closed after successfully sending a message.|false|
@@ -3957,10 +3957,10 @@ If both are defined `restLayerId` is used.
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
 |gazetteer|no|**[gazetteer](#markdown-header-portalconfigmenutoolwfssearchsearchinstancerequestconfiggazetteer)**||Declares whether the used WFS service is a WFS-G, which needs to be parsed differently.|false|
-|layerId|no|String||Id of the WFS service that should be queried. Information is fetched from **[services.json](services.json.md)**.|false|
+|layerId|no|String||Id of the WFS service that should be queried. Information is fetched from **[services.json](../Global-Config/services.json.md)**.|false|
 |likeFilter|no|**[likeFilter](#markdown-header-portalconfigmenutoolwfssearchsearchinstancerequestconfiglikefilter)**|{"wildCard": "*", "singleChar": "#", "escape": "!"}|The configuration of the service for the like filter.|true|
 |maxFeatures|no|Number/String|8|Maximum amount of features that are supposed to be returned from the service. Alternatively, the String `showAll` can be assigned to `maxFeatures` to load all features.|false|
-|restLayerId|no|String||Id of the WFS service that should be queried. Information is fetched from **[rest-services.json](rest-services.json.md)**.|false|
+|restLayerId|no|String||Id of the WFS service that should be queried. Information is fetched from **[rest-services.json](../Global-Config/rest-services.json.md)**.|false|
 |responseProjection|no|String||The expected projection of the coordinates in the response of the requested service. If it doesn't match the map projection a conversion will happen. |false|
 |storedQueryId|no|String||The id of the Stored Query of the WFS that should be used to query the service. If this field is set, it is assumed that a WFS@2.0.0 is used.|false|
 
@@ -4036,7 +4036,7 @@ Configuration for the suggestions of the user input.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|featureType|no|String||If given, the query will be sent with this featureType instead of the one configured for the service itself. Only usable if the layer was defined in the **[services.json](services.json.md)**.|false|
+|featureType|no|String||If given, the query will be sent with this featureType instead of the one configured for the service itself. Only usable if the layer was defined in the **[services.json](../Global-Config/services.json.md)**.|false|
 |length|no|Number|3|The query is triggered when the length of the input is at least as long as this parameter.|false|
 
 ***
@@ -4046,13 +4046,13 @@ Configuration for the suggestions of the user input.
 [inherits]: # (Portalconfig.menu.tool)
 
 WFS-T module to visualize (*GetFeature*), create (*insert*), update (*update*) and delete (*delete*) features of a Web Feature Service (*WFS*) which is able to receive transactions.
-To use this tool, a WFS-T layer must be provided in version 1.1.0. For more configuration information see **[services.json](services.json.md)**.
+To use this tool, a WFS-T layer must be provided in version 1.1.0. For more configuration information see **[services.json](../Global-Config/services.json.md)**.
 
-When editing properties of a feature / adding properties to a new features, the available values including its label are based on the layers configured `gfiAttributes`. For more information see **[services.json](services.json.md)**.
+When editing properties of a feature / adding properties to a new features, the available values including its label are based on the layers configured `gfiAttributes`. For more information see **[services.json](../Global-Config/services.json.md)**.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|layerIds|yes|String[]||Array of ids of layer defined in **[services.json](services.json.md)**.|false|
+|layerIds|yes|String[]||Array of ids of layer defined in **[services.json](../Global-Config/services.json.md)**.|false|
 |icon|no|String|"bi-globe"|Icon displayed for the tool.|false|
 |name|no|String|"WfsTransaction"|Tool name shown in the portal.|false|
 |layerSelectLabel|no|String|"common:modules.tools.wfsTransaction.layerSelectLabel"| Please set the value directly in the language files._ If given, overrides the value set for the label of the layer select box. May be a locale key.|false|
@@ -5456,17 +5456,17 @@ Group layer definition to de-/activate multiple layers in one click.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|id|yes|String||Internal layer id to reference this layer. The actual services are referenced in the `children` field. Please mind that this id must not collide with any id in the **[services.json](services.json.md)**.|false|
+|id|yes|String||Internal layer id to reference this layer. The actual services are referenced in the `children` field. Please mind that this id must not collide with any id in the **[services.json](../Global-Config/services.json.md)**.|false|
 |children|yes|**[Layer](#markdown-header-themenconfiglayer)**[]||In this array the multiple grouped services are defined.|false|
 |name|no|String||Layer name.|false|
 |transparency|no|Integer|0|Layer transparency.|false|
 |visibility|no|Boolean|false|Layer visibility.|false|
 |supported|no|String[]|["2D", "3D"]|List of modes the layer may be used in.|false|
-|layerAttribution|no|String||**[services.json](services.json.md)** value. HTML string shown when the layer is active.|false|
-|legendURL|no|String||**[services.json](services.json.md)** value. URL used to request the legend graphic.|false|
-|legend|no|Boolean/String||**[services.json](services.json.md)** value. URL used to request the legend graphic. Use `true` to dynamically generate the legend from a WMS request or the styling. If of type string, it's expected to be a path to an image or a PDF file.|false|
-|maxScale|no|String||**[services.json](services.json.md)** value. Maximum scale in which the layer is still shown.|false|
-|minScale|no|String||**[services.json](services.json.md)** value. Minimum scale in which the layer is still shown.|false|
+|layerAttribution|no|String||**[services.json](../Global-Config/services.json.md)** value. HTML string shown when the layer is active.|false|
+|legendURL|no|String||**[services.json](../Global-Config/services.json.md)** value. URL used to request the legend graphic.|false|
+|legend|no|Boolean/String||**[services.json](../Global-Config/services.json.md)** value. URL used to request the legend graphic. Use `true` to dynamically generate the legend from a WMS request or the styling. If of type string, it's expected to be a path to an image or a PDF file.|false|
+|maxScale|no|String||**[services.json](../Global-Config/services.json.md)** value. Maximum scale in which the layer is still shown.|false|
+|minScale|no|String||**[services.json](../Global-Config/services.json.md)** value. Minimum scale in which the layer is still shown.|false|
 |autoRefresh|no|Integer||Automatically reload layer every `autoRefresh` ms. Minimum value is 500.|false|
 |isNeverVisibleInTree|no|Boolean|false|If `true`, the layer is never visible in the topic selection tree.|false|
 |urlIsVisible|no|Boolean|true|Whether the service URL should be shown in the layer information window.|false|
@@ -5498,21 +5498,21 @@ Group layer definition to de-/activate multiple layers in one click.
 [type:Entity3D]: # (Themenconfig.Layer.Entity3D)
 [type:WMS]: # (Themenconfig.Layer.WMS)
 
-Layer definition. Multiple ways to define layers exist. Most attributes are defined in the **[services.json](services.json.md)**, but may be overwritten in the layer definition.
+Layer definition. Multiple ways to define layers exist. Most attributes are defined in the **[services.json](../Global-Config/services.json.md)**, but may be overwritten in the layer definition.
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|id|yes|String/String[]||Layer ID(s). Resolved using the **[services.json](services.json.md)** file. Please mind that the given IDs **MUST** refer to the same URL, that is, use the same service. When configuring an array of IDs, setting `minScale` and `maxScale` of each layer is required to be in the `services.json`. With the special character `.` as suffix, a LayerId can be used multiple times. Each LayerId marked with a suffix creates its own entry in the topic tree.|false|
+|id|yes|String/String[]||Layer ID(s). Resolved using the **[services.json](../Global-Config/services.json.md)** file. Please mind that the given IDs **MUST** refer to the same URL, that is, use the same service. When configuring an array of IDs, setting `minScale` and `maxScale` of each layer is required to be in the `services.json`. With the special character `.` as suffix, a LayerId can be used multiple times. Each LayerId marked with a suffix creates its own entry in the topic tree.|false|
 |name|no|String||Layer name.|false|
 |entities|yes|**[Entity3D](#markdown-header-themenconfiglayerentity3d)**[]||Models to be shown.|false|
 |transparency|no|Integer|0|Layer transparency.|false|
 |visibility|no|Boolean|false|Layer visibility.|false|
 |supported|no|String[]|["2D", "3D"]|List of modes the layer may be used in.|false|
-|layerAttribution|no|String||**[services.json](services.json.md)** value. HTML string shown when the layer is active.|false|
-|legendURL|no|String||**[services.json](services.json.md)** value. URL used to request the legend graphic.|false|
-|legend|no|Boolean/String||**[services.json](services.json.md)** value. URL used to request the legend graphic. Use `true` to dynamically generate the legend from a WMS request or the styling. If of type string, it's expected to be a path to an image or a PDF file.|false|
-|maxScale|no|String||**[services.json](services.json.md)** value. Maximum scale in which the layer is still shown.|false|
-|minScale|no|String||**[services.json](services.json.md)** value. Minimum scale in which the layer is still shown.|false|
+|layerAttribution|no|String||**[services.json](../Global-Config/services.json.md)** value. HTML string shown when the layer is active.|false|
+|legendURL|no|String||**[services.json](../Global-Config/services.json.md)** value. URL used to request the legend graphic.|false|
+|legend|no|Boolean/String||**[services.json](../Global-Config/services.json.md)** value. URL used to request the legend graphic. Use `true` to dynamically generate the legend from a WMS request or the styling. If of type string, it's expected to be a path to an image or a PDF file.|false|
+|maxScale|no|String||**[services.json](../Global-Config/services.json.md)** value. Maximum scale in which the layer is still shown.|false|
+|minScale|no|String||**[services.json](../Global-Config/services.json.md)** value. Minimum scale in which the layer is still shown.|false|
 |autoRefresh|no|Integer||Automatically reload layer every `autoRefresh` ms. Minimum value is 500.|false|
 |isNeverVisibleInTree|no|Boolean|false|If `true`, the layer is never visible in the topic selection tree.|false|
 |urlIsVisible|no|Boolean|true|Whether the service URL should be shown in the layer information window.|false|

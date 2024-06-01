@@ -6,7 +6,7 @@ As developer, you're motivated to write your code not only fully functional, but
 
 To decide as objectively as possible whether your code will pass its pull request, we're using a linter and defined a set of function.
 
-For the linter, we use **[ESLint](https://eslint.org/)**, with its configuration file **[.eslintrc](../.eslintrc)** included in the repository. On each push, the linter and unit tests will run automatically. Should an error occur, the push is prevented.
+For the linter, we use **[ESLint](https://eslint.org/)**, with its configuration file **.eslintrc** located in the root folder of the repository. On each push, the linter and unit tests will run automatically. Should an error occur, the push is prevented.
 
 Our conventions are divided into two parts. Any violation of a section A convention does result in a pull request declined. Section B covers guidelines. Compliance with those improve the reusability and maintainability of the code. While not mandatory, please consider following these rules, too.
 
@@ -33,7 +33,7 @@ All the following rules must hold.
 * A.2.2 No methods of *Underscore.js* are in use, except for calls to `_.template()`.
 * A.2.3 No redundant packages are installed.
 * A.2.4 JQuery is only to be used in combination with Backbone.js.
-* A.2.5 The addition of packages/libraries has to be agreed on by the *LGV* team. At least 3 libs need to be evaluated before decisions can be made. Use a form from **[library evalutaion](./library evaluation/)** and add to PR.
+* A.2.5 The addition of packages/libraries has to be agreed on by the *LGV* team. At least 3 libs need to be evaluated before decisions can be made. Use a form from **[library evalutaion](./library_evaluation/Library_Evaluation.pdf)** and add to PR.
 
 ---
 

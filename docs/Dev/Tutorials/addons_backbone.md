@@ -1,4 +1,4 @@
-# backbone Addons #
+# Backbone Addons
 
 ACHTUNG: das masterportal wird vom Backbone nach Vue.js migriert. Daher ist es ratsam neue addons in vue.js zu schreiben, um die später notwendige Migrierung zu vermeiden! [Vue Addons]()
 
