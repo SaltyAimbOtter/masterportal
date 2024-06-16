@@ -93,6 +93,8 @@ nav:
                     -   'config.json 3.0': User/Portal-Config/config_3_0_0.json.md
                     -   'config.json 3.0 DE': User/Portal-Config/config_3_0_0.json.de.md
             -   'Misc':
+                    - User/Misc/migrateConfigv2Tov3.md
+                    - User/Misc/migrateConfigv2Tov3.de.md
                     - User/Misc/languages.md
                     - User/Misc/quickHelp.md
                     -   'URL Parameters': User/Misc/urlParameter.md

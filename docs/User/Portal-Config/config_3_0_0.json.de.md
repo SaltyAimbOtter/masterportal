@@ -886,7 +886,7 @@ Mit verschiedenen Parametern wird die Startansicht der Karte konfiguriert und de
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
-|interactionModes|nein|**[interactionModes](#portalconfigmapmapviewinteractionmodes)**|{"dragPan": false, "altShiftDragRotate": false, "pinchRotate": false}| Interaktionseinstellungen für die ol Standardinteraktionen. Wenn nicht gesetzt, wird die Standardeinstellung verwendet.|false|
+|interactionModes|nein|**[interactionModes](#portalconfigmapmapviewmapinteractions)**|{"dragPan": false, "altShiftDragRotate": false, "pinchRotate": false}| Interaktionseinstellungen für die ol Standardinteraktionen. Wenn nicht gesetzt, wird die Standardeinstellung verwendet.|false|
 |keyboardEventTarget|nein|Boolean|false|Möglichkeit, das Tastaturereignisziel für die ol-Map zu setzen z.B. keyboardEventTarget: document|false|
 
 **Beispiel:**
@@ -1626,7 +1626,7 @@ Module lassen sich in Abschnitte (Sections) unterteilen. Im Menü werden Abschni
 |scaleSwitcher|nein|**[scaleSwitcher](#portalconfigmenusectionsmodulesscaleswitcher)**||Modul zum Ändern des aktuellen Maßstabs der Karte.|false|
 |selectFeatures|nein|**[selectFeatures](#portalconfigmenusectionsmodulesselectfeatures)**||Ermöglicht Auswahl von Features durch Ziehen einer Box und Einsehen derer GFI-Attribute.|false|
 |shadow|nein|**[shadow](#portalconfigmenusectionsmodulesshadow)**||Konfigurationsobjekt für die Schattenzeit im 3D-Modus.|false|
-|statisticDashboard|no|**[statisticDashboard](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboard)**||Werkzeug zur Anzeige von statistischen Daten.|false|
+|statisticDashboard|no|**[statisticDashboard](#portalconfigmenusectionsmodulesstatisticdashboard)**||Werkzeug zur Anzeige von statistischen Daten.|false|
 |shareView|nein|**[shareView](#portalconfigmenusectionsmodulesshareview)**||Modul, um einen Link zur aktuellen Karten-Ansicht zu teilen.|false|
 |styleVT|nein|**[styleVT](#portalconfigmenusectionsmodulesstylevt)**||Style-Auswahl zu VT-Diensten. Ermöglicht das Umschalten des Stylings eines Vector Tile Layers, wenn in der services.json mehrere Styles für ihn eingetragen sind.|false|
 |wfst|nein|**[wfst](#portalconfigmenusectionsmoduleswfst)**||WFS-T Modul mit dem Features visualisiert, erstellt, aktualisiert und gelöscht werden können.|false|
@@ -3096,7 +3096,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-##### portalConfig.menu.sections.modules.statisticDashboard
+###### portalConfig.menu.sections.modules.statisticDashboard {data-toc-label='Statistic Dashboard'}
 
 [inherits]: # (portalConfig.menu.sections.modules)
 
@@ -3105,9 +3105,9 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 |name|ja|String|"translate#common:menu.statisticDashboard"|Der Name des StatisticDashboard Werkzeug.|false|
 |subtitle|nein|String|"common:modules.statisticDashboard.headings.mrhstatistics"|Der Untertitle zu zeigen|false|
 |icon|nein|String|"bi-speedometer"|Das Icon des Tools.|false|
-|colorScheme|ja|**[colorScheme](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardcolorScheme)**|""|Definiert die Farben der Features in statisticdashboard.|false|
+|colorScheme|ja|**[colorScheme](#portalconfigmenusectionsmodulesstatisticdashboardcolorscheme)**|""|Definiert die Farben der Features in statisticdashboard.|false|
 |active|nein|Boolean|false|Wenn `true`, wird das Tool nach der Initialisierung des Portals geöffnet.|false|
-|data|ja|**[data](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddata)**|""|Daten für das statistic Dashboard Werkzeug.|false|
+|data|ja|**[data](#portalconfigmenusectionsmodulesstatisticdashboarddata)**|""|Daten für das statistic Dashboard Werkzeug.|false|
 
 **Beispiel**
 
@@ -3177,7 +3177,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.colorScheme
+###### portalConfig.menu.sections.modules.statisticDashboard.colorScheme {data-toc-label='Color Scheme'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -3200,15 +3200,15 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data
+###### portalConfig.menu.sections.modules.statisticDashboard.data {data-toc-label='Data'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|------|------------|------|
 |layerId|ja|String|""|Die ID des Layers.|false|
 |geometryAttribute|ja|String|""|Typ des Geometrieattributs.|false|
 |chartDirectionValue|nein|String|""|Gibt die Anzahl an, ab der die Balken im Diagramm von vertikal zu horizontal wechseln.|false|
-|timeStepsFilter|yes|**[timeStepsFilter](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddatatimeStepsFilter)**|""|Ein Objekt welches aus Schlüsseln und Werten besteht bei denen der Schlüssel die Anzahl an Zeitgruppierungen und der Wert die Beschreibung für die Gruppierung beinhaltet.|false|
-|mappingFilter|ja|**[mappingFilter](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddatamappingFilter)**|""|Dieses Objekt beinhaltet Attribute, die dazu dienen die Filter mit den Werten zu befüllen.|false|
+|timeStepsFilter|yes|**[timeStepsFilter](#portalconfigmenusectionsmodulesstatisticdashboarddatatimestepsfilter)**|""|Ein Objekt welches aus Schlüsseln und Werten besteht bei denen der Schlüssel die Anzahl an Zeitgruppierungen und der Wert die Beschreibung für die Gruppierung beinhaltet.|false|
+|mappingFilter|ja|**[mappingFilter](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilter)**|""|Dieses Objekt beinhaltet Attribute, die dazu dienen die Filter mit den Werten zu befüllen.|false|
 
 **Beispiel**
 
@@ -3265,7 +3265,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data.timeStepsFilter
+###### portalConfig.menu.sections.modules.statisticDashboard.data.timeStepsFilter {data-toc-label='Time Steps Filter'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -3284,13 +3284,13 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter
+###### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter {data-toc-label='Mapping Filter'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
-|timeAttribute|ja|**[timeAttribute](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFiltertimeAttribute)**|""|Dieses Objekt beinhaltet das Attribut für die Zeit-Filter.|false|
-|regionNameAttribute|ja|**[regionNameAttribute](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFilterregionNameAttribute)**|""|Dieses Objekt beinhaltet das Attribut für den Namen der Region.|false|
-|statisticsAttributes|ja|**[statisticsAttributes](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFilterstatisticsAttributes)**|""|Dieses Objekt beinhaltet attribute, die dazu dienen die Karte nach deren Werten zu filtern.|false|
+|timeAttribute|ja|**[timeAttribute](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfiltertimeattribute)**|""|Dieses Objekt beinhaltet das Attribut für die Zeit-Filter.|false|
+|regionNameAttribute|ja|**[regionNameAttribute](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilterregionnameattribute)**|""|Dieses Objekt beinhaltet das Attribut für den Namen der Region.|false|
+|statisticsAttributes|ja|**[statisticsAttributes](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilterstatisticsattributes)**|""|Dieses Objekt beinhaltet attribute, die dazu dienen die Karte nach deren Werten zu filtern.|false|
 
 **Beispiel**
 
@@ -3337,7 +3337,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.timeAttribute
+###### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.timeAttribute {data-toc-label='Time Attribute'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -3359,7 +3359,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.regionNameAttribute
+###### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.regionNameAttribute {data-toc-label='Region Name Attribute'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -3377,7 +3377,7 @@ Das ShadowTool bietet eine Oberfläche zur Definition einer Zeitangabe. Über Sl
 
 ***
 
-#### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.statisticsAttributes
+###### portalConfig.menu.sections.modules.statisticDashboard.data.mappingFilter.statisticsAttributes {data-toc-label='Statistics Attributes'}
 
 |Name|Verpflichtend|Typ|Default|Beschreibung|Expert|
 |----|-------------|---|-------|------------|------|
@@ -3604,7 +3604,7 @@ Beim Bearbeiten eines Features / Hinzufügen von Attributen zu einem neuen Featu
 |showConfirmModal|nein|Boolean|false|Kennzeichen, ob ein modaler Dialog angezeigt werden soll.|false|
 |toggleLayer|nein|Boolean|false|Legt fest, ob die Feature des ausgewählten Layers weiterhin angezeigt werden sollen, wenn neue Feature hinzugefügt werden.|false|
 |type|nein|String|"wfst"|Der type des Moduls. Definiert welches Modul konfiguriert ist.|false|
-|update|nein|[TransactionConfig](#markdown-header-portalconfigmenutoolwfsttransactiontransactionconfig)/Boolean|false|Legt fest, welche der zu `layerIds` zugehörigen Layer das Bearbeiten von Geometrien erlauben.|false|
+|update|nein|[TransactionConfig](#portalconfigmenusectionsmoduleswfsttransactionconfig)/Boolean|false|Legt fest, welche der zu `layerIds` zugehörigen Layer das Bearbeiten von Geometrien erlauben.|false|
 
 **Beispiel**
 
@@ -4102,8 +4102,8 @@ Neben diesen Attributen gibt es auch Typ-spezifische Attribute für die verschie
 |----|-------------|---|-------|------------|------|
 |autoRefresh|nein|Integer||Automatischer Reload des Layers. Angabe in ms. Minimum ist 500.|false|
 |id|ja|String/String[]||Id des Layers. In der **[services.json](../Global-Config/services.json.md)** werden die ids aufgelöst und die notwendigen Informationen herangezogen. Bei Konfiguration eines Arrays von Ids wird ein Gruppenlayer erzeugt **[Group](#layerconfigelementslayersgroup)**|false|
-|capabilitiesUrl|nein|String||Wert aus **[services.json](../Global-Config/services.json.de.md)**. Capabilities URL des Dienstes|false
-|fitCapabilitiesExtent|nein|Boolean|false|Wert aus **[services.json](../Global-Config/services.json.de.md)**. Bei Aktivierung dieser Option und Vorhandensein einer Capabilities URL in der Konfiguration, passt die Anwendung die Kartenausdehnung automatisch an die Bounding-Box-Informationen an, die sie aus der GetCapabilities-Anfrage erhält."|false|
+|capabilitiesUrl|nein|String||Wert aus **[services.json](../Global-Config/services.json.md)**. Capabilities URL des Dienstes|false
+|fitCapabilitiesExtent|nein|Boolean|false|Wert aus **[services.json](../Global-Config/services.json.md)**. Bei Aktivierung dieser Option und Vorhandensein einer Capabilities URL in der Konfiguration, passt die Anwendung die Kartenausdehnung automatisch an die Bounding-Box-Informationen an, die sie aus der GetCapabilities-Anfrage erhält."|false|
 |isPointLayer|nein|Boolean|false|Anzeige, ob der (Vektor)-Layer nur aus Punkt-Features besteht (nur relevant für WebGL Rendering))|false|
 |name|nein|String||Name des Layers.|false|
 |preview|nein|**[preview](#layerconfigelementslayerspreview)**||Vorschau für baselayer vom Typ WMS, WMTS und VectorTile. WMS und WMTS: bei keiner Angabe, wird ein zentrierter Kartenausschnitt geladen.|false|

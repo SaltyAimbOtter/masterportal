@@ -884,7 +884,7 @@ Overrides the ol map interactions. Provides further configuration possibilities 
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|interactionModes|no|**[interactionModes](#portalconfigmapmapviewmapinteractionsmodes)**|{"dragPan": false, "altShiftDragRotate": false, "pinchRotate": false}| Interaction settings for the ol default interactions. If not set, the default setting is used.|false|
+|interactionModes|no|**[interactionModes](#portalconfigmapmapviewmapinteractionsinteractionmodes)**|{"dragPan": false, "altShiftDragRotate": false, "pinchRotate": false}| Interaction settings for the ol default interactions. If not set, the default setting is used.|false|
 |keyboardEventTarget|no|Boolean|false|Possibility to set the keyboard event target for the ol map e.g keyboardEventTarget: document|false|
 
 **Example:**
@@ -1624,7 +1624,7 @@ Modules can be divided into sections. In the menu, sections are divided with a h
 |scaleSwitcher|no|**[scaleSwitcher](#portalconfigmenusectionsmodulesscaleswitcher)**||Module that allows changing the map's current scale.|false|
 |selectFeatures|no|**[selectFeatures](#portalconfigmenusectionsmodulesselectfeatures)**||Allows selecting a set of vector features by letting the user draw a box on the map. Features in that box will be displayed with GFI information.|false|
 |shadow|no|**[shadow](#portalconfigmenusectionsmodulesshadow)**||Configuration object for the 3D mode shadow time.|false|
-|statisticDashboard|no|**[statisticDashboard](#portalconfigmenusectionsmodulesstatisticDashboard)**||Displaying statistical data.|false|
+|statisticDashboard|no|**[statisticDashboard](#portalconfigmenusectionsmodulesstatisticdashboard)**||Displaying statistical data.|false|
 |shareView|no|**[shareView](#portalconfigmenusectionsmodulesshareview)**||Module to share a link to the current map view.|false|
 |styleVT|no|**[styleVT](#portalconfigmenusectionsmodulesstylevt)**||Style selection for VT services. Allows switching between styles of a Vector Tile Layer that provides multiple stylings via the `services.json` file.|false|
 |wfst|no|**[wfst](#portalconfigmenusectionsmoduleswfst)**||WFS-T module to visualize, create, update and delete features.|false|
@@ -3103,9 +3103,9 @@ The shadow tool provides a UI element to define a point in time by using sliders
 |name|yes|String|"translate#common:menu.statisticDashboard"|The Name of the Tool.|false|
 |subtitle|no|String|"common:modules.statisticDashboard.headings.mrhstatistics"|The subtitle to display|false|
 |icon|no|String|"bi-speedometer"|The icon of the Tool|false|
-|colorScheme|yes|**[colorScheme](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardcolorScheme)**|""|Defines the colours of the features in statisticdashboard.|false|
+|colorScheme|yes|**[colorScheme](#portalconfigmenusectionsmodulesstatisticdashboardcolorscheme)**|""|Defines the colours of the features in statisticdashboard.|false|
 |active|no|Boolean|false|If `true`, the tool is open after initializing the portal.|false|
-|data|yes|**[data](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddata)**|""|data for statistic dashboard.|false|
+|data|yes|**[data](#portalconfigmenusectionsmodulesstatisticdashboarddata)**|""|data for statistic dashboard.|false|
 
 **Example**
 
@@ -3205,8 +3205,8 @@ The shadow tool provides a UI element to define a point in time by using sliders
 |layerId|yes|String|""|The id of the Layer.|false|
 |geometryAttribute|yes|String|""|Type of the geometry attribute.|false|
 |chartDirectionValue|no|String|""|Specifies the number above which the bars in the chart will be switched from vertical to horizontal.|false|
-|timeStepsFilter|yes|**[timeStepsFilter](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddatatimeStepsFilter)**|""|An object consisting of keys and values where the key contains the number of time groupings and the value contains the description for the grouping.|false|
-|mappingFilter|yes|**[mappingFilter](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboarddatamappingFilter)**|""|This object contains attributes used to filter the map by its values.|false|
+|timeStepsFilter|yes|**[timeStepsFilter](#portalconfigmenusectionsmodulesstatisticdashboarddatatimestepsfilter)**|""|An object consisting of keys and values where the key contains the number of time groupings and the value contains the description for the grouping.|false|
+|mappingFilter|yes|**[mappingFilter](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilter)**|""|This object contains attributes used to filter the map by its values.|false|
 
 **Example**
 
@@ -3286,9 +3286,9 @@ The shadow tool provides a UI element to define a point in time by using sliders
 
 |Name|Required|Type|Default|Description|Expert|
 |----|--------|----|-------|-----------|------|
-|timeAttribute|yes|**[timeAttribute](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFiltertimeAttribute)**|""|The attribute for the time filter.|false|
-|regionNameAttribute|yes|**[regionNameAttribute](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFilterregionNameAttribute)**|""|The attribute for the name of the region.|false|
-|statisticsAttributes|yes|**[statisticsAttributes](#markdown-header-portalconfigmenusectionsmodulesstatisticDashboardmappingFilterstatisticsAttributes)**|""|Attributes used to filter the map by its values.|false|
+|timeAttribute|yes|**[timeAttribute](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfiltertimeattribute)**|""|The attribute for the time filter.|false|
+|regionNameAttribute|yes|**[regionNameAttribute](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilterregionnameattribute)**|""|The attribute for the name of the region.|false|
+|statisticsAttributes|yes|**[statisticsAttributes](#portalconfigmenusectionsmodulesstatisticdashboarddatamappingfilterstatisticsattributes)**|""|Attributes used to filter the map by its values.|false|
 
 **Example**
 
