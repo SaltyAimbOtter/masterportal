@@ -63,7 +63,7 @@ export default {
 
 ## Register the *ScaleSwitcher* component
 
-Open `src_3_0_0\modules\modules-store\gettersModules.js`, import the *ScaleSwitcher* and add it to the component map. This initializes the component and loads the *ScaleSwitcher* configuration from the `config.json`, making it available in its state. The paths `configJson.Portalconfig.mainMenu.sections.scaleSwitcher` and `configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher` will be searched for *ScaleSwitcher* configuration. See the [config.json documentation](../../User/Portal-Config/config_3_0_0.json.md).
+Open `src_3_0_0\modules\modules-store\gettersModules.js`, import the *ScaleSwitcher* and add it to the component map. This initializes the component and loads the *ScaleSwitcher* configuration from the `config.json`, making it available in its state. The paths `configJson.Portalconfig.mainMenu.sections.scaleSwitcher` and `configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher` will be searched for *ScaleSwitcher* configuration. See the [config.json documentation](../../User/Portal-Config/config.json.md).
 
 **Example gettersModules.js**
 ```js

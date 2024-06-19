@@ -39,8 +39,10 @@ store.dispatch("Alerting/addSingleAlert", {
 
 |Name|Required|Type|Default|Description|
 |----|--------|----|-------|-----------|
+|title|no|String|""|Title of an alert.|
 |category|no|String|"Info"|Header text and, at the same time, reference value for grouping alerts of the same *category*.|
 |confirmText|no|String|"mark as read"|Text of a clickable link to indicate the alert has been read. Only required when `mustBeConfirmed` is set to `true`.|
+|reConfirmText|no|String|"show this message again"|Text for showing the alert again.|
 |content|yes|String|""|Message. May contain HTML.|
 |displayFrom|no|Boolean/String|false|Time from which the alert may be displayed. When set to `false`, no limitation is applied. Format: "YYYY-MM-DD HH-II-SS"|
 |displayUntil|no|Boolean/String|false|Time to which the alert may be displayed. When set to `false`, no limitation is applied. Format: "YYYY-MM-DD HH-II-SS"|

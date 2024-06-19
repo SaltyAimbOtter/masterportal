@@ -22,7 +22,7 @@ The *style.json*'s path is defined in the **[config.js](../Portal-Config/config.
 
 ## Layer connection
 
-Within the **[config.json](../Portal-Config/config.js.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#structure).
+Within the **[config.json](../Portal-Config/config.json.md)** section *Themenconfig.Layer.Vector* the portal's layers are defined. This includes setting the obligatory *styleId* for vector layers. The *styleId* references a *style.json*'s entry holding the very same *styleId*. See [Structure](#structure).
 
 >💡 Hint: Incorrect style ids do not provoke a run-time error. A warning is logged to the console to inform administrators of the erroneous configuration. Portal users will only notice that the misconfigured layer has the OpenLayers default vector styling.
 
@@ -325,7 +325,7 @@ Styling depends on the *GeometryType* of a *Feature*. All *MultiGeometry* featur
 
 >💡 Hint: *MultiGeometries* defined within a *GeometryCollection* (doubly nested) can currently not be styled.
 
-The *GeometryType* is determined by calling the *DescribeFeatureTypes* service of a WFS layer. In some cases, the type *"Geometry"* is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the [config.json's styleGeometryType parameter](../Portal-Config/config.json.md#themenconfiglayervector) of each layer.
+The *GeometryType* is determined by calling the *DescribeFeatureTypes* service of a WFS layer. In some cases, the type *"Geometry"* is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the [config.json's styleGeometryType parameter](../Portal-Config/config.json.md#layerconfigelementslayersvector) of each layer.
 
 Styling is based on the feature's *GeometryType*. For each type, default display rules are applied that may be overwritten by *style* entries.
 
