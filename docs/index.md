@@ -5,4 +5,4 @@ It is based on the Open Source JavaScript library [OpenLayers](https://openlayer
 The Masterportal is developed under the MIT License by a group of public authorities in Germany. Visit [masterportal.org](https://masterportal.org) for more information.
 
 The map below is a demo of the Masterportal. Members of the Masterportal community are highlighted.
-<iframe width="100%" height="700px" src="https://gisdemo.dp.dsecurecloud.de/PM-MP/Basic/#" class=""></iframe>
+<iframe width="100%" height="900px" src="https://gisdemo.dp.dsecurecloud.de/PM-MP/Basic/#" class=""></iframe>
