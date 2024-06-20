@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../02_backbone_tutorial_new_module_scale_switcher/">
+        <link rel="prev" href="../../About/">
       
       
         <link rel="next" href="../addOnsVue/">
@@ -665,27 +665,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.js/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.js 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../User/Portal-Config/config.json/" class="md-nav__link">
         
   
@@ -712,48 +691,6 @@
   
   <span class="md-ellipsis">
     config.json DE
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.json/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.json.de/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0 DE
   </span>
   
 
@@ -1136,27 +1073,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../02_backbone_tutorial_new_module_scale_switcher/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating a new Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1385,27 +1301,6 @@
   
   <span class="md-ellipsis">
     Vue.js Add-ons
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../addons_backbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone Addons
   </span>
   
 
@@ -1806,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vueComponents/Alerting_3_0_0/" class="md-nav__link">
+      <a href="../../vueComponents/Alerting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vueComponents/GraphicalSelect_3_0_0/" class="md-nav__link">
+      <a href="../../vueComponents/GraphicalSelect/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2009,27 +1904,6 @@
   
   <span class="md-ellipsis">
     Unit Tests
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Testing/unittestingBackbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone
   </span>
   
 
@@ -2336,7 +2210,7 @@
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>&lt;/style&gt;
 </span></code></pre></div>
 <h2 id="register-the-scaleswitcher-component">Register the <em>ScaleSwitcher</em> component<a class="headerlink" href="#register-the-scaleswitcher-component" title="Copy heading link to clipboard">🔗</a></h2>
-<p>Open <code>src_3_0_0\modules\modules-store\gettersModules.js</code>, import the <em>ScaleSwitcher</em> and add it to the component map. This initializes the component and loads the <em>ScaleSwitcher</em> configuration from the <code>config.json</code>, making it available in its state. The paths <code>configJson.Portalconfig.mainMenu.sections.scaleSwitcher</code> and <code>configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher</code> will be searched for <em>ScaleSwitcher</em> configuration. See the <a href="../../../User/Portal-Config/config_3_0_0.json/">config.json documentation</a>.</p>
+<p>Open <code>src_3_0_0\modules\modules-store\gettersModules.js</code>, import the <em>ScaleSwitcher</em> and add it to the component map. This initializes the component and loads the <em>ScaleSwitcher</em> configuration from the <code>config.json</code>, making it available in its state. The paths <code>configJson.Portalconfig.mainMenu.sections.scaleSwitcher</code> and <code>configJson.Portalconfig.secondaryMenu.sections.scaleSwitcher</code> will be searched for <em>ScaleSwitcher</em> configuration. See the <a href="../../../User/Portal-Config/config.json/">config.json documentation</a>.</p>
 <p><strong>Example gettersModules.js</strong>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">ScaleSwitcher</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./scaleSwitcher/components/ScaleSwitcher.vue&quot;</span><span class="p">;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// ... import more tools</span>

@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../../remoteInterface/remoteInterface/">
+        <link rel="prev" href="./">
       
       
-        <link rel="next" href="../Alerting_3_0_0/">
+        <link rel="next" href="../BasicDragHandle/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -665,27 +665,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.js/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.js 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../User/Portal-Config/config.json/" class="md-nav__link">
         
   
@@ -712,48 +691,6 @@
   
   <span class="md-ellipsis">
     config.json DE
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.json/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../User/Portal-Config/config_3_0_0.json.de/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0 DE
   </span>
   
 
@@ -1137,27 +1074,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tutorials/02_backbone_tutorial_new_module_scale_switcher/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating a new Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Tutorials/tutorial/" class="md-nav__link">
         
   
@@ -1184,27 +1100,6 @@
   
   <span class="md-ellipsis">
     Vue.js Add-ons
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Tutorials/addons_backbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone Addons
   </span>
   
 
@@ -1662,10 +1557,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Alerting_3_0_0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    The Alerting module
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1674,6 +1589,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-for-alert-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters for alert creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initially-loading-an-alerting-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initially loading an Alerting configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1749,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GraphicalSelect_3_0_0/" class="md-nav__link">
+      <a href="../GraphicalSelect/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1868,27 +1821,6 @@
   
   <span class="md-ellipsis">
     Unit Tests
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Testing/unittestingBackbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone
   </span>
   
 
@@ -2042,6 +1974,13 @@
 </thead>
 <tbody>
 <tr>
+<td>title</td>
+<td>no</td>
+<td>String</td>
+<td>""</td>
+<td>Title of an alert.</td>
+</tr>
+<tr>
 <td>category</td>
 <td>no</td>
 <td>String</td>
@@ -2054,6 +1993,13 @@
 <td>String</td>
 <td>"mark as read"</td>
 <td>Text of a clickable link to indicate the alert has been read. Only required when <code>mustBeConfirmed</code> is set to <code>true</code>.</td>
+</tr>
+<tr>
+<td>reConfirmText</td>
+<td>no</td>
+<td>String</td>
+<td>"show this message again"</td>
+<td>Text for showing the alert again.</td>
 </tr>
 <tr>
 <td>content</td>

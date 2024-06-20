@@ -1072,27 +1072,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Portal-Config/config_3_0_0.js/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.js 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Portal-Config/config.json/" class="md-nav__link">
         
   
@@ -1119,48 +1098,6 @@
   
   <span class="md-ellipsis">
     config.json DE
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Portal-Config/config_3_0_0.json/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Portal-Config/config_3_0_0.json.de/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    config.json 3.0 DE
   </span>
   
 
@@ -1542,27 +1479,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Dev/Tutorials/02_backbone_tutorial_new_module_scale_switcher/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating a new Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Dev/Tutorials/tutorial/" class="md-nav__link">
         
   
@@ -1589,27 +1505,6 @@
   
   <span class="md-ellipsis">
     Vue.js Add-ons
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Dev/Tutorials/addons_backbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone Addons
   </span>
   
 
@@ -2001,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Dev/vueComponents/Alerting_3_0_0/" class="md-nav__link">
+      <a href="../../../Dev/vueComponents/Alerting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2085,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Dev/vueComponents/GraphicalSelect_3_0_0/" class="md-nav__link">
+      <a href="../../../Dev/vueComponents/GraphicalSelect/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2201,27 +2096,6 @@
   
   <span class="md-ellipsis">
     Unit Tests
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Dev/Testing/unittestingBackbone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backbone
   </span>
   
 
@@ -2688,7 +2562,7 @@
 <p>💡 Hint: Incorrect path information is reported with an error message.</p>
 </blockquote>
 <h2 id="layer-connection">Layer connection<a class="headerlink" href="#layer-connection" title="Copy heading link to clipboard">🔗</a></h2>
-<p>Within the <strong><a href="../../Portal-Config/config.js/">config.json</a></strong> section <em>Themenconfig.Layer.Vector</em> the portal's layers are defined. This includes setting the obligatory <em>styleId</em> for vector layers. The <em>styleId</em> references a <em>style.json</em>'s entry holding the very same <em>styleId</em>. See <a href="#structure">Structure</a>.</p>
+<p>Within the <strong><a href="../../Portal-Config/config.json/">config.json</a></strong> section <em>Themenconfig.Layer.Vector</em> the portal's layers are defined. This includes setting the obligatory <em>styleId</em> for vector layers. The <em>styleId</em> references a <em>style.json</em>'s entry holding the very same <em>styleId</em>. See <a href="#structure">Structure</a>.</p>
 <blockquote>
 <p>💡 Hint: Incorrect style ids do not provoke a run-time error. A warning is logged to the console to inform administrators of the erroneous configuration. Portal users will only notice that the misconfigured layer has the OpenLayers default vector styling.</p>
 </blockquote>
@@ -3032,7 +2906,7 @@
 <blockquote>
 <p>💡 Hint: <em>MultiGeometries</em> defined within a <em>GeometryCollection</em> (doubly nested) can currently not be styled.</p>
 </blockquote>
-<p>The <em>GeometryType</em> is determined by calling the <em>DescribeFeatureTypes</em> service of a WFS layer. In some cases, the type <em>"Geometry"</em> is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the <a href="../../Portal-Config/config.json/#themenconfiglayervector">config.json's styleGeometryType parameter</a> of each layer.</p>
+<p>The <em>GeometryType</em> is determined by calling the <em>DescribeFeatureTypes</em> service of a WFS layer. In some cases, the type <em>"Geometry"</em> is returned, which leads to the creation of styles for LineString, Point, and Polygon. You may override this behaviour on the <a href="../../Portal-Config/config.json/#layerconfigelementslayersvector">config.json's styleGeometryType parameter</a> of each layer.</p>
 <p>Styling is based on the feature's <em>GeometryType</em>. For each type, default display rules are applied that may be overwritten by <em>style</em> entries.</p>
 <blockquote>
 <p>This allows styling multiple <em>GeometryTypes</em> (Point, Linestring, Polygon, ...) within a <em>style</em> by adding display rules.</p>
