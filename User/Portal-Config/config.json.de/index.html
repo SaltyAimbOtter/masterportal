@@ -9178,6 +9178,14 @@ folgende Anfrage mit einer xml FeatureCollection beantworten. Die Features der C
 <td>false</td>
 </tr>
 <tr>
+<td>compareMaps</td>
+<td>nein</td>
+<td><strong><a href="#portalconfigmenusectionsmodulescomparemaps">compareMaps</a></strong></td>
+<td></td>
+<td>Dieses Tool ermöglicht es Benutzern, zwei Layer nebeneinander mit einem Layer-Swiper zu vergleichen.</td>
+<td>false</td>
+</tr>
+<tr>
 <td>coordToolkit</td>
 <td>nein</td>
 <td><strong><a href="#portalconfigmenusectionsmodulescoordtoolkit">coordToolkit</a></strong></td>
@@ -10008,7 +10016,7 @@ Vor der ungeprüften Übernahme durch den SMTP-Server der Kunden-Email als <em>A
 </span></code></pre></div>
 <hr />
 <h5 id="portalconfigmenusectionsmodulescomparemaps">portalConfig.menu.sections.modules.compareMaps<a class="headerlink" href="#portalconfigmenusectionsmodulescomparemaps" title="Copy heading link to clipboard">🔗</a></h5>
-<p>compareMaps Tool: Dieses Tool ermöglicht es Benutzern, zwei Layer nebeneinander mit einem Layer-Swiper zu vergleichen. Benutzer wählen Layer aus den aktiven, sichtbaren Layern aus, und der Swiper teilt die Karte, um jeden Layer in separaten Abschnitten anzuzeigen. Das Tool unterstützt WMS- und WFS-Layer und stellt sicher, dass die Layer vollständig aktualisiert werden, bevor der Swiper bewegt wird, um einen genauen Vergleich zu ermöglichen.</p>
+<p>Dieses Tool ermöglicht es Benutzern, zwei Layer nebeneinander mit einem Layer-Swiper zu vergleichen. Benutzer wählen Layer aus den aktiven, sichtbaren Layern aus, und der Swiper teilt die Karte, um jeden Layer in separaten Abschnitten anzuzeigen. Das Tool unterstützt WMS- und WFS-Layer und stellt sicher, dass die Layer vollständig aktualisiert werden, bevor der Swiper bewegt wird, um einen genauen Vergleich zu ermöglichen.</p>
 <table>
 <thead>
 <tr>
@@ -10226,18 +10234,9 @@ Vor der ungeprüften Übernahme durch den SMTP-Server der Kunden-Email als <em>A
 </tr>
 </tbody>
 </table>
-<p><strong>Beispiel</strong></p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">{</span>
-</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;copyrightConstraints&quot;</span><span class="p">,</span>
-</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutzungshinweise&quot;</span><span class="p">,</span>
-</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="w">    </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bitte beachten Sie die Nutzungshinweise der verwendeten Geodaten&quot;</span><span class="p">,</span>
-</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="w">    </span><span class="nt">&quot;notSpecified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Keine Angabe, wenden Sie sich ggf. an&quot;</span><span class="p">,</span>
-</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="w">    </span><span class="nt">&quot;contactOrganisation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organisation&quot;</span><span class="p">,</span>
-</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="w">    </span><span class="nt">&quot;contactName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="w">    </span><span class="nt">&quot;contactPhone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tel.&quot;</span><span class="p">,</span>
-</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a><span class="w">    </span><span class="nt">&quot;contactEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;E-Mail&quot;</span><span class="p">,</span>
-</span><span id="__span-66-10"><a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a><span class="w">    </span><span class="nt">&quot;wait&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Einen Moment bitte&quot;</span>
-</span><span id="__span-66-11"><a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">Beispiel</span><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">{</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;copyrightConstraints&quot;</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <hr />
 <h5 id="portalconfigmenusectionsmodulescustommenuelement">portalConfig.menu.sections.modules.customMenuElement<a class="headerlink" href="#portalconfigmenusectionsmodulescustommenuelement" title="Copy heading link to clipboard">🔗</a></h5>

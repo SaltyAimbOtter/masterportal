@@ -9183,6 +9183,14 @@ will be requested with the following XML attached as payload, and the service wi
 <td>false</td>
 </tr>
 <tr>
+<td>compareMaps</td>
+<td>no</td>
+<td><strong><a href="#portalconfigmenusectionsmodulescomparemaps">compareMaps</a></strong></td>
+<td></td>
+<td>This tool allows users to compare two map layers side by side using a layer swiper.</td>
+<td>false</td>
+</tr>
+<tr>
 <td>coordToolkit</td>
 <td>no</td>
 <td><strong><a href="#portalconfigmenusectionsmodulescoordtoolkit">coordToolkit</a></strong></td>
@@ -10012,7 +10020,7 @@ will be requested with the following XML attached as payload, and the service wi
 </span></code></pre></div>
 <hr />
 <h5 id="portalconfigmenusectionsmodulescomparemaps">portalConfig.menu.sections.modules.compareMaps<a class="headerlink" href="#portalconfigmenusectionsmodulescomparemaps" title="Copy heading link to clipboard">🔗</a></h5>
-<p>compareMaps Tool: This tool allows users to compare two map layers side by side using a layer swiper. Users select layers from the active, visible layers, and the swiper divides the map to show each layer in separate sections. The tool supports WMS and WFS layers and ensures complete layer updates before allowing swiper movement for accurate comparison.</p>
+<p>This tool allows users to compare two map layers side by side using a layer swiper. Users select layers from the active, visible layers, and the swiper divides the map to show each layer in separate sections. The tool supports WMS and WFS layers and ensures complete layer updates before allowing swiper movement for accurate comparison.</p>
 <table>
 <thead>
 <tr>
@@ -10230,18 +10238,9 @@ will be requested with the following XML attached as payload, and the service wi
 </tr>
 </tbody>
 </table>
-<p><strong>Beispiel</strong></p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">{</span>
-</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;copyrightConstraints&quot;</span><span class="p">,</span>
-</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Copyright Information&quot;</span><span class="p">,</span>
-</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="w">    </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Please note the copyright information.&quot;</span><span class="p">,</span>
-</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="w">    </span><span class="nt">&quot;notSpecified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No information available. Please contact:&quot;</span><span class="p">,</span>
-</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="w">    </span><span class="nt">&quot;contactOrganisation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organisation&quot;</span><span class="p">,</span>
-</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="w">    </span><span class="nt">&quot;contactName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="w">    </span><span class="nt">&quot;contactPhone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tel.&quot;</span><span class="p">,</span>
-</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a><span class="w">    </span><span class="nt">&quot;contactEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;E-Mail&quot;</span><span class="p">,</span>
-</span><span id="__span-66-10"><a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a><span class="w">    </span><span class="nt">&quot;wait&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loading...&quot;</span>
-</span><span id="__span-66-11"><a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">Example</span><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">{</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;copyrightConstraints&quot;</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <hr />
 <h5 id="portalconfigmenusectionsmodulescustommenuelement">portalConfig.menu.sections.modules.customMenuElement<a class="headerlink" href="#portalconfigmenusectionsmodulescustommenuelement" title="Copy heading link to clipboard">🔗</a></h5>
